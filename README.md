@@ -1,4 +1,4 @@
-KEGG-Decoder_meta
+DiTing
 ================================================================
 ### Description ###
 Designed to parse through a KEGG-Koala outputs (including blastKOALA, ghostKOALA, KOFAMSCAN) to determine the relative abundance of various metabolic pathways in metagenomes.
