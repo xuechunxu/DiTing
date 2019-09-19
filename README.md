@@ -34,5 +34,5 @@ F20_2017 K00010  0.000150967400
 
 * Run KEGG-decoder_meta
 ```
-python KEGG-decoder_meta.py <Input.tab> <Output.tab>
+python DiTing_v0.1.py -r <Clean_reads_Dir>
 ```
