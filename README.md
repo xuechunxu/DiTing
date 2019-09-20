@@ -1,12 +1,12 @@
 DiTing
 ================================================================
-### Name ###
+### Etymon ###
 **DiTing** is a chinese mythical creature who knows everything when he puts ears on the earth's surface. Parallelly, this software could recognise biogeochemical cycle on Earth.  
 **谛听(DiTing)** 若伏在地下，一霎时，便可将四大部洲山川社稷、洞天福地之间，
 蠃虫、鳞虫、毛虫、羽虫、昆虫，天仙、地仙、神仙、人仙、鬼仙，顾鉴善恶，察听贤愚。
 
 ### Introduction ###
-DiTing v0.1
+DiTing v0.1  
 This software was designed to determine the relative abundance of metabolic and biogeochemical
 functional pathways in a set of given metagenomic reads simultaneously. The output is just a folder
 which containing  a group of paired-end clean reads. These reads will be assemblied, KEGG annotated,
