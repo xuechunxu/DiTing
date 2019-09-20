@@ -14,11 +14,11 @@ and parsed for producing a table of relative abundance of elemental/biogeochemic
 * **Notably, our `Accessory_scripts/KEGG-decoder_meta.py` was rewrote according to Graham's [KEGG-Decoder](https://github.com/bjtully/BioData/tree/master/KEGGDecoder). The ` KOALA_definitons.txt` was provided by Graham.** 
 
 ### Copyright ###
-Xue Chunxu, xuechunxu@outlook.com
-Heyu Lin, heyu.lin@student.unimelb.edu.au
-Xiao-Hua Zhang, xhzhang@ouc.edu.cn
-Lab of Microbial Oceanography
-College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China
+Xue Chunxu, xuechunxu@outlook.com  
+Heyu Lin, heyu.lin@student.unimelb.edu.au  
+Xiao-Hua Zhang, xhzhang@ouc.edu.cn  
+Lab of Microbial Oceanography  
+College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China  
 
 ### Dependencies ###
 * [Megahit](https://github.com/voutcn/megahit)
@@ -28,7 +28,7 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
 * [HMMER](http://hmmer.org/)
 
 * [python3](https://www.python.org/downloads/)
-    Module:
+    Module:  
     * [Pandas](http://pandas.pydata.org/pandas-docs/stable/install.html)
     * [matplotlib](http://matplotlib.org/users/installing.html)
 
@@ -37,7 +37,7 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
     * [profiles.tar.gz](ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz)
 
 ### Installation ###
-`1. git clone https://github.com/xuechunxu/DiTing.git`
+`1. git clone https://github.com/xuechunxu/DiTing.git`  
 or go to where you want the program to be and clone the github repository or click the green buttom "download ZIP" folder, and unzip. The perl and R scripts and dependent databases should be kept in the same directory.
 
 ## Procedure ##
