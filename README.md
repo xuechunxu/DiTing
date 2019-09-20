@@ -41,8 +41,8 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
 `git clone https://github.com/xuechunxu/DiTing.git`  
 or go to where you want the program to be and clone the github repository or click the green buttom "download ZIP" folder, and unzip.  
 2. DiTing requires the `KofamKOALA hmm database`. [KofamKOALA website](https://www.genome.jp/tools/kofamkoala/). This database should be kept in the same directory with the `DiTing_v0.1.py` scripts. Go to the folder of this software:  
-`mkdir kofam_database    
-cd kofam_database   
+`mkdir kofam_database  
+cd kofam_database  
 wget -c ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz  
 wget -c ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz  
 gzip -d ko_list.gz  
