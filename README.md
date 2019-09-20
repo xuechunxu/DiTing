@@ -68,7 +68,7 @@ or go to where you want the program to be and clone the github repository or cli
 `sample_three_1.fastq`  
 `sample_three_2.fastq`  
 The paired-end metagenomic clean reads should be ended with `.fastq`  
-####2. output####  
+#### 2. output ####  
 The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory.  
 
 ### Version ###  
