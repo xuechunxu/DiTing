@@ -1,18 +1,44 @@
 DiTing
 ================================================================
-### Description ###
-Designed to parse through a KEGG-Koala outputs (including blastKOALA, ghostKOALA, KOFAMSCAN) to determine the relative abundance of various metabolic pathways in metagenomes.
+### Name ###
+谛听(DiTing)若伏在地下，一霎时，便可将四大部洲山川社稷、洞天福地之间，
+蠃虫、鳞虫、毛虫、羽虫、昆虫，天仙、地仙、神仙、人仙、鬼仙，顾鉴善恶，察听贤愚
 
-* **Notably, our `KEGG-decoder_meta.py` was rewrote according to Graham's [KEGG-Decoder](https://github.com/bjtully/BioData/tree/master/KEGGDecoder). The ` KOALA_definitons.txt` was provided by Graham.** 
-* This module was constructed using manually curated "canonical" pathways described as part of KEGG Pathway Maps. For information regarding which KOs are used to predict a metabolic pathway see the KOALA_definitions.txt. 
+### Introduction ###
+DiTing v0.1
+This software was designed to determine the relative abundance of metabolic and biogeochemical
+functional pathways in a set of given metagenomic reads simultaneously. The output is just a folder
+which containing  a group of paired-end clean reads. These reads will be assemblied, KEGG annotated,
+and parsed for producing a table of relative abundance of elemental/biogeochemical cycling pathways (e.g. Nitrogen, Carbon, Sulfur) in each sample.
 
+* **Notably, our `Accessory_scripts/KEGG-decoder_meta.py` was rewrote according to Graham's [KEGG-Decoder](https://github.com/bjtully/BioData/tree/master/KEGGDecoder). The ` KOALA_definitons.txt` was provided by Graham.** 
+
+### Copyright ###
+Xue Chunxu, xuechunxu@outlook.com
+Heyu Lin, heyu.lin@student.unimelb.edu.au
+Xiao-Hua Zhang, xhzhang@ouc.edu.cn
+Lab of Microbial Oceanography
+College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China
 
 ### Dependencies ###
+* [Megahit](https://github.com/voutcn/megahit)
+* [Prokka](https://github.com/tseemann/prokka)
+* [bwa](https://github.com/lh3/bwa)
+* [BBMap](https://github.com/BioInfoTools/BBMap)(Pileup is needed)
+* [HMMER](http://hmmer.org/)
 
-* [Pandas](http://pandas.pydata.org/pandas-docs/stable/install.html)
+* [python3](https://www.python.org/downloads/)
+    Module:
+    * [Pandas](http://pandas.pydata.org/pandas-docs/stable/install.html)
+    * [matplotlib](http://matplotlib.org/users/installing.html)
 
-* [matplotlib](http://matplotlib.org/users/installing.html)
+* [KofamKOALA hmm database](ftp://ftp.genome.jp/pub/db/kofam/)
+    * [ko_list.gz](ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz)
+    * [profiles.tar.gz](ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz)
 
+### Installation ###
+`1. git clone https://github.com/xuechunxu/DiTing.git`
+or go to where you want the program to be and clone the github repository or click the green buttom "download ZIP" folder, and unzip. The perl and R scripts and dependent databases should be kept in the same directory.
 
 ## Procedure ##
 * Start with metagenome protein FASTA file (INPUT_PROTEIN.fasta).
