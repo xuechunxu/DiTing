@@ -11,8 +11,8 @@ This software was designed to determine the relative abundance of metabolic and 
 functional pathways in a set of given metagenomic reads simultaneously. The output is just a folder
 which containing  a group of paired-end clean reads. These reads will be assemblied, KEGG annotated,
 and parsed for producing a table of relative abundance of elemental/biogeochemical cycling pathways (e.g. Nitrogen, Carbon, Sulfur) in each sample.
-
 * **Notably, our `Accessory_scripts/KEGG-decoder_meta.py` was rewrote according to Graham's [KEGG-Decoder](https://github.com/bjtully/BioData/tree/master/KEGGDecoder). The ` KOALA_definitons.txt` was provided by Graham.** 
+![image](https://github.com/xuechunxu/DiTing/blob/master/Flow_chart.png)
 
 ### Copyright ###
 Xue Chunxu, xuechunxu@outlook.com  
