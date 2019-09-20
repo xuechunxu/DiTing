@@ -6,7 +6,7 @@ DiTing
 蠃虫、鳞虫、毛虫、羽虫、昆虫，天仙、地仙、神仙、人仙、鬼仙，顾鉴善恶，察听贤愚。
 
 ### Introduction ###
-**DiTing v0.1**  
+#### DiTing v0.1 ####  
 This software was designed to determine the relative abundance of metabolic and biogeochemical
 functional pathways in a set of given metagenomic reads simultaneously. The output is just a folder
 which containing  a group of paired-end clean reads. These reads will be assemblied, KEGG annotated,
@@ -40,17 +40,17 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
     * [profiles.tar.gz](ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz)
 
 ### Installation ###
-**1. Download this script**  
+#### 1. Download this script ####  
 `git clone https://github.com/xuechunxu/DiTing.git`  
 or go to where you want the program to be and clone the github repository or click the green buttom "download ZIP" folder, and unzip.  
-**2. DiTing requires the `KofamKOALA hmm database`. [KofamKOALA website](https://www.genome.jp/tools/kofamkoala/). This database should be kept in the same directory with the `DiTing_v0.1.py` scripts. Go to the folder of this software:**  
+#### 2. DiTing requires the `KofamKOALA hmm database`. [KofamKOALA website](https://www.genome.jp/tools/kofamkoala/). This database should be kept in the same directory with the `DiTing_v0.1.py` scripts. Go to the folder of this software: ####  
 `mkdir kofam_database`  
 `cd kofam_database`  
 `wget -c ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz`  
 `wget -c ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz`  
 `gzip -d ko_list.gz`  
 `tar xzf profiles.tar.gz`  
-**3. DiTing requires the following programs to be added to your system path:**  
+#### 3. DiTing requires the following programs to be added to your system path: ####  
 * [Megahit](https://github.com/voutcn/megahit)
 * [Prokka](https://github.com/tseemann/prokka)
 * [bwa](https://github.com/lh3/bwa)
@@ -58,7 +58,7 @@ or go to where you want the program to be and clone the github repository or cli
 * [HMMER](http://hmmer.org/)
 
 ### Running ###
-**1. One step running**  
+#### 1. One step running ####  
 `python DiTing_v0.1.py -r <Clean_reads_Dir>`  
 * The input is the `<Clean_reads_Dir>` folder that containing a group of paired-end metagenomic clean reads, looks like:  
 `sample_one_1.fastq`  
@@ -72,5 +72,5 @@ The paired-end metagenomic clean reads should be ended with `.fastq`
 The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory.  
 
 ### Version ###  
-**DiTing_v0.1 -- Sep 19, 2019 --**  
+#### DiTing_v0.1 -- Sep 19, 2019 --####  
 The Birthday!  
