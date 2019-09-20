@@ -54,25 +54,20 @@ or go to where you want the program to be and clone the github repository or cli
 * [BBMap](https://github.com/BioInfoTools/BBMap)(Pileup is needed)
 * [HMMER](http://hmmer.org/)
 
-## Procedure ##
-* Start with metagenome protein FASTA file (INPUT_PROTEIN.fasta).
-* Process protein sequences through KEGG-KOALA ([GhostKoala](https://www.kegg.jp/ghostkoala/), [BlastKoala](https://www.kegg.jp/blastkoala/), or [KOFAMSCAN](https://www.genome.jp/tools/kofamkoala/)) and download the tab-delimited KO assignment text file (KOALA_OUTPUT.txt)
-* The Input (Input.tab) of KEGG-decoder_meta.py is `The KOALA output` text file add the relative abundance of each gene (or KO number):
-```
-F0_2016 K00001  0.0007370232000 
-F0_2016 K00002  0.0000017390000 
-F0_2016 K00003  0.0005440555000 
-F0_2016 K00004  0.0000183414000
-F0_2017 K00008  0.0001107390000
-F0_2017 K00006  0.0000000000000
-F0_2017 K00017  0.0000050780000
-F0_2017 K00008  0.0000781000000
-F20_2017 K00036  0.000003594000
-F20_2017 K00010  0.000150967400
+### Running ###
+1. One step running  
+`python DiTing_v0.1.py -r <Clean_reads_Dir>`  
+* The input is the `<Clean_reads_Dir>` folder that containing a group of paired-end metagenomic clean reads, looks like:  
+`sample_one_1.fastq`  
+`sample_one_2.fastq`  
+`sample_two_1.fastq`  
+`sample_two_2.fastq`  
+`sample_three_1.fastq`  
+`sample_three_2.fastq`  
+The paired-end metagenomic clean reads should be ended with `.fastq`  
+2. output  
+The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory.  
 
-```
-
-* Run KEGG-decoder_meta
-```
-python DiTing_v0.1.py -r <Clean_reads_Dir>
-```
+### Version ###
+DiTing_v0.1 -- Sep 19, 2019 --
+The Birthday!
