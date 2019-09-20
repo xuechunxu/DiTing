@@ -68,6 +68,6 @@ The paired-end metagenomic clean reads should be ended with `.fastq`
 2. output  
 The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory.  
 
-### Version ###
-DiTing_v0.1 -- Sep 19, 2019 --
-The Birthday!
+### Version ###  
+DiTing_v0.1 -- Sep 19, 2019 --  
+The Birthday!  
