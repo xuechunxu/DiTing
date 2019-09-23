@@ -6,7 +6,7 @@ DiTing
 蠃虫、鳞虫、毛虫、羽虫、昆虫，天仙、地仙、神仙、人仙、鬼仙，顾鉴善恶，察听贤愚。
 
 ### Introduction ###
-#### DiTing v0.1 ####  
+#### DiTing ####  
 This software was designed to determine the relative abundance of metabolic and biogeochemical
 functional pathways in a set of given metagenomic reads simultaneously. The output is just a folder
 which containing  a group of paired-end clean reads. These reads will be assemblied, KEGG annotated,
@@ -59,7 +59,7 @@ or go to where you want the program to be and clone the github repository or cli
 
 ### Running ###
 #### 1. One step running ####  
-`python DiTing_v0.1.py -r <Clean_reads_Dir>`  
+`python diting.py -r <Clean_reads_Dir>`  
 * The input is the `<Clean_reads_Dir>` folder that containing a group of paired-end metagenomic clean reads, looks like:  
 `sample_one_1.fastq`  
 `sample_one_2.fastq`  
