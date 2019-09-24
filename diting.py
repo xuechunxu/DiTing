@@ -22,7 +22,8 @@ def reads_assembly(reads1, reads2, output):
                 'megahit',
                 '-1', reads1,
                 '-2', reads2,
-                '-o', output
+                '-o', output,
+                '-t', '20'
                 ]
     cmd = ' '.join(cmd_para)
     try:
@@ -37,7 +38,8 @@ def prokka_meta(fasta, prefix, outdir):
     cmd_para = [
                 'prokka', fasta,
                 '--prefix', prefix,
-                '--outdir', outdir
+                '--outdir', outdir,
+                '--metagenome'
                 ]
     cmd = ' '.join(cmd_para)
     try:
