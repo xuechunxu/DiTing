@@ -17,11 +17,11 @@ and parsed for producing a table of relative abundance of elemental/biogeochemic
 ![image](./Flow_chart.png)
 
 ### Copyright
-Xue Chunxu, xuechunxu@outlook.com
-Heyu Lin, heyu.lin@student.unimelb.edu.au
-Xiao-Hua Zhang, xhzhang@ouc.edu.cn
-Lab of Microbial Oceanography
-College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China
+Xue Chunxu, xuechunxu@outlook.com  
+Heyu Lin, heyu.lin@student.unimelb.edu.au  
+Xiao-Hua Zhang, xhzhang@ouc.edu.cn  
+Lab of Microbial Oceanography  
+College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China  
 
 ### Dependencies
 * [Megahit](https://github.com/voutcn/megahit)
