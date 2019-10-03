@@ -11,12 +11,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add support for conda deployment
 - Add more comment of the code
 
-## [0.2] - 2019-10-04
+## [0.2] - 2019-10-03
 
 ### Added
 
-- More options including `--outdir`, `--assembly`, `--threads`, and `--noclean`
-- Allow the input reads end with `.fq`, `.fq.gz`, `.fastq`, or `.fastq.gz`
+- More options including `--outdir`, `--assembly`, `--threads`, and `--noclean` are available
+- Allow the input reads ending with `.fq`, `.fq.gz`, `.fastq`, or `.fastq.gz`
 - Multiprocessing for hmmsearch step (speed up the program significantly)
 
 ### Changed
