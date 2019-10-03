@@ -25,7 +25,7 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
 
 ### Dependencies
 * [Megahit](https://github.com/voutcn/megahit)
-* [Prokka](https://github.com/tseemann/prokka)
+* [Prodigal](https://github.com/hyattpd/Prodigal)
 * [bwa](https://github.com/lh3/bwa)
 * [BBMap](https://github.com/BioInfoTools/BBMap)(Pileup is needed)
 * [HMMER](http://hmmer.org/)
