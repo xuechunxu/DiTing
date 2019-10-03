@@ -6,10 +6,9 @@ import matplotlib
 matplotlib.use('Agg')
 
 parser = argparse.ArgumentParser(
-    description="Accepts KEGG KOALA text file as input. \
-    Produces function list and heat map figure.")
-parser.add_argument(
-    'Input', help="Input KOALA file. See documentation for correct format")
+    description="Accepts KEGG KOALA text file as input and \
+    produces function list and heatmap figure.")
+parser.add_argument('Input', help="Input KOALA file. See documentation for correct format")
 parser.add_argument('Output', help="List version of the final heat map figure")
 args = parser.parse_args()
 arg_dict = vars(args)

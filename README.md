@@ -1,5 +1,5 @@
 DiTing
-================================================================
+================================
 ### Etymon
 **DiTing** is a chinese mythical creature who knows everything when he puts ears on the earth's surface. Parallelly, this software could recognise biogeochemical cycle on Earth.  
 **谛听(DiTing)** 若伏在地下，一霎时，便可将四大部洲山川社稷、洞天福地之间，
@@ -33,6 +33,7 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
     Module:  
     * [Pandas](http://pandas.pydata.org/pandas-docs/stable/install.html)
     * [matplotlib](http://matplotlib.org/users/installing.html)
+    * [seaborn](http://seaborn.pydata.org/index.html)
 
 * KofamKOALA hmm database (ftp://ftp.genome.jp/pub/db/kofam/)
     * [ko_list.gz](ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz)
@@ -63,17 +64,15 @@ tar xzf profiles.tar.gz
 ```bash
 python diting.py -r <Clean_reads_Dir>
 ```
-* The input is the `<Clean_reads_Dir>` folder that containing a group of paired-end metagenomic clean reads, looks like:  
-`sample_one_1.fastq`  
-`sample_one_2.fastq`  
-`sample_two_1.fastq`  
-`sample_two_2.fastq`  
-`sample_three_1.fastq`  
-`sample_three_2.fastq`  
-The paired-end metagenomic clean reads should be ended with `.fastq`  
+* The input is the `<Clean_reads_Dir>` folder that containing a group of paired-end metagenomic clean reads, looks like: 
+```
+sample_one_1.fastq
+sample_one_2.fastq
+sample_two_1.fastq
+sample_two_2.fastq
+sample_three_1.fastq
+sample_three_2.fastq
+```
+The paired-end metagenomic clean reads should be ended with `.fastq` 
 #### 2. output
-The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory.  
-
-### Version ###  
-#### DiTing_v0.1 -- Sep 19, 2019 -- 
-The Birthday!  
+The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory. 
