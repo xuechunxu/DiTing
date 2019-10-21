@@ -1,4 +1,4 @@
-#v0.2 This file contains unbiased specific formulas for over 100 pathways to estimate the relative abundance of the pathways according to the definitions below.
+#v0.3 This file contains unbiased specific formulas for over 100 pathways to estimate the relative abundance of the pathways according to the definitions below.
 
 
 Photosynthesis
