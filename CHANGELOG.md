@@ -11,6 +11,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add support for conda deployment
 - Add more comment of the code
 
+## [0.3] - 2019-10-21
+
+### Added
+
+- add the file "Pathway_formulas.txt" containing the formulas of pathways
+
+### Changed
+
+- revise the file "accessory-scripts/KEGG-decoder_meta.py"
+
+### Removed
+
+- KOALA_definition.txt file
+
 ## [0.2] - 2019-10-03
 
 ### Added
