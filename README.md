@@ -50,7 +50,7 @@ cd kofam_database
 wget -c ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz 
 wget -c ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz 
 gzip -d ko_list.gz
-tar xzf profiles.tar.gz 
+tar zxvf profiles.tar.gz 
 ```
 #### 3. DiTing requires the following programs to be added to your system path:
 * [Megahit](https://github.com/voutcn/megahit)
@@ -62,7 +62,7 @@ tar xzf profiles.tar.gz
 ### Running
 #### 1. One step running
 ```bash
-python diting.py -r <Clean_reads_Dir>
+python diting.py -r <Clean_reads_Dir> -o <Output_Dir>
 ```
 * The input is the `<Clean_reads_Dir>` folder that containing a group of paired-end metagenomic clean reads, looks like: 
 ```
@@ -73,6 +73,16 @@ sample_two_2.fastq
 sample_three_1.fastq
 sample_three_2.fastq
 ```
-The paired-end metagenomic clean reads should be ended with `.fastq` 
-#### 2. output
+The paired-end metagenomic clean reads should be ended with `.fq`, `.fq.gz`, `.fastq`, or `.fastq.gz` 
+#### 2. Optional parameter
+-a metagenomic_assembly, --assembly metagenomic_assembly
+                        folder containing metagenomic assemblies corresponding
+                        to provided reads, which should have the same base
+                        name as the reads
+-n threads, --threads threads
+                        threads that will be used
+--noclean [no_cleaning]
+                        The sam files would be retained if this flag was used
+
+#### 3. Output
 The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory. 
