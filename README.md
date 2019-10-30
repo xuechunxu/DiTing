@@ -75,14 +75,12 @@ sample_three_2.fastq
 ```
 The paired-end metagenomic clean reads should be ended with `.fq`, `.fq.gz`, `.fastq`, or `.fastq.gz` 
 #### 2. Optional parameter
--a metagenomic_assembly, --assembly metagenomic_assembly  
-                        folder containing metagenomic assemblies corresponding  
-                        to provided reads, which should have the same base  
-                        name as the reads  
--n threads, --threads threads  
-                        threads that will be used  
---noclean [no_cleaning]  
-                        The sam files would be retained if this flag was used  
-
+**-a metagenomic_assembly, --assembly metagenomic_assembly**  
+folder containing metagenomic assemblies corresponding to provided reads, which should have the same base name as the reads.  
+The reads will not be assemblied when you use `-a` or `--assembly` parameter.   
+**-n threads, --threads threads**  
+threads that will be used.  
+**--noclean [no_cleaning]**  
+The sam files would be retained if this flag was used.  
 #### 3. Output
 The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory. 
