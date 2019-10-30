@@ -393,6 +393,7 @@ def main():
     """
     Megahit Assembly
     """
+    make_dir(ASSEMBLY_DIR)
     if not args.a:
         for bn in BASENAMES:
             remove_dir(ASSEMBLY_TMP)  # make sure the output folder for Megahit does not exist
