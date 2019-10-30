@@ -3,11 +3,12 @@
 import os
 import sys
 import argparse
+from shutil import copy
 from multiprocessing import Pool
 
 __author__ = "Xue Chunxu; Heyu Lin"
 __contact__ = "xuechunxu@outlook.com; heyu.lin@student.unimelb.edu.au"
-__version__ = "0.2"
+__version__ = "0.3"
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-r', '--reads', metavar='input_reads', dest='r',
@@ -32,6 +33,11 @@ args = parser.parse_args()
 def make_dir(directory):
     if not os.path.exists(directory):
         os.mkdir(directory)
+
+
+def remove_dir(directory):
+    if os.path.exists(directory):
+        os.removedirs(directory)
 
 def reads_assembly(reads1, reads2, threads, output):
     cmd_para = [
@@ -354,6 +360,7 @@ def main():
     OUT_DIR = args.o  # directory for output results
     THREADS = args.n  # threads will be used
     ASSEMBLY_DIR = os.path.join(OUT_DIR, 'Assembly')  # directory for assembled contigs
+    ASSEMBLY_TMP = os.path.join(OUT_DIR, 'Assembly')  # directory for megahit temporary files
     PRODIGAL_DIR = os.path.join(OUT_DIR, 'ORFs')  # directory for predicted ORFs
     BBMAP_DIR = os.path.join(OUT_DIR, 'BBMap')  # directory for predicted ORFs
     GENE_ABUN_DIR = os.path.join(OUT_DIR, 'Abundance')  # directory for gene relative abundance
@@ -379,7 +386,7 @@ def main():
         BASENAMES, READS_SUF = check_reads(READS_DIR)
 
     """
-    Check ko hmm database exists and has been used formatted
+    Check ko hmm database exists and has been formatted
     """
     # check_kodb(KODB_DIR)
 
@@ -388,12 +395,14 @@ def main():
     """
     if not args.a:
         for bn in BASENAMES:
+            remove_dir(ASSEMBLY_TMP)  # make sure the output folder for Megahit does not exist
             reads1 = os.path.join(READS_DIR, bn) + '_1' + READS_SUF
             reads2 = os.path.join(READS_DIR, bn) + '_2' + READS_SUF
-            reads_assembly(reads1, reads2, THREADS, ASSEMBLY_DIR)  # Megahit will create the output folder automatically
-            assembly_ori = os.path.join(ASSEMBLY_DIR, 'final.contigs.fa')
+            reads_assembly(reads1, reads2, THREADS, ASSEMBLY_TMP)  # Megahit will create the output folder automatically
+            assembly_ori = os.path.join(ASSEMBLY_TMP, 'final.contigs.fa')
             assembly_tar = os.path.join(ASSEMBLY_DIR, bn + '.fa')
-            os.rename(assembly_ori, assembly_tar)
+            copy(assembly_ori, assembly_tar)
+    remove_dir(ASSEMBLY_TMP)  # clean up the Megahit temporary folder
 
     """
     Prodigal Prediction
