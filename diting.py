@@ -360,7 +360,7 @@ def main():
     OUT_DIR = args.o  # directory for output results
     THREADS = args.n  # threads will be used
     ASSEMBLY_DIR = os.path.join(OUT_DIR, 'Assembly')  # directory for assembled contigs
-    ASSEMBLY_TMP = os.path.join(OUT_DIR, 'Assembly')  # directory for megahit temporary files
+    ASSEMBLY_TMP = os.path.join(OUT_DIR, 'megahit_tmp')  # directory for megahit temporary files
     PRODIGAL_DIR = os.path.join(OUT_DIR, 'ORFs')  # directory for predicted ORFs
     BBMAP_DIR = os.path.join(OUT_DIR, 'BBMap')  # directory for predicted ORFs
     GENE_ABUN_DIR = os.path.join(OUT_DIR, 'Abundance')  # directory for gene relative abundance
@@ -393,8 +393,8 @@ def main():
     """
     Megahit Assembly
     """
-    make_dir(ASSEMBLY_DIR)
     if not args.a:
+        make_dir(ASSEMBLY_DIR)
         for bn in BASENAMES:
             remove_dir(ASSEMBLY_TMP)  # make sure the output folder for Megahit does not exist
             reads1 = os.path.join(READS_DIR, bn) + '_1' + READS_SUF
