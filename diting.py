@@ -3,7 +3,7 @@
 import os
 import sys
 import argparse
-from shutil import copy
+import shutil
 from multiprocessing import Pool
 
 __author__ = "Xue Chunxu; Heyu Lin"
@@ -37,7 +37,7 @@ def make_dir(directory):
 
 def remove_dir(directory):
     if os.path.exists(directory):
-        os.removedirs(directory)
+        shutil.rmtree(directory)
 
 def reads_assembly(reads1, reads2, threads, output):
     cmd_para = [
@@ -402,7 +402,7 @@ def main():
             reads_assembly(reads1, reads2, THREADS, ASSEMBLY_TMP)  # Megahit will create the output folder automatically
             assembly_ori = os.path.join(ASSEMBLY_TMP, 'final.contigs.fa')
             assembly_tar = os.path.join(ASSEMBLY_DIR, bn + '.fa')
-            copy(assembly_ori, assembly_tar)
+            shutil.copy(assembly_ori, assembly_tar)
     remove_dir(ASSEMBLY_TMP)  # clean up the Megahit temporary folder
 
     """
