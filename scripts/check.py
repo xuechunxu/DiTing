@@ -79,3 +79,6 @@ def check_reads(reads_dir):
                 raise FileNotFoundError('Failed to find the corresponding reverse reads to {}'.format(read))
 
     return basenames, reads_suf
+
+
+# def check_kodb(KODB_DIR):

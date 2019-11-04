@@ -1,52 +1,11 @@
 #! /usr/bin/env python3
 
-import argparse
 from shutil import copy
 from scripts import *
 
 __author__ = "Xue Chunxu; Heyu Lin"
 __contact__ = "xuechunxu@outlook.com; heyu.lin@student.unimelb.edu.au"
 __version__ = "0.4"
-
-
-parser = argparse.ArgumentParser()
-parser.add_argument('-r', '--reads', metavar='input_reads', dest='r',
-                    type=str, required=True,
-                    help='folder containing reads to be used as input')
-parser.add_argument('-o', '--outdir', metavar='output_dir', dest='o',
-                    type=str, required=True,
-                    help='output directory')
-parser.add_argument('-a', '--assembly', metavar='metagenomic_assembly', dest='a',
-                    type=str,
-                    help='folder containing metagenomic assemblies corresponding to provided reads, \
-                    which should have the same base name as the reads')
-parser.add_argument('-n', '--threads', metavar='threads', dest='n',
-                    type=int, default=4,
-                    help='threads that will be used')
-parser.add_argument('--noclean', metavar='no_cleaning', dest='nc',
-                    nargs="?", const=True, default=False,
-                    help='The sam files would be retained if this flag was used')
-args = parser.parse_args()
-
-
-"""
-Define variables
-"""
-READS_DIR = args.r  # directory for input fastq reads
-OUT_DIR = args.o  # directory for output results
-THREADS = args.n  # threads will be used
-ASSEMBLY_DIR = os.path.join(OUT_DIR, 'Assembly')  # directory for assembled contigs
-ASSEMBLY_TMP = os.path.join(OUT_DIR, 'megahit_tmp')  # directory for megahit temporary files
-PRODIGAL_DIR = os.path.join(OUT_DIR, 'ORFs')  # directory for predicted ORFs
-BBMAP_DIR = os.path.join(OUT_DIR, 'BBMap')  # directory for predicted ORFs
-GENE_ABUN_DIR = os.path.join(OUT_DIR, 'Abundance')  # directory for gene relative abundance
-KEGG_DIR = os.path.join(OUT_DIR, 'kegg_annotation')  # directory for KEGG annotations
-ROOT_DIR = sys.path[0]
-KODB_DIR = os.path.join(ROOT_DIR, 'kofam_database')  # downloaded kofam_database folder from KEGG website
-
-BASENAMES = []  # input files basename list
-READS_SUF = ''  # suffix of input reads
-ASSEMBLY_SUF = 'fa'  # suffix of assemblies
 
 
 def main():
