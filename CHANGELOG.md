@@ -1,29 +1,42 @@
 # Changelog
-All notable changes to this project will be documented in this file.
+All notable changes to Diting will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
 - Add support for downloading and initializing kofam_database automatically
 - Add a function to check the availability of database before hmmsearch
-- Move the functions in diting.py into other scripts and import them as modules
 - Allow users to provide sam files
 - Add support for conda deployment
-- Add more comment of the code
+- A more helpful manual
+- readd heatmap output
+- Add `--continue` option for users
+
+## [0.4] - 2019-11-04
+
+### Changed
+- reframed the code, splitting functions into several modules
+- modified pathways calculation to object-oriented programming. Greatly simplified the code.
+
+### fixed
+- minor bugs
+
+### Removed
+- removed heatmap output temporarily
 
 ## [0.3] - 2019-10-21
 
 ### Added
 
-- add the file "Pathway_formulas.txt" containing the formulas of pathways
+- added the file "Pathway_formulas.txt" containing the formulas of pathways
 
 ### Changed
 
-- revise the file "accessory-scripts/KEGG-decoder_meta.py"
+- revised the file "accessory-scripts/KEGG-decoder_meta.py"
 
 ### Removed
 
-- KOALA_definition.txt file
+- KOALA_definition.txt
 
 ## [0.2] - 2019-10-03
 
