@@ -13,25 +13,24 @@ def main():
     make_dir(OUT_DIR)
 
     """
-    Check assemblies / reads & Get input basename
-    """
-    if args.a:
-        # If the corresponding assembly was provided, check if the corresponding reads can be found
-        ASSEMBLY_DIR = args.a
-        BASENAMES, READS_SUF, ASSEMBLY_SUF = check_reads_assembly(ASSEMBLY_DIR, READS_DIR)
-    else:
-        # If the corresponding assembly was NOT provided, check if the reads are in pairs
-        BASENAMES, READS_SUF = check_reads(READS_DIR)
-
-    """
     Check ko hmm database exists and has been formatted
     """
     # check_kodb(KODB_DIR)
 
     """
-    Megahit Assembly
+    Check assemblies / reads & Get input basename
     """
-    if not args.a:
+
+    if args.a:
+        # If the corresponding assembly was provided, check if the corresponding reads can be found
+        BASENAMES, READS_SUF, ASSEMBLY_SUF = check_reads_assembly(ASSEMBLY_DIR, READS_DIR)
+    else:
+        # If the corresponding assembly was NOT provided, check if the reads are in pairs
+        BASENAMES, READS_SUF = check_reads(READS_DIR)
+
+        """
+        Megahit Assembly
+        """
         make_dir(ASSEMBLY_DIR)
         for bn in BASENAMES:
             remove_dir(ASSEMBLY_TMP)  # make sure the output folder for Megahit does not exist
@@ -41,7 +40,7 @@ def main():
             assembly_ori = os.path.join(ASSEMBLY_TMP, 'final.contigs.fa')
             assembly_tar = os.path.join(ASSEMBLY_DIR, bn + '.fa')
             copy(assembly_ori, assembly_tar)
-    remove_dir(ASSEMBLY_TMP)  # clean up the Megahit temporary folder
+        remove_dir(ASSEMBLY_TMP)  # clean up the Megahit temporary folder
 
     """
     Prodigal Prediction
