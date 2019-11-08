@@ -80,15 +80,16 @@ def kegg_annotation(faa, basename, out_dir, db_dir, ko_dic, threads):
 
 
 # merge kegg annotations into one file
-def merge_ko(input_dir, output):
+def merge_ko(hmmout_dir, output):
     print("\n" + 'merge KEGG annotations'.center(50, '*'))
     ko_merged_dict = {}  # { basename + gene_id : abundance }
     with open(output, 'w') as fo:
         fo.write('#sample\tgene_id\tk_number\n')
-    for hmmout_file in os.listdir(input_dir):  # K00039.sample1.hmmout
+    for hmmout_file in os.listdir(hmmout_dir):  # K00039.sample1.hmmout
         if hmmout_file.endswith('.hmmout'):
-            basename = hmmout_file.rsplit('.')[1]
-            hmmout_file_path = os.path.join(input_dir, hmmout_file)
+            kobasename = hmmout_file.rsplit('.', 1)[0]  # K00039.sample1
+            basename = kobasename.split('.', 1)[1]  # sample1
+            hmmout_file_path = os.path.join(hmmout_dir, hmmout_file)
             with open(hmmout_file_path, 'r') as fi:
                 for line in fi:
                     if not line.startswith('#'):

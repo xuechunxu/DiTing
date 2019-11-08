@@ -95,7 +95,7 @@ def main():
     KEGG annotation by hmmsearch
     """
     make_dir(KEGG_DIR)
-    kegg_pieces_dir = os.path.join(KEGG_DIR, 'pieces')  # containing KEGG annotations of every knum
+    kegg_pieces_dir = os.path.join(KEGG_DIR, 'hmmout')  # containing KEGG annotations of every knum
     make_dir(kegg_pieces_dir)
     for bn in BASENAMES:
         faa = os.path.join(PRODIGAL_DIR, bn + '.faa')
