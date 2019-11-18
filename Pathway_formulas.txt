@@ -673,7 +673,7 @@ Nitrogen metabolism
         1. Nitrite to nitric oxide requires NirK (K00368) and/or Nirs (K15864)
         2. Ammonia to hydrazine requires hydrazine synthase (Hzs) (K20932 + K20933 + K20934)/3
         3. Hydrazine to nitrogen requires hydrazine dehydrogenase (Hdh) (K20935)
-    formula: (K15864 + (K20932 + K20933 + K20934)/3 + K20935)/3
+    formula: (K15864 + K00368 + (K20932 + K20933 + K20934)/3 + K20935)/3
 
 
 
