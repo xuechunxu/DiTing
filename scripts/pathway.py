@@ -974,11 +974,12 @@ class Pathway:
 
     def Anammox(self):
         ko_list = [self.bn+'_K15864', self.bn+'_K20932', self.bn+'_K20933',
-                   self.bn+'_K20934', self.bn+'_K20935']
+                   self.bn+'_K20934', self.bn+'_K20935', self.bn+'_K00368']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
         self.out_data['Anammox (anaerobic ammonium oxidation)'] = (
+          self.abundance[self.bn+'_K00368'] +
           self.abundance[self.bn+'_K15864'] +
           (self.abundance[self.bn+'_K20932'] +
            self.abundance[self.bn+'_K20933'] +
