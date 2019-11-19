@@ -68,12 +68,15 @@ def kegg_annotation(faa, basename, out_dir, db_dir, ko_dic, threads):
         hmm_db = os.path.join(db_dir, 'profiles', knum + '.hmm')
         if info[1] == 'full':
             threshold_method = '-T'
+            outtype = '--tblout'
         elif info[1] == 'domain':
             threshold_method = '--domT'
+            outtype = '--domtblout'
         else:
             threshold_method = '-E'
             info[0] = '1e-5'
-        paras.append((threshold_method, info[0], output, hmm_db, faa))
+            outtype = '--tblout'
+        paras.append((threshold_method, info[0], outtype, output, hmm_db, faa))
 
     process = Pool(threads)
     process.map(hmmsearch, paras)
@@ -82,7 +85,7 @@ def kegg_annotation(faa, basename, out_dir, db_dir, ko_dic, threads):
 # merge kegg annotations into one file
 def merge_ko(hmmout_dir, output):
     print("\n" + 'merge KEGG annotations'.center(50, '*'))
-    ko_merged_dict = {}  # { basename + gene_id : abundance }
+    #ko_merged_dict = {}  # { basename + gene_id : abundance }
     with open(output, 'w') as fo:
         fo.write('#sample\tgene_id\tk_number\n')
     for hmmout_file in os.listdir(hmmout_dir):  # K00039.sample1.hmmout
@@ -94,11 +97,11 @@ def merge_ko(hmmout_dir, output):
                 for line in fi:
                     if not line.startswith('#'):
                         gene_id, accession, k_number = line.split()[0:3]
-                        key = str(basename) + '+' + str(gene_id)
-                        ko_merged_dict[key] = k_number
+                        #key = str(basename) + '+' + str(gene_id)
+                        #ko_merged_dict[key] = k_number
                         with open(output, 'a') as fo:
                             fo.write(basename + '\t' + gene_id + '\t' + k_number + '\n')
-    return ko_merged_dict
+    #return ko_merged_dict
 
 
 # merge gene relative abundance table with gene kegg annotation table
@@ -118,13 +121,19 @@ def merge_abun_ko(abun_table_dir, kegg_tab_dict, output):
                     gene_id, abundance = line.split('\t')
                     key = str(basename) + '+' + str(gene_id)
                     abun_tab_dict[key] = abundance
-
-    for key in sorted(kegg_tab_dict.keys()):
-        sample, gene_id = key.rsplit('+', 1)
-        k_number = kegg_tab_dict[key]
+    ko_merged_tab = os.path.join(KEGG_DIR, 'ko_merged.txt')
+    a = []
+    with open(ko_merged_tab, 'r') as f:
+        for line in f:
+            a.append(line.strip())
+    for item in sorted(a):
+        basename = item.split('\t')[0]
+        gene_id = item.split('\t')[1]
+        k_number = item.split('\t')[2]
+        key = basename + '+' + gene_id
         abundance = abun_tab_dict[key]
         with open(output, 'a') as fo:
-            fo.write(sample + '\t' + k_number + '\t' + abundance + '\t' + gene_id + '\n')
+            fo.write(basename + '\t' + k_number + '\t' + abundance + '\t' + gene_id + '\n')
 
 
 # accessory-scripts/KEGG-decoder_meta.py
@@ -166,7 +175,7 @@ def pathway_parser(in_tab, output):
     #     print("\nValue: " + str(value))
 
     out_file = open(output, "w")
-    out_file.write('Function'+"\t"+str("\t".join(function_order))+"\n")
+    out_file.write('#Pathway'+"\t"+str("\t".join(function_order))+"\n")
 
     for k in genome_data:
         # print(k)
