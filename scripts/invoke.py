@@ -90,15 +90,15 @@ def pileup(sam, output):
 
 
 def hmmsearch(paras):
-    (threshold_method, threshold, output, hmm_db, faa) = paras
+    (threshold_method, threshold, outtype, output, hmm_db, faa) = paras
     cmd_para = [
         'hmmsearch',
         threshold_method, threshold,
         '--cpu', '1',
-        '--tblout', output,
+        outtype, output,
         hmm_db,
         faa
-    ]
+        ]
     cmd = ' '.join(cmd_para)
     try:
         # print(cmd + '\n')
