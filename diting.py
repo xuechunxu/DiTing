@@ -105,7 +105,7 @@ def main():
     Merge KEGG annotations
     """
     ko_merged_tab = os.path.join(KEGG_DIR, 'ko_merged.txt')
-    ko_merged_dict = merge_ko(kegg_pieces_dir, ko_merged_tab)
+    merge_ko(kegg_pieces_dir, ko_merged_tab)
 
     """
     Merge KEGG annotations and gene relative abundances
