@@ -111,7 +111,7 @@ def main():
     Merge KEGG annotations and gene relative abundances
     """
     ko_abun_merged_tab = os.path.join(KEGG_DIR, 'ko_abun.txt')
-    merge_abun_ko(GENE_ABUN_DIR, ko_merged_dict, ko_abun_merged_tab)
+    merge_abun_ko(GENE_ABUN_DIR, ko_merged_tab, ko_abun_merged_tab)
 
     """
     Invoke KEGG-decoder_meta.py
