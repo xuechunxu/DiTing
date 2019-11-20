@@ -4,6 +4,7 @@ Provides in-house functions
 
 import os
 import sys
+import re
 from multiprocessing import Pool
 from .invoke import hmmsearch
 from .pathway import *
@@ -96,16 +97,20 @@ def merge_ko(hmmout_dir, output):
             with open(hmmout_file_path, 'r') as fi:
                 for line in fi:
                     if not line.startswith('#'):
-                        gene_id, accession, k_number = line.split()[0:3]
-                        #key = str(basename) + '+' + str(gene_id)
-                        #ko_merged_dict[key] = k_number
-                        with open(output, 'a') as fo:
-                            fo.write(basename + '\t' + gene_id + '\t' + k_number + '\n')
+                        gene_id, accession = line.split()[0:2]
+                        lines = line.split()
+                        for i in lines:
+                            if re.match(r'K\d\d\d\d\d', i):
+                                k_number = i
+                            #key = str(basename) + '+' + str(gene_id)
+                            #ko_merged_dict[key] = k_number
+                                with open(output, 'a') as fo:
+                                    fo.write(basename + '\t' + gene_id + '\t' + k_number + '\n')
     #return ko_merged_dict
 
 
 # merge gene relative abundance table with gene kegg annotation table
-def merge_abun_ko(abun_table_dir, kegg_tab_dict, output):
+def merge_abun_ko(abun_table_dir, ko_merged_tab, output):
     print("\n" + 'merge abundance table with kegg table'.center(50, '*'))
     with open(output, 'w') as fo:
         fo.write('#sample\tk_number\trelative_abundance\tgene_id\n')
@@ -121,11 +126,13 @@ def merge_abun_ko(abun_table_dir, kegg_tab_dict, output):
                     gene_id, abundance = line.split('\t')
                     key = str(basename) + '+' + str(gene_id)
                     abun_tab_dict[key] = abundance
-    ko_merged_tab = os.path.join(KEGG_DIR, 'ko_merged.txt')
     a = []
     with open(ko_merged_tab, 'r') as f:
         for line in f:
-            a.append(line.strip())
+            if line.startswith('#'):
+                continue
+            else:
+                a.append(line.strip())
     for item in sorted(a):
         basename = item.split('\t')[0]
         gene_id = item.split('\t')[1]
