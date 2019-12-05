@@ -628,7 +628,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methane oxidation, methanol -> Formaldehyde'] = (
+        self.out_data['Methane oxidation, methane -> methanol'] = (
           (self.abundance[self.bn+'_K16157'] +
            self.abundance[self.bn+'_K16158'] +
            self.abundance[self.bn+'_K16159'] +
@@ -645,7 +645,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methane oxidation, methanol -> Formaldehyde'] = (
+        self.out_data['Methane oxidation, methanol -> formaldehyde'] = (
           (self.abundance[self.bn+'_K14028'] +
            self.abundance[self.bn+'_K14029'])/2 +
           self.abundance[self.bn+'_K17066'])
@@ -986,6 +986,24 @@ class Pathway:
            self.abundance[self.bn+'_K20934'])/3 +
           self.abundance[self.bn+'_K20935'])/3
 
+    def Anammox_of_ammonia_to_hydrazine(self):
+        ko_list = [self.bn+'_K20932', self.bn+'_K20933', self.bn+'_K20934']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['Anammox, NO + NH3 -> N2H4'] = (
+          self.abundance[self.bn+'_K20932'] +
+          self.abundance[self.bn+'_K20933'] +
+          self.abundance[self.bn+'_K20934'])/3
+
+    def Anammox_of_hydrazine_to_nitrogen(self):
+        ko_list = [self.bn+'_K20935']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['Anammox, N2H4 -> N2'] = (
+          self.abundance[self.bn+'_K20935'])
+
     def Assimilatory_sulfate_reduction_to_sulfite(self):
         ko_list = [self.bn+'_K13811', self.bn+'_K00958', self.bn+'_K00860',
                    self.bn+'_K00955', self.bn+'_K00957', self.bn+'_K00956',
@@ -1064,6 +1082,23 @@ class Pathway:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
         self.out_data['Alternative thiosulfate oxidation (tsdA)'] = (
+          self.abundance[self.bn+'_K19713'])
+
+    def Thiosulfate_oxidation_total(self):
+        ko_list = [self.bn+'_K17222', self.bn+'_K17223', self.bn+'_K17224',
+                   self.bn+'_K17226', self.bn+'_K17227', self.bn+'_K16936', 
+                   self.bn+'_K16937', self.bn+'_K19713']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['Thiosulfate oxidation (SOX, doxAD and tsdA)'] = (
+          (self.abundance[self.bn+'_K17222'] +
+           self.abundance[self.bn+'_K17223'] +
+           self.abundance[self.bn+'_K17224'] +
+           self.abundance[self.bn+'_K17226'] +
+           self.abundance[self.bn+'_K17227'])/5 +
+          (self.abundance[self.bn+'_K16936'] +
+           self.abundance[self.bn+'_K16937'])/2 +
           self.abundance[self.bn+'_K19713'])
 
     def sulfur_reduction_sulfur_sulfide_sreABC(self):
@@ -1722,6 +1757,8 @@ class Pathway:
         self.Nitrification_nitrite_to_nitrate()
         self.Nitrification()
         self.Anammox()
+        self.Anammox_of_ammonia_to_hydrazine()
+        self.Anammox_of_hydrazine_to_nitrogen()
         self.Assimilatory_sulfate_reduction_to_sulfite()
         self.Assimilatory_sulfite_reduction_to_sulfide()
         self.Dissimilatory_sulfate_reduction_to_sulfite()
@@ -1729,6 +1766,7 @@ class Pathway:
         self.Thiosulfate_oxidation_by_SOX_complex_thiosulfate_sulfate()
         self.Alternative_thiosulfate_oxidation_doxAD()
         self.Alternative_thiosulfate_oxidation_tsdA()
+        self.Thiosulfate_oxidation_total()
         self.sulfur_reduction_sulfur_sulfide_sreABC()
         self.thiosulfate_disproportionation_thiosulfate_sulfide_sulfite_phsABC()
         self.sulfhydrogenase()
@@ -1801,11 +1839,10 @@ function_order = ['Photosystem II',
                   'Methanogenesis, methylamine -> methane',
                   'Methanogenesis, dimethylamine -> methane',
                   'Methanogenesis, trimethylamine -> methane',
-                  'Methanogenesis, trimethylamine -> methane',
                   'Methanogenesis, acetate -> methane',
                   'Methanogenesis, CO2 -> methane',
-                  'Methane oxidation, methanol -> Formaldehyde',
-                  'Methane oxidation, methanol -> Formaldehyde',
+                  'Methane oxidation, methane -> methanol',
+                  'Methane oxidation, methanol -> formaldehyde',
                   'Mixed acid: lactate (pyruvate -> lactate)',
                   'Mixed acid: formate (pyruvate -> formate)',
                   'Mixed acid: Formate -> CO2 & H2',
@@ -1814,7 +1851,6 @@ function_order = ['Photosystem II',
                   'Mixed acid: ethanol, acetyl-CoA to acetylaldehyde (reversible)',
                   'Mixed acid: ethanol, acetylaldehyde to ethanol',
                   'Mixed acid: succinate (phosphoenolpyruvate to succinate via oxaloacetate, malate & fumarate)',
-                  'Mixed acid: ethanol, acetyl-CoA to acetylaldehyde (reversible)',
                   'Anaplerotic genes (pyruvate -> oxaloacetate)',
                   'Dissimilatory nitrate reduction to nitrite',
                   'Dissimilatory nitrite reduction to ammonia',
@@ -1831,6 +1867,8 @@ function_order = ['Photosystem II',
                   'Nitrification, nitrite -> nitrate (nxrAB)',
                   'Nitrification',
                   'Anammox (anaerobic ammonium oxidation)',
+                  'Anammox, NO + NH3 -> N2H4',
+                  'Anammox, N2H4 -> N2',
                   'Assimilatory sulfate reduction to sulfite',
                   'Assimilatory sulfite reduction to sulfide (cysJI, sir)',
                   'Dissimilatory sulfate reduction to sulfite (reversible)',
@@ -1838,6 +1876,7 @@ function_order = ['Photosystem II',
                   'Thiosulfate oxidation by SOX complex, thiosulfate -> sulfate',
                   'Alternative thiosulfate oxidation (doxAD)',
                   'Alternative thiosulfate oxidation (tsdA)',
+                  'Thiosulfate oxidation (SOX, doxAD and tsdA)',
                   'Sulfur reduction, sulfur -> sulfide (sreABC)',
                   'Thiosulfate disproportionation, thiosulfate -> sulfide & sulfite (phsABC)',
                   'Sulfhydrogenase, (sulfide)n -> (sulfide)n-1',
