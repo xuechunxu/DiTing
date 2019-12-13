@@ -10,17 +10,18 @@ DiTing
 ### Introduction
 #### DiTing
 This software was designed to determine the relative abundance of metabolic and biogeochemical
-functional pathways in a set of given metagenomic reads simultaneously. The output is just a folder
+functional pathways in a set of given metagenomic reads simultaneously. The input is just a folder
 which containing  a group of paired-end clean reads. These reads will be assemblied, KEGG annotated,
-and parsed for producing a table of relative abundance of elemental/biogeochemical cycling pathways (e.g. Nitrogen, Carbon, Sulfur) in each sample.
-* **Notably, our `Accessory_scripts/KEGG-decoder_meta.py` was rewrote according to Graham's [KEGG-Decoder](https://github.com/bjtully/BioData/tree/master/KEGGDecoder). The ` KOALA_definitons.txt` was provided by Graham.** 
+and parsed for producing a table of relative abundance of elemental/biogeochemical cycling pathways (e.g. Nitrogen, Carbon, Sulfur) in each sample. According to the relative abundances, sketch maps will be produced for comparing biogeochemical functions visually.
+
 
 ### Procedure
 ![image](./Flow_chart.png)
 
 ### Copyright
 Xue Chunxu, xuechunxu@outlook.com  
-Heyu Lin, heyu.lin@student.unimelb.edu.au  
+Heyu Lin, heyu.lin@student.unimelb.edu.au
+Xiaoyu Zhu, xiaoyuzhu321@126.com
 Xiao-Hua Zhang, xhzhang@ouc.edu.cn  
 Lab of Microbial Oceanography  
 College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China  
@@ -35,7 +36,8 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
     Module:  
     * [Pandas](http://pandas.pydata.org/pandas-docs/stable/install.html)
     * [matplotlib](http://matplotlib.org/users/installing.html)
-    * [seaborn](http://seaborn.pydata.org/index.html)
+    * [opencv](https://pypi.org/project/opencv-python/)
+    * [Pillow](https://pypi.org/project/Pillow/)
 
 * KofamKOALA hmm database (ftp://ftp.genome.jp/pub/db/kofam/)
     * [ko_list.gz](ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz)
@@ -85,4 +87,8 @@ threads that will be used.
 **--noclean [no_cleaning]**  
 The sam files would be retained if this flag was used.  
 #### 3. Output
-The final result is the `Pathways_relative_abundance_each_sample.tab` with the relative abundance of pathways in each sample. This table is in the folder `Final_result` directory. 
+**The final result is the `pathways_relative_abundance.tab` with the relative abundance of pathways in each sample.  
+**There are also three sketch maps about carbon, nitrogen and sulfur cycle named `carbon_cycle.png`, `nitrogen_cycle.png` and `sulfur_cycle.png`, respectively.  
+![image](https://github.com/xuechunxu/DiTing/tree/master/example/diting.out/carbon_cycle.png)
+![image](https://github.com/xuechunxu/DiTing/tree/master/example/diting.out/nitrogen_cycle.png)
+![image](https://github.com/xuechunxu/DiTing/tree/master/example/diting.out/sulfur_cycle.png)
