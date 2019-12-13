@@ -1,6 +1,7 @@
-<img src="./DiTing_logo.jpg" width="100" height="100">
-DiTing
-================================
+<img src="./DiTing_logo.jpg" width="400" height="400">
+
+DiTing  
+================================  
 ### Etymon
 **DiTing** is a chinese mythical creature who knows everything when he puts ears on the earth's surface. Parallelly, this software could recognise biogeochemical cycle on Earth.  
 **谛听(DiTing)** 若伏在地下，一霎时，便可将四大部洲山川社稷、洞天福地之间，
