@@ -1,4 +1,4 @@
-![image](./DiTing_logo.jpg)
+![image](./DiTing_logo.jpg =250x250)
 DiTing
 ================================
 ### Etymon
