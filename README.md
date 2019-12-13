@@ -89,6 +89,6 @@ The sam files would be retained if this flag was used.
 #### 3. Output
 **The final result is the `pathways_relative_abundance.tab` with the relative abundance of pathways in each sample.  
 **There are also three sketch maps about carbon, nitrogen and sulfur cycle named `carbon_cycle.png`, `nitrogen_cycle.png` and `sulfur_cycle.png`, respectively.  
-![image](https://github.com/xuechunxu/DiTing/tree/master/example/diting.out/carbon_cycle.png)
-![image](https://github.com/xuechunxu/DiTing/tree/master/example/diting.out/nitrogen_cycle.png)
-![image](https://github.com/xuechunxu/DiTing/tree/master/example/diting.out/sulfur_cycle.png)
+<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/carbon_cycle.png" width="792" height="657.7">
+<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/nitrogen_cycle.png" width="257.2" height="250.5">
+<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/sulfur_cycle.png" width="576.6" height="529.2">
