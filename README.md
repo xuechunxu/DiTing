@@ -1,3 +1,4 @@
+![image](./DiTing_logo.jpg)
 DiTing
 ================================
 ### Etymon
