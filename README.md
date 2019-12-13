@@ -1,4 +1,4 @@
-<img src="./DiTing_logo.jpg" width="400" height="400">
+<img src="./DiTing_logo.jpg" width="250" height="250">
 
 DiTing  
 ================================  
