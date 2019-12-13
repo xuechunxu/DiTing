@@ -20,9 +20,9 @@ and parsed for producing a table of relative abundance of elemental/biogeochemic
 
 ### Copyright
 Xue Chunxu, xuechunxu@outlook.com  
-Heyu Lin, heyu.lin@student.unimelb.edu.au
-Xiaoyu Zhu, xiaoyuzhu321@126.com
-Xiao-Hua Zhang, xhzhang@ouc.edu.cn  
+Heyu Lin, heyu.lin@student.unimelb.edu.au  
+Xiaoyu Zhu, xiaoyuzhu321@126.com  
+Xiao-Hua Zhang, xhzhang@ouc.edu.cn   
 Lab of Microbial Oceanography  
 College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China  
 
