@@ -1,4 +1,4 @@
-![image](./DiTing_logo.jpg){:height="50%" width="50%"}
+<img src="./DiTing_logo.jpg" width="100" height="100">
 DiTing
 ================================
 ### Etymon
