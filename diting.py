@@ -14,14 +14,14 @@ def main():
     make_dir(OUT_DIR)
 
     """
-    Check ko hmm database exists and has been formatted
+    Check ko hmm database exists and has been unpacked
     """
-    # check_kodb(KODB_DIR)
+    if check_kodb(KODB_DIR) is False:
+        download_db(KODB_DIR)
 
     """
     Check assemblies / reads & Get input basename
     """
-
     if args.a:
         # If the corresponding assembly was provided, check if the corresponding reads can be found
         BASENAMES, READS_SUF, ASSEMBLY_SUF = check_reads_assembly(ASSEMBLY_DIR, READS_DIR)

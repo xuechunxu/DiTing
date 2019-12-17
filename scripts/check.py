@@ -4,6 +4,16 @@ Check data integrity
 import os
 
 
+def check_kodb(ko_db):
+    ko_list_path = os.path.join(ko_db, 'ko_list')
+    profiles_path = os.path.join(ko_db, 'profile')
+    hmm_path = os.path.join(profiles_path, 'K00001.hmm')
+    db_files = [ko_db, ko_list_path, profiles_path, hmm_path]
+    for fl in db_files:
+        if not os.path.exists(fl):
+            return False
+
+
 def check_reads_assembly(assembly_dir, reads_dir):
     """
     Check if the assembly provided can match corresponding reads pairs

@@ -5,9 +5,39 @@ Provides in-house functions
 import os
 import sys
 import re
+import urllib.request
+import shutil
+import gzip
+import tarfile
 from multiprocessing import Pool
 from .invoke import hmmsearch
 from .pathway import *
+
+
+def download_db(ko_db):
+    print("\n" + 'Download database'.center(50, '*'))
+    url_ko_list = 'ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz'
+    url_profiles = 'ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz'
+    path_ko_list_gz = os.path.join(ko_db, 'ko_list.gz')
+    path_ko_list = os.path.join(ko_db, 'ko_list')
+    path_profiles_tar_gz = os.path.join(ko_db, 'profiles.tar.gz')
+    if not os.path.exists(ko_db):
+        os.mkdir(ko_db)
+
+    #  download
+    print("Downloading started... Please wait. This may take a while.")
+    with urllib.request.urlopen(url_ko_list) as response, open(path_ko_list_gz, 'wb') as out_file:
+        shutil.copyfileobj(response, out_file)
+    with urllib.request.urlopen(url_profiles) as response, open(path_profiles_tar_gz, 'wb') as out_file:
+        shutil.copyfileobj(response, out_file)
+
+    #  decompress
+    with gzip.open(path_ko_list, 'rb') as f_in, open(path_ko_list, 'wb') as f_out:
+        shutil.copyfileobj(f_in, f_out)
+    tar = tarfile.open(path_profiles_tar_gz)
+    tar.extractall()
+    tar.close()
+    print('Database has been downloaded and deployed successfully at {}'. format(ko_db))
 
 
 def gene_relative_abun(pileup_file, basename, out_dir):
@@ -143,7 +173,6 @@ def merge_abun_ko(abun_table_dir, ko_merged_tab, output):
             fo.write(basename + '\t' + k_number + '\t' + abundance + '\t' + gene_id + '\n')
 
 
-# accessory-scripts/KEGG-decoder_meta.py
 def kegg_decoder(input_tab, output):
     print("\n" + 'kegg decoder'.center(50, '*'))
     self_script_pathway = sys.path[0]
