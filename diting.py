@@ -136,7 +136,7 @@ def main():
     self_script_pathway = sys.path[0]
     diagrammatic_drawing = os.path.join(self_script_pathway, 'accessory-scripts/diagrammatic_drawing.py')
     cmd_para = [
-                'python3',
+                'python',
                 diagrammatic_drawing,
                 '-t',
                 'pathways_relative_abundance.tab'
