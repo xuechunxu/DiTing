@@ -2,10 +2,11 @@
 
 from shutil import copy
 from scripts import *
+import sys
 
 __author__ = "Xue Chunxu; Heyu Lin"
 __contact__ = "xuechunxu@outlook.com; heyu.lin@student.unimelb.edu.au"
-__version__ = "0.4"
+__version__ = "0.5"
 
 
 def main():
@@ -114,10 +115,39 @@ def main():
     merge_abun_ko(GENE_ABUN_DIR, ko_merged_tab, ko_abun_merged_tab)
 
     """
-    Invoke KEGG-decoder_meta.py
+    Relative abundance of pathways
     """
     final_output = os.path.join(OUT_DIR, 'pathways_relative_abundance.tab')
     pathway_parser(ko_abun_merged_tab, final_output)
+
+    """
+    transpose pathway_relative abundance.tab
+    """
+    table = os.path.join(OUT_DIR, 'pathways_relative_abundance.tab')
+    transposition(table)
+    cmd_rm_path = 'rm ' + table
+    os.system(cmd_rm_path)
+    cmd_mv_path = 'mv ' + table + '.transposition pathways_relative_abundance.tab'
+    os.system(cmd_mv_path)
+
+    """
+    Diagrammatic drawing
+    """
+    self_script_pathway = sys.path[0]
+    diagrammatic_drawing = os.path.join(self_script_pathway, 'accessory-scripts/diagrammatic_drawing.py')
+    cmd_para = [
+                'python3',
+                diagrammatic_drawing,
+                '-t',
+                'pathways_relative_abundance.tab'
+                ]
+    cmd = ' '.join(cmd_para)
+    os.system(cmd)
+    os.system('rm -rf Figure_tmp')
+    cmd_mv = 'mv *.png ' + OUT_DIR
+    os.system(cmd_mv)
+    cmd_mv = 'mv pathways_relative_abundance.tab ' + OUT_DIR
+    os.system(cmd_mv)
 
 
 if __name__ == '__main__':
