@@ -645,7 +645,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methane oxidation, methanol -> formaldehyde'] = (
+        self.out_data['Methane oxidation, methanol -> Formaldehyde'] = (
           (self.abundance[self.bn+'_K14028'] +
            self.abundance[self.bn+'_K14029'])/2 +
           self.abundance[self.bn+'_K17066'])
@@ -700,6 +700,37 @@ class Pathway:
            self.abundance[self.bn+'_K13788'] +
            self.abundance[self.bn+'_K00625'] +
            self.abundance[self.bn+'_K01512'])/2)
+
+    def Mixed_acid_pyruvate_to_acetate_include_via_acetylP(self):
+      ko_list = [self.bn+'_K00156', self.bn+'_K00158', self.bn+'_K01512']
+      for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+      self.out_data['Mixed acid: acetate (pyruvate -> acetate)'] = (
+        self.abundance[self.bn+'_K00156'] +
+        (self.abundance[self.bn+'_K00158'] +
+         self.abundance[self.bn+'_K01512'])/2)
+
+    def Mixed_acid_acetyl_CoA_to_acetate_include_via_acetylP(self):
+      ko_list = [self.bn+'_K01067', self.bn+'_K04020', self.bn+'_K13788',
+                 self.bn+'_K00625', self.bn+'_K01512']
+      for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+      self.out_data['Mixed acid: acetate (acetyl-CoA -> acetate)'] = (
+        self.abundance[self.bn+'_K01067'] +
+        (self.abundance[self.bn+'_K04020'] +
+         self.abundance[self.bn+'_K13788'] +
+         self.abundance[self.bn+'_K00625'] +
+         self.abundance[self.bn+'_K01512'])/2)
+
+    def Mixed_acid_lactate_to_acetate(self):
+      ko_list = [self.bn+'_K00467']
+      for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+      self.out_data['Mixed acid: acetate (lactate -> acetate)'] = (
+        self.abundance[self.bn+'_K00467'])
 
     def Mixed_acid_Ethanol_Acetate_to_Acetylaldehyde(self):
         ko_list = [self.bn+'_K00128', self.bn+'_K14085', self.bn+'_K00149',
@@ -1736,6 +1767,9 @@ class Pathway:
         self.Mixed_acid_formate()
         self.Mixed_acid_Formate_to_CO2_H2()
         self.Mixed_acid_acetate()
+        self.Mixed_acid_pyruvate_to_acetate_include_via_acetylP()
+        self.Mixed_acid_acetyl_CoA_to_acetate_include_via_acetylP()
+        self.Mixed_acid_lactate_to_acetate()
         self.Mixed_acid_Ethanol_Acetate_to_Acetylaldehyde()
         self.Mixed_acid_Ethanol_Acetyl_CoA_to_Acetylaldehyde()
         self.Mixed_acid_Ethanol_Acetylaldehyde_to_Ethanol()
@@ -1839,14 +1873,18 @@ function_order = ['Photosystem II',
                   'Methanogenesis, methylamine -> methane',
                   'Methanogenesis, dimethylamine -> methane',
                   'Methanogenesis, trimethylamine -> methane',
+                  'Methanogenesis, trimethylamine -> methane',
                   'Methanogenesis, acetate -> methane',
                   'Methanogenesis, CO2 -> methane',
                   'Methane oxidation, methane -> methanol',
-                  'Methane oxidation, methanol -> formaldehyde',
+                  'Methane oxidation, methanol -> Formaldehyde',
                   'Mixed acid: lactate (pyruvate -> lactate)',
                   'Mixed acid: formate (pyruvate -> formate)',
                   'Mixed acid: Formate -> CO2 & H2',
                   'Mixed acid: acetate',
+                  'Mixed acid: acetate (pyruvate -> acetate)',
+                  'Mixed acid: acetate (acetyl-CoA -> acetate)',
+                  'Mixed acid: acetate (lactate -> acetate)',
                   'Mixed acid: ethanol, acetate to acetylaldehyde',
                   'Mixed acid: ethanol, acetyl-CoA to acetylaldehyde (reversible)',
                   'Mixed acid: ethanol, acetylaldehyde to ethanol',
