@@ -4,13 +4,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-- Add support for downloading and initializing kofam_database automatically
-- Add a function to check the availability of database before hmmsearch
 - Allow users to provide sam files
 - Add support for conda deployment
 - A more helpful manual
 - readd heatmap output
 - Add `--continue` option for users
+
+## [0.5] - 2019-12-23
+
+### Added
+- added visualization of carbon, nitrogen and sulfur cycle.
+- added support for downloading and initializing kofam_database automatically
+
+### fixed
+- minor bugs
 
 ## [0.4] - 2019-11-04
 
