@@ -6,7 +6,7 @@ import os
 
 def check_kodb(ko_db):
     ko_list_path = os.path.join(ko_db, 'ko_list')
-    profiles_path = os.path.join(ko_db, 'profile')
+    profiles_path = os.path.join(ko_db, 'profiles')
     hmm_path = os.path.join(profiles_path, 'K00001.hmm')
     db_files = [ko_db, ko_list_path, profiles_path, hmm_path]
     for fl in db_files:
