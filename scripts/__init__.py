@@ -5,3 +5,4 @@ from .func import *
 from .variables import *
 from .transposition import *
 from .sketch import *
+from .heatmap.py import *
