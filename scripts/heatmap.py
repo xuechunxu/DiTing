@@ -25,7 +25,8 @@ def heatmap(abundance_table):
                 pathway = line.split('\t')[0]
                 abundance = line.split('\t')
                 del abundance[0]
-                dict_table[pathway] = abundance
+                values = '\t'.join(abundance)
+                dict_table[pathway] = values
 
     carbon_cycle = ['Photosystem II',
                     'Photosystem I',
@@ -138,22 +139,22 @@ def heatmap(abundance_table):
              'Dissimilatory arsenic reduction']
 
     with open('heatmap_tmp/carbon_cycle.tab', 'w') as carbon_out:
-        carbon_out.write(head)
+        carbon_out.write(head + '\n')
         for i in carbon_cycle:
             carbon_out.write(i + '\t' + dict_table[i] + '\n')
 
     with open('heatmap_tmp/nitrogen_cycle.tab', 'w') as nitrogen_out:
-        nitrogen_out.write(head)
+        nitrogen_out.write(head + '\n')
         for i in nitrogen_cycle:
             nitrogen_out.write(i + '\t' + dict_table[i] + '\n')
 
     with open('heatmap_tmp/sulfur_cycle.tab', 'w') as sulfur_out:
-        sulfur_out.write(head)
+        sulfur_out.write(head + '\n')
         for i in sulfur_cycle:
             sulfur_out.write(i + '\t' + dict_table[i] + '\n')
 
     with open('heatmap_tmp/other_cycle.tab', 'w') as other_out:
-        other_out.write(head)
+        other_out.write(head + '\n')
         for i in other:
             other_out.write(i + '\t' + dict_table[i] + '\n')
 
@@ -163,7 +164,7 @@ def heatmap(abundance_table):
               'other_cycle.tab']
 
     for i in tables:
-        file_in = open(i, "r")
+        file_in = open('heatmap_tmp/'+i, "r")
         data = pd.read_table(file_in, index_col=0)
         import seaborn as sns
         sns.set(font_scale=1.2)
@@ -176,5 +177,7 @@ def heatmap(abundance_table):
         fig = ax.get_figure()
         # specify dimensions and save
         fig.set_size_inches(35, 35)
-        out_name = re.sub('.tab', i)
+        out_name = i.split('.tab')[0]
         fig.savefig(out_name + '.png', dpi = 600)
+
+    print("\n" + 'Heatmap visualization finished'.center(70, '*'))
