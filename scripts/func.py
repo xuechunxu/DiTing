@@ -32,7 +32,7 @@ def download_db(ko_db):
         shutil.copyfileobj(response, out_file)
 
     #  decompress
-    with gzip.open(path_ko_list, 'rb') as f_in, open(path_ko_list_gz, 'wb') as f_out:
+    with gzip.open(path_ko_list_gz, 'rb') as f_in, open(path_ko_list, 'wb') as f_out:
         shutil.copyfileobj(f_in, f_out)
     tar = tarfile.open(path_profiles_tar_gz)
     tar.extractall()
