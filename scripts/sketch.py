@@ -1461,4 +1461,4 @@ def sketch(abundance_table):
     cv2.imwrite('Figure_tmp/carbon_cycle.png', carbon_cycle_image_cv2)
     
     os.system('mv Figure_tmp/carbon_cycle.png ./carbon_cycle.png')
-    print("\n" + 'Visualization finished'.center(70, '*'))
+    print("\n" + 'Sketch visualization finished'.center(70, '*'))
