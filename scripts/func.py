@@ -35,7 +35,7 @@ def download_db(ko_db):
     with gzip.open(path_ko_list_gz, 'rb') as f_in, open(path_ko_list, 'wb') as f_out:
         shutil.copyfileobj(f_in, f_out)
     tar = tarfile.open(path_profiles_tar_gz)
-    tar.extractall()
+    tar.extractall(path=ko_db)
     tar.close()
     print('Database has been downloaded and deployed successfully at {}'. format(ko_db))
 
