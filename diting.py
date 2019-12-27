@@ -144,6 +144,8 @@ def main():
         os.system('rm -rf heatmap_tmp')
         cmd_mv = 'mv *.png ' + OUT_DIR
         os.system(cmd_mv)
+        cmd_mv = 'mv *.svg ' + OUT_DIR
+        os.system(cmd_mv)
         cmd_mv = 'mv pathways_relative_abundance.tab ' + OUT_DIR
         os.system(cmd_mv)
 
