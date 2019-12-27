@@ -29,4 +29,4 @@ else:
     else:
         ASSEMBLY_DIR = os.path.join(OUT_DIR, 'Assembly')  # directory for assembled contigs
 
-    ABUNDANCE_TABLE = os.path.join(OUT_DIR, 'pathways_relative_abundance.tab')  # table for visulization
+    ABUNDANCE_TABLE = 'pathways_relative_abundance.tab'  # table for visulization
