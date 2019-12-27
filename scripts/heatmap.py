@@ -178,6 +178,6 @@ def heatmap(abundance_table):
         # specify dimensions and save
         fig.set_size_inches(35, 35)
         out_name = i.split('.tab')[0]
-        fig.savefig(out_name + '.png', dpi = 600)
+        fig.savefig(out_name + '_heatmap.svg', dpi = 600)
 
     print("\n" + 'Heatmap visualization finished'.center(70, '*'))

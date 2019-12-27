@@ -478,7 +478,7 @@ def sketch(abundance_table):
     
     cv2.imwrite('Figure_tmp/nitrogen_cycle.png', nitrogen_cycle_image_cv2)
     
-    os.system('mv Figure_tmp/nitrogen_cycle.png ./nitrogen_cycle.png')
+    os.system('mv Figure_tmp/nitrogen_cycle.png ./nitrogen_cycle_sketch.png')
     
     
     # sulfur cycle
@@ -830,7 +830,7 @@ def sketch(abundance_table):
     
     cv2.imwrite('Figure_tmp/sulfur_cycle.png', sulfur_cycle_image_cv2)
     
-    os.system('mv Figure_tmp/sulfur_cycle.png ./sulfur_cycle.png')
+    os.system('mv Figure_tmp/sulfur_cycle.png ./sulfur_cycle_sketch.png')
     
     
     # carbon cycle
@@ -1460,5 +1460,5 @@ def sketch(abundance_table):
     
     cv2.imwrite('Figure_tmp/carbon_cycle.png', carbon_cycle_image_cv2)
     
-    os.system('mv Figure_tmp/carbon_cycle.png ./carbon_cycle.png')
+    os.system('mv Figure_tmp/carbon_cycle.png ./carbon_cycle_sketch.png')
     print("\n" + 'Sketch visualization finished'.center(70, '*'))
