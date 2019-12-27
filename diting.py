@@ -13,6 +13,8 @@ def main():
     if args.vis:
         sketch(ABUNDANCE_TABLE)
         os.system('rm -rf Figure_tmp')
+        heatmap(ABUNDANCE_TABLE)
+        os.system('rm -rf heatmap_tmp')
     else:
         make_dir(OUT_DIR)
     
@@ -130,7 +132,7 @@ def main():
         transposition(table)
         cmd_rm_path = 'rm ' + table
         os.system(cmd_rm_path)
-        cmd_mv_path = 'mv ' + table + '.transposition ' + table
+        cmd_mv_path = 'mv ' + table + '.transposition pathways_relative_abundance.tab'
         os.system(cmd_mv_path)
     
         """
@@ -138,8 +140,13 @@ def main():
         """
         sketch(ABUNDANCE_TABLE)
         os.system('rm -rf Figure_tmp')
+        heatmap(ABUNDANCE_TABLE)
+        os.system('rm -rf heatmap_tmp')
         cmd_mv = 'mv *.png ' + OUT_DIR
         os.system(cmd_mv)
+        cmd_mv = 'mv pathways_relative_abundance.tab ' + OUT_DIR
+        os.system(cmd_mv)
+
     
     
 if __name__ == '__main__':
