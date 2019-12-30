@@ -6,6 +6,8 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import re
+import seaborn as sns
+from plotnine import * 
 
 __author__ = "Xue Chunxu"
 __contact__ = "xuechunxu@outlook.com"
@@ -163,21 +165,35 @@ def heatmap(abundance_table):
               'sulfur_cycle.tab',
               'other_cycle.tab']
 
+    #for i in tables:
+        #file_in = open('heatmap_tmp/'+i, "r")
+        #data = pd.read_table(file_in, index_col=0)
+        #fig = plt.figure()
+        #out_name = i.split('.tab')[0]
+        #ggplot(data, aes('sample', 'pathway')) + geom_tile(aes(fill='relative abundance'))\
+        #+ scale_fill_gradientn(colors=['blue','white','red']) \
+        #+ ggtitle("Heatmap of relative abundance of pathways") \
+        #+ ggsave(out_name + '_heatmap.png', dpi = 600)
+        #plt.close()
     for i in tables:
+        plt.cla()
         file_in = open('heatmap_tmp/'+i, "r")
         data = pd.read_table(file_in, index_col=0)
-        import seaborn as sns
-        sns.set(font_scale=1.2)
-        ax = sns.heatmap(data, cmap='PiYG', linewidths=2, linecolor='k', square=True, xticklabels=True, yticklabels=True)
-        ax.xaxis.tick_top()
+        #sns.set(font_scale=5)
+        #color = ["blue", "white", "red"]
+        #cmap = sns.palplot(sns.color_palette(color))
+        #ax.set_xlabel('X_axi',fontsize=0.05);
+        ax = sns.heatmap(data, cmap='coolwarm', xticklabels=True, yticklabels=True, square=True)
+        #ax.xaxis.tick_top()
         #ax.set_yticklabels(ax.get_yticklabels(), rotation=90)
-        plt.xticks(rotation=90)
-        plt.yticks(rotation=0)
+        #plt.xticks(rotation=90)
+        #plt.yticks(rotation=0)
         # get figure (usually obtained via "fig,ax=plt.subplots()" with matplotlib)
         fig = ax.get_figure()
         # specify dimensions and save
-        fig.set_size_inches(35, 35)
+        fig.set_size_inches(8.27, 11.69)
         out_name = i.split('.tab')[0]
-        fig.savefig(out_name + '_heatmap.svg', dpi = 600)
+        fig.savefig(out_name + '_heatmap.pdf', bbox_inches = 'tight', dpi = 600)
+        plt.close()
 
     print("\n" + 'Heatmap visualization finished'.center(70, '*'))
