@@ -102,10 +102,19 @@ The sam files would be retained if this flag was used.
 python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir> -n --noclean
 ```
 #### 3. Output
-**The final result is the `pathways_relative_abundance.tab` with the relative abundance of pathways in each sample.**  
-**A table `ko_abundance_among_samples.tab` with the relativa abundance of each `k_number` of KEGG annotation is produced in `KEGG_annotation/` folder.**  
-**There are also three sketch maps about carbon, nitrogen and sulfur cycle named `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png`, respectively.**  
-**There are also four heatmaps about carbon, nitrogen, sulfur cycle and other pathways named `carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`, respectively.**  
+**3.1 Table**  
+**`pathways_relative_abundance.tab`**  
+ The final result is the `pathways_relative_abundance.tab` with the relative abundance of pathways in each sample.  
+**`ko_abundance_among_samples.tab`**  
+ A table `ko_abundance_among_samples.tab` with the relativa abundance of each `k_number` of KEGG annotation is produced in `KEGG_annotation/` folder.  
+
+**3.1 Visualization**   
+**`carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png`**  
+There are also three sketch maps about carbon, nitrogen and sulfur cycle named `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png`, respectively.  
+**`carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`**   
+There are also four heatmaps about carbon, nitrogen, sulfur cycle and other pathways named `carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`, respectively.  
+
+`carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png` look like:  
 <img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/carbon_cycle.png" width="792" height="657.7">  
 <img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/nitrogen_cycle.png" width="792" height="771.4">  
 <img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/sulfur_cycle.png" width="792" height="726.9">  
