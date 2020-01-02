@@ -80,33 +80,32 @@ sample_three_2.fastq
 ```
 The paired-end metagenomic clean reads should be ended with `.fq`, `.fq.gz`, `.fastq`, or `.fastq.gz` 
 #### 2. Optional parameter
-**-a metagenomic_assembly, --assembly metagenomic_assembly**  
+**2.1 -a metagenomic_assembly, --assembly metagenomic_assembly**  
+folder containing metagenomic assemblies corresponding to provided reads should be provided, which should have the same base name as the reads. The reads will not be assemblied when you use `-a` or `--assembly` parameter.  
 ```bash
 python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir>
 ```
-folder containing metagenomic assemblies corresponding to provided reads, which should have the same base name as the reads.  
-The reads will not be assemblied when you use `-a` or `--assembly` parameter.  
 * The `<Metagenomic_assembly>` folder looks like: 
 ```
 sample_one.fa
 sample_two.fa
 sample_three.fa
 ```
-**-n threads, --threads threads**  
+**2.2 -n threads, --threads threads**  
 threads that will be used.  
 ```bash
 python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir> -n 20
 ```
-**--noclean [no_cleaning]**  
+**2.3 --noclean [no_cleaning]**  
 The sam files would be retained if this flag was used.  
 ```bash
 python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir> -n --noclean
 ```
 #### 3. Output
-**The final result is the `pathways_relative_abundance.tab` with the relative abundance of pathways in each sample.  
-**A table `ko_abundance_among_samples.tab` with the relativa abundance of each `k_number` of KEGG annotation is produced in `KEGG_annotation/` folder.
-**There are also three sketch maps about carbon, nitrogen and sulfur cycle named `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png`, respectively.  
-**There are also four heatmaps about carbon, nitrogen, sulfur cycle and other pathways named `carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`, respectively.  
+**The final result is the `pathways_relative_abundance.tab` with the relative abundance of pathways in each sample.**  
+**A table `ko_abundance_among_samples.tab` with the relativa abundance of each `k_number` of KEGG annotation is produced in `KEGG_annotation/` folder.**  
+**There are also three sketch maps about carbon, nitrogen and sulfur cycle named `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png`, respectively.**  
+**There are also four heatmaps about carbon, nitrogen, sulfur cycle and other pathways named `carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`, respectively.**  
 <img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/carbon_cycle.png" width="792" height="657.7">  
 <img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/nitrogen_cycle.png" width="792" height="771.4">  
 <img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/sulfur_cycle.png" width="792" height="726.9">  
