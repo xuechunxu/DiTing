@@ -32,10 +32,10 @@ def download_db(ko_db):
         shutil.copyfileobj(response, out_file)
 
     #  decompress
-    with gzip.open(path_ko_list_gz, 'rb') as f_in, open(path_ko_list, 'wb') as f_out:
+    with gzip.open(path_ko_list, 'rb') as f_in, open(path_ko_list, 'wb') as f_out:
         shutil.copyfileobj(f_in, f_out)
     tar = tarfile.open(path_profiles_tar_gz)
-    tar.extractall(path=ko_db)
+    tar.extractall()
     tar.close()
     print('Database has been downloaded and deployed successfully at {}'. format(ko_db))
 
@@ -171,6 +171,57 @@ def merge_abun_ko(abun_table_dir, ko_merged_tab, output):
         abundance = abun_tab_dict[key]
         with open(output, 'a') as fo:
             fo.write(basename + '\t' + k_number + '\t' + abundance + '\t' + gene_id + '\n')
+
+
+#produce table of ko abundance among samples
+def table_of_ko_abundance_among_samples(ko_abun_txt, output):
+    sampleKnumber_to_abundance = {}
+    samples = []
+    k_numbers = []
+    print("\n" + 'producing table of ko abundance among samples'.center(70, '*'))
+    with open(ko_abun_txt) as fi:
+        for line in fi:
+            line.strip()
+            if line.startswith('#'):
+                continue
+            else:
+                sample = line.split('\t')[0]
+                k_number = line.split('\t')[1]
+                abundance = line.split('\t')[2]
+                key = sample + '+' + k_number
+                if key in sampleKnumber_to_abundance:
+                    sampleKnumber_to_abundance[key] += float(abundance)
+                else:
+                    sampleKnumber_to_abundance[key] = float(abundance)
+                samples.append(sample)
+                k_numbers.append(k_number)
+
+    samples2 = list(set(samples))
+    samples2.sort()
+    print(samples2)
+    k_numbers2 = list(set(k_numbers))
+    k_numbers2.sort()
+    print(k_numbers2)
+    with open(output, 'w') as fo:
+        fo.write('k_number')
+    for sample in samples2:
+        with open(output, 'a') as fo:
+            fo.write('\t' + sample)
+    with open(output, 'a') as fo:
+        fo.write('\n')
+    for k_number in k_numbers2:
+        with open(output, 'a') as fo:
+            fo.write(k_number)
+        for sample in samples2:
+            key = sample + '+' + k_number
+            if key not in sampleKnumber_to_abundance.keys():
+                sampleKnumber_to_abundance[key] = float(0)
+            with open(output, 'a') as fo:
+                fo.write('\t' + str(sampleKnumber_to_abundance[key]))
+        with open(output, 'a') as fo:
+            fo.write('\n')
+
+    print("\n" + 'A table of ko abundance among samples was produced'.center(70, '*'))
 
 
 def kegg_decoder(input_tab, output):
