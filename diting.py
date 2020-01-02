@@ -118,6 +118,8 @@ def main():
         """
         ko_abun_merged_tab = os.path.join(KEGG_DIR, 'ko_abun.txt')
         merge_abun_ko(GENE_ABUN_DIR, ko_merged_tab, ko_abun_merged_tab)
+        ko_abundance_among_samples = os.path.join(KEGG_DIR, 'ko_abundance_among_samples.tab')
+        table_of_ko_abundance_among_samples(ko_abun_merged_tab, ko_abundance_among_samples)
     
         """
         Relative abundance of pathways
