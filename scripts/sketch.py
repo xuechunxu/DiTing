@@ -55,7 +55,7 @@ def sketch(abundance_table):
                     #print(abundance_nor)
                     colors = ['#F8766D', '#00BA38', '#619CFF', '#D89000', '#39B600',
                               '#00BFC4', '#00B0F6', '#9590FF', '#E76BF3', '#FF62BC']
-                    plt.axes(aspect=1)
+                    plt.axes(aspect='equal')
                     plt.pie(abundance_nor, colors=colors, startangle=90)
                     plt.savefig("Figure_tmp/" + pathway + ".png",
                                 format='png', bbox_inches='tight', transparent=True)
@@ -97,25 +97,41 @@ def sketch(abundance_table):
     three_quarter_nitro = 3/4 * top_abun_nitro
     two_quarter_nitro = 1/2 * top_abun_nitro
     one_quarter_nitro = 1/4 * top_abun_nitro
+
+    #for write total abundance of each pathway in sketch
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    fontScale = 2
+    color_font = (0, 0, 0)
+    thickness = 4
     
     try:
         pathway_fig = Image.open("Figure_tmp/Nitrogen_fixation.png")
         position = ()
+        #total_abundance_of_each_pathway = '%.2e' % nitrogen_cycle_dir['Nitrogen_fixation']
+        #position_abundance = ()
         if nitrogen_cycle_dir['Nitrogen_fixation'] >= three_quarter_nitro:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (1264, 460, 1744, 940)
+            #position_abundance = (1264, 940)
         elif nitrogen_cycle_dir['Nitrogen_fixation'] >= two_quarter_nitro:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (1384, 426, 1784, 826)
+            #position_abundance = (1384, 826)
         elif nitrogen_cycle_dir['Nitrogen_fixation'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (1434, 426, 1754, 746)
+            #position_abundance = (1434, 746)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
             position = (1430, 444, 1670, 684)
+            #position_abundance = (1430, 684)
         nitrogen_cycle_image_copy = nitrogen_cycle_image.copy()
         nitrogen_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
         nitrogen_cycle_image_copy.save("Figure_tmp/nitrogen_cycle.png", 'png')
+        #nitrogen_cycle_image_cv2 = cv2.imread("Figure_tmp/nitrogen_cycle.png")
+        #cv2.putText(nitrogen_cycle_image_cv2, total_abundance_of_each_pathway,
+                #position_abundance, font, fontScale, color_font, thickness)
+        #cv2.imwrite('Figure_tmp/nitrogen_cycle.png', nitrogen_cycle_image_cv2)
     except:
         pass
     
@@ -124,21 +140,30 @@ def sketch(abundance_table):
         pathway_fig = Image.open(
             "Figure_tmp/Nitrification_ammonia_to_hydroxylamine_AmoCAB.png")
         position = ()
+        #total_abundance_of_each_pathway = '%.2e' % nitrogen_cycle_dir['Nitrification_ammonia_to_hydroxylamine_AmoCAB']
+        #position_abundance = ()
         if nitrogen_cycle_dir['Nitrification_ammonia_to_hydroxylamine_AmoCAB'] >= three_quarter_nitro:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (486, 1240, 966, 1720)
+            #position_abundance = (486, 1720)
         elif nitrogen_cycle_dir['Nitrification_ammonia_to_hydroxylamine_AmoCAB'] >= two_quarter_nitro:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (532, 1196, 932, 1596)
+            #position_abundance = (532, 1596)
         elif nitrogen_cycle_dir['Nitrification_ammonia_to_hydroxylamine_AmoCAB'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (540, 1244, 860, 1564)
+            #position_abundance = (540, 1564)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
             position = (544, 1274, 784, 1514)
+            #position_abundance = (544, 1514)
         nitrogen_cycle_image_copy = nitrogen_cycle_image.copy()
         nitrogen_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
         nitrogen_cycle_image_copy.save("Figure_tmp/nitrogen_cycle.png", 'png')
+        #cv2.putText(nitrogen_cycle_image_cv2, total_abundance_of_each_pathway,
+                #position_abundance, font, fontScale, color_font, thickness)
+        #cv2.imwrite('Figure_tmp/nitrogen_cycle.png', nitrogen_cycle_image_cv2)
     except:
         pass
     
@@ -401,8 +426,20 @@ def sketch(abundance_table):
     color8 = (255, 144, 149)
     color9 = (243, 107, 231)
     color10 = (188, 98, 255)
+    color11 = (109, 118, 248)
+    color12 = (56, 186, 0)
+    color13 = (255, 156, 97)
+    color14 = (0, 144, 216)
+    color15 = (0, 182, 57)
+    color16 = (196, 191, 0)
+    color17 = (246, 176, 0)
+    color18 = (255, 144, 149)
+    color19 = (243, 107, 231)
+    color20 = (188, 98, 255)
     colors = [color1, color2, color3, color4, color5,
-              color6, color7, color8, color9, color10]
+              color6, color7, color8, color9, color10,
+              color11, color12, color13, color14, color15,
+              color16, color17, color18, color19, color20]
     samples = head.split('\t')
     Count_samples = len(samples)
     for i in range(1, Count_samples):
@@ -447,9 +484,9 @@ def sketch(abundance_table):
         '<' + str(two_quarter_nitro_sci)
     text4 = '> ' + str(0) + '; ' + '<' + str(one_quarter_nitro_sci)
     font = cv2.FONT_HERSHEY_SIMPLEX
-    fontScale = 1
+    fontScale = 2
     color_font = (0, 0, 0)
-    thickness = 2
+    thickness = 4
     cv2.putText(nitrogen_cycle_image_cv2, text1, (4192, 3612),
                 font, fontScale, color_font, thickness)
     cv2.putText(nitrogen_cycle_image_cv2, text2, (4162, 3254),
@@ -587,7 +624,7 @@ def sketch(abundance_table):
         position = ()
         if sulfur_cycle_dir['Dissimilatory_sulfate_reduction_to_sulfite_reversible'] >= three_quarter_sulfur:
             pathway_fig = pathway_fig.resize((480, 480))
-            position = (828, 2864, 1308, 2344)
+            position = (828, 2864, 1308, 3344)
         elif sulfur_cycle_dir['Dissimilatory_sulfate_reduction_to_sulfite_reversible'] >= two_quarter_sulfur:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (914, 2992, 1314, 3392)
@@ -753,8 +790,20 @@ def sketch(abundance_table):
     color8 = (255, 144, 149)
     color9 = (243, 107, 231)
     color10 = (188, 98, 255)
+    color11 = (109, 118, 248)
+    color12 = (56, 186, 0)
+    color13 = (255, 156, 97)
+    color14 = (0, 144, 216)
+    color15 = (0, 182, 57)
+    color16 = (196, 191, 0)
+    color17 = (246, 176, 0)
+    color18 = (255, 144, 149)
+    color19 = (243, 107, 231)
+    color20 = (188, 98, 255)
     colors = [color1, color2, color3, color4, color5,
-              color6, color7, color8, color9, color10]
+              color6, color7, color8, color9, color10,
+              color11, color12, color13, color14, color15,
+              color16, color17, color18, color19, color20]
     samples = head.split('\t')
     Count_samples = len(samples)
     for i in range(1, Count_samples):
@@ -1383,8 +1432,20 @@ def sketch(abundance_table):
     color8 = (255, 144, 149)
     color9 = (243, 107, 231)
     color10 = (188, 98, 255)
+    color11 = (109, 118, 248)
+    color12 = (56, 186, 0)
+    color13 = (255, 156, 97)
+    color14 = (0, 144, 216)
+    color15 = (0, 182, 57)
+    color16 = (196, 191, 0)
+    color17 = (246, 176, 0)
+    color18 = (255, 144, 149)
+    color19 = (243, 107, 231)
+    color20 = (188, 98, 255)
     colors = [color1, color2, color3, color4, color5,
-              color6, color7, color8, color9, color10]
+              color6, color7, color8, color9, color10,
+              color11, color12, color13, color14, color15,
+              color16, color17, color18, color19, color20]
     samples = head.split('\t')
     Count_samples = len(samples)
     for i in range(1, Count_samples):
@@ -1446,7 +1507,7 @@ def sketch(abundance_table):
     legend_line3 = "the total relative abundance of each pathway. CBB, Calvin-Benson-Bassham cycle; rTCA, reductive citric"
     legend_line4 = "acid cycle; WL, Wood-Ljungdahl pathway; 3HB, 3-hydroxypropionate bicycle; DHC, dicarboxylate-hydroxybutyrate cycle."
     font = cv2.FONT_HERSHEY_SIMPLEX
-    fontScale = 2.5
+    fontScale = 2
     color_font = (0, 0, 0)
     thickness = 4
     cv2.putText(carbon_cycle_image_cv2, legend_line1, (912, 5704),
