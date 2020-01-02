@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import re
 import seaborn as sns
-from plotnine import * 
 
 __author__ = "Xue Chunxu"
 __contact__ = "xuechunxu@outlook.com"
