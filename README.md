@@ -108,7 +108,7 @@ python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir> 
 **`ko_abundance_among_samples.tab`**  
  A table `ko_abundance_among_samples.tab` with the relativa abundance of each `k_number` of KEGG annotation is produced in `KEGG_annotation/` folder.  
 
-**3.1 Visualization**   
+**3.2 Visualization**   
 **`carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png`**  
 There are also three sketch maps about carbon, nitrogen and sulfur cycle named `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png`, respectively.  
 **`carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`**   
