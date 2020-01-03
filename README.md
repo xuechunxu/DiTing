@@ -94,17 +94,17 @@ sample_three.fa
 **2.2 -n threads, --threads threads**  
 threads that will be used.  
 ```bash
-python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir> -n 20
+python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir> -n <20>
 ```
 **2.3 --noclean [no_cleaning]**  
 The sam files would be retained if this flag was used.  
 ```bash
-python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir> -n --noclean
+python diting.py -r <Clean_reads_Dir> -a <Metagenomic_assembly> -o <Output_Dir> -n <--noclean>
 ```
 **2.4 -vis, pathways_relative_abundance.tab, --visualization pathways_relative_abundance.tab**  
 You can adjust the final result table, for example merge some similar samples. Visualization can be run independently.  
 ```bash
-python diting.py -vis pathways_relative_abundance.tab
+python diting.py -vis <pathways_relative_abundance.tab>
 ```
 #### 3. Output
 **3.1 Table**  
