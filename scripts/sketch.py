@@ -292,7 +292,7 @@ def sketch(abundance_table):
             position = (2612, 2146, 3092, 2626)
         elif nitrogen_cycle_dir['Dissimilatory_nitrite_reduction_to_ammonia'] >= two_quarter_nitro:
             pathway_fig = pathway_fig.resize((400, 400))
-            position = (2706, 3066, 3106, 3466)
+            position = (2578, 2118, 2978, 2518)
         elif nitrogen_cycle_dir['Dissimilatory_nitrite_reduction_to_ammonia'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2738, 2340, 3058, 2660)
@@ -405,7 +405,7 @@ def sketch(abundance_table):
             position = (1830, 454, 2230, 854)
         elif nitrogen_cycle_dir['Anammox_N2H4_to_N2'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
-            position = (1916, 518, 2236, 836)
+            position = (1916, 518, 2236, 838)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
             position = (1982, 574, 2222, 814)
@@ -694,7 +694,7 @@ def sketch(abundance_table):
         position = ()
         if sulfur_cycle_dir['Assimilatory_sulfite_reduction_to_sulfide_cysJI_sir'] >= three_quarter_sulfur:
             pathway_fig = pathway_fig.resize((480, 480))
-            position = (542, 648, 1022, 1128)
+            position = (252, 559, 732, 1039)
         elif sulfur_cycle_dir['Assimilatory_sulfite_reduction_to_sulfide_cysJI_sir'] >= two_quarter_sulfur:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (379, 586, 779, 986)
@@ -1004,7 +1004,7 @@ def sketch(abundance_table):
             position = (2871, 1065, 3191, 1385)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
-            position = (2910, 1082, 3150, 1222)
+            position = (2910, 1082, 3150, 1322)
         carbon_cycle_image_copy = carbon_cycle_image.copy()
         carbon_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
         carbon_cycle_image_copy.save("Figure_tmp/carbon_cycle.png", 'png')
@@ -1113,7 +1113,7 @@ def sketch(abundance_table):
             position = (5427, 905, 5827, 1305)
         elif carbon_cycle_dir['Methanogenesis_CO2_to_methane'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
-            position = (5441, 952, 5761, 1252)
+            position = (5441, 952, 5761, 1272)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
             position = (5437, 998, 5677, 1238)
@@ -1368,7 +1368,7 @@ def sketch(abundance_table):
             position = (5626, 3700, 5946, 4020)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
-            position = (5638, 3770, 58784010, 4010)
+            position = (5638, 3770, 5878, 4010)
         carbon_cycle_image_copy = carbon_cycle_image.copy()
         carbon_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
         carbon_cycle_image_copy.save("Figure_tmp/carbon_cycle.png", 'png')
