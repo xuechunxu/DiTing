@@ -53,8 +53,10 @@ def sketch(abundance_table):
                     for i in abundance:
                         abundance_nor.append(float(i)/float(total))
                     #print(abundance_nor)
-                    colors = ['#F8766D', '#00BA38', '#619CFF', '#D89000', '#39B600',
-                              '#00BFC4', '#00B0F6', '#9590FF', '#E76BF3', '#FF62BC']
+                    colors = ['#F8766D', '#00BA38', '#619CFF', '#D89000', '#00BFC4',
+                              '#FF62BC', '#00B0F6', '#9590FF', '#E76BF3', '#39B600',
+                              '#F8766D', '#00BA38', '#619CFF', '#D89000', '#00BFC4',
+                              '#FF62BC', '#00B0F6', '#9590FF', '#E76BF3', '#39B600']
                     plt.axes(aspect='equal')
                     plt.pie(abundance_nor, colors=colors, startangle=90)
                     plt.savefig("Figure_tmp/" + pathway + ".png",
@@ -420,8 +422,8 @@ def sketch(abundance_table):
     color2 = (56, 186, 0)
     color3 = (255, 156, 97)
     color4 = (0, 144, 216)
-    color5 = (0, 182, 57)
-    color6 = (196, 191, 0)
+    color5 = (196, 191, 0)
+    color6 = (188, 98, 255)
     color7 = (246, 176, 0)
     color8 = (255, 144, 149)
     color9 = (243, 107, 231)
@@ -435,7 +437,7 @@ def sketch(abundance_table):
     color17 = (246, 176, 0)
     color18 = (255, 144, 149)
     color19 = (243, 107, 231)
-    color20 = (188, 98, 255)
+    color20 = (0, 182, 57)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
@@ -784,8 +786,8 @@ def sketch(abundance_table):
     color2 = (56, 186, 0)
     color3 = (255, 156, 97)
     color4 = (0, 144, 216)
-    color5 = (0, 182, 57)
-    color6 = (196, 191, 0)
+    color5 = (196, 191, 0)
+    color6 = (188, 98, 255)
     color7 = (246, 176, 0)
     color8 = (255, 144, 149)
     color9 = (243, 107, 231)
@@ -799,7 +801,7 @@ def sketch(abundance_table):
     color17 = (246, 176, 0)
     color18 = (255, 144, 149)
     color19 = (243, 107, 231)
-    color20 = (188, 98, 255)
+    color20 = (0, 182, 57)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
@@ -1426,8 +1428,8 @@ def sketch(abundance_table):
     color2 = (56, 186, 0)
     color3 = (255, 156, 97)
     color4 = (0, 144, 216)
-    color5 = (0, 182, 57)
-    color6 = (196, 191, 0)
+    color5 = (196, 191, 0)
+    color6 = (188, 98, 255)
     color7 = (246, 176, 0)
     color8 = (255, 144, 149)
     color9 = (243, 107, 231)
@@ -1441,7 +1443,7 @@ def sketch(abundance_table):
     color17 = (246, 176, 0)
     color18 = (255, 144, 149)
     color19 = (243, 107, 231)
-    color20 = (188, 98, 255)
+    color20 = (0, 182, 57)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
