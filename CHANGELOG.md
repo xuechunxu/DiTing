@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Allow users to provide sam files
 - Add support for conda deployment
 - Add `--continue` option for users
+- Add DMSP synthesis/degradation pathways
 
 ## [0.5] - 2020-01-06
 
