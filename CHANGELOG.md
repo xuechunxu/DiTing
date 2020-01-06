@@ -6,15 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Allow users to provide sam files
 - Add support for conda deployment
-- A more helpful manual
-- readd heatmap output
 - Add `--continue` option for users
 
-## [0.5] - 2019-12-23
+## [0.5] - 2020-01-06
 
 ### Added
 - added visualization of carbon, nitrogen and sulfur cycle.
 - added support for downloading and initializing kofam_database automatically
+- readded heatmap output
+- A more helpful manual
+- added a table of the relative abundance of k_number among samples output 
 
 ### fixed
 - minor bugs
