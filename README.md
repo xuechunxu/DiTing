@@ -48,7 +48,7 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
 `git clone https://github.com/xuechunxu/DiTing.git`  
 or go to where you want the program to be and clone the github repository or click the green buttom "download ZIP" folder, and unzip.  
 #### 2. DiTing requires the `KofamKOALA hmm database`. [KofamKOALA website](https://www.genome.jp/tools/kofamkoala/). This database will be downloaded and unzipped automatically when you run this software for the first time. 
-Or you can download the database manually. This database should be kept in the same directory with the `dingting.py` scripts. Go to the folder of this software:
+Or you can download the database manually. This database should be kept in the same directory with the `diting.py` scripts. Go to the folder of this software:
 ```bash
 mkdir kofam_database
 cd kofam_database
@@ -120,6 +120,6 @@ There are also three sketch maps about carbon, nitrogen and sulfur cycle named `
 There are also four heatmaps about carbon, nitrogen, sulfur cycle and other pathways named `carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`, respectively.  
 
 `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png` look like:  
-<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/carbon_cycle.png" width="792" height="657.7">  
-<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/nitrogen_cycle.png" width="792" height="771.4">  
-<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/sulfur_cycle.png" width="792" height="726.9">  
+<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/carbon_cycle_sketch.png" width="792" height="657.7">  
+<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/nitrogen_cycle_sketch.png" width="792" height="771.4">  
+<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/sulfur_cycle_sketch.png" width="792" height="726.9">  
