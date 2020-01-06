@@ -84,7 +84,6 @@ def heatmap(abundance_table):
                       'Dissimilatory nitrite reduction to ammonia',
                       'Assimilatory nitrate reduction to nitrite',
                       'Assimilatory nitrite reduction to ammonia',
-                      'Assimilatory nitrate reduction to ammonia',
                       'Denitrification, NO2 -> NO',
                       'Denitrification, NO -> N2O',
                       'Denitrification, N2O -> N2',
