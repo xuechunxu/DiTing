@@ -1074,7 +1074,7 @@ class Pathway:
            self.abundance[self.bn+'_K00957'])/2 +
           self.abundance[self.bn+'_K00958'] +
           (self.abundance[self.bn+'_K00394'] +
-           self.abundance[self.bn+'_K00395'])/2)
+           self.abundance[self.bn+'_K00395'])/2)/2
 
     def Dissimilatory_sulfite_reduction_to_sulfide(self):
         ko_list = [self.bn+'_K11180', self.bn+'_K11181']
