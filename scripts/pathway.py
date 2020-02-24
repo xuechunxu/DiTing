@@ -99,7 +99,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['CBB Cycle'] = (
+        self.out_data['CBB cycle'] = (
           self.abundance[self.bn+'_K00855'] +
           self.abundance[self.bn+'_K01601'] +
           self.abundance[self.bn+'_K00927'] +
@@ -136,7 +136,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['rTCA Cycle'] = (
+        self.out_data['rTCA cycle'] = (
             (self.abundance[self.bn+'_K15230'] +
              self.abundance[self.bn+'_K15231'])/2 +
             ((self.abundance[self.bn+'_K15232'] +
@@ -249,7 +249,7 @@ class Pathway:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
         self.out_data['Diacetylchitobiose deacetylase'] = (self.abundance[self.bn+'_K18454'] +
-                                                      self.abundance[self.bn+'_K03478'])
+                                                           self.abundance[self.bn+'_K03478'])
 
     def glucoamylase(self):
         ko_list = [self.bn+'_K01178']
@@ -312,14 +312,14 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['bifunctional chitinase/lysozyme'] = self.abundance[self.bn+'_K13381']
+        self.out_data['Bifunctional chitinase/lysozyme'] = self.abundance[self.bn+'_K13381']
 
     def beta_N_acetylhexosaminidase(self):
         ko_list = [self.bn+'_K01207']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['beta-N-acetylhexosaminidase'] = self.abundance[self.bn+'_K01207']
+        self.out_data['Beta-N-acetylhexosaminidase'] = self.abundance[self.bn+'_K01207']
 
     def D_galacturonate_isomerase(self):
         ko_list = [self.bn+'_K01812']
@@ -333,21 +333,21 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['alpha-amylase'] = self.abundance[self.bn+'_K01176']
+        self.out_data['Alpha-amylase'] = self.abundance[self.bn+'_K01176']
 
     def beta_glucosidase(self):
         ko_list = [self.bn+'_K05349', self.bn+'_K05350']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['beta-glucosidase'] = self.abundance[self.bn+'_K05350']+self.abundance[self.bn+'_K05349']
+        self.out_data['Beta-glucosidase'] = self.abundance[self.bn+'_K05350']+self.abundance[self.bn+'_K05349']
 
     def pullulanase(self):
         ko_list = [self.bn+'_K01200']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['pullulanase'] = self.abundance[self.bn+'_K01200']
+        self.out_data['Pullulanase'] = self.abundance[self.bn+'_K01200']
 
     def glycolysis(self):
         ko_list = [self.bn+'_K00844', self.bn+'_K12407', self.bn+'_K00845',
@@ -363,7 +363,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['glycolysis'] = (self.abundance[self.bn+'_K00844'] +
+        self.out_data['Glycolysis'] = (self.abundance[self.bn+'_K00844'] +
                                   self.abundance[self.bn+'_K12407'] +
                                   self.abundance[self.bn+'_K00845'] +
                                   self.abundance[self.bn+'_K00886'] +
@@ -424,7 +424,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['gluconeogenesis, oxaloacetate -> fructose-6P'] = (self.abundance[self.bn+'_K01596'] +
+        self.out_data['Gluconeogenesis, oxaloacetate -> fructose-6P'] = (self.abundance[self.bn+'_K01596'] +
                                        self.abundance[self.bn+'_K01610'] +
                                        self.abundance[self.bn+'_K01689'] +
                                        self.abundance[self.bn+'_K01834'] +
@@ -464,7 +464,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['TCA Cycle'] = (
+        self.out_data['TCA cycle'] = (
             (self.abundance[self.bn+'_K01647'] +
              self.abundance[self.bn+'_K05942']) +
             (self.abundance[self.bn+'_K01681'] +
@@ -848,7 +848,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Dissimilatory nitrate reduction to nitrite'] = (
+        self.out_data['Dissimilatory nitrate reduction to nitrite (narGHI or napAB)'] = (
             (self.abundance[self.bn+'_K00370'] +
              self.abundance[self.bn+'_K00371'] +
              self.abundance[self.bn+'_K00374'])/3 +
@@ -861,7 +861,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Dissimilatory nitrite reduction to ammonia'] = (
+        self.out_data['Dissimilatory nitrite reduction to ammonia (DNRA) (nirBD or nrfAH)'] = (
           (self.abundance[self.bn+'_K00362'] +
            self.abundance[self.bn+'_K00363'])/2 +
           (self.abundance[self.bn+'_K03385'] +
@@ -891,7 +891,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Assimilatory nitrate reduction to nitrite'] = (
+        self.out_data['Assimilatory nitrate reduction to nitrite (narB or NR or nasAB)'] = (
           self.abundance[self.bn+'_K00367'] +
           self.abundance[self.bn+'_K10534'] +
           (self.abundance[self.bn+'_K00372'] +
@@ -902,7 +902,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Assimilatory nitrite reduction to ammonia'] = (
+        self.out_data['Assimilatory nitrite reduction to ammonia (NIT-6 or nirA)'] = (
           self.abundance[self.bn+'_K17877'] +
           self.abundance[self.bn+'_K00366'])
 
@@ -925,7 +925,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Denitrification, NO2 -> NO'] = (
+        self.out_data['Denitrification, nitrite -> nitric oxide (nirK or nirS)'] = (
           self.abundance[self.bn+'_K00368'] +
           self.abundance[self.bn+'_K15864'])
 
@@ -934,7 +934,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Denitrification, NO -> N2O'] = (
+        self.out_data['Denitrification, nitric oxide -> nitrous oxide (norBC)'] = (
           self.abundance[self.bn+'_K04561'] +
           self.abundance[self.bn+'_K02305'])
 
@@ -943,7 +943,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Denitrification, N2O -> N2'] = (
+        self.out_data['Denitrification, nitrous oxide -> nitrogen (nosZ)'] = (
           self.abundance[self.bn+'_K00376'])
 
     def Nitrogen_fixation(self):
@@ -953,7 +953,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Nitrogen fixation'] = (
+        self.out_data['Nitrogen fixation, nitrogen -> ammonia (nifKDH)'] = (
             (self.abundance[self.bn+'_K02586'] +
              self.abundance[self.bn+'_K02588'] +
              self.abundance[self.bn+'_K02591'])/3 +
@@ -967,7 +967,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Nitrification, ammonia -> hydroxylamine (AmoCAB)'] = (
+        self.out_data['Nitrification, ammonia -> hydroxylamine (amoABC)'] = (
           self.abundance[self.bn+'_K10944'] +
           self.abundance[self.bn+'_K10945'] +
           self.abundance[self.bn+'_K10946'])/3
@@ -1022,7 +1022,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Anammox, NO + NH3 -> N2H4'] = (
+        self.out_data['Anammox, nitric oxide + ammonia -> hydrazine (hzs)'] = (
           self.abundance[self.bn+'_K20932'] +
           self.abundance[self.bn+'_K20933'] +
           self.abundance[self.bn+'_K20934'])/3
@@ -1032,7 +1032,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Anammox, N2H4 -> N2'] = (
+        self.out_data['Anammox, hydrazine -> nitrogen (hdh)'] = (
           self.abundance[self.bn+'_K20935'])
 
     def Assimilatory_sulfate_reduction_to_sulfite(self):
@@ -1058,7 +1058,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Assimilatory sulfite reduction to sulfide (cysJI, sir)'] = (
+        self.out_data['Assimilatory sulfite reduction to sulfide (cysJI or sir)'] = (
           (self.abundance[self.bn+'_K00380'] +
            self.abundance[self.bn+'_K00381'])/2 +
           self.abundance[self.bn+'_K00392'])
@@ -1069,7 +1069,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Dissimilatory sulfate reduction to sulfite (reversible)'] = (
+        self.out_data['Dissimilatory sulfate reduction to sulfite (reversible) (sat and aprAB)'] = (
           (self.abundance[self.bn+'_K00956'] +
            self.abundance[self.bn+'_K00957'])/2 +
           self.abundance[self.bn+'_K00958'] +
@@ -1081,7 +1081,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Dissimilatory sulfite reduction to sulfide (reversible)'] = (
+        self.out_data['Dissimilatory sulfite reduction to sulfide (reversible) (dsrAB)'] = (
           self.abundance[self.bn+'_K11180'] +
           self.abundance[self.bn+'_K11181'])/2
 
@@ -1844,8 +1844,8 @@ function_order = ['Photosystem II',
                   'Anoxygenic photosystem II (pufML)',
                   'Anoxygenic photosystem I (pscABCD)',
                   'RuBisCo',
-                  'CBB Cycle',
-                  'rTCA Cycle',
+                  'CBB cycle',
+                  'rTCA cycle',
                   'Wood-Ljungdahl',
                   '3-Hydroxypropionate Bicycle',
                   'Dicarboxylate-hydroxybutyrate cycle',
@@ -1859,16 +1859,16 @@ function_order = ['Photosystem II',
                   'exopolygalacturonase',
                   'Chitinase',
                   'Basic endochitinase B',
-                  'bifunctional chitinase/lysozyme',
-                  'beta-N-acetylhexosaminidase',
+                  'Bifunctional chitinase/lysozyme',
+                  'Beta-N-acetylhexosaminidase',
                   'D-galacturonate isomerase',
-                  'alpha-amylase',
-                  'beta-glucosidase',
-                  'pullulanase',
-                  'glycolysis',
+                  'Alpha-amylase',
+                  'Beta-glucosidase',
+                  'Pullulanase',
+                  'Glycolysis',
                   'Entner-Doudoroff pathway, glucose-6P -> glyceraldehyde-3P + pyruvate',
-                  'gluconeogenesis, oxaloacetate -> fructose-6P',
-                  'TCA Cycle',
+                  'Gluconeogenesis, oxaloacetate -> fructose-6P',
+                  'TCA cycle',
                   'Methanogenesis, methanol -> methane',
                   'Methanogenesis, methylamine -> methane',
                   'Methanogenesis, dimethylamine -> methane',
@@ -1888,23 +1888,23 @@ function_order = ['Photosystem II',
                   'Mixed acid: ethanol, acetylaldehyde to ethanol',
                   'Mixed acid: succinate (phosphoenolpyruvate to succinate via oxaloacetate, malate & fumarate)',
                   'Anaplerotic genes (pyruvate -> oxaloacetate)',
-                  'Dissimilatory nitrate reduction to nitrite',
-                  'Dissimilatory nitrite reduction to ammonia',
-                  'Assimilatory nitrate reduction to nitrite',
-                  'Assimilatory nitrite reduction to ammonia',
-                  'Denitrification, NO2 -> NO',
-                  'Denitrification, NO -> N2O',
-                  'Denitrification, N2O -> N2',
-                  'Nitrogen fixation',
-                  'Nitrification, ammonia -> hydroxylamine (AmoCAB)',
+                  'Dissimilatory nitrate reduction to nitrite (narGHI or napAB)',
+                  'Dissimilatory nitrite reduction to ammonia (DNRA) (nirBD or nrfAH)',
+                  'Assimilatory nitrate reduction to nitrite (narB or NR or nasAB)',
+                  'Assimilatory nitrite reduction to ammonia (NIT-6 or nirA)',
+                  'Denitrification, nitrite -> nitric oxide (nirK or nirS)',
+                  'Denitrification, nitric oxide -> nitrous oxide (norBC)',
+                  'Denitrification, nitrous oxide -> nitrogen (nosZ)',
+                  'Nitrogen fixation, nitrogen -> ammonia (nifKDH)',
+                  'Nitrification, ammonia -> hydroxylamine (amoABC)',
                   'Nitrification, hydroxylamine -> nitrite (hao)',
                   'Nitrification, nitrite -> nitrate (nxrAB)',
-                  'Anammox, NO + NH3 -> N2H4',
-                  'Anammox, N2H4 -> N2',
+                  'Anammox, nitric oxide + ammonia -> hydrazine (hzs)',
+                  'Anammox, hydrazine -> nitrogen (hdh)',
                   'Assimilatory sulfate reduction to sulfite',
-                  'Assimilatory sulfite reduction to sulfide (cysJI, sir)',
-                  'Dissimilatory sulfate reduction to sulfite (reversible)',
-                  'Dissimilatory sulfite reduction to sulfide (reversible)',
+                  'Assimilatory sulfite reduction to sulfide (cysJI or sir)',
+                  'Dissimilatory sulfate reduction to sulfite (reversible) (sat and aprAB)',
+                  'Dissimilatory sulfite reduction to sulfide (reversible) (dsrAB)',
                   'Thiosulfate oxidation by SOX complex, thiosulfate -> sulfate',
                   'Alternative thiosulfate oxidation (doxAD)',
                   'Alternative thiosulfate oxidation (tsdA)',
