@@ -500,8 +500,8 @@ def sketch(abundance_table):
     
     legend_line1 = "Figure. Relative abundances of the pathways involved in the nitrogen cycle. The pie chart indicates"
     legend_line2 = "the relative abundance of each pathway in each metagenomic sample . The size of pie charts represent"
-    legend_line3 = "the total relative abundance of each pathway. ANRA, assimilatory nitrate reduction to ammonium;"
-    legend_line4 = "DNRA, Dissimilatory nitrate reduction to ammonium; Anammox, anaerobic ammonium oxidation."
+    legend_line3 = "the total relative abundance of each pathway. ANRA, assimilatory nitrate reduction to ammonia;"
+    legend_line4 = "DNRA, Dissimilatory nitrate reduction to ammonia; Anammox, anaerobic ammonia oxidation."
     font = cv2.FONT_HERSHEY_SIMPLEX
     fontScale = 2
     color_font = (0, 0, 0)
