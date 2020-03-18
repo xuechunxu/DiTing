@@ -12,6 +12,14 @@ def check_kodb(ko_db):
     for fl in db_files:
         if not os.path.exists(fl):
             return False
+        if os.path.exists(fl):
+            return True
+
+def check_DMSP_db(ko_db):
+    profiles_path = os.path.join(ko_db, 'profiles')
+    hmm_path = os.path.join(profiles_path, 'AcuH.hmm')
+    if not os.path.exists(hmm_path):
+        return False
 
 
 def check_reads_assembly(assembly_dir, reads_dir):

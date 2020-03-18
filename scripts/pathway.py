@@ -236,118 +236,118 @@ class Pathway:
           self.abundance[self.bn+'_K15016'] +
           self.abundance[self.bn+'_K00626'])/14
 
-    def pectinesterase(self):
-        ko_list = [self.bn+'_K01051']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Pectinesterase'] = self.abundance[self.bn+'_K01051']
+    #def pectinesterase(self):
+        #ko_list = [self.bn+'_K01051']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Pectinesterase'] = self.abundance[self.bn+'_K01051']
 
-    def diacetylchitobiose_deacetylase(self):
-        ko_list = [self.bn+'_K18454', self.bn+'_K03478']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Diacetylchitobiose deacetylase'] = (self.abundance[self.bn+'_K18454'] +
-                                                           self.abundance[self.bn+'_K03478'])
+    #def diacetylchitobiose_deacetylase(self):
+        #ko_list = [self.bn+'_K18454', self.bn+'_K03478']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Diacetylchitobiose deacetylase'] = (self.abundance[self.bn+'_K18454'] +
+                                                           #self.abundance[self.bn+'_K03478'])
 
-    def glucoamylase(self):
-        ko_list = [self.bn+'_K01178']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Glucoamylase'] = self.abundance[self.bn+'_K01178']
+    #def glucoamylase(self):
+        #ko_list = [self.bn+'_K01178']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Glucoamylase'] = self.abundance[self.bn+'_K01178']
 
-    def D_galacturonate_epimerase(self):
-        ko_list = [self.bn+'_K08679']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['D-galacturonate epimerase'] = self.abundance[self.bn+'_K08679']
+    #def D_galacturonate_epimerase(self):
+        #ko_list = [self.bn+'_K08679']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['D-galacturonate epimerase'] = self.abundance[self.bn+'_K08679']
 
-    def exo_poly_alpha_galacturonosidase(self):
-        ko_list = [self.bn+'_K18650']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['exo-poly-alpha-galacturonosidase'] = self.abundance[self.bn+'_K18650']
+    #def exo_poly_alpha_galacturonosidase(self):
+        #ko_list = [self.bn+'_K18650']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['exo-poly-alpha-galacturonosidase'] = self.abundance[self.bn+'_K18650']
 
-    def oligogalacturonide_lyase(self):
-        ko_list = [self.bn+'_K01730']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Oligogalacturonide lyase'] = self.abundance[self.bn+'_K01730']
+    #def oligogalacturonide_lyase(self):
+        #ko_list = [self.bn+'_K01730']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Oligogalacturonide lyase'] = self.abundance[self.bn+'_K01730']
 
-    def cellulase(self):
-        ko_list = [self.bn+'_K19668', self.bn+'_K01225']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Cellulase'] = self.abundance[self.bn+'_K19668']+self.abundance[self.bn+'_K01225']
+    #def cellulase(self):
+        #ko_list = [self.bn+'_K19668', self.bn+'_K01225']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Cellulase'] = self.abundance[self.bn+'_K19668']+self.abundance[self.bn+'_K01225']
 
-    def exopolygalacturonase(self):
-        ko_list = [self.bn+'_K01184']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['exopolygalacturonase'] = self.abundance[self.bn+'_K01184']
+    #def exopolygalacturonase(self):
+        #ko_list = [self.bn+'_K01184']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['exopolygalacturonase'] = self.abundance[self.bn+'_K01184']
 
-    def chitinase(self):
-        ko_list = [self.bn+'_K01183']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Chitinase'] = self.abundance[self.bn+'_K01183']
+    #def chitinase(self):
+        #ko_list = [self.bn+'_K01183']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Chitinase'] = self.abundance[self.bn+'_K01183']
 
-    def basic_endochitinase_B(self):
-        ko_list = [self.bn+'_K20547']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Basic endochitinase B'] = self.abundance[self.bn+'_K20547']
+    #def basic_endochitinase_B(self):
+        #ko_list = [self.bn+'_K20547']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Basic endochitinase B'] = self.abundance[self.bn+'_K20547']
 
-    def bifunctional_chitinase_or_lysozyme(self):
-        ko_list = [self.bn+'_K13381']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Bifunctional chitinase/lysozyme'] = self.abundance[self.bn+'_K13381']
+    #def bifunctional_chitinase_or_lysozyme(self):
+        #ko_list = [self.bn+'_K13381']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Bifunctional chitinase/lysozyme'] = self.abundance[self.bn+'_K13381']
 
-    def beta_N_acetylhexosaminidase(self):
-        ko_list = [self.bn+'_K01207']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Beta-N-acetylhexosaminidase'] = self.abundance[self.bn+'_K01207']
+    #def beta_N_acetylhexosaminidase(self):
+        #ko_list = [self.bn+'_K01207']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Beta-N-acetylhexosaminidase'] = self.abundance[self.bn+'_K01207']
 
-    def D_galacturonate_isomerase(self):
-        ko_list = [self.bn+'_K01812']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['D-galacturonate isomerase'] = self.abundance[self.bn+'_K01812']
+    #def D_galacturonate_isomerase(self):
+        #ko_list = [self.bn+'_K01812']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['D-galacturonate isomerase'] = self.abundance[self.bn+'_K01812']
 
-    def alpha_amylase(self):
-        ko_list = [self.bn+'_K01176']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Alpha-amylase'] = self.abundance[self.bn+'_K01176']
+    #def alpha_amylase(self):
+        #ko_list = [self.bn+'_K01176']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Alpha-amylase'] = self.abundance[self.bn+'_K01176']
 
-    def beta_glucosidase(self):
-        ko_list = [self.bn+'_K05349', self.bn+'_K05350']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Beta-glucosidase'] = self.abundance[self.bn+'_K05350']+self.abundance[self.bn+'_K05349']
+    #def beta_glucosidase(self):
+        #ko_list = [self.bn+'_K05349', self.bn+'_K05350']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Beta-glucosidase'] = self.abundance[self.bn+'_K05350']+self.abundance[self.bn+'_K05349']
 
-    def pullulanase(self):
-        ko_list = [self.bn+'_K01200']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Pullulanase'] = self.abundance[self.bn+'_K01200']
+    #def pullulanase(self):
+        #ko_list = [self.bn+'_K01200']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Pullulanase'] = self.abundance[self.bn+'_K01200']
 
     def glycolysis(self):
         ko_list = [self.bn+'_K00844', self.bn+'_K12407', self.bn+'_K00845',
@@ -1202,6 +1202,97 @@ class Pathway:
           self.abundance[self.bn+'_K17229'] +
           self.abundance[self.bn+'_K17230'])/2
 
+    def DMSP_biosynthesis_LMet_to_DMSP(self):
+        ko_list = [self.bn+'_MmtN', self.bn+'_DSYB',
+                   self.bn+'_DsyB']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['DMSP biosynthesis, L-Met -> DMSP (DSYB or dsyB or mmtN)'] = (
+          self.abundance[self.bn+'_MmtN'] +
+          self.abundance[self.bn+'_DSYB'] +
+          self.abundance[self.bn+'_DsyB'])
+
+    def DMSP_demethylation_DMSP_to_MMPA(self):
+        ko_list = [self.bn+'_DmdA']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['DMSP demethylation, DMSP -> MMPA (dmdA)'] = (
+          self.abundance[self.bn+'_DmdA'])
+
+    def DMSP_demethylation_MMPA_to_MeSH(self):
+        ko_list = [self.bn+'_DmdB', self.bn+'_DmdC',
+                   self.bn+'_DmdD', self.bn+'_AcuH']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['DMSP demethylation, MMPA -> MeSH (dmdBCD or acuH)'] = (
+          self.abundance[self.bn+'_DmdB'] +
+          self.abundance[self.bn+'_DmdC'] +
+          self.abundance[self.bn+'_DmdD'] +
+          self.abundance[self.bn+'_AcuH'])
+
+    def DMSP_cleavage(self):
+        ko_list = [self.bn+'_Alma1', self.bn+'_DddD',
+                   self.bn+'_DddK', self.bn+'_DddL',
+                   self.bn+'_DddP', self.bn+'_DddQ',
+                   self.bn+'_DddW', self.bn+'_DddY']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['DMSP cleavage, DMSP -> DMS (ddds or alma1)'] = (
+          self.abundance[self.bn+'_Alma1'] +
+          self.abundance[self.bn+'_DddD'] +
+          self.abundance[self.bn+'_DddK'] +
+          self.abundance[self.bn+'_DddL'] +
+          self.abundance[self.bn+'_DddP'] +
+          self.abundance[self.bn+'_DddQ'] +
+          self.abundance[self.bn+'_DddW'] +
+          self.abundance[self.bn+'_DddY'])
+
+    def DMS_oxidation_DMS_to_MeSH(self):
+        ko_list = [self.bn+'_DmoA']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['DMS oxidation, DMS -> MeSH (dmoA)'] = (
+          self.abundance[self.bn+'_DmoA'])
+
+    def DMS_oxidation_DMS_to_DMSO(self):
+        ko_list = [self.bn+'_DdhA', self.bn+'_Tmm']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['DMS oxidation, DMS -> DMSO (ddhA or tmm)'] = (
+          self.abundance[self.bn+'_DdhA'] +
+          self.abundance[self.bn+'_Tmm'])
+
+    def DMSO_reduction_DMSO_to_DMS(self):
+        ko_list = [self.bn+'_DMSOR']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['DMSO reduction, DMSO -> DMS (dMSOR)'] = (
+          self.abundance[self.bn+'_DMSOR'])
+
+    def MddA_pathway_MeSH_to_DMS(self):
+        ko_list = [self.bn+'_MddA']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['MddA pathway, MeSH -> DMS (mddA)'] = (
+          self.abundance[self.bn+'_MddA'])
+
+    def MeSH_oxidation_MeSH_to_Formaldehyde(self):
+        ko_list = [self.bn+'_MTO']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['MeSH oxidation, MeSH -> Formaldehyde (mTO)'] = (
+          self.abundance[self.bn+'_MTO'])
+
+
     def F_type_ATPase(self):
         ko_list = [self.bn+'_K02111', self.bn+'_K02112',
                    self.bn+'_K02115', self.bn+'_K02113',
@@ -1735,22 +1826,22 @@ class Pathway:
         self.Wood_Ljungdahl()
         self.three_Hydroxypropionate_Bicycle()
         self.Dicarboxylate_hydroxybutyrate_cycle()
-        self.pectinesterase()
-        self.diacetylchitobiose_deacetylase()
-        self.glucoamylase()
-        self.D_galacturonate_epimerase()
-        self.exo_poly_alpha_galacturonosidase()
-        self.oligogalacturonide_lyase()
-        self.cellulase()
-        self.exopolygalacturonase()
-        self.chitinase()
-        self.basic_endochitinase_B()
-        self.bifunctional_chitinase_or_lysozyme()
-        self.beta_N_acetylhexosaminidase()
-        self.D_galacturonate_isomerase()
-        self.alpha_amylase()
-        self.beta_glucosidase()
-        self.pullulanase()
+        #self.pectinesterase()
+        #self.diacetylchitobiose_deacetylase()
+        #self.glucoamylase()
+        #self.D_galacturonate_epimerase()
+        #self.exo_poly_alpha_galacturonosidase()
+        #self.oligogalacturonide_lyase()
+        #self.cellulase()
+        #self.exopolygalacturonase()
+        #self.chitinase()
+        #self.basic_endochitinase_B()
+        #self.bifunctional_chitinase_or_lysozyme()
+        #self.beta_N_acetylhexosaminidase()
+        #self.D_galacturonate_isomerase()
+        #self.alpha_amylase()
+        #self.beta_glucosidase()
+        #self.pullulanase()
         self.glycolysis()
         self.Entner_Doudoroff_Pathway()
         self.gluconeogenesis()
@@ -1808,6 +1899,15 @@ class Pathway:
         self.sulfur_dioxygenase()
         self.sulfite_oxidation_sulfite_sulfate_sor_SUOX_soeABC()
         self.sulfide_oxidation_sulfide_sulfur_fccAB()
+        self.DMSP_biosynthesis_LMet_to_DMSP()
+        self.DMSP_demethylation_DMSP_to_MMPA()
+        self.DMSP_demethylation_MMPA_to_MeSH()
+        self.DMSP_cleavage()
+        self.DMS_oxidation_DMS_to_MeSH()
+        self.DMS_oxidation_DMS_to_DMSO()
+        self.DMSO_reduction_DMSO_to_DMS()
+        self.MddA_pathway_MeSH_to_DMS()
+        self.MeSH_oxidation_MeSH_to_Formaldehyde()
         self.F_type_ATPase()
         self.V_type_ATPase()
         self.NADH_quinone_oxidoreductase()
@@ -1849,22 +1949,22 @@ function_order = ['Photosystem II',
                   'Wood-Ljungdahl',
                   '3-Hydroxypropionate Bicycle',
                   'Dicarboxylate-hydroxybutyrate cycle',
-                  'Pectinesterase',
-                  'Diacetylchitobiose deacetylase',
-                  'Glucoamylase',
-                  'D-galacturonate epimerase',
-                  'exo-poly-alpha-galacturonosidase',
-                  'Oligogalacturonide lyase',
-                  'Cellulase',
-                  'exopolygalacturonase',
-                  'Chitinase',
-                  'Basic endochitinase B',
-                  'Bifunctional chitinase/lysozyme',
-                  'Beta-N-acetylhexosaminidase',
-                  'D-galacturonate isomerase',
-                  'Alpha-amylase',
-                  'Beta-glucosidase',
-                  'Pullulanase',
+                  #'Pectinesterase',
+                  #'Diacetylchitobiose deacetylase',
+                  #'Glucoamylase',
+                  #'D-galacturonate epimerase',
+                  #'exo-poly-alpha-galacturonosidase',
+                  #'Oligogalacturonide lyase',
+                  #'Cellulase',
+                  #'exopolygalacturonase',
+                  #'Chitinase',
+                  #'Basic endochitinase B',
+                  #'Bifunctional chitinase/lysozyme',
+                  #'Beta-N-acetylhexosaminidase',
+                  #'D-galacturonate isomerase',
+                  #'Alpha-amylase',
+                  #'Beta-glucosidase',
+                  #'Pullulanase',
                   'Glycolysis',
                   'Entner-Doudoroff pathway, glucose-6P -> glyceraldehyde-3P + pyruvate',
                   'Gluconeogenesis, oxaloacetate -> fructose-6P',
@@ -1916,6 +2016,15 @@ function_order = ['Photosystem II',
                   'Sulfur dioxygenase',
                   'Sulfite oxidation, sulfite -> sulfate (sorB, SUOX, soeABC)',
                   'Sulfide oxidation, sulfide -> sulfur (fccAB)',
+                  'DMSP biosynthesis, L-Met -> DMSP (DSYB or dsyB or mmtN)',
+                  'DMSP demethylation, DMSP -> MMPA (dmdA)',
+                  'DMSP demethylation, MMPA -> MeSH (dmdBCD or acuH)',
+                  'DMSP cleavage, DMSP -> DMS (ddds or alma1)',
+                  'DMS oxidation, DMS -> MeSH (dmoA)',
+                  'DMS oxidation, DMS -> DMSO (ddhA or tmm)',
+                  'DMSO reduction, DMSO -> DMS (dMSOR)',
+                  'MddA pathway, MeSH -> DMS (mddA)',
+                  'MeSH oxidation, MeSH -> Formaldehyde (mTO)',
                   'F-type ATPase',
                   'V/A-type ATPase',
                   'NADH-quinone oxidoreductase',

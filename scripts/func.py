@@ -39,6 +39,28 @@ def download_db(ko_db):
     tar.close()
     print('Database has been downloaded and deployed successfully at {}'. format(ko_db))
 
+def DMSP_db_parse(DMSP_DIR, KODB_DIR):
+    print("\n" + 'DMSP database parsing'.center(50, '*'))
+    DMSP_hmm_db = DMSP_DIR + '/profiles/*.hmm'
+    DMSP_related_gene_list = os.path.join(DMSP_DIR, 'DMSP_related_gene.list')
+    ko_db_profiles_dir = os.path.join(KODB_DIR, 'profiles')
+    ko_list = KODB_DIR + '/ko_list'
+    cmd_para_cp = ['cp',
+                DMSP_hmm_db,
+                ko_db_profiles_dir
+                ]
+    cmd = ' '.join(cmd_para_cp)
+    os.system(cmd)
+
+    cmd_para_cat = ['cat',
+                    DMSP_related_gene_list,
+                    '>>',
+                    ko_list
+                    ]
+    cmd = ' '.join(cmd_para_cat)
+    os.system(cmd)
+    print("\n" + 'DMSP database is ready'.center(50, '*'))
+
 
 def gene_relative_abun(pileup_file, basename, out_dir):
     """
@@ -105,7 +127,7 @@ def kegg_annotation(faa, basename, out_dir, db_dir, ko_dic, threads):
             outtype = '--domtblout'
         else:
             threshold_method = '-E'
-            info[0] = '1e-5'
+            info[0] = '1e-20'
             outtype = '--tblout'
         paras.append((threshold_method, info[0], outtype, output, hmm_db, faa))
 
@@ -129,13 +151,12 @@ def merge_ko(hmmout_dir, output):
                     if not line.startswith('#'):
                         gene_id, accession = line.split()[0:2]
                         lines = line.split()
-                        for i in lines:
-                            if re.match(r'K\d\d\d\d\d', i):
-                                k_number = i
-                            #key = str(basename) + '+' + str(gene_id)
-                            #ko_merged_dict[key] = k_number
-                                with open(output, 'a') as fo:
-                                    fo.write(basename + '\t' + gene_id + '\t' + k_number + '\n')
+                        if re.match(r'[0-9]+$', lines[2]):
+                        	k_number = lines[3]
+                        else:
+                        	k_number = lines[2]
+                        with open(output, 'a') as fo:
+                            fo.write(basename + '\t' + gene_id + '\t' + k_number + '\n')
     #return ko_merged_dict
 
 
@@ -222,6 +243,29 @@ def table_of_ko_abundance_among_samples(ko_abun_txt, output):
             fo.write('\n')
 
     print("\n" + 'A table of ko abundance among samples was produced'.center(70, '*'))
+
+def hierarchical_ko_abundance_among_samples(table_of_ko_abundance_among_samples, KO_affilated_to_biogeochemical_cycle_tab, output):
+    Knumber_to_abundance = {}
+    with open(table_of_ko_abundance_among_samples) as fi:
+        for line in fi:
+            line = line.rstrip()
+            lines = line.split('\t')
+            k_number = lines[0]
+            lines.pop(0)
+            value = '\t'.join(lines)
+            Knumber_to_abundance[k_number] = value
+    with open(output, 'w') as fo:
+        fo.write('')
+    with open(KO_affilated_to_biogeochemical_cycle_tab) as fi:
+        for line in fi:
+            line = line.rstrip()
+            k_number = line.split('\t')[2]
+            if k_number not in Knumber_to_abundance.keys():
+            	with open(output, 'a') as fo:
+                	fo.write(line + '\n')
+            else:
+            	with open(output, 'a') as fo:
+                	fo.write(line + '\t' + str(Knumber_to_abundance[k_number]) + '\n')
 
 
 def kegg_decoder(input_tab, output):

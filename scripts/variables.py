@@ -19,6 +19,7 @@ else:
     KEGG_DIR = os.path.join(OUT_DIR, 'KEGG_annotation')  # directory for KEGG annotations
     ROOT_DIR = sys.path[0]
     KODB_DIR = os.path.join(ROOT_DIR, 'kofam_database')  # downloaded kofam_database folder from KEGG website
+    DMSP_DIR = os.path.join(ROOT_DIR, 'DMSP_database')
 
     BASENAMES = []  # input files basename list
     READS_SUF = ''  # suffix of input reads
