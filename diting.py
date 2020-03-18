@@ -23,7 +23,12 @@ def main():
         """
         if check_kodb(KODB_DIR) is False:
             download_db(KODB_DIR)
-    
+            DMSP_db_parse(DMSP_DIR, KODB_DIR)
+
+        if check_kodb(KODB_DIR) is True:
+        	if check_DMSP_db(KODB_DIR) is False:
+        		DMSP_db_parse(DMSP_DIR, KODB_DIR)
+
         """
         Check assemblies / reads & Get input basename
         """
@@ -120,6 +125,14 @@ def main():
         merge_abun_ko(GENE_ABUN_DIR, ko_merged_tab, ko_abun_merged_tab)
         ko_abundance_among_samples = os.path.join(KEGG_DIR, 'ko_abundance_among_samples.tab')
         table_of_ko_abundance_among_samples(ko_abun_merged_tab, ko_abundance_among_samples)
+
+        """
+        hierarchical_table_abundance_among_samples
+        """
+        ko_abundance_among_samples = os.path.join(KEGG_DIR, 'ko_abundance_among_samples.tab')
+        KO_affilated_to_biogeochemical_cycle_tab = os.path.join(ROOT_DIR, 'KO_affilated_to_biogeochemical_cycle.tab')
+        pathways_relative_abundance_gene_level_tab = os.path.join(OUT_DIR, 'pathways_relative_abundance_gene_level.tab')
+        hierarchical_ko_abundance_among_samples(ko_abundance_among_samples, KO_affilated_to_biogeochemical_cycle_tab, pathways_relative_abundance_gene_level_tab)
     
         """
         Relative abundance of pathways
