@@ -77,10 +77,10 @@ def sketch(abundance_table):
                       'Nitrification_ammonia_to_hydroxylamine_amoABC',
                       'Nitrification_hydroxylamine_to_nitrite_hao',
                       'Nitrification_nitrite_to_nitrate_nxrAB',
-                      'Assimilatory_nitrate_reduction_to_nitrite_narB_or_NR_or_nasAB',
-                      'Assimilatory_nitrite_reduction_to_ammonia_NIT-6_or_nirA',
-                      'Dissimilatory_nitrate_reduction_to_nitrite_narGHI_or_napAB',
-                      'Dissimilatory_nitrite_reduction_to_ammonia_DNRA_nirBD_or_nrfAH',
+                      'Assimilatory_nitrate_reduction_nitrate_to_nitrite_narB_or_NR_or_nasAB',
+                      'Assimilatory_nitrate_reduction_nitrite_to_ammonia_NIT-6_or_nirA',
+                      'Dissimilatory_nitrate_reduction_nitrate_to_nitrite_narGHI_or_napAB',
+                      'Dissimilatory_nitrate_reduction_nitrite_to_ammonia_nirBD_or_nrfAH',
                       'Denitrification_nitrite_to_nitric_oxide_nirK_or_nirS',
                       'Denitrification_nitric_oxide_to_nitrous_oxide_norBC',
                       'Denitrification_nitrous_oxide_to_nitrogen_nosZ',
@@ -218,15 +218,15 @@ def sketch(abundance_table):
     nitrogen_cycle_image = Image.open("Figure_tmp/nitrogen_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Assimilatory_nitrate_reduction_to_nitrite_narB_or_NR_or_nasAB.png")
+            "Figure_tmp/Assimilatory_nitrate_reduction_nitrate_to_nitrite_narB_or_NR_or_nasAB.png")
         position = ()
-        if nitrogen_cycle_dir['Assimilatory_nitrate_reduction_to_nitrite_narB_or_NR_or_nasAB'] >= three_quarter_nitro:
+        if nitrogen_cycle_dir['Assimilatory_nitrate_reduction_nitrate_to_nitrite_narB_or_NR_or_nasAB'] >= three_quarter_nitro:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (2442, 3128, 2922, 3608)
-        elif nitrogen_cycle_dir['Assimilatory_nitrate_reduction_to_nitrite_narB_or_NR_or_nasAB'] >= two_quarter_nitro:
+        elif nitrogen_cycle_dir['Assimilatory_nitrate_reduction_nitrate_to_nitrite_narB_or_NR_or_nasAB'] >= two_quarter_nitro:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2502, 3192, 2902, 3592)
-        elif nitrogen_cycle_dir['Assimilatory_nitrate_reduction_to_nitrite_narB_or_NR_or_nasAB'] >= one_quarter_nitro:
+        elif nitrogen_cycle_dir['Assimilatory_nitrate_reduction_nitrate_to_nitrite_narB_or_NR_or_nasAB'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2532, 3278, 2852, 3598)
         else:
@@ -241,15 +241,15 @@ def sketch(abundance_table):
     nitrogen_cycle_image = Image.open("Figure_tmp/nitrogen_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Assimilatory_nitrite_reduction_to_ammonia_NIT-6_or_nirA.png")
+            "Figure_tmp/Assimilatory_nitrate_reduction_nitrite_to_ammonia_NIT-6_or_nirA.png")
         position = ()
-        if nitrogen_cycle_dir['Assimilatory_nitrite_reduction_to_ammonia_NIT-6_or_nirA'] >= three_quarter_nitro:
+        if nitrogen_cycle_dir['Assimilatory_nitrate_reduction_nitrite_to_ammonia_NIT-6_or_nirA'] >= three_quarter_nitro:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (1744, 2100, 2224, 2580)
-        elif nitrogen_cycle_dir['Assimilatory_nitrite_reduction_to_ammonia_NIT-6_or_nirA'] >= two_quarter_nitro:
+        elif nitrogen_cycle_dir['Assimilatory_nitrate_reduction_nitrite_to_ammonia_NIT-6_or_nirA'] >= two_quarter_nitro:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2004, 2276, 2404, 2676)
-        elif nitrogen_cycle_dir['Assimilatory_nitrite_reduction_to_ammonia_NIT-6_or_nirA'] >= one_quarter_nitro:
+        elif nitrogen_cycle_dir['Assimilatory_nitrate_reduction_nitrite_to_ammonia_NIT-6_or_nirA'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2066, 2288, 2386, 2608)
         else:
@@ -264,15 +264,15 @@ def sketch(abundance_table):
     nitrogen_cycle_image = Image.open("Figure_tmp/nitrogen_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Dissimilatory_nitrate_reduction_to_nitrite_narGHI_or_napAB.png")
+            "Figure_tmp/Dissimilatory_nitrate_reduction_nitrate_to_nitrite_narGHI_or_napAB.png")
         position = ()
-        if nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_to_nitrite_narGHI_or_napAB'] >= three_quarter_nitro:
+        if nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrate_to_nitrite_narGHI_or_napAB'] >= three_quarter_nitro:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (2654, 3648, 3134, 4128)
-        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_to_nitrite_narGHI_or_napAB'] >= two_quarter_nitro:
+        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrate_to_nitrite_narGHI_or_napAB'] >= two_quarter_nitro:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2646, 3668, 3046, 4068)
-        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_to_nitrite_narGHI_or_napAB'] >= one_quarter_nitro:
+        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrate_to_nitrite_narGHI_or_napAB'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2702, 3682, 3022, 4002)
         else:
@@ -287,15 +287,15 @@ def sketch(abundance_table):
     nitrogen_cycle_image = Image.open("Figure_tmp/nitrogen_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Dissimilatory_nitrite_reduction_to_ammonia_DNRA_nirBD_or_nrfAH.png")
+            "Figure_tmp/Dissimilatory_nitrate_reduction_nitrite_to_ammonia_DNRA_nirBD_or_nrfAH.png")
         position = ()
-        if nitrogen_cycle_dir['Dissimilatory_nitrite_reduction_to_ammonia_DNRA_nirBD_or_nrfAH'] >= three_quarter_nitro:
+        if nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_DNRA_nirBD_or_nrfAH'] >= three_quarter_nitro:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (2612, 2146, 3092, 2626)
-        elif nitrogen_cycle_dir['Dissimilatory_nitrite_reduction_to_ammonia_DNRA_nirBD_or_nrfAH'] >= two_quarter_nitro:
+        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_DNRA_nirBD_or_nrfAH'] >= two_quarter_nitro:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2578, 2118, 2978, 2518)
-        elif nitrogen_cycle_dir['Dissimilatory_nitrite_reduction_to_ammonia_DNRA_nirBD_or_nrfAH'] >= one_quarter_nitro:
+        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_DNRA_nirBD_or_nrfAH'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2738, 2340, 3058, 2660)
         else:
@@ -528,10 +528,10 @@ def sketch(abundance_table):
     sulfur_cycle = ['Sulfur_reduction_sulfur_to_sulfide_sreABC',
                     'Sulfide_oxidation_sulfide_to_sulfur_fccAB',
                     'Sulfur_disproportionation_sulfur_to_sulfide_sulfite',
-                    'Dissimilatory_sulfate_reduction_to_sulfite_reversible_sat_and_aprAB',
-                    'Dissimilatory_sulfite_reduction_to_sulfide_reversible_dsrAB',
-                    'Assimilatory_sulfate_reduction_to_sulfite',
-                    'Assimilatory_sulfite_reduction_to_sulfide_cysJI_or_sir',
+                    'Dissimilatory_sulfate_reduction_sulfate_to_sulfite_reversible_sat_and_aprAB',
+                    'Dissimilatory_sulfate_reduction_sulfite_to_sulfide_reversible_dsrAB',
+                    'Assimilatory_sulfate_reduction_sulfate_to_sulfite',
+                    'Assimilatory_sulfate_reduction_sulfite_to_sulfide_cysJI_or_sir',
                     'Sulfite_oxidation_sulfite_to_sulfate_sorB_SUOX_soeABC',
                     'Thiosulfate_disproportionation_thiosulfate_to_sulfide_sulfite_phsABC',
                     'Thiosulfate_oxidation_SOX_doxAD_and_tsdA',
@@ -622,15 +622,15 @@ def sketch(abundance_table):
     sulfur_cycle_image = Image.open("Figure_tmp/sulfur_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Dissimilatory_sulfate_reduction_to_sulfite_reversible_sat_and_aprAB.png")
+            "Figure_tmp/Dissimilatory_sulfate_reduction_sulfate_to_sulfite_reversible_sat_and_aprAB.png")
         position = ()
-        if sulfur_cycle_dir['Dissimilatory_sulfate_reduction_to_sulfite_reversible_sat_and_aprAB'] >= three_quarter_sulfur:
+        if sulfur_cycle_dir['Dissimilatory_sulfate_reduction_sulfate_to_sulfite_reversible_sat_and_aprAB'] >= three_quarter_sulfur:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (828, 2864, 1308, 3344)
-        elif sulfur_cycle_dir['Dissimilatory_sulfate_reduction_to_sulfite_reversible_sat_and_aprAB'] >= two_quarter_sulfur:
+        elif sulfur_cycle_dir['Dissimilatory_sulfate_reduction_sulfate_to_sulfite_reversible_sat_and_aprAB'] >= two_quarter_sulfur:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (914, 2992, 1314, 3392)
-        elif sulfur_cycle_dir['Dissimilatory_sulfate_reduction_to_sulfite_reversible_sat_and_aprAB'] >= one_quarter_sulfur:
+        elif sulfur_cycle_dir['Dissimilatory_sulfate_reduction_sulfate_to_sulfite_reversible_sat_and_aprAB'] >= one_quarter_sulfur:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (909, 3033, 1229, 3353)
         else:
@@ -645,16 +645,16 @@ def sketch(abundance_table):
     sulfur_cycle_image = Image.open("Figure_tmp/sulfur_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Dissimilatory_sulfite_reduction_to_sulfide_reversible_dsrAB.png")
+            "Figure_tmp/Dissimilatory_sulfate_reduction_sulfite_to_sulfide_reversible_dsrAB.png")
         position = ()
-        if sulfur_cycle_dir['Dissimilatory_sulfite_reduction_to_sulfide_reversible_dsrAB'] >= three_quarter_sulfur:
+        if sulfur_cycle_dir['Dissimilatory_sulfate_reduction_sulfite_to_sulfide_reversible_dsrAB'] >= three_quarter_sulfur:
             #print('test!')
             pathway_fig = pathway_fig.resize((480, 480))
             position = (804, 804, 1284, 1284)
-        elif sulfur_cycle_dir['Dissimilatory_sulfite_reduction_to_sulfide_reversible_dsrAB'] >= two_quarter_sulfur:
+        elif sulfur_cycle_dir['Dissimilatory_sulfate_reduction_sulfite_to_sulfide_reversible_dsrAB'] >= two_quarter_sulfur:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (861, 766, 1261, 1166)
-        elif sulfur_cycle_dir['Dissimilatory_sulfite_reduction_to_sulfide_reversible_dsrAB'] >= one_quarter_sulfur:
+        elif sulfur_cycle_dir['Dissimilatory_sulfate_reduction_sulfite_to_sulfide_reversible_dsrAB'] >= one_quarter_sulfur:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (890, 788, 1210, 1108)
         else:
@@ -669,15 +669,15 @@ def sketch(abundance_table):
     sulfur_cycle_image = Image.open("Figure_tmp/sulfur_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Assimilatory_sulfate_reduction_to_sulfite.png")
+            "Figure_tmp/Assimilatory_sulfate_reduction_sulfate_to_sulfite.png")
         position = ()
-        if sulfur_cycle_dir['Assimilatory_sulfate_reduction_to_sulfite'] >= three_quarter_sulfur:
+        if sulfur_cycle_dir['Assimilatory_sulfate_reduction_sulfate_to_sulfite'] >= three_quarter_sulfur:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (417, 3235, 897, 3715)
-        elif sulfur_cycle_dir['Assimilatory_sulfate_reduction_to_sulfite'] >= two_quarter_sulfur:
+        elif sulfur_cycle_dir['Assimilatory_sulfate_reduction_sulfate_to_sulfite'] >= two_quarter_sulfur:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (478, 3250, 878, 3650)
-        elif sulfur_cycle_dir['Assimilatory_sulfate_reduction_to_sulfite'] >= one_quarter_sulfur:
+        elif sulfur_cycle_dir['Assimilatory_sulfate_reduction_sulfate_to_sulfite'] >= one_quarter_sulfur:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (567, 3308, 887, 3628)
         else:
@@ -692,15 +692,15 @@ def sketch(abundance_table):
     sulfur_cycle_image = Image.open("Figure_tmp/sulfur_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Assimilatory_sulfite_reduction_to_sulfide_cysJI_or_sir.png")
+            "Figure_tmp/Assimilatory_sulfate_reduction_sulfite_to_sulfide_cysJI_or_sir.png")
         position = ()
-        if sulfur_cycle_dir['Assimilatory_sulfite_reduction_to_sulfide_cysJI_or_sir'] >= three_quarter_sulfur:
+        if sulfur_cycle_dir['Assimilatory_sulfate_reduction_sulfite_to_sulfide_cysJI_or_sir'] >= three_quarter_sulfur:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (252, 559, 732, 1039)
-        elif sulfur_cycle_dir['Assimilatory_sulfite_reduction_to_sulfide_cysJI_or_sir'] >= two_quarter_sulfur:
+        elif sulfur_cycle_dir['Assimilatory_sulfate_reduction_sulfite_to_sulfide_cysJI_or_sir'] >= two_quarter_sulfur:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (379, 586, 779, 986)
-        elif sulfur_cycle_dir['Assimilatory_sulfite_reduction_to_sulfide_cysJI_or_sir'] >= one_quarter_sulfur:
+        elif sulfur_cycle_dir['Assimilatory_sulfate_reduction_sulfite_to_sulfide_cysJI_or_sir'] >= one_quarter_sulfur:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (526, 531, 846, 851)
         else:
@@ -889,28 +889,28 @@ def sketch(abundance_table):
     shutil.copy(carbon_cycle_background_fig, './Figure_tmp/')
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     #print("background_image_size:", carbon_cycle_image.size)
-    carbon_cycle = ['CBB_cycle',
-                    'rTCA_cycle',
-                    'Wood-Ljungdahl',
+    carbon_cycle = ['CBB_cycle_prkB',
+                    'rTCA_cycle_aclAB_ccsAB_ccl',
+                    'Wood-Ljungdahl_pathway_acsABCDE',
                     '3-Hydroxypropionate_Bicycle',
-                    'Dicarboxylate-hydroxybutyrate_cycle',
-                    'Glycolysis',
+                    #'Dicarboxylate-hydroxybutyrate_cycle',
+                    'Glycolysis_glk_pfk_pyk',
                     'Entner-Doudoroff_pathway_glucose-6P_to_glyceraldehyde-3P_+_pyruvate',
                     'TCA_cycle',
                     'Methanogenesis_CO2_to_methane',
-                    'Methanogenesis_acetate_to_methane',
-                    'Methanogenesis_methanol_to_methane',
-                    'Methane_oxidation_methane_to_methanol',
-                    'Methane_oxidation_methanol_to_Formaldehyde',
-                    'Mixed_acid:_acetate_pyruvate_to_acetate',
-                    'Mixed_acid:_acetate_acetyl-CoA_to_acetate',
-                    'Mixed_acid:_acetate_lactate_to_acetate',
-                    'Mixed_acid:_lactate_pyruvate_to_lactate',
-                    'Mixed_acid:_formate_pyruvate_to_formate',
-                    'Mixed_acid:_Formate_to_CO2_H2',
-                    'Mixed_acid:_ethanol_acetate_to_acetylaldehyde',
-                    'Mixed_acid:_ethanol_acetyl-CoA_to_acetylaldehyde_reversible',
-                    'Mixed_acid:_ethanol_acetylaldehyde_to_ethanol'
+                    'Methanogenesis_acetate_to_methane_cdhCDE',
+                    'Methanogenesis_methanol_to_methane_mtaABC',
+                    'Methane_oxidation_methane_to_methanol_mmoBCDXYZ_amoABC',
+                    'Methane_oxidation_methanol_to_formaldehyde_mxaFI_xoxF',
+                    'Fermentation_to_acetate_pyruvate_to_acetate_poxB_poxL_acyP',
+                    'Fermentation_to_acetate_acetyl-CoA_to_acetate_ach1_eutD_pta_acyP',
+                    'Fermentation_to_acetate_lactate_to_acetate_EC:1.13.12.4',
+                    'Fermentation_to_lactate_pyruvate_to_lactate_LDH',
+                    'Fermentation_to_formate_pyruvate_to_formate_pf1D',
+                    'Fermentation_to_formate_to_CO2_H2_fdh',
+                    'Fermentation_to_ethanol_acetate_to_acetylaldehyde_ald',
+                    'Fermentation_to_ethanol_acetyl-CoA_to_acetylaldehyde_reversible',
+                    'Fermentation_to_ethanol_acetylaldehyde_to_ethanol_adh_mdh'
                     ]
     
     carbon_cycle_dir = {}
@@ -927,15 +927,15 @@ def sketch(abundance_table):
     one_quarter_carbon = 1/4 * top_abun_carbon
     
     try:
-        pathway_fig = Image.open("Figure_tmp/CBB_cycle.png")
+        pathway_fig = Image.open("Figure_tmp/CBB_cycle_prkB.png")
         position = ()
-        if carbon_cycle_dir['CBB_cycle'] >= three_quarter_carbon:
+        if carbon_cycle_dir['CBB_cycle_prkB'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (2343, 432, 2823, 912)
-        elif carbon_cycle_dir['CBB_cycle'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['CBB_cycle_prkB'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2391, 500, 2791, 900)
-        elif carbon_cycle_dir['CBB_cycle'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['CBB_cycle_prkB'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2429, 580, 2749, 900)
         else:
@@ -949,15 +949,15 @@ def sketch(abundance_table):
     
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
-        pathway_fig = Image.open("Figure_tmp/rTCA_cycle.png")
+        pathway_fig = Image.open("Figure_tmp/rTCA_cycle_aclAB_ccsAB_ccl.png")
         position = ()
-        if carbon_cycle_dir['rTCA_cycle'] >= three_quarter_carbon:
+        if carbon_cycle_dir['rTCA_cycle_aclAB_ccsAB_ccl'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (3244, 420, 3724, 900)
-        elif carbon_cycle_dir['rTCA_cycle'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['rTCA_cycle_aclAB_ccsAB_ccl'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (3277, 500, 3677, 900)
-        elif carbon_cycle_dir['rTCA_cycle'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['rTCA_cycle_aclAB_ccsAB_ccl'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (3318, 580, 3638, 900)
         else:
@@ -971,15 +971,15 @@ def sketch(abundance_table):
     
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
-        pathway_fig = Image.open("Figure_tmp/Wood-Ljungdahl.png")
+        pathway_fig = Image.open("Figure_tmp/Wood-Ljungdahl_pathway_acsABCDE.png")
         position = ()
-        if carbon_cycle_dir['Wood-Ljungdahl'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Wood-Ljungdahl_pathway_acsABCDE'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (4126, 420, 4606, 900)
-        elif carbon_cycle_dir['Wood-Ljungdahl'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Wood-Ljungdahl_pathway_acsABCDE'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (4155, 500, 4555, 900)
-        elif carbon_cycle_dir['Wood-Ljungdahl'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Wood-Ljungdahl_pathway_acsABCDE'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (4214, 580, 4534, 900)
         else:
@@ -1013,40 +1013,40 @@ def sketch(abundance_table):
     except:
         pass
     
-    carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
-    try:
-        pathway_fig = Image.open(
-            "Figure_tmp/Dicarboxylate-hydroxybutyrate_cycle.png")
-        position = ()
-        if carbon_cycle_dir['Dicarboxylate-hydroxybutyrate_cycle'] >= three_quarter_carbon:
-            pathway_fig = pathway_fig.resize((480, 480))
-            position = (3722, 1049, 4202, 1529)
-        elif carbon_cycle_dir['Dicarboxylate-hydroxybutyrate_cycle'] >= two_quarter_carbon:
-            pathway_fig = pathway_fig.resize((400, 400))
-            position = (3761, 1050, 4161, 1450)
-        elif carbon_cycle_dir['Dicarboxylate-hydroxybutyrate_cycle'] >= one_quarter_carbon:
-            pathway_fig = pathway_fig.resize((320, 320))
-            position = (3803, 1082, 4123, 1402)
-        else:
-            pathway_fig = pathway_fig.resize((240, 240))
-            position = (3842, 1085, 4082, 1325)
-        carbon_cycle_image_copy = carbon_cycle_image.copy()
-        carbon_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
-        carbon_cycle_image_copy.save("Figure_tmp/carbon_cycle.png", 'png')
-    except:
-        pass
+    #carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
+    #try:
+        #pathway_fig = Image.open(
+            #"Figure_tmp/Dicarboxylate-hydroxybutyrate_cycle.png")
+        #position = ()
+        #if carbon_cycle_dir['Dicarboxylate-hydroxybutyrate_cycle'] >= three_quarter_carbon:
+            #pathway_fig = pathway_fig.resize((480, 480))
+            #position = (3722, 1049, 4202, 1529)
+        #elif carbon_cycle_dir['Dicarboxylate-hydroxybutyrate_cycle'] >= two_quarter_carbon:
+            #pathway_fig = pathway_fig.resize((400, 400))
+            #position = (3761, 1050, 4161, 1450)
+        #elif carbon_cycle_dir['Dicarboxylate-hydroxybutyrate_cycle'] >= one_quarter_carbon:
+            #pathway_fig = pathway_fig.resize((320, 320))
+            #position = (3803, 1082, 4123, 1402)
+        #else:
+            #pathway_fig = pathway_fig.resize((240, 240))
+            #position = (3842, 1085, 4082, 1325)
+        #carbon_cycle_image_copy = carbon_cycle_image.copy()
+        #carbon_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        #carbon_cycle_image_copy.save("Figure_tmp/carbon_cycle.png", 'png')
+    #except:
+        #pass
     
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
-        pathway_fig = Image.open("Figure_tmp/Glycolysis.png")
+        pathway_fig = Image.open("Figure_tmp/Glycolysis_glk_pfk_pyk.png")
         position = ()
-        if carbon_cycle_dir['Glycolysis'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Glycolysis_glk_pfk_pyk'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (1076, 1934, 1556, 2414)
-        elif carbon_cycle_dir['Glycolysis'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Glycolysis_glk_pfk_pyk'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (1076, 1939, 1476, 2339)
-        elif carbon_cycle_dir['Glycolysis'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Glycolysis_glk_pfk_pyk'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (1086, 1943, 1406, 2263)
         else:
@@ -1128,15 +1128,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Methanogenesis_acetate_to_methane.png")
+            "Figure_tmp/Methanogenesis_acetate_to_methane_cdhCDE.png")
         position = ()
-        if carbon_cycle_dir['Methanogenesis_acetate_to_methane'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Methanogenesis_acetate_to_methane_cdhCDE'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (5611, 2213, 6091, 2693)
-        elif carbon_cycle_dir['Methanogenesis_acetate_to_methane'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Methanogenesis_acetate_to_methane_cdhCDE'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (5620, 2268, 6020, 2668)
-        elif carbon_cycle_dir['Methanogenesis_acetate_to_methane'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Methanogenesis_acetate_to_methane_cdhCDE'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (5629, 2298, 5949, 2618)
         else:
@@ -1151,15 +1151,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Methanogenesis_methanol_to_methane.png")
+            "Figure_tmp/Methanogenesis_methanol_to_methane_mtaABC.png")
         position = ()
-        if carbon_cycle_dir['Methanogenesis_methanol_to_methane'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Methanogenesis_methanol_to_methane_mtaABC'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (4562, 1753, 5042, 2233)
-        elif carbon_cycle_dir['Methanogenesis_methanol_to_methane'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Methanogenesis_methanol_to_methane_mtaABC'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (4596, 1757, 4996, 2157)
-        elif carbon_cycle_dir['Methanogenesis_methanol_to_methane'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Methanogenesis_methanol_to_methane_mtaABC'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (4640, 1772, 4960, 2092)
         else:
@@ -1174,15 +1174,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Methane_oxidation_methane_to_methanol.png")
+            "Figure_tmp/Methane_oxidation_methane_to_methanol_mmoBCDXYZ_amoABC.png")
         position = ()
-        if carbon_cycle_dir['Methane_oxidation_methane_to_methanol'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Methane_oxidation_methane_to_methanol_mmoBCDXYZ_amoABC'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (4648, 1227, 5128, 1707)
-        elif carbon_cycle_dir['Methane_oxidation_methane_to_methanol'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Methane_oxidation_methane_to_methanol_mmoBCDXYZ_amoABC'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (4704, 1290, 5104, 1690)
-        elif carbon_cycle_dir['Methane_oxidation_methane_to_methanol'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Methane_oxidation_methane_to_methanol_mmoBCDXYZ_amoABC'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (4707, 1369, 5027, 1689)
         else:
@@ -1197,15 +1197,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Methane_oxidation_methanol_to_Formaldehyde.png")
+            "Figure_tmp/Methane_oxidation_methanol_to_formaldehyde_mxaFI_xoxF.png")
         position = ()
-        if carbon_cycle_dir['Methane_oxidation_methanol_to_Formaldehyde'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Methane_oxidation_methanol_to_formaldehyde_mxaFI_xoxF'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (2883, 1272, 3363, 1752)
-        elif carbon_cycle_dir['Methane_oxidation_methanol_to_Formaldehyde'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Methane_oxidation_methanol_to_formaldehyde_mxaFI_xoxF'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2947, 1343, 3347, 1743)
-        elif carbon_cycle_dir['Methane_oxidation_methanol_to_Formaldehyde'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Methane_oxidation_methanol_to_formaldehyde_mxaFI_xoxF'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2991, 1413, 3311, 1733)
         else:
@@ -1220,15 +1220,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Mixed_acid:_acetate_pyruvate_to_acetate.png")
+            "Figure_tmp/Fermentation_to_acetate_pyruvate_to_acetate_poxB_poxL_acyP.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_acetate_pyruvate_to_acetate'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_acetate_pyruvate_to_acetate_poxB_poxL_acyP'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (3147, 2681, 3627, 3161)
-        elif carbon_cycle_dir['Mixed_acid:_acetate_pyruvate_to_acetate'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_acetate_pyruvate_to_acetate_poxB_poxL_acyP'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (3205, 2753, 3605, 3153)
-        elif carbon_cycle_dir['Mixed_acid:_acetate_pyruvate_to_acetate'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_acetate_pyruvate_to_acetate_poxB_poxL_acyP'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (3246, 2830, 3566, 3150)
         else:
@@ -1243,15 +1243,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Mixed_acid:_acetate_acetyl-CoA_to_acetate.png")
+            "Figure_tmp/Fermentation_to_acetate_acetyl-CoA_to_acetate_ach1_eutD_pta_acyP.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_acetate_acetyl-CoA_to_acetate'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_acetate_acetyl-CoA_to_acetate_ach1_eutD_pta_acyP'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (3585, 3787, 4065, 4267)
-        elif carbon_cycle_dir['Mixed_acid:_acetate_acetyl-CoA_to_acetate'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_acetate_acetyl-CoA_to_acetate_ach1_eutD_pta_acyP'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (3600, 3797, 4000, 4197)
-        elif carbon_cycle_dir['Mixed_acid:_acetate_acetyl-CoA_to_acetate'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_acetate_acetyl-CoA_to_acetate_ach1_eutD_pta_acyP'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (3614, 3827, 3934, 4147)
         else:
@@ -1266,15 +1266,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Mixed_acid:_acetate_lactate_to_acetate.png")
+            "Figure_tmp/Fermentation_to_acetate_lactate_to_acetate_EC:1.13.12.4.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_acetate_lactate_to_acetate'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_acetate_lactate_to_acetate_EC:1.13.12.4'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (4684, 2513, 5164, 2993)
-        elif carbon_cycle_dir['Mixed_acid:_acetate_lactate_to_acetate'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_acetate_lactate_to_acetate_EC:1.13.12.4'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (4745, 2533, 5145, 2933)
-        elif carbon_cycle_dir['Mixed_acid:_acetate_lactate_to_acetate'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_acetate_lactate_to_acetate_EC:1.13.12.4'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (4846, 2577, 5166, 2897)
         else:
@@ -1289,15 +1289,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Mixed_acid:_lactate_pyruvate_to_lactate.png")
+            "Figure_tmp/Fermentation_to_lactate_pyruvate_to_lactate_LDH.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_lactate_pyruvate_to_lactate'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_lactate_pyruvate_to_lactate_LDH'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (1533, 2488, 2013, 2968)
-        elif carbon_cycle_dir['Mixed_acid:_lactate_pyruvate_to_lactate'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_lactate_pyruvate_to_lactate_LDH'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (1551, 2510, 1951, 2910)
-        elif carbon_cycle_dir['Mixed_acid:_lactate_pyruvate_to_lactate'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_lactate_pyruvate_to_lactate_LDH'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (1574, 2518, 1894, 2838)
         else:
@@ -1312,15 +1312,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Mixed_acid:_formate_pyruvate_to_formate.png")
+            "Figure_tmp/Fermentation_to_formate_pyruvate_to_formate_pf1D.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_formate_pyruvate_to_formate'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_formate_pyruvate_to_formate_pf1D'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (1518, 3305, 1998, 3785)
-        elif carbon_cycle_dir['Mixed_acid:_formate_pyruvate_to_formate'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_formate_pyruvate_to_formate_pf1D'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (1518, 3361, 1918, 3761)
-        elif carbon_cycle_dir['Mixed_acid:_formate_pyruvate_to_formate'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_formate_pyruvate_to_formate_pf1D'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (1522, 3387, 1842, 3707)
         else:
@@ -1334,15 +1334,15 @@ def sketch(abundance_table):
     
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
-        pathway_fig = Image.open("Figure_tmp/Mixed_acid:_Formate_to_CO2_H2.png")
+        pathway_fig = Image.open("Figure_tmp/Fermentation_to_formate_to_CO2_H2_fdh.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_Formate_to_CO2_H2'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_formate_to_CO2_H2_fdh'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (1898, 3570, 2378, 4050)
-        elif carbon_cycle_dir['Mixed_acid:_Formate_to_CO2_H2'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_formate_to_CO2_H2_fdh'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (1951, 3633, 2351, 4033)
-        elif carbon_cycle_dir['Mixed_acid:_Formate_to_CO2_H2'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_formate_to_CO2_H2_fdh'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2000, 3711, 2320, 4031)
         else:
@@ -1357,15 +1357,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Mixed_acid:_ethanol_acetate_to_acetylaldehyde.png")
+            "Figure_tmp/Fermentation_to_ethanol_acetate_to_acetylaldehyde_ald.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_ethanol_acetate_to_acetylaldehyde'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_ethanol_acetate_to_acetylaldehyde_ald'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (5613, 3660, 6093, 4140)
-        elif carbon_cycle_dir['Mixed_acid:_ethanol_acetate_to_acetylaldehyde'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_ethanol_acetate_to_acetylaldehyde_ald'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (5626, 3639, 6026, 4039)
-        elif carbon_cycle_dir['Mixed_acid:_ethanol_acetate_to_acetylaldehyde'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_ethanol_acetate_to_acetylaldehyde_ald'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (5626, 3700, 5946, 4020)
         else:
@@ -1380,15 +1380,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Mixed_acid:_ethanol_acetyl-CoA_to_acetylaldehyde_reversible.png")
+            "Figure_tmp/Fermentation_to_ethanol_acetyl-CoA_to_acetylaldehyde_reversible.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_ethanol_acetyl-CoA_to_acetylaldehyde_reversible'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_ethanol_acetyl-CoA_to_acetylaldehyde_reversible'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (4440, 4915, 4920, 5395)
-        elif carbon_cycle_dir['Mixed_acid:_ethanol_acetyl-CoA_to_acetylaldehyde_reversible'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_ethanol_acetyl-CoA_to_acetylaldehyde_reversible'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (4563, 4989, 4963, 5389)
-        elif carbon_cycle_dir['Mixed_acid:_ethanol_acetyl-CoA_to_acetylaldehyde_reversible'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_ethanol_acetyl-CoA_to_acetylaldehyde_reversible'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (4616, 5058, 4936, 5378)
         else:
@@ -1403,15 +1403,15 @@ def sketch(abundance_table):
     carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Mixed_acid:_ethanol_acetylaldehyde_to_ethanol.png")
+            "Figure_tmp/Fermentation_to_ethanol_acetylaldehyde_to_ethanol_adh_mdh.png")
         position = ()
-        if carbon_cycle_dir['Mixed_acid:_ethanol_acetylaldehyde_to_ethanol'] >= three_quarter_carbon:
+        if carbon_cycle_dir['Fermentation_to_ethanol_acetylaldehyde_to_ethanol_adh_mdh'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (4678, 4250, 5158, 4730)
-        elif carbon_cycle_dir['Mixed_acid:_ethanol_acetylaldehyde_to_ethanol'] >= two_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_ethanol_acetylaldehyde_to_ethanol_adh_mdh'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (4710, 4316, 5110, 4716)
-        elif carbon_cycle_dir['Mixed_acid:_ethanol_acetylaldehyde_to_ethanol'] >= one_quarter_carbon:
+        elif carbon_cycle_dir['Fermentation_to_ethanol_acetylaldehyde_to_ethanol_adh_mdh'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (4756, 4390, 5076, 4710)
         else:

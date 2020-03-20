@@ -20,7 +20,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Photosystem II'] = (
+        self.out_data['Photosystem II (psbABCDEF)'] = (
             self.abundance[self.bn+'_K02703'] +
             self.abundance[self.bn+'_K02704'] +
             self.abundance[self.bn+'_K02705'] +
@@ -35,7 +35,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Photosystem I'] = (
+        self.out_data['Photosystem I (psaABCDEF)'] = (
             self.abundance[self.bn+'_K02689'] +
             self.abundance[self.bn+'_K02690'] +
             self.abundance[self.bn+'_K02691'] +
@@ -51,7 +51,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Cytochrome b6/f complex'] = (
+        self.out_data['Cytochrome b6/f complex (petABCDGLMN)'] = (
             self.abundance[self.bn+'_K02635'] +
             self.abundance[self.bn+'_K02637'] +
             self.abundance[self.bn+'_K02634'] +
@@ -89,45 +89,52 @@ class Pathway:
                 self.abundance[ko] = 0
         self.out_data['RuBisCo'] = self.abundance[self.bn+'_K01601']
 
+    #def CBB_Cycle(self):
+        #ko_list = [self.bn+'_K00855', self.bn+'_K01601', self.bn+'_K00927',
+                   #self.bn+'_K05298', self.bn+'_K00150', self.bn+'_K00134',
+                   #self.bn+'_K01623', self.bn+'_K01624', self.bn+'_K03841',
+                   #self.bn+'_K02446', self.bn+'_K11532', self.bn+'_K01086',
+                   #self.bn+'_K04041', self.bn+'_K00615', self.bn+'_K01100',
+                   #self.bn+'_K01807', self.bn+'_K01808']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['CBB cycle'] = (
+          #self.abundance[self.bn+'_K00855'] +
+          #self.abundance[self.bn+'_K01601'] +
+          #self.abundance[self.bn+'_K00927'] +
+          #self.abundance[self.bn+'_K05298'] +
+          #self.abundance[self.bn+'_K00150'] +
+          #self.abundance[self.bn+'_K00134'] +
+          #self.abundance[self.bn+'_K01623'] +
+          #self.abundance[self.bn+'_K01624'] +
+          #self.abundance[self.bn+'_K03841'] +
+          #self.abundance[self.bn+'_K02446'] +
+          #self.abundance[self.bn+'_K11532'] +
+          #self.abundance[self.bn+'_K01086'] +
+          #self.abundance[self.bn+'_K04041'] +
+          #self.abundance[self.bn+'_K00615'] +
+          #self.abundance[self.bn+'_K01623'] +
+          #self.abundance[self.bn+'_K01624'] +
+          #self.abundance[self.bn+'_K01100'] +
+          #self.abundance[self.bn+'_K11532'] +
+          #self.abundance[self.bn+'_K01086'] +
+          #self.abundance[self.bn+'_K00615'] +
+          #self.abundance[self.bn+'_K01623'] +
+          #self.abundance[self.bn+'_K01624'] +
+          #self.abundance[self.bn+'_K01100'] +
+          #self.abundance[self.bn+'_K11532'] +
+          #self.abundance[self.bn+'_K01086'] +
+          #self.abundance[self.bn+'_K00615'] +
+          #self.abundance[self.bn+'_K01807'] +
+          #self.abundance[self.bn+'_K01808'])/11
+
     def CBB_Cycle(self):
-        ko_list = [self.bn+'_K00855', self.bn+'_K01601', self.bn+'_K00927',
-                   self.bn+'_K05298', self.bn+'_K00150', self.bn+'_K00134',
-                   self.bn+'_K01623', self.bn+'_K01624', self.bn+'_K03841',
-                   self.bn+'_K02446', self.bn+'_K11532', self.bn+'_K01086',
-                   self.bn+'_K04041', self.bn+'_K00615', self.bn+'_K01100',
-                   self.bn+'_K01807', self.bn+'_K01808']
+        ko_list = [self.bn+'_K00855']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['CBB cycle'] = (
-          self.abundance[self.bn+'_K00855'] +
-          self.abundance[self.bn+'_K01601'] +
-          self.abundance[self.bn+'_K00927'] +
-          self.abundance[self.bn+'_K05298'] +
-          self.abundance[self.bn+'_K00150'] +
-          self.abundance[self.bn+'_K00134'] +
-          self.abundance[self.bn+'_K01623'] +
-          self.abundance[self.bn+'_K01624'] +
-          self.abundance[self.bn+'_K03841'] +
-          self.abundance[self.bn+'_K02446'] +
-          self.abundance[self.bn+'_K11532'] +
-          self.abundance[self.bn+'_K01086'] +
-          self.abundance[self.bn+'_K04041'] +
-          self.abundance[self.bn+'_K00615'] +
-          self.abundance[self.bn+'_K01623'] +
-          self.abundance[self.bn+'_K01624'] +
-          self.abundance[self.bn+'_K01100'] +
-          self.abundance[self.bn+'_K11532'] +
-          self.abundance[self.bn+'_K01086'] +
-          self.abundance[self.bn+'_K00615'] +
-          self.abundance[self.bn+'_K01623'] +
-          self.abundance[self.bn+'_K01624'] +
-          self.abundance[self.bn+'_K01100'] +
-          self.abundance[self.bn+'_K11532'] +
-          self.abundance[self.bn+'_K01086'] +
-          self.abundance[self.bn+'_K00615'] +
-          self.abundance[self.bn+'_K01807'] +
-          self.abundance[self.bn+'_K01808'])/11
+        self.out_data['CBB cycle (prkB)'] = self.abundance[self.bn+'_K00855']
 
     def rTCA_Cycle(self):
         ko_list = [self.bn+'_K15230', self.bn+'_K15231',
@@ -136,105 +143,134 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['rTCA cycle'] = (
+        self.out_data['rTCA cycle (aclAB, ccsAB, ccl)'] = (
             (self.abundance[self.bn+'_K15230'] +
              self.abundance[self.bn+'_K15231'])/2 +
             ((self.abundance[self.bn+'_K15232'] +
               self.abundance[self.bn+'_K15233'])/2 +
              self.abundance[self.bn+'_K15234'])/2)
 
+    #def Wood_Ljungdahl(self):
+        #ko_list = [self.bn+'_K00198', self.bn+'_K05299', self.bn+'_K01938',
+                   #self.bn+'_K01491', self.bn+'_K00297', self.bn+'_K15023',
+                   #self.bn+'_K14138', self.bn+'_K00197', self.bn+'_K00194']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Wood-Ljungdahl'] = (
+          #self.abundance[self.bn+'_K00198'] +
+          #self.abundance[self.bn+'_K05299'] +
+          #self.abundance[self.bn+'_K01938'] +
+          #self.abundance[self.bn+'_K01491'] +
+          #self.abundance[self.bn+'_K00297'] +
+          #self.abundance[self.bn+'_K15023'] +
+          #(self.abundance[self.bn+'_K14138'] +
+           #self.abundance[self.bn+'_K00197'] +
+           #self.abundance[self.bn+'_K00194'])/3)/7
+
     def Wood_Ljungdahl(self):
-        ko_list = [self.bn+'_K00198', self.bn+'_K05299', self.bn+'_K01938',
-                   self.bn+'_K01491', self.bn+'_K00297', self.bn+'_K15023',
-                   self.bn+'_K14138', self.bn+'_K00197', self.bn+'_K00194']
+        ko_list = [self.bn+'_K00198', self.bn+'_K14138',
+                   self.bn+'_K00197', self.bn+'_K00194',
+                   self.bn+'_K15023']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Wood-Ljungdahl'] = (
-          self.abundance[self.bn+'_K00198'] +
-          self.abundance[self.bn+'_K05299'] +
-          self.abundance[self.bn+'_K01938'] +
-          self.abundance[self.bn+'_K01491'] +
-          self.abundance[self.bn+'_K00297'] +
-          self.abundance[self.bn+'_K15023'] +
-          (self.abundance[self.bn+'_K14138'] +
-           self.abundance[self.bn+'_K00197'] +
-           self.abundance[self.bn+'_K00194'])/3)/7
+        self.out_data['Wood-Ljungdahl pathway (acsABCDE)'] = (
+            self.abundance[self.bn+'_K00198'] +
+            self.abundance[self.bn+'_K14138'] +
+            self.abundance[self.bn+'_K00197'] +
+            self.abundance[self.bn+'_K00194'] +
+            self.abundance[self.bn+'_K15023'])/5
+
+    #def three_Hydroxypropionate_Bicycle(self):
+        #ko_list = [self.bn+'_K02160', self.bn+'_K01961', self.bn+'_K01962',
+                   #self.bn+'_K01963', self.bn+'_K14468', self.bn+'_K14469',
+                   #self.bn+'_K08691', self.bn+'_K14449', self.bn+'_K14470',
+                   #self.bn+'_K09709', self.bn+'_K15052', self.bn+'_K05606',
+                   #self.bn+'_K01847', self.bn+'_K01848', self.bn+'_K01849',
+                   #self.bn+'_K14471', self.bn+'_K14472', self.bn+'_K00239',
+                   #self.bn+'_K00240', self.bn+'_K00241', self.bn+'_K01679']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['3-Hydroxypropionate Bicycle'] = (
+          #(self.abundance[self.bn+'_K02160'] +
+           #self.abundance[self.bn+'_K01961'] +
+           #self.abundance[self.bn+'_K01962'] +
+           #self.abundance[self.bn+'_K01963'])/4 +
+          #self.abundance[self.bn+'_K14468'] +
+          #self.abundance[self.bn+'_K14469'] +
+          #self.abundance[self.bn+'_K08691'] +
+          #self.abundance[self.bn+'_K14449'] +
+          #self.abundance[self.bn+'_K14470'] +
+          #self.abundance[self.bn+'_K09709'] +
+          #self.abundance[self.bn+'_K08691'] +
+          #self.abundance[self.bn+'_K15052'] +
+          #self.abundance[self.bn+'_K05606'] +
+          #self.abundance[self.bn+'_K01847'] +
+          #(self.abundance[self.bn+'_K01848'] +
+           #self.abundance[self.bn+'_K01849'])/2 +
+          #(self.abundance[self.bn+'_K14471'] +
+           #self.abundance[self.bn+'_K14472'])/2 +
+          #(self.abundance[self.bn+'_K00239'] +
+           #self.abundance[self.bn+'_K00240'] +
+           #self.abundance[self.bn+'_K00241'])/3 +
+          #self.abundance[self.bn+'_K01679'] +
+          #(self.abundance[self.bn+'_K14471'] +
+           #self.abundance[self.bn+'_K14472'])/2 +
+          #self.abundance[self.bn+'_K08691'])/16
 
     def three_Hydroxypropionate_Bicycle(self):
-        ko_list = [self.bn+'_K02160', self.bn+'_K01961', self.bn+'_K01962',
-                   self.bn+'_K01963', self.bn+'_K14468', self.bn+'_K14469',
-                   self.bn+'_K08691', self.bn+'_K14449', self.bn+'_K14470',
-                   self.bn+'_K09709', self.bn+'_K15052', self.bn+'_K05606',
-                   self.bn+'_K01847', self.bn+'_K01848', self.bn+'_K01849',
-                   self.bn+'_K14471', self.bn+'_K14472', self.bn+'_K00239',
-                   self.bn+'_K00240', self.bn+'_K00241', self.bn+'_K01679']
+        ko_list = [self.bn+'_K14468', self.bn+'_K15052',
+                   self.bn+'_K08691', self.bn+'_K14469',
+                   self.bn+'_K14470', self.bn+'_K09709']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
         self.out_data['3-Hydroxypropionate Bicycle'] = (
-          (self.abundance[self.bn+'_K02160'] +
-           self.abundance[self.bn+'_K01961'] +
-           self.abundance[self.bn+'_K01962'] +
-           self.abundance[self.bn+'_K01963'])/4 +
-          self.abundance[self.bn+'_K14468'] +
-          self.abundance[self.bn+'_K14469'] +
-          self.abundance[self.bn+'_K08691'] +
-          self.abundance[self.bn+'_K14449'] +
-          self.abundance[self.bn+'_K14470'] +
-          self.abundance[self.bn+'_K09709'] +
-          self.abundance[self.bn+'_K08691'] +
-          self.abundance[self.bn+'_K15052'] +
-          self.abundance[self.bn+'_K05606'] +
-          self.abundance[self.bn+'_K01847'] +
-          (self.abundance[self.bn+'_K01848'] +
-           self.abundance[self.bn+'_K01849'])/2 +
-          (self.abundance[self.bn+'_K14471'] +
-           self.abundance[self.bn+'_K14472'])/2 +
-          (self.abundance[self.bn+'_K00239'] +
-           self.abundance[self.bn+'_K00240'] +
-           self.abundance[self.bn+'_K00241'])/3 +
-          self.abundance[self.bn+'_K01679'] +
-          (self.abundance[self.bn+'_K14471'] +
-           self.abundance[self.bn+'_K14472'])/2 +
-          self.abundance[self.bn+'_K08691'])/16
+            self.abundance[self.bn+'_K14468'] +
+            self.abundance[self.bn+'_K15052'] +
+            self.abundance[self.bn+'_K08691'] +
+            self.abundance[self.bn+'_K14469'] +
+            self.abundance[self.bn+'_K14470'] +
+            self.abundance[self.bn+'_K09709'])/6
 
-    def Dicarboxylate_hydroxybutyrate_cycle(self):
-        ko_list = [self.bn+'_K00169', self.bn+'_K00170', self.bn+'_K00171',
-                   self.bn+'_K00172', self.bn+'_K01007', self.bn+'_K01595',
-                   self.bn+'_K00024', self.bn+'_K01676', self.bn+'_K01677',
-                   self.bn+'_K01678', self.bn+'_K00239', self.bn+'_K00240',
-                   self.bn+'_K01902', self.bn+'_K01903', self.bn+'_K15038',
-                   self.bn+'_K15017', self.bn+'_K14465', self.bn+'_K14467',
-                   self.bn+'_K18861', self.bn+'_K14534', self.bn+'_K15016',
-                   self.bn+'_K00626']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Dicarboxylate-hydroxybutyrate cycle'] = (
-          (self.abundance[self.bn+'_K00169'] +
-           self.abundance[self.bn+'_K00170'] +
-           self.abundance[self.bn+'_K00171'] +
-           self.abundance[self.bn+'_K00172'])/4 +
-          self.abundance[self.bn+'_K01007'] +
-          self.abundance[self.bn+'_K01595'] +
-          self.abundance[self.bn+'_K00024'] +
-          self.abundance[self.bn+'_K01676'] +
-          (self.abundance[self.bn+'_K01677'] +
-           self.abundance[self.bn+'_K01678'])/2 +
-          (self.abundance[self.bn+'_K00239'] +
-           self.abundance[self.bn+'_K00240'])/2 +
-          (self.abundance[self.bn+'_K01902'] +
-           self.abundance[self.bn+'_K01903'])/2 +
-          self.abundance[self.bn+'_K15038'] +
-          self.abundance[self.bn+'_K15017'] +
-          self.abundance[self.bn+'_K14465'] +
-          self.abundance[self.bn+'_K14467'] +
-          self.abundance[self.bn+'_K18861'] +
-          self.abundance[self.bn+'_K14534'] +
-          self.abundance[self.bn+'_K15016'] +
-          self.abundance[self.bn+'_K15016'] +
-          self.abundance[self.bn+'_K00626'])/14
+    #def Dicarboxylate_hydroxybutyrate_cycle(self):
+        #ko_list = [self.bn+'_K00169', self.bn+'_K00170', self.bn+'_K00171',
+                   #self.bn+'_K00172', self.bn+'_K01007', self.bn+'_K01595',
+                   #self.bn+'_K00024', self.bn+'_K01676', self.bn+'_K01677',
+                   #self.bn+'_K01678', self.bn+'_K00239', self.bn+'_K00240',
+                   #self.bn+'_K01902', self.bn+'_K01903', self.bn+'_K15038',
+                   #self.bn+'_K15017', self.bn+'_K14465', self.bn+'_K14467',
+                   #self.bn+'_K18861', self.bn+'_K14534', self.bn+'_K15016',
+                   #self.bn+'_K00626']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Dicarboxylate-hydroxybutyrate cycle'] = (
+          #(self.abundance[self.bn+'_K00169'] +
+           #self.abundance[self.bn+'_K00170'] +
+           #self.abundance[self.bn+'_K00171'] +
+           #self.abundance[self.bn+'_K00172'])/4 +
+          #self.abundance[self.bn+'_K01007'] +
+          #self.abundance[self.bn+'_K01595'] +
+          #self.abundance[self.bn+'_K00024'] +
+          #self.abundance[self.bn+'_K01676'] +
+          #(self.abundance[self.bn+'_K01677'] +
+           #self.abundance[self.bn+'_K01678'])/2 +
+          #(self.abundance[self.bn+'_K00239'] +
+           #self.abundance[self.bn+'_K00240'])/2 +
+          #(self.abundance[self.bn+'_K01902'] +
+           #self.abundance[self.bn+'_K01903'])/2 +
+          #self.abundance[self.bn+'_K15038'] +
+          #self.abundance[self.bn+'_K15017'] +
+          #self.abundance[self.bn+'_K14465'] +
+          #self.abundance[self.bn+'_K14467'] +
+          #self.abundance[self.bn+'_K18861'] +
+          #self.abundance[self.bn+'_K14534'] +
+          #self.abundance[self.bn+'_K15016'] +
+          #self.abundance[self.bn+'_K15016'] +
+          #self.abundance[self.bn+'_K00626'])/14
 
     #def pectinesterase(self):
         #ko_list = [self.bn+'_K01051']
@@ -349,55 +385,77 @@ class Pathway:
                 #self.abundance[ko] = 0
         #self.out_data['Pullulanase'] = self.abundance[self.bn+'_K01200']
 
+    #def glycolysis(self):
+        #ko_list = [self.bn+'_K00844', self.bn+'_K12407', self.bn+'_K00845',
+                   #self.bn+'_K00886', self.bn+'_K08074', self.bn+'_K01810',
+                   #self.bn+'_K06859', self.bn+'_K13810', self.bn+'_K12406',
+                   #self.bn+'_K15916', self.bn+'_K00850', self.bn+'_K16370',
+                   #self.bn+'_K00918', self.bn+'_K01623', self.bn+'_K01689',
+                   #self.bn+'_K11645', self.bn+'_K16305', self.bn+'_K16306',
+                   #self.bn+'_K00873', self.bn+'_K01624', self.bn+'_K15635',
+                   #self.bn+'_K16305', self.bn+'_K01803', self.bn+'_K11389',
+                   #self.bn+'_K00134', self.bn+'_K15633', self.bn+'_K00927',
+                   #self.bn+'_K01834', self.bn+'_K15634']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Glycolysis'] = (self.abundance[self.bn+'_K00844'] +
+                                  #self.abundance[self.bn+'_K12407'] +
+                                  #self.abundance[self.bn+'_K00845'] +
+                                  #self.abundance[self.bn+'_K00886'] +
+                                  #self.abundance[self.bn+'_K08074'] +
+                                  #self.abundance[self.bn+'_K00918'] +
+                                  #self.abundance[self.bn+'_K01810'] +
+                                  #self.abundance[self.bn+'_K06859'] +
+                                  #self.abundance[self.bn+'_K13810'] +
+                                  #self.abundance[self.bn+'_K15916'] +
+                                  #self.abundance[self.bn+'_K00850'] +
+                                  #self.abundance[self.bn+'_K16370'] +
+                                  #self.abundance[self.bn+'_K00918'] +
+                                  #(self.abundance[self.bn+'_K01623'] +
+                                   #self.abundance[self.bn+'_K01624'] +
+                                   #self.abundance[self.bn+'_K11645'] +
+                                   #self.abundance[self.bn+'_K16305'] +
+                                   #self.abundance[self.bn+'_K16306']) +
+                                  #(self.abundance[self.bn+'_K01623'] +
+                                   #self.abundance[self.bn+'_K01624'] +
+                                   #self.abundance[self.bn+'_K11645'] +
+                                   #self.abundance[self.bn+'_K16305'] +
+                                   #self.abundance[self.bn+'_K16306'] +
+                                   #self.abundance[self.bn+'_K01803'])/2 +
+                                  #self.abundance[self.bn+'_K11389'] +
+                                  #(self.abundance[self.bn+'_K00134'] +
+                                   #self.abundance[self.bn+'_K15633'] +
+                                   #self.abundance[self.bn+'_K00927'])/2 +
+                                  #self.abundance[self.bn+'_K01834'] +
+                                  #self.abundance[self.bn+'_K15633'] +
+                                  #self.abundance[self.bn+'_K15634'] +
+                                  #self.abundance[self.bn+'_K15635'] +
+                                  #self.abundance[self.bn+'_K01689'] +
+                                  #self.abundance[self.bn+'_K00873'] +
+                                  #self.abundance[self.bn+'_K12406'])/8
     def glycolysis(self):
-        ko_list = [self.bn+'_K00844', self.bn+'_K12407', self.bn+'_K00845',
-                   self.bn+'_K00886', self.bn+'_K08074', self.bn+'_K01810',
-                   self.bn+'_K06859', self.bn+'_K13810', self.bn+'_K12406',
-                   self.bn+'_K15916', self.bn+'_K00850', self.bn+'_K16370',
-                   self.bn+'_K00918', self.bn+'_K01623', self.bn+'_K01689',
-                   self.bn+'_K11645', self.bn+'_K16305', self.bn+'_K16306',
-                   self.bn+'_K00873', self.bn+'_K01624', self.bn+'_K15635',
-                   self.bn+'_K16305', self.bn+'_K01803', self.bn+'_K11389',
-                   self.bn+'_K00134', self.bn+'_K15633', self.bn+'_K00927',
-                   self.bn+'_K01834', self.bn+'_K15634']
+        ko_list = [self.bn+'_K00845', self.bn+'_K00844', self.bn+'_K00918',
+                   self.bn+'_K00886', self.bn+'_K08074', self.bn+'_K00846',
+                   self.bn+'_K00882', self.bn+'_K00918', self.bn+'_K00895',
+                   self.bn+'_K21071', self.bn+'_K00850', self.bn+'_K16370',
+                   self.bn+'_K00873']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Glycolysis'] = (self.abundance[self.bn+'_K00844'] +
-                                  self.abundance[self.bn+'_K12407'] +
-                                  self.abundance[self.bn+'_K00845'] +
+        self.out_data['Glycolysis (glk, pfk, pyk)'] = (self.abundance[self.bn+'_K00845'] +
+                                  self.abundance[self.bn+'_K00844'] +
+                                  self.abundance[self.bn+'_K00918'] +
                                   self.abundance[self.bn+'_K00886'] +
                                   self.abundance[self.bn+'_K08074'] +
+                                  self.abundance[self.bn+'_K00846'] +
+                                  self.abundance[self.bn+'_K00882'] +
                                   self.abundance[self.bn+'_K00918'] +
-                                  self.abundance[self.bn+'_K01810'] +
-                                  self.abundance[self.bn+'_K06859'] +
-                                  self.abundance[self.bn+'_K13810'] +
-                                  self.abundance[self.bn+'_K15916'] +
+                                  self.abundance[self.bn+'_K00895'] +
+                                  self.abundance[self.bn+'_K21071'] +
                                   self.abundance[self.bn+'_K00850'] +
                                   self.abundance[self.bn+'_K16370'] +
-                                  self.abundance[self.bn+'_K00918'] +
-                                  (self.abundance[self.bn+'_K01623'] +
-                                   self.abundance[self.bn+'_K01624'] +
-                                   self.abundance[self.bn+'_K11645'] +
-                                   self.abundance[self.bn+'_K16305'] +
-                                   self.abundance[self.bn+'_K16306']) +
-                                  (self.abundance[self.bn+'_K01623'] +
-                                   self.abundance[self.bn+'_K01624'] +
-                                   self.abundance[self.bn+'_K11645'] +
-                                   self.abundance[self.bn+'_K16305'] +
-                                   self.abundance[self.bn+'_K16306'] +
-                                   self.abundance[self.bn+'_K01803'])/2 +
-                                  self.abundance[self.bn+'_K11389'] +
-                                  (self.abundance[self.bn+'_K00134'] +
-                                   self.abundance[self.bn+'_K15633'] +
-                                   self.abundance[self.bn+'_K00927'])/2 +
-                                  self.abundance[self.bn+'_K01834'] +
-                                  self.abundance[self.bn+'_K15633'] +
-                                  self.abundance[self.bn+'_K15634'] +
-                                  self.abundance[self.bn+'_K15635'] +
-                                  self.abundance[self.bn+'_K01689'] +
-                                  self.abundance[self.bn+'_K00873'] +
-                                  self.abundance[self.bn+'_K12406'])/8
+                                  self.abundance[self.bn+'_K00873'])/3
 
     def Entner_Doudoroff_Pathway(self):
         ko_list = [self.bn+'_K00036', self.bn+'_K01057',
@@ -413,40 +471,59 @@ class Pathway:
             self.abundance[self.bn+'_K01690'] +
             self.abundance[self.bn+'_K01625'])/4
 
+    #def gluconeogenesis(self):
+        #ko_list = [self.bn+'_K01596', self.bn+'_K01610', self.bn+'_K01689',
+                   #self.bn+'_K01834', self.bn+'_K15633', self.bn+'_K15634',
+                   #self.bn+'_K15635', self.bn+'_K00927', self.bn+'_K00134',
+                   #self.bn+'_K00150', self.bn+'_K01803', self.bn+'_K11645',
+                   #self.bn+'_K01623', self.bn+'_K01624', self.bn+'_K01622',
+                   #self.bn+'_K03841', self.bn+'_K02446', self.bn+'_K11532',
+                   #self.bn+'_K01086', self.bn+'_K04041']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Gluconeogenesis, oxaloacetate -> fructose-6P'] = (self.abundance[self.bn+'_K01596'] +
+                                       #self.abundance[self.bn+'_K01610'] +
+                                       #self.abundance[self.bn+'_K01689'] +
+                                       #self.abundance[self.bn+'_K01834'] +
+                                       #self.abundance[self.bn+'_K15633'] +
+                                       #self.abundance[self.bn+'_K15634'] +
+                                       #self.abundance[self.bn+'_K15635'] +
+                                       #self.abundance[self.bn+'_K00927'] +
+                                       #self.abundance[self.bn+'_K00134'] +
+                                       #self.abundance[self.bn+'_K00150'] +
+                                       #(self.abundance[self.bn+'_K01803'] +
+                                        #self.abundance[self.bn+'_K01623'] +
+                                        #self.abundance[self.bn+'_K01624'] +
+                                        #self.abundance[self.bn+'_K11645'])/2 +
+                                       #self.abundance[self.bn+'_K01623'] +
+                                       #self.abundance[self.bn+'_K01624'] +
+                                       #self.abundance[self.bn+'_K11645'] +
+                                       #self.abundance[self.bn+'_K01622'] +
+                                       #self.abundance[self.bn+'_K03841'] +
+                                       #self.abundance[self.bn+'_K02446'] +
+                                       #self.abundance[self.bn+'_K11532'] +
+                                       #self.abundance[self.bn+'_K01086'] +
+                                       #self.abundance[self.bn+'_K04041'])/7
+
     def gluconeogenesis(self):
-        ko_list = [self.bn+'_K01596', self.bn+'_K01610', self.bn+'_K01689',
-                   self.bn+'_K01834', self.bn+'_K15633', self.bn+'_K15634',
-                   self.bn+'_K15635', self.bn+'_K00927', self.bn+'_K00134',
-                   self.bn+'_K00150', self.bn+'_K01803', self.bn+'_K11645',
-                   self.bn+'_K01623', self.bn+'_K01624', self.bn+'_K01622',
-                   self.bn+'_K03841', self.bn+'_K02446', self.bn+'_K11532',
-                   self.bn+'_K01086', self.bn+'_K04041']
+        ko_list = [self.bn+'_K03841', self.bn+'_K02446',
+                   self.bn+'_K04041', self.bn+'_K01622',
+                   self.bn+'_K00895', self.bn+'_K21071',
+                   self.bn+'_K01610', self.bn+'_K01596']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Gluconeogenesis, oxaloacetate -> fructose-6P'] = (self.abundance[self.bn+'_K01596'] +
-                                       self.abundance[self.bn+'_K01610'] +
-                                       self.abundance[self.bn+'_K01689'] +
-                                       self.abundance[self.bn+'_K01834'] +
-                                       self.abundance[self.bn+'_K15633'] +
-                                       self.abundance[self.bn+'_K15634'] +
-                                       self.abundance[self.bn+'_K15635'] +
-                                       self.abundance[self.bn+'_K00927'] +
-                                       self.abundance[self.bn+'_K00134'] +
-                                       self.abundance[self.bn+'_K00150'] +
-                                       (self.abundance[self.bn+'_K01803'] +
-                                        self.abundance[self.bn+'_K01623'] +
-                                        self.abundance[self.bn+'_K01624'] +
-                                        self.abundance[self.bn+'_K11645'])/2 +
-                                       self.abundance[self.bn+'_K01623'] +
-                                       self.abundance[self.bn+'_K01624'] +
-                                       self.abundance[self.bn+'_K11645'] +
-                                       self.abundance[self.bn+'_K01622'] +
-                                       self.abundance[self.bn+'_K03841'] +
-                                       self.abundance[self.bn+'_K02446'] +
-                                       self.abundance[self.bn+'_K11532'] +
-                                       self.abundance[self.bn+'_K01086'] +
-                                       self.abundance[self.bn+'_K04041'])/7
+        self.out_data['Gluconeogenesis (fbp, pck)'] = (
+            self.abundance[self.bn+'_K03841'] +
+            self.abundance[self.bn+'_K02446'] +
+            self.abundance[self.bn+'_K04041'] +
+            self.abundance[self.bn+'_K01622'] +
+            self.abundance[self.bn+'_K00895'] +
+            self.abundance[self.bn+'_K21071'] +
+            self.abundance[self.bn+'_K01610'] +
+            self.abundance[self.bn+'_K01596'])/2
+
 
     def tca_cycle(self):
         ko_list = [self.bn+'_K01647', self.bn+'_K05942', self.bn+'_K01681',
@@ -500,90 +577,121 @@ class Pathway:
             self.abundance[self.bn+'_K00024'] +
             self.abundance[self.bn+'_K00116'])/8
 
+    def Methanogenesis(self):
+        ko_list = [self.bn+'_K00399', self.bn+'_K00401',
+                   self.bn+'_K00402']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['Methanogenesis (mcrABG)'] = (
+            self.abundance[self.bn+'_K00399'] +
+            self.abundance[self.bn+'_K00401'] +
+            self.abundance[self.bn+'_K00402'])/3
+
     def Methanogenesis_via_methanol(self):
         ko_list = [self.bn+'_K04480', self.bn+'_K14080',
-                   self.bn+'_K14081', self.bn+'_K00399',
-                   self.bn+'_K00401', self.bn+'_K00402']
+                   self.bn+'_K14081']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methanogenesis, methanol -> methane'] = (
-            (self.abundance[self.bn+'_K04480'] +
-             self.abundance[self.bn+'_K14080'] +
-             self.abundance[self.bn+'_K14081'])/3 +
-            (self.abundance[self.bn+'_K00399'] +
-             self.abundance[self.bn+'_K00401'] +
-             self.abundance[self.bn+'_K00402'])/3)/2
+        self.out_data['Methanogenesis, methanol -> methane (mtaABC)'] = (
+            self.abundance[self.bn+'_K04480'] +
+            self.abundance[self.bn+'_K14080'] +
+            self.abundance[self.bn+'_K14081'])/3
 
-    def Methanogenesis_via_methylamine(self):
-        ko_list = [self.bn+'_K14082', self.bn+'_K16177',
-                   self.bn+'_K00399', self.bn+'_K00401',
-                   self.bn+'_K00402']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Methanogenesis, methylamine -> methane'] = (
-          (self.abundance[self.bn+'_K14082'] +
-           self.abundance[self.bn+'_K16177'])/2 +
-          (self.abundance[self.bn+'_K00399'] +
-           self.abundance[self.bn+'_K00401'] +
-           self.abundance[self.bn+'_K00402'])/3)/2
+    #def Methanogenesis_via_methylamine(self):
+        #ko_list = [self.bn+'_K14082', self.bn+'_K16177',
+                   #self.bn+'_K00399', self.bn+'_K00401',
+                   #self.bn+'_K00402']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Methanogenesis, methylamine -> methane'] = (
+          #(self.abundance[self.bn+'_K14082'] +
+           #self.abundance[self.bn+'_K16177'])/2 +
+          #(self.abundance[self.bn+'_K00399'] +
+           #self.abundance[self.bn+'_K00401'] +
+           #self.abundance[self.bn+'_K00402'])/3)/2
 
-    def Methanogenesis_via_dimethylamine(self):
-        ko_list = [self.bn+'_K14082', self.bn+'_K16179',
-                   self.bn+'_K00399', self.bn+'_K00401',
-                   self.bn+'_K00402']
-        for ko in ko_list:
-            if ko not in self.abundance:
-                self.abundance[ko] = 0
-        self.out_data['Methanogenesis, dimethylamine -> methane'] = (
-          (self.abundance[self.bn+'_K14082'] +
-           self.abundance[self.bn+'_K16179'])/2 +
-          (self.abundance[self.bn+'_K00399'] +
-           self.abundance[self.bn+'_K00401'] +
-           self.abundance[self.bn+'_K00402'])/3)/2
+    #def Methanogenesis_via_dimethylamine(self):
+        #ko_list = [self.bn+'_K14082', self.bn+'_K16179',
+                   #self.bn+'_K00399', self.bn+'_K00401',
+                   #self.bn+'_K00402']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Methanogenesis, dimethylamine -> methane'] = (
+          #(self.abundance[self.bn+'_K14082'] +
+           #self.abundance[self.bn+'_K16179'])/2 +
+          #(self.abundance[self.bn+'_K00399'] +
+           #self.abundance[self.bn+'_K00401'] +
+           #self.abundance[self.bn+'_K00402'])/3)/2
 
-    def Methanogenesis_via_trimethylamine(self):
+    #def Methanogenesis_via_trimethylamine(self):
+        #ko_list = [self.bn+'_K14082', self.bn+'_K14084',
+                   #self.bn+'_K00399', self.bn+'_K00401',
+                   #self.bn+'_K00402']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Methanogenesis, trimethylamine -> methane'] = (
+          #(self.abundance[self.bn+'_K14082'] +
+           #self.abundance[self.bn+'_K14084'])/2 +
+          #(self.abundance[self.bn+'_K00399'] +
+           #self.abundance[self.bn+'_K00401'] +
+           #self.abundance[self.bn+'_K00402'])/3)/2
+
+    def Methanogenesis_via_amines(self):
         ko_list = [self.bn+'_K14082', self.bn+'_K14084',
-                   self.bn+'_K00399', self.bn+'_K00401',
-                   self.bn+'_K00402']
+                   self.bn+'_K16179', self.bn+'_K16177']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methanogenesis, trimethylamine -> methane'] = (
-          (self.abundance[self.bn+'_K14082'] +
-           self.abundance[self.bn+'_K14084'])/2 +
-          (self.abundance[self.bn+'_K00399'] +
-           self.abundance[self.bn+'_K00401'] +
-           self.abundance[self.bn+'_K00402'])/3)/2
+        self.out_data['Methanogenesis, amines -> methane (mtbA, mtmC, mtbC, mttC)'] = (
+            self.abundance[self.bn+'_K14082'] +
+            self.abundance[self.bn+'_K14084'] +
+            self.abundance[self.bn+'_K16179'] +
+            self.abundance[self.bn+'_K16177'])/4
+
+
+    #def Methanogenesis_via_acetate(self):
+        #ko_list = [self.bn+'_K00925', self.bn+'_K00625', self.bn+'_K13788',
+                   #self.bn+'_K01895', self.bn+'_K00193', self.bn+'_K00194',
+                   #self.bn+'_K00197', self.bn+'_K00577', self.bn+'_K00578',
+                   #self.bn+'_K00579', self.bn+'_K00580', self.bn+'_K00581',
+                   #self.bn+'_K00584', self.bn+'_K00399', self.bn+'_K00401',
+                   #self.bn+'_K00402']
+        #for ko in ko_list:
+            #if ko not in self.abundance:
+                #self.abundance[ko] = 0
+        #self.out_data['Methanogenesis, acetate -> methane'] = (
+          #(self.abundance[self.bn+'_K00925'] +
+           #self.abundance[self.bn+'_K00625'] +
+           #self.abundance[self.bn+'_K13788'])/2 +
+          #self.abundance[self.bn+'_K01895'] +
+          #(self.abundance[self.bn+'_K00193'] +
+           #self.abundance[self.bn+'_K00194'] +
+           #self.abundance[self.bn+'_K00197'])/3 +
+          #(self.abundance[self.bn+'_K00577'] +
+           #self.abundance[self.bn+'_K00578'] +
+           #self.abundance[self.bn+'_K00579'] +
+           #self.abundance[self.bn+'_K00580'] +
+           #self.abundance[self.bn+'_K00581'] +
+           #self.abundance[self.bn+'_K00584'])/6 +
+          #(self.abundance[self.bn+'_K00399'] +
+           #self.abundance[self.bn+'_K00401'] +
+           #self.abundance[self.bn+'_K00402'])/3)/4
 
     def Methanogenesis_via_acetate(self):
-        ko_list = [self.bn+'_K00925', self.bn+'_K00625', self.bn+'_K13788',
-                   self.bn+'_K01895', self.bn+'_K00193', self.bn+'_K00194',
-                   self.bn+'_K00197', self.bn+'_K00577', self.bn+'_K00578',
-                   self.bn+'_K00579', self.bn+'_K00580', self.bn+'_K00581',
-                   self.bn+'_K00584', self.bn+'_K00399', self.bn+'_K00401',
-                   self.bn+'_K00402']
+        ko_list = [self.bn+'_K00193', self.bn+'_K00194',
+                   self.bn+'_K00197']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methanogenesis, acetate -> methane'] = (
-          (self.abundance[self.bn+'_K00925'] +
-           self.abundance[self.bn+'_K00625'] +
-           self.abundance[self.bn+'_K13788'])/2 +
-          self.abundance[self.bn+'_K01895'] +
-          (self.abundance[self.bn+'_K00193'] +
-           self.abundance[self.bn+'_K00194'] +
-           self.abundance[self.bn+'_K00197'])/3 +
-          (self.abundance[self.bn+'_K00577'] +
-           self.abundance[self.bn+'_K00578'] +
-           self.abundance[self.bn+'_K00579'] +
-           self.abundance[self.bn+'_K00580'] +
-           self.abundance[self.bn+'_K00581'] +
-           self.abundance[self.bn+'_K00584'])/6 +
-          (self.abundance[self.bn+'_K00399'] +
-           self.abundance[self.bn+'_K00401'] +
-           self.abundance[self.bn+'_K00402'])/3)/4
+        self.out_data['Methanogenesis, acetate -> methane (cdhCDE)'] = (
+            self.abundance[self.bn+'_K00193'] +
+            self.abundance[self.bn+'_K00194'] +
+            self.abundance[self.bn+'_K00197'])/3
 
     def Methanogenesis_CO2_methane(self):
         ko_list = [self.bn+'_K00200', self.bn+'_K00201', self.bn+'_K00202',
@@ -592,8 +700,7 @@ class Pathway:
                    self.bn+'_K01499', self.bn+'_K00319', self.bn+'_K13942',
                    self.bn+'_K00320', self.bn+'_K00577', self.bn+'_K00578',
                    self.bn+'_K00579', self.bn+'_K00580', self.bn+'_K00581',
-                   self.bn+'_K00584', self.bn+'_K00399', self.bn+'_K00401',
-                   self.bn+'_K00402']
+                   self.bn+'_K00584']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
@@ -616,10 +723,7 @@ class Pathway:
            self.abundance[self.bn+'_K00579'] +
            self.abundance[self.bn+'_K00580'] +
            self.abundance[self.bn+'_K00581'] +
-           self.abundance[self.bn+'_K00584'])/6 +
-          (self.abundance[self.bn+'_K00399'] +
-           self.abundance[self.bn+'_K00401'] +
-           self.abundance[self.bn+'_K00402'])/3)/7
+           self.abundance[self.bn+'_K00584'])/6)/6
 
     def Methane_oxidation_methane_methanol(self):
         ko_list = [self.bn+'_K16157', self.bn+'_K16158', self.bn+'_K16159',
@@ -628,7 +732,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methane oxidation, methane -> methanol'] = (
+        self.out_data['Methane oxidation, methane -> methanol (mmoBCDXYZ, amoABC)'] = (
           (self.abundance[self.bn+'_K16157'] +
            self.abundance[self.bn+'_K16158'] +
            self.abundance[self.bn+'_K16159'] +
@@ -645,7 +749,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methane oxidation, methanol -> Formaldehyde'] = (
+        self.out_data['Methane oxidation, methanol -> formaldehyde (mxaFI, xoxF)'] = (
           (self.abundance[self.bn+'_K14028'] +
            self.abundance[self.bn+'_K14029'])/2 +
           self.abundance[self.bn+'_K17066'])
@@ -655,7 +759,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: lactate (pyruvate -> lactate)'] = (
+        self.out_data['Fermentation to lactate, pyruvate -> lactate (LDH)'] = (
           self.abundance[self.bn+'_K00016'])
 
     def Mixed_acid_formate(self):
@@ -663,7 +767,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: formate (pyruvate -> formate)'] = (
+        self.out_data['Fermentation to formate, pyruvate -> formate (pf1D)'] = (
           self.abundance[self.bn+'_K00656'])
 
     def Mixed_acid_Formate_to_CO2_H2(self):
@@ -673,7 +777,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: Formate -> CO2 & H2'] = (
+        self.out_data['Fermentation to formate -> CO2 & H2 (fdh)'] = (
           (self.abundance[self.bn+'_K00122'] +
            self.abundance[self.bn+'_K00123'] +
            self.abundance[self.bn+'_K00124'] +
@@ -690,7 +794,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: acetate'] = (
+        self.out_data['Fermentation to acetate'] = (
           self.abundance[self.bn+'_K00156'] +
           (self.abundance[self.bn+'_K00158'] +
            self.abundance[self.bn+'_K01512'])/2 +
@@ -706,7 +810,7 @@ class Pathway:
       for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-      self.out_data['Mixed acid: acetate (pyruvate -> acetate)'] = (
+      self.out_data['Fermentation to acetate, pyruvate -> acetate (poxB, poxL, acyP)'] = (
         self.abundance[self.bn+'_K00156'] +
         (self.abundance[self.bn+'_K00158'] +
          self.abundance[self.bn+'_K01512'])/2)
@@ -717,7 +821,7 @@ class Pathway:
       for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-      self.out_data['Mixed acid: acetate (acetyl-CoA -> acetate)'] = (
+      self.out_data['Fermentation to acetate, acetyl-CoA -> acetate (ach1, eutD, pta, acyP)'] = (
         self.abundance[self.bn+'_K01067'] +
         (self.abundance[self.bn+'_K04020'] +
          self.abundance[self.bn+'_K13788'] +
@@ -729,7 +833,7 @@ class Pathway:
       for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-      self.out_data['Mixed acid: acetate (lactate -> acetate)'] = (
+      self.out_data['Fermentation to acetate, lactate -> acetate (EC:1.13.12.4)'] = (
         self.abundance[self.bn+'_K00467'])
 
     def Mixed_acid_Ethanol_Acetate_to_Acetylaldehyde(self):
@@ -738,7 +842,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: ethanol, acetate to acetylaldehyde'] = (
+        self.out_data['Fermentation to ethanol, acetate to acetylaldehyde (ald)'] = (
           self.abundance[self.bn+'_K00128'] +
           self.abundance[self.bn+'_K14085'] +
           self.abundance[self.bn+'_K00149'] +
@@ -751,7 +855,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: ethanol, acetyl-CoA to acetylaldehyde (reversible)'] = (
+        self.out_data['Fermentation to ethanol, acetyl-CoA to acetylaldehyde (reversible)'] = (
           self.abundance[self.bn+'_K00132'] +
           self.abundance[self.bn+'_K04072'] +
           self.abundance[self.bn+'_K04073'] +
@@ -767,7 +871,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: ethanol, acetylaldehyde to ethanol'] = (
+        self.out_data['Fermentation to ethanol, acetylaldehyde to ethanol (adh, mdh)'] = (
           self.abundance[self.bn+'_K13951'] +
           self.abundance[self.bn+'_K13980'] +
           self.abundance[self.bn+'_K13952'] +
@@ -793,7 +897,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: succinate (phosphoenolpyruvate to succinate via oxaloacetate, malate & fumarate)'] = (
+        self.out_data['Fermentation to succinate (phosphoenolpyruvate to succinate via oxaloacetate, malate & fumarate)'] = (
           self.abundance[self.bn+'_K01595'] +
           self.abundance[self.bn+'_K01596'] +
           self.abundance[self.bn+'_K20370'] +
@@ -817,7 +921,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Mixed acid: ethanol, acetyl-CoA to acetylaldehyde (reversible)'] = (
+        self.out_data['Glyoxylate shunt'] = (
           self.abundance[self.bn+'_K01637'] +
           self.abundance[self.bn+'_K01638'] +
           self.abundance[self.bn+'_K19282'])/2
@@ -848,7 +952,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Dissimilatory nitrate reduction to nitrite (narGHI or napAB)'] = (
+        self.out_data['Dissimilatory nitrate reduction, nitrate -> nitrite (narGHI or napAB)'] = (
             (self.abundance[self.bn+'_K00370'] +
              self.abundance[self.bn+'_K00371'] +
              self.abundance[self.bn+'_K00374'])/3 +
@@ -861,7 +965,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Dissimilatory nitrite reduction to ammonia (DNRA) (nirBD or nrfAH)'] = (
+        self.out_data['Dissimilatory nitrate reduction, nitrite -> ammonia (nirBD or nrfAH)'] = (
           (self.abundance[self.bn+'_K00362'] +
            self.abundance[self.bn+'_K00363'])/2 +
           (self.abundance[self.bn+'_K03385'] +
@@ -891,7 +995,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Assimilatory nitrate reduction to nitrite (narB or NR or nasAB)'] = (
+        self.out_data['Assimilatory nitrate reduction, nitrate -> nitrite (narB or NR or nasAB)'] = (
           self.abundance[self.bn+'_K00367'] +
           self.abundance[self.bn+'_K10534'] +
           (self.abundance[self.bn+'_K00372'] +
@@ -902,7 +1006,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Assimilatory nitrite reduction to ammonia (NIT-6 or nirA)'] = (
+        self.out_data['Assimilatory nitrate reduction, nitrite -> ammonia (NIT-6 or nirA)'] = (
           self.abundance[self.bn+'_K17877'] +
           self.abundance[self.bn+'_K00366'])
 
@@ -1042,7 +1146,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Assimilatory sulfate reduction to sulfite'] = (
+        self.out_data['Assimilatory sulfate reduction, sulfate -> sulfite'] = (
           self.abundance[self.bn+'_K13811'] +
           (self.abundance[self.bn+'_K00958'] +
            self.abundance[self.bn+'_K00860'])/2 +
@@ -1058,7 +1162,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Assimilatory sulfite reduction to sulfide (cysJI or sir)'] = (
+        self.out_data['Assimilatory sulfate reduction, sulfite -> sulfide (cysJI or sir)'] = (
           (self.abundance[self.bn+'_K00380'] +
            self.abundance[self.bn+'_K00381'])/2 +
           self.abundance[self.bn+'_K00392'])
@@ -1069,7 +1173,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Dissimilatory sulfate reduction to sulfite (reversible) (sat and aprAB)'] = (
+        self.out_data['Dissimilatory sulfate reduction, sulfate -> sulfite (reversible) (sat and aprAB)'] = (
           (self.abundance[self.bn+'_K00956'] +
            self.abundance[self.bn+'_K00957'])/2 +
           self.abundance[self.bn+'_K00958'] +
@@ -1081,7 +1185,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Dissimilatory sulfite reduction to sulfide (reversible) (dsrAB)'] = (
+        self.out_data['Dissimilatory sulfate reduction, sulfite -> sulfide (reversible) (dsrAB)'] = (
           self.abundance[self.bn+'_K11180'] +
           self.abundance[self.bn+'_K11181'])/2
 
@@ -1825,7 +1929,7 @@ class Pathway:
         self.rTCA_Cycle()
         self.Wood_Ljungdahl()
         self.three_Hydroxypropionate_Bicycle()
-        self.Dicarboxylate_hydroxybutyrate_cycle()
+        #self.Dicarboxylate_hydroxybutyrate_cycle()
         #self.pectinesterase()
         #self.diacetylchitobiose_deacetylase()
         #self.glucoamylase()
@@ -1846,10 +1950,12 @@ class Pathway:
         self.Entner_Doudoroff_Pathway()
         self.gluconeogenesis()
         self.tca_cycle()
+        self.Methanogenesis()
         self.Methanogenesis_via_methanol()
-        self.Methanogenesis_via_methylamine()
-        self.Methanogenesis_via_dimethylamine()
-        self.Methanogenesis_via_trimethylamine()
+        #self.Methanogenesis_via_methylamine()
+        #self.Methanogenesis_via_dimethylamine()
+        #self.Methanogenesis_via_trimethylamine()
+        self.Methanogenesis_via_amines()
         self.Methanogenesis_via_acetate()
         self.Methanogenesis_CO2_methane()
         self.Methane_oxidation_methane_methanol()
@@ -1938,17 +2044,17 @@ class Pathway:
         return self.out_data
 
 
-function_order = ['Photosystem II',
-                  'Photosystem I',
-                  'Cytochrome b6/f complex',
+function_order = ['Photosystem II (psbABCDEF)',
+                  'Photosystem I (psaABCDEF)',
+                  'Cytochrome b6/f complex (petABCDGLMN)',
                   'Anoxygenic photosystem II (pufML)',
                   'Anoxygenic photosystem I (pscABCD)',
                   'RuBisCo',
-                  'CBB cycle',
-                  'rTCA cycle',
-                  'Wood-Ljungdahl',
+                  'CBB cycle (prkB)',
+                  'rTCA cycle (aclAB, ccsAB, ccl)',
+                  'Wood-Ljungdahl pathway (acsABCDE)',
                   '3-Hydroxypropionate Bicycle',
-                  'Dicarboxylate-hydroxybutyrate cycle',
+                  #'Dicarboxylate-hydroxybutyrate cycle',
                   #'Pectinesterase',
                   #'Diacetylchitobiose deacetylase',
                   #'Glucoamylase',
@@ -1965,33 +2071,35 @@ function_order = ['Photosystem II',
                   #'Alpha-amylase',
                   #'Beta-glucosidase',
                   #'Pullulanase',
-                  'Glycolysis',
+                  'Glycolysis (glk, pfk, pyk)',
                   'Entner-Doudoroff pathway, glucose-6P -> glyceraldehyde-3P + pyruvate',
-                  'Gluconeogenesis, oxaloacetate -> fructose-6P',
+                  'Gluconeogenesis (fbp, pck)',
                   'TCA cycle',
-                  'Methanogenesis, methanol -> methane',
-                  'Methanogenesis, methylamine -> methane',
-                  'Methanogenesis, dimethylamine -> methane',
-                  'Methanogenesis, trimethylamine -> methane',
-                  'Methanogenesis, acetate -> methane',
+                  'Methanogenesis (mcrABG)',
+                  'Methanogenesis, methanol -> methane (mtaABC)',
+                  #'Methanogenesis, methylamine -> methane',
+                  #'Methanogenesis, dimethylamine -> methane',
+                  #'Methanogenesis, trimethylamine -> methane',
+                  'Methanogenesis, amines -> methane (mtbA, mtmC, mtbC, mttC)',
+                  'Methanogenesis, acetate -> methane (cdhCDE)',
                   'Methanogenesis, CO2 -> methane',
-                  'Methane oxidation, methane -> methanol',
-                  'Methane oxidation, methanol -> Formaldehyde',
-                  'Mixed acid: lactate (pyruvate -> lactate)',
-                  'Mixed acid: formate (pyruvate -> formate)',
-                  'Mixed acid: Formate -> CO2 & H2',
-                  'Mixed acid: acetate (pyruvate -> acetate)',
-                  'Mixed acid: acetate (acetyl-CoA -> acetate)',
-                  'Mixed acid: acetate (lactate -> acetate)',
-                  'Mixed acid: ethanol, acetate to acetylaldehyde',
-                  'Mixed acid: ethanol, acetyl-CoA to acetylaldehyde (reversible)',
-                  'Mixed acid: ethanol, acetylaldehyde to ethanol',
-                  'Mixed acid: succinate (phosphoenolpyruvate to succinate via oxaloacetate, malate & fumarate)',
+                  'Methane oxidation, methane -> methanol (mmoBCDXYZ, amoABC)',
+                  'Methane oxidation, methanol -> formaldehyde (mxaFI, xoxF)',
+                  'Fermentation to lactate, pyruvate -> lactate (LDH)',
+                  'Fermentation to formate, pyruvate -> formate (pf1D)',
+                  'Fermentation to formate -> CO2 & H2 (fdh)',
+                  'Fermentation to acetate, pyruvate -> acetate (poxB, poxL, acyP)',
+                  'Fermentation to acetate, acetyl-CoA -> acetate (ach1, eutD, pta, acyP)',
+                  'Fermentation to acetate, lactate -> acetate (EC:1.13.12.4)',
+                  'Fermentation to ethanol, acetate to acetylaldehyde (ald)',
+                  'Fermentation to ethanol, acetyl-CoA to acetylaldehyde (reversible)',
+                  'Fermentation to ethanol, acetylaldehyde to ethanol (adh, mdh)',
+                  'Fermentation to succinate (phosphoenolpyruvate to succinate via oxaloacetate, malate & fumarate)',
                   'Anaplerotic genes (pyruvate -> oxaloacetate)',
-                  'Dissimilatory nitrate reduction to nitrite (narGHI or napAB)',
-                  'Dissimilatory nitrite reduction to ammonia (DNRA) (nirBD or nrfAH)',
-                  'Assimilatory nitrate reduction to nitrite (narB or NR or nasAB)',
-                  'Assimilatory nitrite reduction to ammonia (NIT-6 or nirA)',
+                  'Dissimilatory nitrate reduction, nitrate -> nitrite (narGHI or napAB)',
+                  'Dissimilatory nitrate reduction, nitrite -> ammonia (nirBD or nrfAH)',
+                  'Assimilatory nitrate reduction, nitrate -> nitrite (narB or NR or nasAB)',
+                  'Assimilatory nitrate reduction, nitrite -> ammonia (NIT-6 or nirA)',
                   'Denitrification, nitrite -> nitric oxide (nirK or nirS)',
                   'Denitrification, nitric oxide -> nitrous oxide (norBC)',
                   'Denitrification, nitrous oxide -> nitrogen (nosZ)',
@@ -2001,10 +2109,10 @@ function_order = ['Photosystem II',
                   'Nitrification, nitrite -> nitrate (nxrAB)',
                   'Anammox, nitric oxide + ammonia -> hydrazine (hzs)',
                   'Anammox, hydrazine -> nitrogen (hdh)',
-                  'Assimilatory sulfate reduction to sulfite',
-                  'Assimilatory sulfite reduction to sulfide (cysJI or sir)',
-                  'Dissimilatory sulfate reduction to sulfite (reversible) (sat and aprAB)',
-                  'Dissimilatory sulfite reduction to sulfide (reversible) (dsrAB)',
+                  'Assimilatory sulfate reduction, sulfate -> sulfite',
+                  'Assimilatory sulfate reduction, sulfite -> sulfide (cysJI or sir)',
+                  'Dissimilatory sulfate reduction, sulfate -> sulfite (reversible) (sat and aprAB)',
+                  'Dissimilatory sulfate reduction, sulfite -> sulfide (reversible) (dsrAB)',
                   'Thiosulfate oxidation by SOX complex, thiosulfate -> sulfate',
                   'Alternative thiosulfate oxidation (doxAD)',
                   'Alternative thiosulfate oxidation (tsdA)',
@@ -2036,11 +2144,11 @@ function_order = ['Photosystem II',
                   'Cytochrome c oxidase, prokaryotes',
                   'Cytochrome aa3-600 menaquinol oxidase',
                   'Cytochrome bc1 complex',
-                  'Phosphate transporter',
-                  'Phosphonate transporter',
-                  'Thiamin transporter',
-                  'Vitamin B12 transporter',
-                  'Urea transporter',
+                  #'Phosphate transporter',
+                  #'Phosphonate transporter',
+                  #'Thiamin transporter',
+                  #'Vitamin B12 transporter',
+                  #'Urea transporter',
                   'Type I Secretion',
                   'Type III Secretion',
                   'Type II Secretion',
