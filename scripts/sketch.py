@@ -4,6 +4,8 @@ visualization of carbon, nitrogen and sulfur cycle
 
 import argparse
 import os
+import matplotlib
+matplotlib.use('AGG')
 import matplotlib.pyplot as plt
 from PIL import Image
 import sys
@@ -107,7 +109,7 @@ def sketch(abundance_table):
     thickness = 4
     
     try:
-        pathway_fig = Image.open("Figure_tmp/NNitrogen_fixation_nitrogen_to_ammonia_nifKDH.png")
+        pathway_fig = Image.open("Figure_tmp/Nitrogen_fixation_nitrogen_to_ammonia_nifKDH.png")
         position = ()
         #total_abundance_of_each_pathway = '%.2e' % nitrogen_cycle_dir['Nitrogen_fixation_nitrogen_to_ammonia_nifKDH']
         #position_abundance = ()
@@ -287,15 +289,15 @@ def sketch(abundance_table):
     nitrogen_cycle_image = Image.open("Figure_tmp/nitrogen_cycle.png")
     try:
         pathway_fig = Image.open(
-            "Figure_tmp/Dissimilatory_nitrate_reduction_nitrite_to_ammonia_DNRA_nirBD_or_nrfAH.png")
+            "Figure_tmp/Dissimilatory_nitrate_reduction_nitrite_to_ammonia_nirBD_or_nrfAH.png")
         position = ()
-        if nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_DNRA_nirBD_or_nrfAH'] >= three_quarter_nitro:
+        if nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_nirBD_or_nrfAH'] >= three_quarter_nitro:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (2612, 2146, 3092, 2626)
-        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_DNRA_nirBD_or_nrfAH'] >= two_quarter_nitro:
+        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_nirBD_or_nrfAH'] >= two_quarter_nitro:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2578, 2118, 2978, 2518)
-        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_DNRA_nirBD_or_nrfAH'] >= one_quarter_nitro:
+        elif nitrogen_cycle_dir['Dissimilatory_nitrate_reduction_nitrite_to_ammonia_nirBD_or_nrfAH'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2738, 2340, 3058, 2660)
         else:
@@ -997,16 +999,16 @@ def sketch(abundance_table):
         position = ()
         if carbon_cycle_dir['3-Hydroxypropionate_Bicycle'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
-            position = (2783, 1042, 3263, 1522)
+            position = (3722, 1049, 4202, 1529)
         elif carbon_cycle_dir['3-Hydroxypropionate_Bicycle'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
-            position = (2838, 1059, 3238, 1459)
+            position = (3761, 1050, 4161, 1450)
         elif carbon_cycle_dir['3-Hydroxypropionate_Bicycle'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
-            position = (2871, 1065, 3191, 1385)
+            position = (3803, 1082, 4123, 1402)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
-            position = (2910, 1082, 3150, 1322)
+            position = (3842, 1085, 4082, 1325)
         carbon_cycle_image_copy = carbon_cycle_image.copy()
         carbon_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
         carbon_cycle_image_copy.save("Figure_tmp/carbon_cycle.png", 'png')
