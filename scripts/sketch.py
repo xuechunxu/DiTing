@@ -977,16 +977,16 @@ def sketch(abundance_table):
         position = ()
         if carbon_cycle_dir['Wood-Ljungdahl_pathway_acsABCDE'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
-            position = (4126, 420, 4606, 900)
+            position = (3722, 1049, 4202, 1529)
         elif carbon_cycle_dir['Wood-Ljungdahl_pathway_acsABCDE'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
-            position = (4155, 500, 4555, 900)
+            position = (3761, 1050, 4161, 1450)
         elif carbon_cycle_dir['Wood-Ljungdahl_pathway_acsABCDE'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
-            position = (4214, 580, 4534, 900)
+            position = (3803, 1082, 4123, 1402)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
-            position = (4246, 660, 4486, 900)
+            position = (3842, 1085, 4082, 1325)
         carbon_cycle_image_copy = carbon_cycle_image.copy()
         carbon_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
         carbon_cycle_image_copy.save("Figure_tmp/carbon_cycle.png", 'png')
@@ -999,16 +999,16 @@ def sketch(abundance_table):
         position = ()
         if carbon_cycle_dir['3-Hydroxypropionate_Bicycle'] >= three_quarter_carbon:
             pathway_fig = pathway_fig.resize((480, 480))
-            position = (3722, 1049, 4202, 1529)
+            position = (2783, 1042, 3263, 1522)
         elif carbon_cycle_dir['3-Hydroxypropionate_Bicycle'] >= two_quarter_carbon:
             pathway_fig = pathway_fig.resize((400, 400))
-            position = (3761, 1050, 4161, 1450)
+            position = (2838, 1059, 3238, 1459)
         elif carbon_cycle_dir['3-Hydroxypropionate_Bicycle'] >= one_quarter_carbon:
             pathway_fig = pathway_fig.resize((320, 320))
-            position = (3803, 1082, 4123, 1402)
+            position = (2871, 1065, 3191, 1385)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
-            position = (3842, 1085, 4082, 1325)
+            position = (2910, 1082, 3150, 1322)
         carbon_cycle_image_copy = carbon_cycle_image.copy()
         carbon_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
         carbon_cycle_image_copy.save("Figure_tmp/carbon_cycle.png", 'png')
@@ -1479,8 +1479,8 @@ def sketch(abundance_table):
     color_cycle = (109, 118, 248)
     cv2.circle(carbon_cycle_image_cv2, (6325, 5188), 184, color_cycle, -1)
     cv2.circle(carbon_cycle_image_cv2, (6325, 4830), 154, color_cycle, -1)
-    cv2.circle(carbon_cycle_image_cv2, (6325, 4554), 122, color_cycle, -1)
-    cv2.circle(carbon_cycle_image_cv2, (6325, 4320), 92, color_cycle, -1)
+    cv2.circle(carbon_cycle_image_cv2, (6325, 4534), 122, color_cycle, -1)
+    cv2.circle(carbon_cycle_image_cv2, (6325, 4300), 92, color_cycle, -1)
     
     top_abun_carbon_sci = '%.2e' % (top_abun_carbon)
     three_quarter_carbon_sci = '%.2e' % (three_quarter_carbon)
