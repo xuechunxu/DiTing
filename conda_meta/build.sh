@@ -1,0 +1,1 @@
+echo "Please download the database from ftp://ftp.genome.jp/pub/db/kofam/"

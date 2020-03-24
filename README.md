@@ -16,13 +16,7 @@ and parsed for producing a table of relative abundance of elemental/biogeochemic
 ### Procedure
 ![image](./Flow_chart.png)
 
-### Copyright
-Xue Chunxu, xuechunxu@outlook.com  
-Heyu Lin, heyu.lin@student.unimelb.edu.au  
-Xiaoyu Zhu, xiaoyuzhu321@126.com  
-Xiao-Hua Zhang, xhzhang@ouc.edu.cn   
-Lab of Microbial Oceanography  
-College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China  
+
 
 ### Dependencies
 * [Megahit](https://github.com/voutcn/megahit)
@@ -36,9 +30,8 @@ College of Marine Life Sciences, Ocean University of China, Qingdao 266003, Chin
     * [matplotlib](http://matplotlib.org/users/installing.html)
     * [opencv](https://pypi.org/project/opencv-python/)
     * [Pillow](https://pypi.org/project/Pillow/)
-    * [shutil](https://docs.python.org/3/library/shutil.html)
     * [seaborn](https://seaborn.pydata.org/index.html)
-
+    
 * KofamKOALA hmm database (ftp://ftp.genome.jp/pub/db/kofam/)
     * [ko_list.gz](ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz)
     * [profiles.tar.gz](ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz)
@@ -120,6 +113,15 @@ There are also three sketch maps about carbon, nitrogen and sulfur cycle named `
 There are also four heatmaps about carbon, nitrogen, sulfur cycle and other pathways named `carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`, respectively.  
 
 `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png` look like:  
-<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/carbon_cycle_sketch.png" width="792" height="657.7">  
-<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/nitrogen_cycle_sketch.png" width="792" height="771.4">  
-<img src="https://github.com/xuechunxu/DiTing/blob/master/example/diting.out/sulfur_cycle_sketch.png" width="792" height="726.9">  
+<img src="./example/diting.out/carbon_cycle_sketch.png" width="792" height="657.7">  
+<img src="./example/diting.out/nitrogen_cycle_sketch.png" width="792" height="771.4">  
+<img src="./example/diting.out/sulfur_cycle_sketch.png" width="792" height="726.9">  
+
+### Copyright
+
+Xue Chunxu, xuechunxu@outlook.com  
+Heyu Lin, heyu.lin@student.unimelb.edu.au  
+Xiaoyu Zhu, xiaoyuzhu321@126.com  
+Xiao-Hua Zhang, xhzhang@ouc.edu.cn   
+Lab of Microbial Oceanography  
+College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China  
