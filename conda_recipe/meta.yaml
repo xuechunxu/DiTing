@@ -1,13 +1,18 @@
+{% set version = "0.5" %}
+
 package:
   name: diting
-  version: "0.5"
+  version: {{ version }}
 
 source:
   git_url: https://github.com/xuechunxu/DiTing.git
 
 build:
+  number: 0
 
 requirements:
+  host:
+    - python >=3.6
   run:
     - bbmap 38.79
     - bwa 0.7.17
@@ -18,7 +23,7 @@ requirements:
     - pandas 1.0.3
     - pillow 7.0.0
     - prodigal 2.6.3
-    - python 3.7.6
+    - python >=3.6
     - seaborn 0.10.0
 
 
