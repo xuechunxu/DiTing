@@ -1,13 +1,12 @@
 # Changelog
-All notable changes to Diting will be documented in this file.
+All notable changes to DiTing will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
 - Allow users to provide sam files
-- Add support for conda deployment
+- Add support for `conda` deployment
 - Add `--continue` option for users
-- Add DMSP synthesis/degradation pathways
 
 ## [0.5] - 2020-01-06
 
