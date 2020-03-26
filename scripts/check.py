@@ -12,8 +12,8 @@ def check_kodb(ko_db):
     for fl in db_files:
         if not os.path.exists(fl):
             return False
-        if os.path.exists(fl):
-            return True
+        #if os.path.exists(fl):
+            #return True
 
 def check_DMSP_db(ko_db):
     profiles_path = os.path.join(ko_db, 'profiles')

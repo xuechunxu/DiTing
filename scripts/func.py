@@ -21,7 +21,7 @@ def download_db(ko_db):
     path_ko_list_gz = os.path.join(ko_db, 'ko_list.gz')
     path_ko_list = os.path.join(ko_db, 'ko_list')
     path_profiles_tar_gz = os.path.join(ko_db, 'profiles.tar.gz')
-    path_profiles = os.path.join(ko_db, 'profiles')
+    #path_profiles = os.path.join(ko_db, 'profiles')
     if not os.path.exists(ko_db):
         os.mkdir(ko_db)
 
@@ -40,7 +40,7 @@ def download_db(ko_db):
         tar = tarfile.open(path_profiles_tar_gz, "r:gz")
         file_names = tar.getnames()
         for file_name in file_names:
-            tar.extract(file_name, path_profiles)
+            tar.extract(file_name, ko_db)
         tar.close()
     except Exception as e:
         raise Exception(e)
