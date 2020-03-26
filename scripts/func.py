@@ -21,6 +21,7 @@ def download_db(ko_db):
     path_ko_list_gz = os.path.join(ko_db, 'ko_list.gz')
     path_ko_list = os.path.join(ko_db, 'ko_list')
     path_profiles_tar_gz = os.path.join(ko_db, 'profiles.tar.gz')
+    path_profiles = os.path.join(ko_db, 'profiles')
     if not os.path.exists(ko_db):
         os.mkdir(ko_db)
 
@@ -32,11 +33,18 @@ def download_db(ko_db):
         shutil.copyfileobj(response, out_file)
 
     #  decompress
-    with gzip.open(path_ko_list, 'rb') as f_in, open(path_ko_list, 'wb') as f_out:
+    with gzip.open(path_ko_list_gz, 'rb') as f_in, open(path_ko_list, 'wb') as f_out:
         shutil.copyfileobj(f_in, f_out)
-    tar = tarfile.open(path_profiles_tar_gz)
-    tar.extractall()
-    tar.close()
+    
+    try:
+        tar = tarfile.open(path_profiles_tar_gz, "r:gz")
+        file_names = tar.getnames()
+        for file_name in file_names:
+            tar.extract(file_name, path_profiles)
+        tar.close()
+    except Exception as e:
+        raise Exception(e)
+
     print('Database has been downloaded and deployed successfully at {}'. format(ko_db))
 
 def DMSP_db_parse(DMSP_DIR, KODB_DIR):
@@ -261,11 +269,11 @@ def hierarchical_ko_abundance_among_samples(table_of_ko_abundance_among_samples,
             line = line.rstrip()
             k_number = line.split('\t')[2]
             if k_number not in Knumber_to_abundance.keys():
-            	with open(output, 'a') as fo:
-                	fo.write(line + '\n')
+                with open(output, 'a') as fo:
+                    fo.write(line + '\n')
             else:
-            	with open(output, 'a') as fo:
-                	fo.write(line + '\t' + str(Knumber_to_abundance[k_number]) + '\n')
+                with open(output, 'a') as fo:
+                    fo.write(line + '\t' + str(Knumber_to_abundance[k_number]) + '\n')
 
 
 def kegg_decoder(input_tab, output):
