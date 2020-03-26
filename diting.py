@@ -22,10 +22,13 @@ def main():
         Check ko hmm database exists and has been unpacked
         """
         if check_kodb(KODB_DIR) is False:
+            cmd_rm_ko_database = 'rm -rf ' + KODB_DIR
+            print(cmd_rm_ko_database)
+            os.system(cmd_rm_ko_database)
             download_db(KODB_DIR)
             DMSP_db_parse(DMSP_DIR, KODB_DIR)
 
-        if check_kodb(KODB_DIR) is True:
+        if check_kodb(KODB_DIR) is not False:
             if check_DMSP_db(KODB_DIR) is False:
                 DMSP_db_parse(DMSP_DIR, KODB_DIR)
 
