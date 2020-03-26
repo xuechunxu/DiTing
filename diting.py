@@ -26,8 +26,8 @@ def main():
             DMSP_db_parse(DMSP_DIR, KODB_DIR)
 
         if check_kodb(KODB_DIR) is True:
-        	if check_DMSP_db(KODB_DIR) is False:
-        		DMSP_db_parse(DMSP_DIR, KODB_DIR)
+            if check_DMSP_db(KODB_DIR) is False:
+                DMSP_db_parse(DMSP_DIR, KODB_DIR)
 
         """
         Check assemblies / reads & Get input basename
@@ -130,7 +130,7 @@ def main():
         hierarchical_table_abundance_among_samples
         """
         ko_abundance_among_samples = os.path.join(KEGG_DIR, 'ko_abundance_among_samples.tab')
-        KO_affilated_to_biogeochemical_cycle_tab = os.path.join(ROOT_DIR, 'KO_affilated_to_biogeochemical_cycle.tab')
+        KO_affilated_to_biogeochemical_cycle_tab = os.path.join(TABLE, 'KO_affilated_to_biogeochemical_cycle.tab')
         pathways_relative_abundance_gene_level_tab = os.path.join(OUT_DIR, 'pathways_relative_abundance_gene_level.tab')
         hierarchical_ko_abundance_among_samples(ko_abundance_among_samples, KO_affilated_to_biogeochemical_cycle_tab, pathways_relative_abundance_gene_level_tab)
     
