@@ -5,8 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 - Allow users to provide sam files
-- Add support for `conda` deployment
 - Add `--continue` option for users
+
+## [0.6] - 2020-03-27
+
+### Added
+- Added support for `conda` deployment
+- Customized DMSP database
+- An exhaustive output table of hit genes is available
+### fixed
+- Database downloading issues
 
 ## [0.5] - 2020-01-06
 
