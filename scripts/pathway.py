@@ -1332,9 +1332,9 @@ class Pathway:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
         self.out_data['DMSP demethylation, MMPA -> MeSH (dmdBCD or acuH)'] = (
-          self.abundance[self.bn+'_DmdB'] +
-          self.abundance[self.bn+'_DmdC'] +
-          self.abundance[self.bn+'_DmdD'] +
+          (self.abundance[self.bn+'_DmdB'] +
+           self.abundance[self.bn+'_DmdC'] +
+           self.abundance[self.bn+'_DmdD'])/3 +
           self.abundance[self.bn+'_AcuH'])
 
     def DMSP_cleavage(self):
@@ -1377,7 +1377,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['DMSO reduction, DMSO -> DMS (dMSOR)'] = (
+        self.out_data['DMSO reduction, DMSO -> DMS (DMSOR)'] = (
           self.abundance[self.bn+'_DMSOR'])
 
     def MddA_pathway_MeSH_to_DMS(self):
@@ -1393,7 +1393,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['MeSH oxidation, MeSH -> Formaldehyde (mTO)'] = (
+        self.out_data['MeSH oxidation, MeSH -> Formaldehyde (MTO)'] = (
           self.abundance[self.bn+'_MTO'])
 
 

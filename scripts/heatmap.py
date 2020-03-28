@@ -118,9 +118,9 @@ def heatmap(abundance_table):
                     'DMSP cleavage, DMSP -> DMS (ddds or alma1)',
                     'DMS oxidation, DMS -> MeSH (dmoA)',
                     'DMS oxidation, DMS -> DMSO (ddhA or tmm)',
-                    'DMSO reduction, DMSO -> DMS (dMSOR)',
+                    'DMSO reduction, DMSO -> DMS (DMSOR)',
                     'MddA pathway, MeSH -> DMS (mddA)',
-                    'MeSH oxidation, MeSH -> Formaldehyde (mTO)'
+                    'MeSH oxidation, MeSH -> Formaldehyde (MTO)'
                     ]
 
     other = ['F-type ATPase',
