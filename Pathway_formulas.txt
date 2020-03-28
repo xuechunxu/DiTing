@@ -777,7 +777,83 @@ Sulfur metabolism
         K17230 fccA; cytochrome subunit of sulfide dehydrogenase
     formula: (K17229 + K17230)/2
 
-Log: DMSP should be added but not according to KEGG annotation.
+    DMSP
+    def: DMSP biosynthesis, L-Met -> DMSP (DSYB or dsyB or mmtN)
+        DSYB; DMSP lyases
+        dsyB; DMSP lyases
+        mmtN; DMSP lyases
+    formula: (DSYB + dsyB + mmtN)
+
+    def: DMSP demethylation, DMSP -> MMPA (dmdA)
+        DmdA; DMSP demethylase
+    formula: dmdA
+
+    def: DMSP demethylation, MMPA -> MeSH (dmdBCD or acuH)
+        DmdB; MMPA-CoA ligase
+        DmdC; MMPA-CoA dehydrogenase
+        DmdD; methylthioacryloyl-CoA hydratase
+        AcuH; acryloyl-CoA hydratase
+        ref: Xuan Shao et al (2019) Mechanistic insight into 3‐methylmercaptopropionate metabolism and kinetical regulation of demethylation pathway in marine dimethylsulfoniopropionate‐catabolizing bacteria
+    formula: (DmdB + DmdC + DmdD)/3 + AcuH
+
+    def: DMSP cleavage, DMSP -> DMS (ddds or alma1)
+        Alma1; DMSP lyase
+        DddD; DMSP lyase
+        DddK; DMSP lyase
+        DddL; DMSP lyase
+        DddP; DMSP lyase
+        DddQ; DMSP lyase
+        DddW; DMSP lyase
+        DddY; DMSP lyase
+    formula: Alma1 + DddD + DddK + DddL + DddP + DddQ + DddW + DddY
+
+    def: DMS oxidation, DMS -> MeSH (dmoA)
+        DmoA; dimethylsulfide monooxgenase
+    formula: DmoA
+
+    def: DMS oxidation, DMS -> DMSO (ddhA or tmm)
+        DdhA; dimethylsulfide dehydrogenase
+        Tmm; trimethylamine monooxygenase
+    formula: DdhA + Tmm
+
+    def: DMSO reduction, DMSO -> DMS (DMSOR)
+        DMSOR; dimethyl sulfoxide reductase
+    formula: DMSOR
+
+    def: MddA pathway, MeSH -> DMS (mddA)
+        MddA; MeSH S-methyltransferase
+    formula: MddA
+
+    def: MeSH oxidation, MeSH -> Formaldehyde (MTO)
+        MTO; MeSH oxidase
+    formula: MTO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -869,7 +945,7 @@ Oxidative phosphorylation (Nuo, ATPases)
         K02300 + K02299 + K02298 + K02297 cyoDCBA; cytochrome o ubiquinol oxidase
     formula: (K02300 + K02299 + K02298 + K02297)/4
 
-    def: Cytochrome c oxidase, prokaryotes
+    def: Cytochrome c oxidase, prokaryotes, aa3-type
         K02275  coxB, ctaC; cytochrome c oxidase subunit II [EC:1.9.3.1]
         K02274  coxA, ctaD; cytochrome c oxidase subunit I [EC:1.9.3.1]
         K02276  coxC, ctaE; cytochrome c oxidase subunit III [EC:1.9.3.1]
