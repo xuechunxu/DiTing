@@ -1543,7 +1543,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Cytochrome c oxidase, prokaryotes'] = (
+        self.out_data['Cytochrome c oxidase, prokaryotes, aa3-type'] = (
             self.abundance[self.bn+'_K02275'] +
             (self.abundance[self.bn+'_K02274'] +
              self.abundance[self.bn+'_K02276'])/2 +
@@ -2141,7 +2141,7 @@ function_order = ['Photosystem II (psbABCDEF)',
                   'Cytochrome c oxidase, cbb3-type',
                   'Cytochrome bd ubiquinol oxidase',
                   'Cytochrome o ubiquinol oxidase',
-                  'Cytochrome c oxidase, prokaryotes',
+                  'Cytochrome c oxidase, prokaryotes, aa3-type',
                   'Cytochrome aa3-600 menaquinol oxidase',
                   'Cytochrome bc1 complex',
                   #'Phosphate transporter',

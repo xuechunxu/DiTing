@@ -131,7 +131,7 @@ def heatmap(abundance_table):
              'Cytochrome c oxidase, cbb3-type',
              'Cytochrome bd ubiquinol oxidase',
              'Cytochrome o ubiquinol oxidase',
-             'Cytochrome c oxidase, prokaryotes',
+             'Cytochrome c oxidase, prokaryotes, aa3-type',
              'Cytochrome aa3-600 menaquinol oxidase',
              'Cytochrome bc1 complex',
              #'Phosphate transporter',
