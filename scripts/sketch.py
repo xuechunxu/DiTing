@@ -885,7 +885,336 @@ def sketch(abundance_table):
     
     os.system('mv Figure_tmp/sulfur_cycle.png ./sulfur_cycle_sketch.png')
     
+
+
+    #DMSP cycle
+    DMSP_cycle_background_fig = background_image_pathway + "/DMSP_cycle.png"
+    shutil.copy(DMSP_cycle_background_fig, './Figure_tmp/')
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    #print("background_image_size:", carbon_cycle_image.size)
+    DMSP_cycle = ['DMSP_biosynthesis_L-Met_to_DMSP_DSYB_or_dsyB_or_mmtN',
+                  'DMSP_demethylation_DMSP_to_MMPA_dmdA',
+                  'DMSP_demethylation_MMPA_to_MeSH_dmdBCD_or_acuH',
+                  'DMSP_cleavage_DMSP_to_DMS_ddds_or_alma1',
+                  'DMS_oxidation_DMS_to_MeSH_dmoA',
+                  'DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm',
+                  'DMSO_reduction_DMSO_to_DMS_DMSOR',
+                  'MddA_pathway_MeSH_to_DMS_mddA',
+                  'MeSH_oxidation_MeSH_to_Formaldehyde_MTO'
+                 ]
     
+    DMSP_cycle_dir = {}
+    for i in DMSP_cycle:
+        DMSP_cycle_dir[i] = total_abun_pathway_dir[i]
+    
+    # get the most abundance of DMSP cycle pathways
+    top_abun_DMSP = int(0)
+    for key in DMSP_cycle_dir:
+        if DMSP_cycle_dir[key] > top_abun_DMSP:
+            top_abun_DMSP = DMSP_cycle_dir[key]
+    three_quarter_DMSP = 3/4 * top_abun_DMSP
+    two_quarter_DMSP = 1/2 * top_abun_DMSP
+    one_quarter_DMSP = 1/4 * top_abun_DMSP
+
+    try:
+        pathway_fig = Image.open("Figure_tmp/DMSP_biosynthesis_L-Met_to_DMSP_DSYB_or_dsyB_or_mmtN.png")
+        position = ()
+        if DMSP_cycle_dir['DMSP_biosynthesis_L-Met_to_DMSP_DSYB_or_dsyB_or_mmtN'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (544, 2523, 1024, 732)
+        elif DMSP_cycle_dir['DMSP_biosynthesis_L-Met_to_DMSP_DSYB_or_dsyB_or_mmtN'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (555, 2574, 955, 2974)
+        elif DMSP_cycle_dir['DMSP_biosynthesis_L-Met_to_DMSP_DSYB_or_dsyB_or_mmtN'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (514, 2587, 834, 2907)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (518, 2630, 758, 2870)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    try:
+        pathway_fig = Image.open("Figure_tmp/DMSP_demethylation_DMSP_to_MMPA_dmdA.png")
+        position = ()
+        if DMSP_cycle_dir['DMSP_demethylation_DMSP_to_MMPA_dmdA'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (1185, 2331, 1665, 2811)
+        elif DMSP_cycle_dir['DMSP_demethylation_DMSP_to_MMPA_dmdA'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (1189, 2335, 1589, 2735)
+        elif DMSP_cycle_dir['DMSP_demethylation_DMSP_to_MMPA_dmdA'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (1200, 2398, 1520, 2718)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (1240, 2509, 1480, 2749)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    try:
+        pathway_fig = Image.open("Figure_tmp/DMSP_demethylation_MMPA_to_MeSH_dmdBCD_or_acuH.png")
+        position = ()
+        if DMSP_cycle_dir['DMSP_demethylation_MMPA_to_MeSH_dmdBCD_or_acuH'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (1213, 630, 1693, 1110)
+        elif DMSP_cycle_dir['DMSP_demethylation_MMPA_to_MeSH_dmdBCD_or_acuH'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (1173, 761, 1573, 1161)
+        elif DMSP_cycle_dir['DMSP_demethylation_MMPA_to_MeSH_dmdBCD_or_acuH'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (1160, 796, 1480, 1116)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (1160, 884, 1400, 1124)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    try:
+        pathway_fig = Image.open("Figure_tmp/DMSP_cleavage_DMSP_to_DMS_ddds_or_alma1.png")
+        position = ()
+        if DMSP_cycle_dir['DMSP_cleavage_DMSP_to_DMS_ddds_or_alma1'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (2736, 2513, 3216, 2993)
+        elif DMSP_cycle_dir['DMSP_cleavage_DMSP_to_DMS_ddds_or_alma1'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (2811, 2545, 3211, 2945)
+        elif DMSP_cycle_dir['DMSP_cleavage_DMSP_to_DMS_ddds_or_alma1'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (2894, 2573, 3214, 2893)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (2965, 2636, 3205, 2876)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    try:
+        pathway_fig = Image.open("Figure_tmp/DMS_oxidation_DMS_to_MeSH_dmoA.png")
+        position = ()
+        if DMSP_cycle_dir['DMS_oxidation_DMS_to_MeSH_dmoA'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (3116, 266, 3596, 746)
+        elif DMSP_cycle_dir['DMS_oxidation_DMS_to_MeSH_dmoA'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (3131, 314, 3531, 714)
+        elif DMSP_cycle_dir['DMS_oxidation_DMS_to_MeSH_dmoA'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (3195, 432, 3515, 752)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (3207, 487, 3447, 727)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    try:
+        pathway_fig = Image.open("Figure_tmp/DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm.png")
+        position = ()
+        if DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (2290, 1795, 2770, 2275)
+        elif DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (2306, 1805, 2706, 2205)
+        elif DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (2367, 1806, 2687, 2126)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (2470, 1811, 2710, 2051)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    try:
+        pathway_fig = Image.open("Figure_tmp/DMSO_reduction_DMSO_to_DMS_DMSOR.png")
+        position = ()
+        if DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_DMSOR'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (2531, 1270, 3011, 1750)
+        elif DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_DMSOR'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (2563, 1355, 2963, 1755)
+        elif DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_DMSOR'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (2591, 1410, 2911, 1730)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (2608, 1487, 2848, 1727)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    try:
+        pathway_fig = Image.open("Figure_tmp/MddA_pathway_MeSH_to_DMS_mddA.png")
+        position = ()
+        if DMSP_cycle_dir['MddA_pathway_MeSH_to_DMS_mddA'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (2714, 591, 3194, 1071)
+        elif DMSP_cycle_dir['MddA_pathway_MeSH_to_DMS_mddA'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (2796, 640, 3196, 1040)
+        elif DMSP_cycle_dir['MddA_pathway_MeSH_to_DMS_mddA'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (2845, 640, 3165, 960)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (2936, 689, 3176, 929)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
+    try:
+        pathway_fig = Image.open("Figure_tmp/MeSH_oxidation_MeSH_to_Formaldehyde_MTO.png")
+        position = ()
+        if DMSP_cycle_dir['MeSH_oxidation_MeSH_to_Formaldehyde_MTO'] >= three_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((480, 480))
+            position = (602, 420, 1082, 900)
+        elif DMSP_cycle_dir['MeSH_oxidation_MeSH_to_Formaldehyde_MTO'] >= two_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((400, 400))
+            position = (648, 403, 1048, 803)
+        elif DMSP_cycle_dir['MeSH_oxidation_MeSH_to_Formaldehyde_MTO'] >= one_quarter_DMSP:
+            pathway_fig = pathway_fig.resize((320, 320))
+            position = (722, 379, 1042, 699)
+        else:
+            pathway_fig = pathway_fig.resize((240, 240))
+            position = (785, 358, 1025, 598)
+        DMSP_cycle_image_copy = DMSP_cycle_image.copy()
+        DMSP_cycle_image_copy.paste(pathway_fig, position, pathway_fig)
+        DMSP_cycle_image_copy.save("Figure_tmp/DMSP_cycle.png", 'png')
+    except:
+        pass
+
+    # draw figure legend of samples
+    color1 = (109, 118, 248)
+    color2 = (56, 186, 0)
+    color3 = (255, 156, 97)
+    color4 = (0, 144, 216)
+    color5 = (196, 191, 0)
+    color6 = (188, 98, 255)
+    color7 = (246, 176, 0)
+    color8 = (255, 144, 149)
+    color9 = (243, 107, 231)
+    color10 = (188, 98, 255)
+    color11 = (109, 118, 248)
+    color12 = (56, 186, 0)
+    color13 = (255, 156, 97)
+    color14 = (0, 144, 216)
+    color15 = (0, 182, 57)
+    color16 = (196, 191, 0)
+    color17 = (246, 176, 0)
+    color18 = (255, 144, 149)
+    color19 = (243, 107, 231)
+    color20 = (0, 182, 57)
+    colors = [color1, color2, color3, color4, color5,
+              color6, color7, color8, color9, color10,
+              color11, color12, color13, color14, color15,
+              color16, color17, color18, color19, color20]
+    samples = head.split('\t')
+    Count_samples = len(samples)
+    for i in range(1, Count_samples):
+        DMSP_cycle_image_cv2 = cv2.imread("Figure_tmp/DMSP_cycle.png")
+        color = colors[i-1]
+        #print(str(color))
+        (xmin, ymin) = (4274, 132+120*(int(i)-1))
+        # (1901,66),(1941,106)
+        (xmax, ymax) = (4354, 212+120*(int(i)-1))
+        #(1901, 126) (1941, 166)
+        cv2.rectangle(DMSP_cycle_image_cv2, (xmin, ymin),
+                      (xmax, ymax), color, -1)
+    
+        # draw sample_text of figure legend
+        sample = samples[i]
+        org = (4374, 192+120*(int(i)-1))
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        fontScale = 2
+        color_font = (0, 0, 0)
+        thickness = 4
+        cv2.putText(DMSP_cycle_image_cv2, sample, org,
+                    font, fontScale, color_font, thickness)
+        cv2.imwrite('Figure_tmp/DMSP_cycle.png', DMSP_cycle_image_cv2)
+    
+    # draw figure legend of pie
+    DMSP_cycle_image_cv2 = cv2.imread("Figure_tmp/DMSP_cycle.png")
+    color_cycle = (109, 118, 248)
+    cv2.circle(DMSP_cycle_image_cv2, (4314, 3828), 184, color_cycle, -1)
+    cv2.circle(DMSP_cycle_image_cv2, (4314, 3470), 154, color_cycle, -1)
+    cv2.circle(DMSP_cycle_image_cv2, (4314, 3174), 122, color_cycle, -1)
+    cv2.circle(DMSP_cycle_image_cv2, (4314, 2940), 92, color_cycle, -1)
+    
+    top_abun_DMSP_sci = '%.2e' % (top_abun_DMSP)
+    three_quarter_DMSP_sci = '%.2e' % (three_quarter_DMSP)
+    two_quarter_DMSP_sci = '%.2e' % (two_quarter_DMSP)
+    one_quarter_DMSP_sci = '%.2e' % (one_quarter_DMSP)
+    text1 = '>= ' + str(three_quarter_DMSP_sci) + '; ' + \
+        '<' + str(top_abun_DMSP_sci)
+    text2 = '>= ' + str(two_quarter_DMSP_sci) + '; ' + \
+        '<' + str(three_quarter_DMSP_sci)
+    text3 = '>= ' + str(one_quarter_DMSP_sci) + '; ' + \
+        '<' + str(two_quarter_DMSP_sci)
+    text4 = '> ' + str(0) + '; ' + '<' + str(one_quarter_DMSP_sci)
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    fontScale = 2
+    color_font = (0, 0, 0)
+    thickness = 4
+    cv2.putText(DMSP_cycle_image_cv2, text1, (4518, 3840),
+                font, fontScale, color_font, thickness)
+    cv2.putText(DMSP_cycle_image_cv2, text2, (4488, 3482),
+                font, fontScale, color_font, thickness)
+    cv2.putText(DMSP_cycle_image_cv2, text3, (4456, 3186),
+                font, fontScale, color_font, thickness)
+    cv2.putText(DMSP_cycle_image_cv2, text4, (4426, 2952),
+                font, fontScale, color_font, thickness)
+    
+    legend_line1 = "Figure. Relative abundances of the pathways involved in the DMSP cycle. The pie chart indicates"
+    legend_line2 = "the relative abundance of each pathway in each metagenomic sample. The size of pie charts represent"
+    legend_line3 = "the total relative abundance of each pathway."
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    fontScale = 2
+    color_font = (0, 0, 0)
+    thickness = 4
+    cv2.putText(DMSP_cycle_image_cv2, legend_line1, (420, 4182),
+                font, fontScale, color_font, thickness)
+    cv2.putText(DMSP_cycle_image_cv2, legend_line2, (420, 4262),
+                font, fontScale, color_font, thickness)
+    cv2.putText(DMSP_cycle_image_cv2, legend_line3, (420, 4342),
+                font, fontScale, color_font, thickness)
+    
+    cv2.imwrite('Figure_tmp/DMSP_cycle.png', DMSP_cycle_image_cv2)
+    
+    os.system('mv Figure_tmp/DMSP_cycle.png ./DMSP_cycle_sketch.png')
+
+
+
+
     # carbon cycle
     carbon_cycle_background_fig = background_image_pathway + "/carbon_cycle.png"
     shutil.copy(carbon_cycle_background_fig, './Figure_tmp/')
@@ -919,7 +1248,7 @@ def sketch(abundance_table):
     for i in carbon_cycle:
         carbon_cycle_dir[i] = total_abun_pathway_dir[i]
     
-    # get the most abundance of nitrogen cycle pathways
+    # get the most abundance of DMSP cycle pathways
     top_abun_carbon = int(0)
     for key in carbon_cycle_dir:
         if carbon_cycle_dir[key] > top_abun_carbon:
