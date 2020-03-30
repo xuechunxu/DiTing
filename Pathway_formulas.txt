@@ -829,34 +829,6 @@ Sulfur metabolism
     formula: MTO
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Oxidative phosphorylation (Nuo, ATPases)
     def: F-type ATPase
         K02111 atpA; F-type H+-transporting ATPase subunit alpha
