@@ -130,6 +130,16 @@ def main():
         table_of_ko_abundance_among_samples(ko_abun_merged_tab, ko_abundance_among_samples)
 
         """
+        building gene family
+        """
+        make_dir(GENE_FAMILY)
+        ORF_dir = PRODIGAL_DIR
+        ko_abun_txt = os.path.join(KEGG_DIR, 'ko_abun.txt')
+        outout_dir = GENE_FAMILY
+        build_gene_family(ORF_dir, ko_abun_txt, outout_dir)
+
+        
+        """
         hierarchical_table_abundance_among_samples
         """
         ko_abundance_among_samples = os.path.join(KEGG_DIR, 'ko_abundance_among_samples.tab')
