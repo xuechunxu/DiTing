@@ -201,6 +201,37 @@ def merge_abun_ko(abun_table_dir, ko_merged_tab, output):
         with open(output, 'a') as fo:
             fo.write(basename + '\t' + k_number + '\t' + abundance + '\t' + gene_id + '\n')
 
+def build_gene_family(ORF_dir, ko_abun_txt, output_dir):
+    print("\n" + 'building gene family'.center(50, '*'))
+    geneID_to_sequence = {}
+    for faa_file in os.listdir(ORF_dir):  # sample.faa
+        if faa_file.endswith('.faa'):
+            sample_name = faa_file.rsplit('.', 1)[0]  # sample
+            faa_file_path = os.path.join(ORF_dir, faa_file)
+            with open(faa_file_path, 'r') as fi:
+                contents = fi.read()
+                all_genes = contents.split(">")
+                for gene in all_genes:
+                    each_whole_gene_seq = ">" + sample_name + "+" + gene
+                    gene_id = gene.split(" # ")[0]
+                    sample_gene_id = sample_name + "+" + gene_id
+                    geneID_to_sequence[sample_gene_id] = each_whole_gene_seq
+
+    with open(ko_abun_txt) as fi:
+        for line in fi:
+            line = line.strip('\n')
+            if line.startswith('#'):
+                continue
+            else:
+                sample = line.split('\t')[0]
+                k_number = line.split('\t')[1]
+                gene_id = line.split('\t')[3]
+                sample_gene_id = sample + '+' + gene_id
+                output_file = k_number + ".faa"
+                output_file_path = os.path.join(output_dir, output_file)
+                with open(output_file_path, 'a') as fo:
+                    fo.write(geneID_to_sequence[sample_gene_id])
+
 
 #produce table of ko abundance among samples
 def table_of_ko_abundance_among_samples(ko_abun_txt, output):

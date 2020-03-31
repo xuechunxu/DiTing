@@ -21,6 +21,7 @@ else:
     KODB_DIR = os.path.join(ROOT_DIR, 'kofam_database')  # downloaded kofam_database folder from KEGG website
     DMSP_DIR = os.path.join(ROOT_DIR, 'DMSP_database')
     TABLE = os.path.join(ROOT_DIR, 'table')
+    GENE_FAMILY = os.path.join(OUT_DIR, 'Gene_family')
 
     BASENAMES = []  # input files basename list
     READS_SUF = ''  # suffix of input reads
