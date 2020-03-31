@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [0.6] - 2020-03-27
 
 ### Added
+- Sequences of each gene family is available
 - Added support for `conda` deployment
 - Customized DMSP database
 - An exhaustive output table of hit genes is available
