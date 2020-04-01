@@ -133,6 +133,9 @@ def kegg_annotation(faa, basename, out_dir, db_dir, ko_dic, threads):
         elif info[1] == 'domain':
             threshold_method = '--domT'
             outtype = '--domtblout'
+        elif info[1] == 'custom':
+            threshold_method = '-E'
+            outtype = '--tblout'
         else:
             threshold_method = '-E'
             info[0] = '1e-20'
