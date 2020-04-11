@@ -1307,15 +1307,15 @@ class Pathway:
           self.abundance[self.bn+'_K17230'])/2
 
     def DMSP_biosynthesis_LMet_to_DMSP(self):
-        ko_list = [self.bn+'_MmtN', self.bn+'_DSYB',
-                   self.bn+'_DsyB']
+        ko_list = [self.bn+'_MmtN', self.bn+'_DSYB_euka',
+                   self.bn+'_DsyB_prok']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
         self.out_data['DMSP biosynthesis, L-Met -> DMSP (DSYB or dsyB or mmtN)'] = (
           self.abundance[self.bn+'_MmtN'] +
-          self.abundance[self.bn+'_DSYB'] +
-          self.abundance[self.bn+'_DsyB'])
+          self.abundance[self.bn+'_DSYB_euka'] +
+          self.abundance[self.bn+'_DsyB_prok'])
 
     def DMSP_demethylation_DMSP_to_MMPA(self):
         ko_list = [self.bn+'_DmdA']
