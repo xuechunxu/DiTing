@@ -531,8 +531,8 @@ Sulfur metabolism	"Assimilatory sulfate reduction, sulfate -> sulfite"	K13811	PA
 	"Sulfide oxidation, sulfide -> sulfur (fccAB)"	K17229	fccB; sulfide dehydrogenase [flavocytochrome c] flavoprotein chain
 		K17230	fccA; cytochrome subunit of sulfide dehydrogenase
 	"DMSP biosynthesis, L-Met -> DMSP (DSYB or dsyB or mmtN)"	MmtN	Met-methylating enzymes
-		DSYB	methylthiohydroxybutryrate
-		DsyB	methylthiohydroxybutryrate
+		DSYB_euka	methylthiohydroxybutryrate
+		DsyB_prok	methylthiohydroxybutryrate
 	"DMSP demethylation, DMSP -> MMPA (dmdA)"	DmdA	DMSP demethylase
 	"DMSP demethylation, MMPA -> MeSH (dmdBCD or acuH)"	DmdB	MMPA-CoA ligase
 		DmdC	MMPA-CoA dehydrogenase
@@ -549,9 +549,9 @@ Sulfur metabolism	"Assimilatory sulfate reduction, sulfate -> sulfite"	K13811	PA
 	"DMS oxidation, DMS -> MeSH (dmoA)"	DmoA	dimethylsulfide monooxgenase
 	"DMS oxidation, DMS -> DMSO (ddhA or tmm)"	DdhA	dimethylsulfide dehydrogenase
 		Tmm	trimethylamine monooxygenase
-	"DMSO reduction, DMSO -> DMS (DMSOR)"	DMSOR	dimethyl sulfoxide reductase
+	"DMSO reduction, DMSO -> DMS (dMSOR)"	DMSOR	dimethyl sulfoxide reductase
 	"MddA pathway, MeSH -> DMS (mddA)"	MddA	MeSH S-methyltransferase
-	"MeSH oxidation, MeSH -> Formaldehyde (MTO)"	MTO	MeSH oxidase
+	"MeSH oxidation, MeSH -> Formaldehyde (mTO)"	MTO	MeSH oxidase
 Oxidative phosphorylation	F-type ATPase	K02111	"ATPF1A, atpA; F-type H+/Na+-transporting ATPase subunit alpha [EC:7.1.2.2 7.2.2.1]"
 		K02112	"ATPF1B, atpD; F-type H+/Na+-transporting ATPase subunit beta [EC:7.1.2.2 7.2.2.1]"
 		K02113	"ATPF1D, atpH; F-type H+-transporting ATPase subunit delta"
