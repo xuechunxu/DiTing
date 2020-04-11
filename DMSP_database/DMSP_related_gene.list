@@ -14,8 +14,8 @@ DmdC	1e-100	custom	-	-	-
 DmdD	1e-30	custom	-	-	-
 DmoA	1e-34	custom	-	-	-
 DMSOR	1e-94	custom	-	-	-
-DsyB	1e-67	custom	-	-	-
-DSYB	1e-30	custom	-	-	-
+DsyB_prok	1e-67	custom	-	-	-
+DSYB_euka	1e-30	custom	-	-	-
 MddA	1e-30	custom	-	-	-
 MmtN	1e-98	custom	-	-	-
 MTO	1e-20	custom	-	-	-
