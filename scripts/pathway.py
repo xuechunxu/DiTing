@@ -1364,21 +1364,31 @@ class Pathway:
           self.abundance[self.bn+'_DmoA'])
 
     def DMS_oxidation_DMS_to_DMSO(self):
-        ko_list = [self.bn+'_DdhA', self.bn+'_Tmm']
+        ko_list = [self.bn+'_K16964', self.bn+'_K16965',
+                   self.bn+'_K16966', self.bn+'_K18277']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['DMS oxidation, DMS -> DMSO (ddhA or tmm)'] = (
-          self.abundance[self.bn+'_DdhA'] +
-          self.abundance[self.bn+'_Tmm'])
+        self.out_data['DMS oxidation, DMS -> DMSO (ddhABC or tmm)'] = (
+          (self.abundance[self.bn+'_K16964'] +
+           self.abundance[self.bn+'_K16965'] +
+           self.abundance[self.bn+'_K16966'])/3 +
+          self.abundance[self.bn+'_K18277'])
 
     def DMSO_reduction_DMSO_to_DMS(self):
-        ko_list = [self.bn+'_DMSOR']
+        ko_list = [self.bn+'_K00184', self.bn+'_K00185',
+                   self.bn+'_K07306', self.bn+'_K07307',
+                   self.bn+'_K07308', self.bn+'_DorA']
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['DMSO reduction, DMSO -> DMS (DMSOR)'] = (
-          self.abundance[self.bn+'_DMSOR'])
+        self.out_data['DMSO reduction, DMSO -> DMS (dms or dorA)'] = (
+          (self.abundance[self.bn+'_K00184'] +
+           self.abundance[self.bn+'_K00185'])/2 +
+          (self.abundance[self.bn+'_K07306'] +
+           self.abundance[self.bn+'_K07307'] +
+           self.abundance[self.bn+'_K07308'])/3 +
+          self.abundance[self.bn+'_DorA'])
 
     def MddA_pathway_MeSH_to_DMS(self):
         ko_list = [self.bn+'_MddA']
@@ -2129,7 +2139,7 @@ function_order = ['Photosystem II (psbABCDEF)',
                   'DMSP demethylation, MMPA -> MeSH (dmdBCD or acuH)',
                   'DMSP cleavage, DMSP -> DMS (ddds or alma1)',
                   'DMS oxidation, DMS -> MeSH (dmoA)',
-                  'DMS oxidation, DMS -> DMSO (ddhA or tmm)',
+                  'DMS oxidation, DMS -> DMSO (ddhABC or tmm)',
                   'DMSO reduction, DMSO -> DMS (DMSOR)',
                   'MddA pathway, MeSH -> DMS (mddA)',
                   'MeSH oxidation, MeSH -> Formaldehyde (MTO)',

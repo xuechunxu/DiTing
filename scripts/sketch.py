@@ -897,8 +897,8 @@ def sketch(abundance_table):
                   'DMSP_demethylation_MMPA_to_MeSH_dmdBCD_or_acuH',
                   'DMSP_cleavage_DMSP_to_DMS_ddds_or_alma1',
                   'DMS_oxidation_DMS_to_MeSH_dmoA',
-                  'DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm',
-                  'DMSO_reduction_DMSO_to_DMS_DMSOR',
+                  'DMS_oxidation_DMS_to_DMSO_ddhABC_or_tmm',
+                  'DMSO_reduction_DMSO_to_DMS_dms_or_dorA',
                   'MddA_pathway_MeSH_to_DMS_mddA',
                   'MeSH_oxidation_MeSH_to_Formaldehyde_MTO'
                  ]

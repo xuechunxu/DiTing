@@ -117,8 +117,8 @@ def heatmap(abundance_table):
                     'DMSP demethylation, MMPA -> MeSH (dmdBCD or acuH)',
                     'DMSP cleavage, DMSP -> DMS (ddds or alma1)',
                     'DMS oxidation, DMS -> MeSH (dmoA)',
-                    'DMS oxidation, DMS -> DMSO (ddhA or tmm)',
-                    'DMSO reduction, DMSO -> DMS (DMSOR)',
+                    'DMS oxidation, DMS -> DMSO (ddhABC or tmm)',
+                    'DMSO reduction, DMSO -> DMS (dms or dorA)',
                     'MddA pathway, MeSH -> DMS (mddA)',
                     'MeSH oxidation, MeSH -> Formaldehyde (MTO)'
                     ]
