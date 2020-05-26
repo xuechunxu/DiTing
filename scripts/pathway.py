@@ -704,26 +704,14 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Methanogenesis, CO2 -> methane'] = (
-          (self.abundance[self.bn+'_K00200'] +
-           self.abundance[self.bn+'_K00201'] +
-           self.abundance[self.bn+'_K00202'] +
-           self.abundance[self.bn+'_K00203'] +
-           self.abundance[self.bn+'_K11261'] +
-           self.abundance[self.bn+'_K00205'] +
-           self.abundance[self.bn+'_K11260'] +
-           self.abundance[self.bn+'_K00204'])/6 +
-          self.abundance[self.bn+'_K00672'] +
-          self.abundance[self.bn+'_K01499'] +
-          self.abundance[self.bn+'_K00319'] +
-          self.abundance[self.bn+'_K13942'] +
-          self.abundance[self.bn+'_K00320'] +
-          (self.abundance[self.bn+'_K00577'] +
-           self.abundance[self.bn+'_K00578'] +
-           self.abundance[self.bn+'_K00579'] +
-           self.abundance[self.bn+'_K00580'] +
-           self.abundance[self.bn+'_K00581'] +
-           self.abundance[self.bn+'_K00584'])/6)/6
+        self.out_data['Methanogenesis, CO2 -> methane'] =(
+        	self.abundance[self.bn+'_K00200'] +
+            self.abundance[self.bn+'_K00201'] +
+            self.abundance[self.bn+'_K00202'] +
+            self.abundance[self.bn+'_K00203'] +
+            self.abundance[self.bn+'_K00205'] +
+            self.abundance[self.bn+'_K11260'] +
+            self.abundance[self.bn+'_K00204'])/5
 
     def Methane_oxidation_methane_methanol(self):
         ko_list = [self.bn+'_K16157', self.bn+'_K16158', self.bn+'_K16159',
