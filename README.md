@@ -17,7 +17,7 @@ DiTing is designed to determine the relative abundance of metabolic and biogeoch
 * [BBMap](https://github.com/BioInfoTools/BBMap)
 * [HMMER3](http://hmmer.org/)
 * [python3](https://www.python.org/downloads/)
-* Modules: 
+* Python modules: 
     * [Pandas](http://pandas.pydata.org/pandas-docs/stable/install.html)
     * [matplotlib](http://matplotlib.org/users/installing.html)
     * [opencv](https://pypi.org/project/opencv-python/)
@@ -51,11 +51,11 @@ Deactivate diting-env
 conda deactivate
 ```
 ### Repository from GitHub
-### Step 1. Download main scripts
+#### Step 1. Download main scripts
 `git clone https://github.com/xuechunxu/DiTing.git`
 or click the green button `Clone or download` and select `download ZIP` to download the repo  and unzip manually.
 
-### Step 2. Download databases
+#### Step 2. Download databases
 DiTing requires [KofamKOALA hmm database](https://www.genome.jp/tools/kofamkoala/). This database will be downloaded and unzipped automatically on the first run. 
 You can also download the database manually. This database should be stored in the same directory with the `diting.py` scripts. 
 
@@ -68,7 +68,7 @@ wget -c ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz
 gzip -d ko_list.gz
 tar zxvf profiles.tar.gz 
 ```
-###  Step 3. Install the Dependencies
+####  Step 3. Install the Dependencies
 The [Dependencies](#Dependencies) are required to be installed and added to the system `$PATH`
 
 ## Running
@@ -76,7 +76,7 @@ The [Dependencies](#Dependencies) are required to be installed and added to the 
 ```bash
 python diting.py -r <clean_reads_dir> -o <output_dir>
 ```
-* The input is the `<clean_reads_dir>` folder containing a group of paired-end metagenomic clean reads, looks like: 
+The input is the `<clean_reads_dir>` folder containing a group of paired-end metagenomic clean reads, looks like: 
 ```
 sample_one_1.fastq
 sample_one_2.fastq
@@ -93,7 +93,7 @@ Path to a folder containing metagenomic assemblies corresponding to the provided
 ```bash
 python diting.py -r <clean_reads_dir> -a <metagenomic_assembly> -o <output_dir>
 ```
-* The `<metagenomic_assembly>` folder looks like: 
+The `<metagenomic_assembly>` folder looks like: 
 ```
 sample_one.fa
 sample_two.fa
