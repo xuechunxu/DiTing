@@ -87,7 +87,7 @@ sample_three_2.fastq
 ```
 The paired-end metagenomic clean reads should end with `.fq`, `.fq.gz`, `.fastq`, or `.fastq.gz`.
 ### 2. Optional parameter
-**2.1 -a (--assembly) metagenomic assembly**
+#### 2.1 -a (--assembly) metagenomic assembly
 Path to a folder containing metagenomic assemblies corresponding to the provided reads, which is expected to  have the same base name as the reads. The reads will not be assembled when this parameter was used.
 
 ```bash
@@ -99,18 +99,18 @@ sample_one.fa
 sample_two.fa
 sample_three.fa
 ```
-**2.2 -n (--threads) number of threads** 
+#### 2.2 -n (--threads) number of threads
 Number of threads to run (default: 4)
 
 ```bash
 python diting.py -r <clean_reads_Dir> -a <metagenomic_assembly> -o <output_dir> -n 20
 ```
-**2.3 --noclean** 
+#### 2.3 --noclean
 The sam files would be retained if this flag was used. 
 ```bash
 python diting.py -r <clean_reads_dir> -a <metagenomic_assembly> -o <output_dir> -n 12 --noclean
 ```
-**2.4 -vis (--visualization) pathways_relative_abundance.tab** 
+#### 2.4 -vis (--visualization) pathways_relative_abundance.tab
 Visualization is expected to run independently, which allows users to adjust the final result table (e.g., merge some similar samples) before the visualization.
 
 ```bash
@@ -134,7 +134,6 @@ Example:
 <img src="./example/diting.out/sulfur_cycle_sketch.png" width="792" height="726.9">
 
 ## Copyright
-
 Xue Chunxu, xuechunxu@outlook.com
 Heyu Lin, heyu.lin@student.unimelb.edu.au
 Xiaoyu Zhu, xiaoyuzhu321@126.com
