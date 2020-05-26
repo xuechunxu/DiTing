@@ -567,7 +567,8 @@ Methanogenesis
             K00401  mcrB; methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]
             K00402  mcrG; methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]
         formula: (K00399 + K00401 + K00402)/3
-    formula: ((K00200 + K00201 + K00202 + K00203 + K11261 + K00205 + K11260 + K00204)/6 + K00672 + K01499 + K00319 + K13942 + K00320 + (K00577 + K00578 + K00579 + K00580 + K00581 + K00584)/6)/6
+    The first step from CO2 to Formylmethanofuran was selected as representative of this pathway. K11261 is  non-essential. K00205, K11260 and K00204 perform the same function.
+    formula: (K00200 + K00201 + K00202 + K00203 + K00205 + K11260 + K00204)/5
 
 
 Methane oxidation has two steps
