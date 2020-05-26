@@ -112,7 +112,6 @@ python diting.py -r <clean_reads_dir> -a <metagenomic_assembly> -o <output_dir> 
 ```
 #### 2.4 -vis (--visualization) pathways_relative_abundance.tab
 Visualization is expected to run independently, which allows users to adjust the final result table (e.g., merge some similar samples) before the visualization.
-
 ```bash
 python diting.py -vis <pathways_relative_abundance.tab>
 ```
@@ -134,9 +133,9 @@ Example:
 <img src="./example/diting.out/sulfur_cycle_sketch.png" width="792" height="726.9">
 
 ## Copyright
-Xue Chunxu, xuechunxu@outlook.com
-Heyu Lin, heyu.lin@student.unimelb.edu.au
-Xiaoyu Zhu, xiaoyuzhu321@126.com
-Xiao-Hua Zhang, xhzhang@ouc.edu.cn
-Lab of Microbial Oceanography
+Xue Chunxu, xuechunxu@outlook.com  
+Heyu Lin, heyu.lin@student.unimelb.edu.au  
+Xiaoyu Zhu, xiaoyuzhu321@126.com  
+Xiao-Hua Zhang, xhzhang@ouc.edu.cn  
+Lab of Microbial Oceanography  
 College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China
