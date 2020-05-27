@@ -121,16 +121,17 @@ python diting.py -vis <pathways_relative_abundance.tab>
 - `ko_abundance_among_samples.tab` : A table with the relative abundance of each `k_number` of KEGG annotation is produced in `KEGG_annotation` folder. 
 
 #### 3.2 Visualization
-- `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png`
+- `carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png`, `DMSP_cycle_sketch.png` and `sulfur_cycle_sketch.png`
 Sketch maps regarding carbon, nitrogen and sulfur cycles
 - `carbon_cycle_heatmap.pdf`, `nitrogen_cycle_heatmap.pdf`, `sulfur_cycle_heatmap.pdf` and `other_cycle_heatmap.pdf`
 Heatmaps regarding carbon, nitrogen, sulfur cycles and other pathways
 
 Example:
-`carbon_cycle_sketch.png`, `nitrogen_cycle_sketch.png` and `sulfur_cycle_sketch.png` look like:
-<img src="./example/diting.out/carbon_cycle_sketch.png" width="792" height="657.7">
-<img src="./example/diting.out/nitrogen_cycle_sketch.png" width="792" height="771.4">
-<img src="./example/diting.out/sulfur_cycle_sketch.png" width="792" height="726.9">
+`sketch`look like:
+<img src="./example/diting.out/sketch.tif" width="792" height="623.9">
+
+`heatmap`look like:
+<img src="./example/diting.out/heatmap.tif" width="792" height="628">
 
 ## Copyright
 Xue Chunxu, xuechunxu@outlook.com  
