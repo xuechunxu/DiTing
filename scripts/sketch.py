@@ -1027,15 +1027,15 @@ def sketch(abundance_table):
 
     DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
     try:
-        pathway_fig = Image.open("Figure_tmp/DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm.png")
+        pathway_fig = Image.open("Figure_tmp/DMS_oxidation_DMS_to_DMSO_ddhABC_or_tmm.png")
         position = ()
-        if DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm'] >= three_quarter_DMSP:
+        if DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhABC_or_tmm'] >= three_quarter_DMSP:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (2290, 1795, 2770, 2275)
-        elif DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm'] >= two_quarter_DMSP:
+        elif DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhABC_or_tmm'] >= two_quarter_DMSP:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2306, 1805, 2706, 2205)
-        elif DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhA_or_tmm'] >= one_quarter_DMSP:
+        elif DMSP_cycle_dir['DMS_oxidation_DMS_to_DMSO_ddhABC_or_tmm'] >= one_quarter_DMSP:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2367, 1806, 2687, 2126)
         else:
@@ -1049,15 +1049,15 @@ def sketch(abundance_table):
 
     DMSP_cycle_image = Image.open("Figure_tmp/DMSP_cycle.png")
     try:
-        pathway_fig = Image.open("Figure_tmp/DMSO_reduction_DMSO_to_DMS_DMSOR.png")
+        pathway_fig = Image.open("Figure_tmp/DMSO_reduction_DMSO_to_DMS_dms_or_dorA.png")
         position = ()
-        if DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_DMSOR'] >= three_quarter_DMSP:
+        if DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_dms_or_dorA'] >= three_quarter_DMSP:
             pathway_fig = pathway_fig.resize((480, 480))
             position = (2531, 1270, 3011, 1750)
-        elif DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_DMSOR'] >= two_quarter_DMSP:
+        elif DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_dms_or_dorA'] >= two_quarter_DMSP:
             pathway_fig = pathway_fig.resize((400, 400))
             position = (2563, 1355, 2963, 1755)
-        elif DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_DMSOR'] >= one_quarter_DMSP:
+        elif DMSP_cycle_dir['DMSO_reduction_DMSO_to_DMS_dms_or_dorA'] >= one_quarter_DMSP:
             pathway_fig = pathway_fig.resize((320, 320))
             position = (2591, 1410, 2911, 1730)
         else:
