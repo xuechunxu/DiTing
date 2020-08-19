@@ -128,10 +128,10 @@ Heatmaps regarding carbon, nitrogen, sulfur cycles and other pathways
 
 Example:
 `sketch`look like:
-<img src="./example/diting.out/sketch.png" width="792" height="623.9">
+<img src="./example/diting.out/sketch.png" width="792" height="624">
 
 `heatmap`look like:
-<img src="./example/diting.out/heatmap.png" width="792" height="628">
+<img src="./example/diting.out/heatmap.png" width="792" height="627">
 
 ## Copyright
 Xue Chunxu, xuechunxu@outlook.com  
