@@ -98,7 +98,7 @@ def gene_relative_abun(pileup_file, basename, out_dir):
             else:
                 gene_id = line.split('\t')[0]
                 ave_fold = line.split('\t')[1]
-                gene_abund = float(ave_fold) / float(total_ave_fold)
+                gene_abund = (float(ave_fold) / float(total_ave_fold)) * float(1000000)
                 with open(file_out, 'a') as fo:
                     fo.write(gene_id + "\t" + str(gene_abund) + "\n")
 
