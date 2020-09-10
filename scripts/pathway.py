@@ -1028,7 +1028,7 @@ class Pathway:
                 self.abundance[ko] = 0
         self.out_data['Denitrification, nitric oxide -> nitrous oxide (norBC)'] = (
           self.abundance[self.bn+'_K04561'] +
-          self.abundance[self.bn+'_K02305'])
+          self.abundance[self.bn+'_K02305'])/2
 
     def Denitrification_N2O_N2(self):
         ko_list = [self.bn+'_K00376']
