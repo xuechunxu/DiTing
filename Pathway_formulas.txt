@@ -734,7 +734,7 @@ Nitrogen metabolism
     formula: K00368 + K15864
 
     def: Denitrification step of nitric oxide reduction to Nitrous oxide (NO => N2O) requires norBC (K04561 + K02305)
-    formula: K04561 + K02305
+    formula: (K04561 + K02305)/2
 
     def: Denitrification step of nitrous oxide reduction to nitrogen (N2O => N2) requires nosZ (K00376)
     formula: K00376
