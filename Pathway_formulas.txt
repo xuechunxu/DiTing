@@ -1,0 +1,1255 @@
+#v0.3 This file contains unbiased specific formulas for over 100 pathways to estimate the relative abundance of the pathways according to the definitions below.
+
+
+Photosynthesis
+    def：Photosystem II (major reaction center proteins - 21 additional proteins are possible as part of structure)
+        K02703 psbA; photosystem II P680 reaction center D1 protein
+        K02706 psbD; photosystem II P680 reaction center D2 protein
+        K02705 psbC; photosystem II CP43 chlorophyll apoprotein
+        K02704 psbB; photosystem II CP47 chlorophyll apoprotein
+        K02707 psbE; photosystem II cytochrome b559 subunit alpha
+        K02708 psbF; photosystem II cytochrome b559 subunit beta
+    formula: (K02703 + K02706 + K02705 + K02704 + K02707 + K02708)/6
+
+    def: Photosystem I
+        K02689  psaA; photosystem I P700 chlorophyll a apoprotein A1
+        K02690  psaB; photosystem I P700 chlorophyll a apoprotein A2
+        K02691  psaC; photosystem I subunit VII
+        K02692  psaD; photosystem I subunit II
+        K02693  psaE; photosystem I subunit IV
+        K02694  psaF; photosystem I subunit III
+    formula: (K02689 + K02690 + K02691 + K02692 + K02693 + K02694)/6
+    note: there are some differences between Photosystem I in Module and Pathway in KEGG. I calculate Photosystem I according to Module in KEGG. Because K number in Module is the main subunit.
+    
+    def: Cytochrome b6/f complex
+        K02635 petB; cytochrome b6
+        K02637 petD; cytochrome b6-f complex subunit 4
+        K02634 petA; apocytochrome f
+        K02636 petC; cytochrome b6-f complex iron-sulfur subunit
+        K02642 petL; cytochrome b6-f complex subunit 6
+        K02643 petM; cytochrome b6-f complex subunit 7
+        K03689 PetN; cytochrome b6-f complex subunit 8
+        K02640 petG; cytochrome b6-f complex subunit 5
+    formula: (K02635 + K02637 + K02634 + K02636 + K02642 + K02643 + K03689 + K02640)/8
+    
+    Anoxygenic photosynthesis
+        def Anoxygenic photosystem II (pufML)
+            K08928 pufL; photosynthetic reaction center L subunit
+            K08929 pufM; photosynthetic reaction center M subunit
+        formula: (K08928 + K08929)/2
+
+        Anoxygenic photosystem I (pscABCD)
+            K08940 pscA; photosystem P840 reaction center large subunit
+            K08941 pscB; photosystem P840 reaction center iron-sulfur protein
+            K08942 pscC; photosystem P840 reaction center cytochrome c551
+            K08943 pscD; photosystem P840 reaction center protein PscD
+        formula: (K08940 + K08941 + K08942 + K08943)/4
+
+
+Carbon fixation
+def: CBB cycle has 11 steps
+    1. D-Ribulose 5-phosphate -> D-Ribulose 1,5-bisphosphate (K00855)
+    formula: K00855
+    
+    def: RuBisCo
+    2. D-Ribulose 1,5-bisphosphate + CO2 -> 3-Phospho-D-glycerate (K01601-K01602), K01602 is non-essential component in the complex.
+    formula: K01601
+
+    3. 3-Phospho-D-glycerate -> 3-Phospho-D-glyceroyl phosphate (K00927)
+    formula: K00927
+
+    4. 3-Phospho-D-glyceroyl phosphate -> D-Glyceraldehyde 3-phosphate (K05298,K00150,K00134)
+    formula: K05298 + K00150 + K00134
+
+    5. D-Glyceraldehyde 3-phosphate -> D-Fructose 1,6-bisphosphate (K01623,K01624)
+    formula: K01623 + K01624
+
+    6. D-Fructose 1,6-bisphosphate -> D-Fructose 6-phosphate (K03841,K02446,K11532,K01086,K04041)
+    formula: K03841 + K02446 + K11532 + K01086 + K04041
+
+    7. D-Fructose 6-phosphate -> D-Erythrose 4-phosphate (K00615)
+    formula: K00615
+
+    8. D-Erythrose 4-phosphate -> Sedoheptulose 1,7-bisphosphate (K01623,K01624)
+    formula: K01623 + K01624
+
+    9. Sedoheptulose 1,7-bisphosphate -> Sedoheptulose 7-phosphate (K01100,K11532,K01086)
+    formula: K01100 + K11532 + K01086
+
+    10. Sedoheptulose 7-phosphate -> D-Ribose 5-phosphate (K00615)
+    formula: K00615
+
+    11. D-Ribose 5-phosphate -> D-Ribulose 5-phosphate (K01807,K01808)
+    formula: K01807 + K01808
+
+#formula: (K00855 + K01601 + K00927 + K05298 + K00150 + K00134 + K01623 + K01624 + K03841 + K02446 + K11532 + K01086 + K04041 + K00615 + K01623 + K01624 + K01100 + K11532 + K01086 + K00615 + K01623 + K01624 + K01100 + K11532 + K01086 + K00615 + K01807 + K01808)/11
+
+For CBB cycle, we PRK, prkB selected phosphoribulokinase [EC:2.7.1.19] as marker gene of CBB according to experience. So the formula is K00855
+
+formula: K00855
+
+
+def: Reverse TCA cycle display completeness of TCA cycle, check for essential gene components:
+    Option 1 - ATP-citrate lyase K15230 + K15231
+    formula: (K15230 + K15231)/2
+    Option 2 - citryl-CoA synthetase K15232 + K15233 AND citryl-CoA lyase K15234
+    formula: ((K15232 + K15233)/2 + K15234)/2
+formula: (K15230 + K15231)/2 + ((K15232 + K15233)/2 + K15234)/2
+
+
+def: Wood-Ljungdahl pathway has seven steps
+    1. CO2 -> CO (K00198, cooS, acsA; anaerobic carbon-monoxide dehydrogenase catalytic subunit [EC:1.2.7.4])
+    formula: K00198
+    
+    2. CO2 -> Formate (K05299-K15022), K15022 is non-essential component in the complex.
+    K05299, fdhA; formate dehydrogenase (NADP+) alpha subunit [EC:1.17.1.10]
+    K15022, fdhB; formate dehydrogenase (NADP+) beta subunit [EC:1.17.1.10]
+    formula: K05299
+
+    3. Formate -> 10-Formyltetrahydrofolate (K01938)
+    K01938, fhs; formate--tetrahydrofolate ligase [EC:6.3.4.3]
+    formula: K01938
+
+    4. 10-Formyltetrahydrofolate -> 5,10-Methenyltetrahydrofolate -> 5,10-Methylenetetrahydrofolate (K01491)
+    K01491, folD; methylenetetrahydrofolate dehydrogenase (NADP+) / methenyltetrahydrofolate cyclohydrolase [EC:1.5.1.5 3.5.4.9]
+    formula: K01491
+
+    5. 5,10-Methylenetetrahydrofolate -> 5-Methyltetrahydrofolate (K00297)
+    K00297, metF, MTHFR; methylenetetrahydrofolate reductase (NADPH) [EC:1.5.1.20]
+    formula: K00297
+
+    6. 5-Methyltetrahydrofolate + Co(I) -> CH3-Co(III) + Tetrahydrofolate (K15023)
+    K15023, acsE; 5-methyltetrahydrofolate corrinoid/iron sulfur protein methyltransferase [EC:2.1.1.258]
+    formula: K15023
+
+    7. CH3-Co(III) + CO -> Co(I) + Acetyl-CoA (K14138 + K00197 + K00194)
+    K14138, acsB; acetyl-CoA synthase [EC:2.3.1.169]
+    K00197, cdhE, acsC; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit gamma [EC:2.1.1.245]
+    K00194, cdhD, acsD; acetyl-CoA decarbonylase/synthase, CODH/ACS complex subunit delta [EC:2.1.1.245]
+    formula: (K14138 + K00197 + K00194)/3
+
+#formula: (K00198 + K05299 + K01938 + K01491 + K00297 + K15023 + (K14138 + K00197 + K00194)/3)/7
+
+For Wood-Ljungdahl pathway, we selected acsABCDE as marker gene according some references.
+1.Yau S , Lauro F M , Williams T J , et al. Metagenomic insights into strategies of carbon conservation and unusual sulfur biogeochemistry in a hypersaline Antarctic lake[J]. The ISME Journal, 2013, 7(10):1944-1961.
+2. Acinas S G, Sánchez P, Salazar G, et al. Metabolic Architecture of the Deep Ocean Microbiome[J]. bioRxiv, 2019: 635680.
+
+Formula: (K00198 + K14138 + K00197 + K00194 + K15023)/5
+
+
+def: 3-hydroxypropionate bicycle has separate pathways cycling:
+    Pathway 1:
+        1.1 Acetyl-CoA + HCO3 -> Malonyl-CoA (K02160+K01961+K01962+K01963)
+        formula: (K02160 + K01961 + K01962 + K01963)/4
+        1.2 Malonyl-CoA -> 3-Oxopropanoate -> 3-Hydroxypropanoate (K14468)
+        formula: K14468
+        1.3 3-Hydroxypropanoate -> 3-Hydroxypropionyl-CoA -> Propenoyl-CoA -> Propanoyl-CoA (K14469)
+        formula: K14469
+        1.4 Propanoyl-CoA -> L-erythro-3-Methylmalyl-CoA (K08691)
+        formula: K08691
+        1.5 L-erythro-3-Methylmalyl-CoA -> 2-Methylfumaryl-CoA (K14449)
+        formula: K14449
+        1.6 2-Methylfumaryl-CoA -> 3-Methylfumaryl-CoA (K14470)
+        formula: K14470
+        1.7 3-Methylfumaryl-CoA -> (3S)-Citramalyl-CoA (K09709)
+        formula: K09709
+        1.8 (3S)-Citramalyl-CoA -> Pyruvate + Acetyl-CoA (K08691)
+        formula: K08691
+    formula: ((K02160 + K01961 + K01962 + K01963)/4 + K14468 + K14469 + K08691 + K14449 + K14470 + K09709 + K08691)/8
+
+    Pathway 2:
+        The first three steps of this pathway 2 is sama as that in pathway 1
+        1.4 Propanoyl-CoA -> (S)-Methylmalonyl-CoA (K15052)
+        formula: K15052
+        1.5 (S)-Methylmalonyl-CoA -> (R)-Methylmalonyl-CoA (K05606)
+        formula: K05606
+        1.6 (R)-Methylmalonyl-CoA -> Succinyl-CoA (K01847,K01848+K01849)
+        formula: K01847 + (K01848 + K01849)/2
+        1.7 Succinyl-CoA -> Succinate (K14471+K14472)
+        formula: (K14471 + K14472)/2
+        1.8 Succinate -> Fumarate (K00239+K00240+K00241)
+        formula: (K00239 + K00240 + K00241)/3
+        1.9 Fumarate -> (S)-Malate (K01679)
+        formula: K01679
+        1.10 (S)-Malate -> L-Malyl-CoA (K14471+K14472)
+        formula: (K14471 + K14472)/2
+        1.11 L-Malyl-CoA -> Glyoxylate + Acetyl-CoA (K08691)
+        formula: K08691
+    formula: ((K02160 + K01961 + K01962 + K01963)/4 + K14468 + K14469 + K15052 + K05606 + K01847 + (K01848 + K01849)/2 + (K14471 + K14472)/2 + (K00239 + K00240 + K00241)/3 + K01679 + (K14471 + K14472)/2 + K08691)/11
+
+#formula: ((K02160 + K01961 + K01962 + K01963)/4 + K14468 + K14469 + K08691 + K14449 + K14470 + K09709 + K08691 + K15052 + K05606 + K01847 + (K01848 + K01849)/2 + (K14471 + K14472)/2 + (K00239 + K00240 + K00241)/3 + K01679 + (K14471 + K14472)/2 + K08691)/16
+#note: a complete3-hydroxypropionate bicycle needs two cycle existed.
+
+For 3HP cycle, we selected six marker genes:
+K14468	mcr; malonyl-CoA reductase / 3-hydroxypropionate dehydrogenase (NADP+) [EC:1.2.1.75 1.1.1.298]
+K15052	prpE; propionyl-CoA carboxylase [EC:6.4.1.3 2.1.3.15]
+K08691	mcl; malyl-CoA/(S)-citramalyl-CoA lyase [EC:4.1.3.24 4.1.3.25]
+K14469	acrylyl-CoA reductase (NADPH) / 3-hydroxypropionyl-CoA dehydratase / 3-hydroxypropionyl-CoA synthetase [EC:1.3.1.84 4.2.1.116 6.2.1.36]
+K14470	mct; 2-methylfumaryl-CoA isomerase [EC:5.4.1.3]
+K09709	meh; 3-methylfumaryl-CoA hydratase [EC:4.2.1.153]
+according to refrence [Acinas S G, Sánchez P, Salazar G, et al. Metabolic Architecture of the Deep Ocean Microbiome[J]. bioRxiv, 2019: 635680.]
+
+Formula: (K14468 + K15052 + K08691 + K14469 + K14470 + K09709)/6
+
+
+#def: Dicarboxylate-hydroxybutyrate cycle has steps
+    #1. Acetyl-CoA -> Pyruvate (K00169+K00170+K00171+K00172)
+    #formula: (K00169 + K00170 + K00171 + K00172)/4
+    #2. Pyruvate -> Phosphoenolpyruvate (K01007)
+    #formula: K01007
+    #3. Phosphoenolpyruvate -> Oxaloacetate (K01595)
+    #formula: K01595
+    #4. Oxaloacetate -> (S)-Malate (K00024)
+    #formula: K00024
+    #5. (S)-Malate -> Fumarate (K01676,K01677+K01678)
+    #formula: K01676 + (K01677 + K01678)/2
+    #6. Fumarate -> Succinate (K00239+K00240-K00241-K18860)
+    #formula: (K00239 + K00240)/2
+    #7. Succinate -> Succinyl-CoA (K01902+K01903)
+    #formula: (K01902 + K01903)/2
+    #8. Succinyl-CoA -> Succinate semialdehyde (K15038,K15017)
+    #formula: K15038 + K15017
+    #9. Succinate semialdehyde -> 4-Hydroxybutanoic acid (K14465)
+    #formula: K14465
+    #10. 4-Hydroxybutanoic acid -> 4-Hydroxybutyryl-CoA (K14467,K18861)
+    #formula: K14467 + K18861
+    #11. 4-Hydroxybutyryl-CoA -> Crotonoyl-CoA (K14534)
+    #formula: K14534
+    #12. Crotonoyl-CoA -> (S)-3-Hydroxybutanoyl-CoA (K15016)
+    #formula: K15016
+    #13. (S)-3-Hydroxybutanoyl-CoA -> Acetoacetyl-CoA (K15016)
+    #formula: K15016
+    #14. Acetoacetyl-CoA -> Acetyl-CoA (K00626)
+    #formula: K00626
+
+#formula: ((K00169 + K00170 + K00171 + K00172)/4 + K01007 + K01595 + K00024 + K01676 + (K01677 + K01678)/2 + (K00239 + K00240)/2 + (K01902 + K01903)/2 + K15038 + K15017 + K14465 + K14467 + K18861 + K14534 + K15016 + K15016 + K00626)/14
+
+
+
+#Carbon degradation - Each enzyme taken as a single entity:
+    #def: beta-glucosidase (K05350, K05349)
+    #formula: K05350 + K05349
+    
+    #def: cellulase (K01225, K19668)
+    #formula: K01225 + K19668
+    
+    #def: chitinase (K01183)
+    #formula: K01183
+    #Note: K03791 (putative chitinase) is not included because I clone thi protein and has no chitinase activity.
+
+    #def: bifunctional chitinase/lysozyme (K13381)
+    #formula: K13381
+
+    #def: basic endochitinase B K20547
+    #formula: K20547
+
+    #def: diacetylchitobiose deacetylase (K03478, K18454)
+    #formula: K03478 + K18454
+
+    #def: beta-N-acetylhexosaminidase (K01207)
+    #formula: K01207
+
+    #def: pectinesterase (K01051)
+    #formula: K01051
+
+    #def: exo-poly-alpha-galacturonosidase (K18650)
+    #formula: K18650
+
+    #def: oligogalacturonide lyase (K01730)
+    #formula: K01730
+    
+    #def: exopolygalacturonase (K01184)
+    #formula: K01184
+
+    #def: D-galacturonate isomerase (K01812)
+    #formula: K01812
+
+    #def: D-galacturonate epimerase (K08679)
+    #formula: K08679
+    
+    #def: alpha-amylase (K01176)
+    #formula: K01176
+
+    #def: glucoamylase (K01178)
+    #formula: K01178
+    
+    #def: pullulanase (K01200)
+    #formula: K01200
+
+
+def: Glycolysis (Embden-Meyerhof pathway, glucose => pyruvate) has eight steps:
+    1. glucokinase
+        1.1 hexokinase/glucokinase [EC:2.7.1.1 2.7.1.2] (K00844,K12407,K00845)
+        1.2 polyphosphate glucokinase [EC:2.7.1.63] (K00886)
+        1.3 ADP-dependent glucokinase [EC:2.7.1.147] (K08074,K00918)
+    formula: K00844 + K12407 + K00845 + K00886 + K08074 + K00918
+    
+    2. glucose-6-phosphate isomerase [EC:5.3.1.9] (K01810,K06859,K13810,K15916)
+    formula: K01810 + K06859 + K13810 + K15916
+    
+    3. phosphofructokinase
+        3.1 6-phosphofructokinase [EC:2.7.1.11] (K00850,K16370)
+        3.2 ADP-dependent phosphofructokinase [EC:2.7.1.146] (K00918)
+    formula: K00850 + K16370 + K00918
+
+    4. beta-D-Fructose 1,6-bisphosphate <=> Glycerone phosphate + D-Glyceraldehyde 3-phosphate
+    this step has two ways:
+        5.1 fructose-bisphosphate aldolase [EC:4.1.2.13] (K01623,K01624,K11645,K16305,K16306)
+        formula: K01623 + K01624 + K11645 + K16305 + K16306
+        5.2 fructose-bisphosphate aldolase [EC:4.1.2.13] + triosephosphate isomerase [EC:5.3.1.1] (K01623,K01624,K11645,K16305,K16306) + (K01803)
+        formula: (K01623 + K01624 + K11645 + K16305 + K16306 + K01803)/2
+    formula: (K01623 + K01624 + K11645 + K16305 + K16306) + (K01623 + K01624 + K11645 + K16305 + K16306 + K01803)/2
+
+    5. D-Glyceraldehyde 3-phosphate + H2O + 2 Oxidized ferredoxin <=> 3-Phospho-D-glycerate + 2 H+ + 2 Reduced ferredoxin
+    this step has two ways:
+        5.1 glyceraldehyde-3-phosphate dehydrogenase (ferredoxin) [EC:1.2.7.6] (K11389)
+        formula: K11389
+        5.2 glyceraldehyde 3-phosphate dehydrogenase (K00134 + K15633) + phosphoglycerate kinase [EC:2.7.2.3] (K00927)
+        formula: (K00134 + K15633 + K00927)/2
+    formula: K11389 + (K00134 + K15633 + K00927)/2
+
+    6. phosphoglycerate mutase (K01834,K15633,K15634,K15635)
+    formula: K01834 + K15633 + K15634 + K15635
+
+    7. enolase [EC:4.2.1.11] (K01689)
+    formula: K01689
+
+    8. pyruvate kinase [EC:2.7.1.40] (K00873,K12406)
+    formula: K00873 + K12406
+
+#formula: (K00844 + K12407 + K00845 + K00886 + K08074 + K00918 + K01810 + K06859 + K13810 + K15916 + K00850 + K16370 + K00918 + (K01623 + K01624 + K11645 + K16305 + K16306) + (K01623 + K01624 + K11645 + K16305 + K16306 + K01803)/2 + K11389 + (K00134 + K15633 + K00927)/2 + K01834 + K15633 + K15634 + K15635 + K01689 + K00873 + K12406)/8
+
+For glycolysis, three marker genes glk, pfk, pyk were selected according to [1].	Dombrowski, N., A.P. Teske and B.J. Baker, Expansive microbial metabolic versatility and biodiversity in dynamic Guaymas Basin hydrothermal sediments. Nature Communications, 2018. 9(1).
+1. glk (Glucokinase) has seven k_numbers
+K00845	glk; glucokinase [EC:2.7.1.2]
+K00844	HK; hexokinase [EC:2.7.1.1]
+K00918	pfkC; ADP-dependent phosphofructokinase/glucokinase [EC:2.7.1.146 2.7.1.147]
+K00886	ppgK; polyphosphate glucokinase [EC:2.7.1.63]
+K08074	ADPGK; ADP-dependent glucokinase [EC:2.7.1.147]
+K00846	KHK; ketohexokinase [EC:2.7.1.3]
+K00882	fruK; 1-phosphofructokinase [EC:2.7.1.56]
+2. pfk (Phosphofructokinase) has five k_numbers
+K00918	pfkC; ADP-dependent phosphofructokinase/glucokinase [EC:2.7.1.146 2.7.1.147]
+K00895	pfp, pfk; pyrophosphate--fructose-6-phosphate 1-phosphotransferase [EC:2.7.1.90]
+K21071	ATP-dependent phosphofructokinase / diphosphate-dependent phosphofructokinase [EC:2.7.1.11 2.7.1.90]
+K00850	pfkA, PFK; 6-phosphofructokinase 1 [EC:2.7.1.11]
+K16370	pfkB; 6-phosphofructokinase 2 [EC:2.7.1.11]
+3. pyk (Pyruvate kinase)
+K00873	PK, pyk; pyruvate kinase [EC:2.7.1.40]
+
+formula: (K00845 + K00844 + K00918 + K00886 + K08074 + K00846 + K00882 + K00918 + K00895 + K21071 + K00850 + K16370 + K00873)/3
+
+
+
+def: Entner-Doudoroff Pathway, glucose-6P => glyceraldehyde-3P + pyruvate has four steps:
+    1. beta-D-Glucose 6-phosphate -> D-Glucono-1,5-lactone 6-phosphate (K00036)
+    formula: K00036
+    2. D-Glucono-1,5-lactone 6-phosphate -> 6-Phospho-D-gluconate (K01057,K07404)
+    formula: K01057 + K07404
+    3. 6-Phospho-D-gluconate -> 2-Dehydro-3-deoxy-6-phospho-D-gluconate (K01690)
+    formula: K01690
+    4. 2-Dehydro-3-deoxy-6-phospho-D-gluconate -> Glyceraldehyde 3-phosphate + Pyruvate (K01625)
+    formula: K01625
+formula: (K00036 + K01057 + K07404 + K01690 + K01625)/4
+
+
+def: Gluconeogenesis, oxaloacetate => fructose-6P: has seven steps:
+    1. phosphoenolpyruvate carboxykinase [EC:4.1.1.32 4.1.1.49] (K01596,K01610)
+    formula: K01596 + K01610
+    
+    2. enolase [EC:4.2.1.11] (K01689)
+    formula: K01689
+    
+    3. phosphoglycerate mutase [EC:5.4.2.11 5.4.2.12] (K01834,K15633,K15634,K15635)
+    formula: K01834 + K15633 + K15634 + K15635
+
+    4. phosphoglycerate kinase [EC:2.7.2.3] (K00927)
+    formula: K00927
+
+    5. glyceraldehyde 3-phosphate dehydrogenase [EC:1.2.1.12 1.2.1.59] (K00134,K00150)
+    formula: K00134 + K00150
+
+    6. beta-D-Fructose 1,6-bisphosphate <=> Glycerone phosphate + D-Glyceraldehyde 3-phosphate
+    this step has two ways:
+        6.1 triosephosphate isomerase (TIM) [EC:5.3.1.1] (K01803) +  beta-D-fructose-1,6-bisphosphate D-glyceraldehyde-3-phosphate-lyase (glycerone-phosphate-forming) (K01623,K01624,K11645)
+        formula: (K01803 + K01623 + K01624 + K11645)/2
+        6.2 beta-D-fructose-1,6-bisphosphate D-glyceraldehyde-3-phosphate-lyase (glycerone-phosphate-forming) (K01623,K01624,K11645)
+        formula: K01623 + K01624 + K11645
+    formula: (K01803 + K01623 + K01624 + K11645)/2 + K01623 + K01624 + K11645
+
+    7. fructose-1,6-bisphosphatase (K01622) + fructose 1,6-bisphosphate aldolase/phosphatase (K03841,K02446,K11532,K01086,K04041)
+    formula: K01622 + K03841 + K02446 + K11532 + K01086 + K04041
+
+#formula: (K01596 + K01610 + K01689 + K01834 + K15633 + K15634 + K15635 + K00927 + K00134 + K00150 + (K01803 + K01623 + K01624 + K11645)/2 + K01623 + K01624 + K11645 + K01622 + K03841 + K02446 + K11532 + K01086 + K04041)/7
+
+For gluconeogenesis, fbp, pck genes were selected as marker genes according to [1].	Dombrowski, N., A.P. Teske and B.J. Baker, Expansive microbial metabolic versatility and biodiversity in dynamic Guaymas Basin hydrothermal sediments. Nature
+1. fbp (Fructose-1,6-bisphosphatase) has six k_numbers
+K03841	FBP, fbp; fructose-1,6-bisphosphatase I [EC:3.1.3.11]
+K02446	glpX; fructose-1,6-bisphosphatase II [EC:3.1.3.11]
+K04041	fbp3; fructose-1,6-bisphosphatase III [EC:3.1.3.11]
+K01622	K01622; fructose 1,6-bisphosphate aldolase/phosphatase [EC:4.1.2.13 3.1.3.11]
+K00895	pfp, pfk; pyrophosphate--fructose-6-phosphate 1-phosphotransferase [EC:2.7.1.90]
+K21071	ATP-dependent phosphofructokinase / diphosphate-dependent phosphofructokinase [EC:2.7.1.11 2.7.1.90]
+
+2. pck (phosphoenolpyruvate carboxykinase) has two k_numbers
+K01610	E4.1.1.49, pckA; phosphoenolpyruvate carboxykinase (ATP) [EC:4.1.1.49]
+K01596	E4.1.1.32, pckA, PCK; phosphoenolpyruvate carboxykinase (GTP) [EC:4.1.1.32]
+
+formula: (K03841 + K02446 + K04041 + K01622 + K00895 + K21071 + K01610 + K01596)/2
+
+
+def: TCA cycle has eight steps:
+    1. Acetyl-CoA + H2O + Oxaloacetate <=> Citrate + CoA
+        K01647 or/and K05942
+    formula: K01647 + K05942
+
+    2. Citrate => Isocitrate (isocitrate dehydrogenase [EC:1.1.1.42 1.1.1.41])
+        K01681 or/and K01682
+    formula: K01681 + K01682
+
+    3. Isocitrate => 2-Oxoglutarate
+        K00031 or/and K00030
+    formula: K00031 + K00030
+
+    4. 2-Oxoglutarate -> Succinyl-CoA has two ways:
+        4.1 2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase (K00174+K00175-K00177-K00176)
+        formula: (K00174 + K00175)/2 because K00177 and K00176 are non-essential component in the complex.
+        4.2 2-oxoglutarate dehydrogenase (K00164+K00658+K00382)
+        formula: (K00164 + K00658 + K00382)/3
+    formula: (K00174 + K00175)/2 + (K00164 + K00658 + K00382)/3
+
+    5. Succinyl-CoA -> Succinate has three ways
+        5.1 succinyl-CoA synthetase [EC:6.2.1.5] (K01902+K01903)
+        formula: (K01902 + K01903)/2
+        5.2 succinyl-CoA synthetase [EC:6.2.1.4 6.2.1.5] (K01899+K01900)
+        formula: (K01899 + K01900)/2
+        5.3 succinyl-CoA:acetate CoA-transferase [EC:2.8.3.18] (K18118)
+        formula: K18118
+    formula: (K01902 + K01903)/2 + (K01899 + K01900)/2 + K18118
+
+    6. Succinate -> Fumarate has three ways:
+        6.1 succinate dehydrogenase [EC:1.3.5.1] (K00234+K00235+K00236+K00237)
+        formula: (K00234 + K00235 + K00236 + K00237)/4
+        6.2 succinate dehydrogenase / fumarate reductase [EC:1.3.5.1 1.3.5.4] (K00239+K00240+K00241-(K00242,K18859,K18860)). (K00242,K18859,K18860) are non-essential component in the complex.
+        formula: (K00239 + K00240 + K00241)/3
+        6.3 fumarate hydratase [EC:4.2.1.2] (K00244+K00245+K00246-K00247). K00247 is non-essential component in the complex.
+        formula: (K00244 + K00245 + K00246)/3
+    formula: (K00234 + K00235 + K00236 + K00237)/4 + (K00239 + K00240 + K00241)/3 + (K00244 + K00245 + K00246)/3
+
+    7. Fumarate -> L-Malate has three ways. (K01676,K01679,K01677+K01678)
+    formula: K01676 + K01679 + (K01677 + K01678)/2
+
+    8. L-Malate -> Oxaloacetate has four ways. (K00026,K00025,K00024,K00116)
+    formula: K00026 + K00025 + K00024 + K00116
+
+    formula: ((K01647 + K05942) + (K01681 + K01682) + (K00031 + K00030) + (K00174 + K00175)/2 + (K00164 + K00658 + K00382)/3 + (K01902 + K01903)/2 + (K01899 + K01900)/2 + K18118 + (K00234 + K00235 + K00236 + K00237)/4 + (K00239 + K00240 + K00241)/3 + (K00244 + K00245 + K00246)/3 + K01676 + K01679 + (K01677 + K01678)/2 + K00026 + K00025 + K00024 + K00116)/8
+
+
+Methanogenesis
+	def: Methanogenesis (mcrABG)
+		K00399  mcrA; methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]
+        K00401  mcrB; methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]
+        K00402  mcrG; methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]
+    formula: (K00399 + K00401 + K00402)/3
+
+    def: Methanogenesis, methanol -> methane (mtaABC)
+      step1: Methanol => 2-(Methylthio)ethanesulfonate
+        K14080  mtaA; [methyl-Co(III) methanol-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.246]
+        K04480  mtaB; methanol---5-hydroxybenzimidazolylcobamide Co-methyltransferase [EC:2.1.1.90]
+        K14081  mtaC; methanol corrinoid protein
+      step2: 2-(Methylthio)ethanesulfonate => Methane
+        K00399  mcrA; methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]
+        K00401  mcrB; methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]
+        K00402  mcrG; methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]
+    #formula: ((K14080 + K04480 + K14081)/3 + (K00399 + K00401 + K00402)/3)/2
+    because step2 is the same as "Methanogenesis, methylamine -> methane", so we used step1 as representative of this pathway
+    formula: (K14080 + K04480 + K14081)/3
+    
+    #def: Methanogenesis, methylamine -> methane
+      step1: Methylamine => 2-(Methylthio)ethanesulfonate
+        K14082 mtbA; [methyl-Co(III) methylamine-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.247]
+        K16177 mtmC; monomethylamine corrinoid protein
+        K16176 mtmB; methylamine-corrinoid protein Co-methyltransferase (non-essential)
+      step2: 2-(Methylthio)ethanesulfonate => Methane
+        K00399  mcrA; methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]
+        K00401  mcrB; methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]
+        K00402  mcrG; methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]
+    #formula: ((K14082 + K16177)/2 + (K00399 + K00401 + K00402)/3)/2
+
+    #def: Methanogenesis, dimethylamine -> methane
+      step1: Dimethylamine => 2-(Methylthio)ethanesulfonate
+        K14082 mtbA; [methyl-Co(III) methylamine-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.247]
+        K16179 mtbC; dimethylamine corrinoid protein
+        K16178 mtbB; dimethylamine corrinoid protein Co-methyltransferase (non-essential)
+      step2: 2-(Methylthio)ethanesulfonate => Methane
+        K00399  mcrA; methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]
+        K00401  mcrB; methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]
+        K00402  mcrG; methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]
+    #formula: ((K14082 + K16179)/2 + (K00399 + K00401 + K00402)/3)/2
+
+    #def: Methanogenesis, trimethylamine -> methane
+      step1: Trimethylamine => 2-(Methylthio)ethanesulfonate
+        K14082 mtbA; [methyl-Co(III) methylamine-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.247]
+        K14084 mttC; trimethylamine corrinoid protein
+        K14083 mttB; trimethylamine methyltransferase (non-essential)
+      step2: 2-(Methylthio)ethanesulfonate => Methane
+        K00399  mcrA; methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]
+        K00401  mcrB; methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]
+        K00402  mcrG; methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]
+    #formula: ((K14082 + K14084)/2 + (K00399 + K00401 + K00402)/3)/2
+
+    def Methanogenesis, amines -> methane (mtbA, mtmC, mtbC and mttC)
+    	K14082	mtbA; [methyl-Co(III) methylamine-specific corrinoid protein]:coenzyme M methyltransferase [EC:2.1.1.247]
+		K14083	mttB; trimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.250] (non-essential)
+		K14084	mttC; trimethylamine corrinoid protein
+		K16178	mtbB; dimethylamine---corrinoid protein Co-methyltransferase [EC:2.1.1.249] (non-essential)
+		K16179	mtbC; dimethylamine corrinoid protein
+		K16177	mtmC; monomethylamine corrinoid protein
+	formula: (K14082 + K14084 + K16179 + K16177)/4
+
+    def: Methanogenesis, acetate -> methane (cdhCDE)
+        #step1: Acetate => Acetyl phosphate => Acetyl Acetyl-CoA  OR  Acetate => Acetyl Acetyl-CoA
+            (1) Acetate => Acetyl phosphate => Acetyl Acetyl-CoA
+                K00925 ackA; acetate kinase
+                K00625,K13788 pta; phosphate acetyltransferase [EC:2.3.1.8]
+            (2) Acetate => Acetyl Acetyl-CoA
+                K01895 acetyl-CoA synthetase
+        formula: (K00925 + K00625 + K13788)/2 + K01895
+        step2: Acetyl-CoA => 5-Methyl-5,6,7,8-tetrahydromethanopterin 
+            K00193 cdhC; acetyl-CoA decarbonylase/synthase complex subunit beta 
+            K00194 cdhD; acetyl-CoA decarbonylase/synthase complex subunit delta 
+            K00197 cdhE; acetyl-CoA decarbonylase/synthase complex subunit gamma
+        #step3: 5-Methyl-5,6,7,8-tetrahydromethanopterin => 2-(Methylthio)ethanesulfonate
+            K00577+K00578+K00579+K00580+K00581-K00582-K00583+K00584  tetrahydromethanopterin S-methyltransferase complex
+        #step4: 2-(Methylthio)ethanesulfonate => Methane
+            K00399  mcrA; methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]
+            K00401  mcrB; methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]
+            K00402  mcrG; methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]
+    #formula: ((K00925 + K00625 + K13788)/2 + K01895 + (K00193 + K00194 + K00197)/3 + (K00577 + K00578 + K00579 + K00580 + K00581 + K00584)/6 + (K00399 + K00401 + K00402)/3)/4
+    
+    step2 is the representative of this pathway
+    formula: (K00193 + K00194 + K00197)/3
+
+    def: Methanogenesis, CO2 -> methane
+        step1: CO2 => Formylmethanofuran
+            K00200  fwdA, fmdA; formylmethanofuran dehydrogenase subunit A [EC:1.2.7.12]
+            K00201  fwdB, fmdB; formylmethanofuran dehydrogenase subunit B [EC:1.2.7.12]
+            K00202  fwdC, fmdC; formylmethanofuran dehydrogenase subunit C [EC:1.2.7.12]
+            K00203  fwdD, fmdD; formylmethanofuran dehydrogenase subunit D [EC:1.2.7.12]
+            K11261  fwdE, fmdE; formylmethanofuran dehydrogenase subunit E [EC:1.2.7.12]
+            K00205  fwdF, fmdF; 4Fe-4S ferredoxin OR K11260 fwdG; 4Fe-4S ferredoxin OR K00204 fwdH; 4Fe-4S ferredoxin (not included in the formula)
+        formula: (K00200 + K00201 + K00202 + K00203 + K11261 + K00205 + K11260 + K00204)/6
+        step2: Formylmethanofuran => 5-Formyl-5,6,7,8-tetrahydromethanopterin
+            K00672  ftr; formylmethanofuran--tetrahydromethanopterin N-formyltransferase [EC:2.3.1.101]
+        formula: K00672
+        step3: 5-Formyl-5,6,7,8-tetrahydromethanopterin => 5,10-Methenyltetrahydromethanopterin
+            K01499  mch; methenyltetrahydromethanopterin cyclohydrolase [EC:3.5.4.27]
+        formula: K01499
+        step4: 5,10-Methenyltetrahydromethanopterin => 5,10-Methylenetetrahydromethanopterin
+            K00319  mtd; methylenetetrahydromethanopterin dehydrogenase [EC:1.5.98.1]
+            K13942  hmd; 5,10-methenyltetrahydromethanopterin hydrogenase [EC:1.12.98.2]
+        formula: K00319 + K13942
+        step5: 5,10-Methylenetetrahydromethanopterin => 5-Methyl-5,6,7,8-tetrahydromethanopterin
+            K00320  mer; 5,10-methylenetetrahydromethanopterin reductase [EC:1.5.98.2]
+        formula: K00320
+        step6: 5-Methyl-5,6,7,8-tetrahydromethanopterin => 2-(Methylthio)ethanesulfonate
+            K00577  mtrA; tetrahydromethanopterin S-methyltransferase subunit A [EC:2.1.1.86]
+            K00578  mtrB; tetrahydromethanopterin S-methyltransferase subunit B [EC:2.1.1.86]
+            K00579  mtrC; tetrahydromethanopterin S-methyltransferase subunit C [EC:2.1.1.86]
+            K00580  mtrD; tetrahydromethanopterin S-methyltransferase subunit D [EC:2.1.1.86]
+            K00581  mtrE; tetrahydromethanopterin S-methyltransferase subunit E [EC:2.1.1.86]
+            K00582  mtrF; tetrahydromethanopterin S-methyltransferase subunit F [EC:2.1.1.86] (non-essential)
+            K00583  mtrG; tetrahydromethanopterin S-methyltransferase subunit G [EC:2.1.1.86] (non-essential)
+            K00584  mtrH; tetrahydromethanopterin S-methyltransferase subunit H [EC:2.1.1.86]
+        formula: (K00577 + K00578 + K00579 + K00580 + K00581 + K00584)/6
+        #step7: 2-(Methylthio)ethanesulfonate => Methane
+            K00399  mcrA; methyl-coenzyme M reductase alpha subunit [EC:2.8.4.1]
+            K00401  mcrB; methyl-coenzyme M reductase beta subunit [EC:2.8.4.1]
+            K00402  mcrG; methyl-coenzyme M reductase gamma subunit [EC:2.8.4.1]
+        formula: (K00399 + K00401 + K00402)/3
+    The first step from CO2 to Formylmethanofuran was selected as representative of this pathway. K11261 is  non-essential. K00205, K11260 and K00204 perform the same function.
+    formula: (K00200 + K00201 + K00202 + K00203 + K00205 + K11260 + K00204)/5
+
+
+Methane oxidation has two steps
+    def: 1. Methane oxidation, methane -> methanol
+        K16157 + K16158 + K16159 + K16160 + K16161 + K16162 mmoXYZBCD; soluble methane monooxygenase OR 
+        K10944 + K10945 + K10946 pmoA-amoA pmoB-amoB pmoC-amoC; methane/ammonia monooxygenase
+    formula: (K16157 + K16158 + K16159 + K16160 + K16161 + K16162)/6 + (K10944 + K10945 + K10946)/3
+    
+    def: 2. Methane oxidation, methanol -> Formaldehyde
+        K14028 + K14029 mxaFI; methanol dehydrogenase OR 
+        K23995 xoxF; lanthanide-dependent methanol dehydrogenase [EC:1.1.2.10]
+    formula: (K14028 + K14029)/2 + K23995
+
+
+Mixed Acid Fermentation (conversion of pyruvate to fermentation products)
+    def: Mixed acid: lactate (Pyruvate to Lactate)
+        K00016 LDH; L-lactate dehydrogenase
+    formula: K00016
+
+    def: Mixed acid: formate
+        K00656 E2.3.1.54, pflD; formate C-acetyltransferase [EC:2.3.1.54]
+    formula: K00656
+
+    def: Mixed acid: Formate to CO2 & H2
+        K00122 + K00123 + K00124 + K00126 + K00127 + K22515 formate dehydrogenase OR K22516 + K00125 fdhAB; formate dehydrogenase (coenzyme F420)
+    formula: (K00122 + K00123 + K00124 + K00126 + K00127 + K22515)/6 + (K22516 + K00125)/2
+
+
+    def: Mixed acid: Acetate has five options:
+        option 1: Direct from pyruvate (pyruvate -> acetate)
+            K00156 poxB; pyruvate dehydrogenase (quinone) [EC:1.2.5.1]
+        formula: K00156
+        option 2: Direct from pyruvate via Acetyl-P (Pyruvate -> acetyl-P -> acetate)
+            step1: Pyruvate -> acetyl-P
+                K00158 E1.2.3.3, poxL; pyruvate oxidase [EC:1.2.3.3]
+            step2: acetyl-P -> acetate
+                K01512 acyP; acylphosphatase [EC:3.6.1.7]
+        formula: (K00158 + K01512)/2
+        option 3: From lactate (L-lactate -> acetate)
+            K00467 lactate 2-monooxygenase [EC:1.13.12.4]
+        formula: K00467
+        option 4: Direct from acetyl-CoA (acetyl-CoA -> acetate)
+            K01067 E3.1.2.1, ACH1; acetyl-CoA hydrolase [EC:3.1.2.1]
+        formula: K01067
+        option 5: From acetyl-CoA via Acetyl-P (acetyl-CoA -> acetyl-P -> acetate)
+            step1: acetyl-CoA -> acetyl-P
+                K04020 eutD; phosphotransacetylase OR
+                K13788 pta; phosphate acetyltransferase OR
+                K00625 E2.3.1.8, pta; phosphate acetyltransferase [EC:2.3.1.8]
+            step2: acetyl-P -> acetate
+                K01512 acyP; acylphosphatase [EC:3.6.1.7]
+        formula: (K04020 + K13788 + K00625 + K01512)/2
+    formula: K00156 + (K00158 + K01512)/2 + K00467 + K01067 + (K04020 + K13788 + K00625 + K01512)/2
+    
+
+    Mixed acid: Ethanol
+        def: Mixed acid: Ethanol, Acetate to Acetylaldehyde
+            K00128 aldehyde dehydrogenase (NAD+) OR
+            K14085 aldehyde dehydrogenase (NAD+) OR
+            K00149 aldehyde dehydrogenase (NAD+) OR 
+            K00129 aldehyde dehydrogenase (NAD(P)+) OR 
+            K00138 aldB; aldehyde dehydrogenase
+        formula: K00128 + K14085 + K00149 + K00129 + K00138
+
+        def: Mixed acid: Ethanol, Acetyl-CoA to Acetylaldehyde (reversible)
+            K00132 acetaldehyde dehydrogenase (acetylating) [EC:1.2.1.10] OR
+            K04021 aldehyde dehydrogenase OR
+            K04072 acetaldehyde dehydrogenase / alcohol dehydrogenase [EC:1.2.1.10 1.1.1.1] OR
+            K04073 acetaldehyde dehydrogenase [EC:1.2.1.10] OR
+            K18366 acetaldehyde/propanal dehydrogenase [EC:1.2.1.10 1.2.1.87]
+        formula: K00132 + K04072 + K04073 + K18366 + K04021
+
+        def: Mixed acid: Ethanol, Acetylaldehyde to Ethanol
+            K13951 alcohol dehydrogenase OR
+            K13980 alcohol dehydrogenase OR 
+            K13952 alcohol dehydrogenase OR 
+            K13953 alcohol dehydrogenase OR 
+            K13954 alcohol dehydrogenase OR 
+            K00001 alcohol dehydrogenase OR 
+            K00121 alcohol dehydrogenase OR 
+            K04072 alcohol dehydrogenase OR 
+            K18857 alcohol dehydrogenase OR 
+            K14028 + K14029 methanol dehydrogenase (cytochrome c) OR 
+            K00114 exaA; alcohol dehydrogenase (cytochrome c) OR 
+            K00002 adh; alcohol dehydrogenase (NADP+) OR 
+            K04022 eutG; alcohol dehydrogenase
+        formula: K13951 + K13980 + K13952 + K13953 + K13954 + K00001 + K00121 + K04072 + K18857 + (K14028 + K14029)/2 + K00114 + K00002 + K04022
+
+        def: Mixed acid: succinate (phosphoenolpyruvate to succinate via oxaloacetate, malate & fumarate)
+            step1: PEP -> Oxaloacetate
+                K01595 ppc; phosphoenolpyruvate carboxylase [EC:4.1.1.31] OR
+                K01596 pckA; phosphoenolpyruvate carboxykinase (GTP) OR
+                K20370 PEPCK; phosphoenolpyruvate carboxykinase (diphosphate) OR
+                K01610 pckA; phosphoenolpyruvate carboxykinase (ATP)
+            formula: K01595 + K01596 + K20370 + K01610
+            step2: Oxaloacetate -> Malate
+                K00025 MDH1; malate dehydrogenase [EC:1.1.1.37] OR
+                K00026 MDH2; malate dehydrogenase [EC:1.1.1.37] OR
+                K00024 mdh; malate dehydrogenase OR
+                K00051 malate dehydrogenase (NADP+) OR
+                K00116 mqo; malate dehydrogenase (quinone)
+            formula: K00024 + K00025 + K00026 + K00051 + K00116
+            step3: Malate -> Fumarate
+                K01676 E4.2.1.2A, fumA, fumB; fumarate hydratase, class I [EC:4.2.1.2]
+                K01679 E4.2.1.2B, fumC, FH; fumarate hydratase, class II [EC:4.2.1.2]
+                K01677 + K01678 fumarate hydratase [EC:4.2.1.2]
+            formula: K01676 + K01679 + (K01677 + K01678)/2
+            step4: Fumarate -> Succinate
+                K00244 + K00245 + K00246 + K00247 frdABCD; fumarate reductase flavoprotein
+            formula: (K00244 + K00245 + K00246 + K00247)/4
+        formula: (K01595 + K01596 + K20370 + K01610 + K00024 + K00025 + K00026 + K00051 + K00116 + K01676 + K01679 + (K01677 + K01678)/2 + (K00244 + K00245 + K00246 + K00247)/4)/4
+
+
+Anaplerotic Reactions
+    def: Glyoxylate shunt
+        Requires the presence of both isocitrate lyase and malate synthase
+        step 1: Isocitrate -> Glyoxylate
+            K01637  aceA; isocitrate lyase
+        step 2: Glyoxylate + Acetyl-CoA -> (S)-Malate
+            K01638 aceB; malate synthase OR
+            K19282 aceB; bifunctional (S)-malyl-CoA lyase/thioesterase [EC:4.1.3.24 3.1.2.30]
+    formula: (K01637 + K01638 + K19282)/2
+        note: The glyoxylate cycle, a variation of the tricarboxylic acid cycle, is an anabolic pathway occurring in plants, bacteria, protists, and fungi. The glyoxylate cycle centers on the conversion of acetyl-CoA to succinate for the synthesis of carbohydrates.[1] In microorganisms, the glyoxylate cycle allows cells to utilize simple carbon compounds as a carbon source when complex sources such as glucose are not available.
+    
+    def: Anaplerotic genes (pyruvate -> oxaloacetate)
+        All reactions are reversible. Organisms can have 0-4 of the pathways
+        (S)-malate -> pyruvate
+            K00029  maeB; malate dehydrogenase (oxaloacetate-decarboxylating) (NADP+) or K00027 or K00028
+        formula: K00027 + K00028 + K00029
+        pyruvate -> oxaloacetate
+            K01958  pyruvate carboxylase OR K01959 pycA + K01960 pycB; pyruvate carboxylase subunits A + B
+        formula: K01958 + (K01959 + K01960)/2
+        phosphoenolpyruvate -> oxaloacetate
+            K01595  ppc; phosphoenolpyruvate carboxylase
+        formula: K01595
+        phosphoenolpyruvate -> oxaloacetate
+            K01610  pckA; phosphoenolpyruvate carboxykinase (ATP) or K01596 pckA; phosphoenolpyruvate carboxykinase (GTP) or K20370 PEPCK; phosphoenolpyruvate carboxykinase (diphosphate)
+        formula: K01610 + K01596 + K20370
+    formula: K00027 + K00028 + K00029 + K01958 + (K01959 + K01960)/2 + K01595 + K01610 + K01596 + K20370
+
+
+
+Nitrogen metabolism
+    def: Dissimilatory nitrate reduction to nitrite requires narGHI K00370 + K00371 + K00374 and/or napAB K02567 + K02568
+    formula: (K00370 + K00371 + K00374)/3 + (K02567 + K02568)/2
+    
+    def: Dissimilatory nitrite reduction to ammonia requires nirBD (K00362 + K00363) and/or nrfAH (K03385 + K15876)
+    formula: (K00362 + K00363)/2 + (K03385 + K15876)/2
+
+    def: DNRA requires Dissimilatory nitrate reduction to nitrite + Dissimilatory nitrite reduction to ammonia
+    formula: ((K00370 + K00371 + K00374)/3 + (K02567 + K02568)/2 + (K00362 + K00363)/2 + (K03385 + K15876)/2)/2
+
+    def: Assimilatory nitrate to nitrite requires NarB (K00367) and/or NR (K10534) and/or NasAB (K00372 + K00360)
+    formula: K00367 + K10534 + (K00372 + K00360)/2
+
+    def: Assimilatory nitrite to ammonia requires NIT-6 (K17877) and/or NirA (K00366)
+    formula: K17877 + K00366
+
+    def: Assimilatory nitrate reduction to ammonia requires Assimilatory nitrate to nitrite + Assimilatory nitrite to ammonia
+    formula: (K00367 + K10534 + (K00372 + K00360)/2 + K17877 + K00366)/2
+
+    def: Denitrification step of nitrite reduction to nitric oxide (NO2 => NO) requires nirK (K00368) and/or nirS (K15864)
+    formula: K00368 + K15864
+
+    def: Denitrification step of nitric oxide reduction to Nitrous oxide (NO => N2O) requires norBC (K04561 + K02305)
+    formula: (K04561 + K02305)/2
+
+    def: Denitrification step of nitrous oxide reduction to nitrogen (N2O => N2) requires nosZ (K00376)
+    formula: K00376
+
+    def: Nitrogen fixation requires NifDKH (K02588+K02586+K02591) and/or VnfDKGH (K22896+K22897+K22898+K22899)
+    formula: (K02588 + K02586 + K02591)/3 + (K22896 + K22897 + K22898 + K22899)/4
+    Notes: Definition in KEGG: K02588+K02586+K02591-K00531,K22896+K22897+K22898+K22899
+    The definition of the module as a list of K numbers. Comma separated K numbers indicate alternatives. Plus signs are used to represent a complex and a minus sign denotes a non-essential component in the complex.
+
+    def: Nitrification step of ammonia to hydroxylamine requires AmoCAB (K10944+K10945+K10946)
+    formula: (K10944 + K10945 + K10946)/3
+
+    def: Nitrification step of hydroxylamine to nitrite requires Hao (K10535)
+    formula: K10535
+
+    def: Nitrification step of nitrite oxidation to nitrate requires nxrAB (K00370 + K00371)
+    formula: (K00370 + K00371)/2
+
+    def: Nitrification requires step of ammonia to hydroxylamine + step of hydroxylamine to nitrite + nitrite oxidation to nitrate
+    formula: ((K10944+K10945+K10946)/3 + K10535 + (K00370 + K00371)/2)/3
+
+    def: Anammox (anaerobic ammonium oxidation) has three steps:
+        1. Nitrite to nitric oxide requires NirK (K00368) and/or NirS (K15864)
+            The first step is the same as Denitrification step of nitrite reduction to nitric oxide (NO2 => NO)
+        
+        2. Ammonia to hydrazine requires hydrazine synthase (Hzs) (K20932 + K20933 + K20934)/3
+        formula: (K20932 + K20933 + K20934)/3
+        
+        3. Hydrazine to nitrogen requires hydrazine dehydrogenase (Hdh) (K20935)
+        formula: K20935
+    formula: (K15864 + K00368 + (K20932 + K20933 + K20934)/3 + K20935)/3
+
+
+
+Sulfur metabolism
+    Assimilatory sulfate reduction
+    def: Assimilatory sulfate reduction to sulfite has two steps
+        1. sulfate -> PAPS  (K13811,K00958+K00860,K00955+K00957,K00956+K00957+K00860)
+            K13811 PAPSS; 3'-phosphoadenosine 5'-phosphosulfate synthase [EC:2.7.7.4 2.7.1.25] or
+            K00958  sat, met3; sulfate adenylyltransferase [EC:2.7.7.4] or 
+            K00955  cysNC; bifunctional enzyme CysN/CysC [EC:2.7.7.4 2.7.1.25]
+            K00957  cysD; sulfate adenylyltransferase subunit 2 [EC:2.7.7.4]
+            K00956  cysN; sulfate adenylyltransferase subunit 1 [EC:2.7.7.4]
+            K00860  cysC; adenylylsulfate kinase [EC:2.7.1.25]
+        formula: K13811 + (K00958+K00860)/2 + (K00955 + K00957)/2 + (K00956+K00957+K00860)/3
+        notes: this formula is designed according to KEGG definition (https://www.kegg.jp/kegg-bin/show_module?M00176+K00955)
+        2. PAPS -> sulfite (K13811)
+            K13811 PAPSS; 3'-phosphoadenosine 5'-phosphosulfate synthase [EC:2.7.7.4 2.7.1.25]
+        formula: K13911
+    formula: (K13811 + (K00958+K00860)/2 + (K00955 + K00957)/2 + (K00956+K00957+K00860)/3 + K13911)/2
+
+    def: Assimilatory sulfite reduction to sulfide (cysJI, sir) (K00380+K00381,K00392)
+        K00380  sulfite reductase (NADPH) flavoprotein alpha-component [EC:1.8.1.2]
+        K00381  sulfite reductase (NADPH) hemoprotein beta-component [EC:1.8.1.2]
+        K00392  sulfite reductase (ferredoxin) [EC:1.8.7.1]
+    formula: (K00380 + K00381)/2 + K00392
+
+
+    Dissimilatory sulfate reduction
+    def: Dissimilatory sulfate reduction to sulfite (reversible) has two steps:
+        1. sulfate -> APS ((K00956+K00957),K00958)
+        formula: (K00956 + K00957)/2 + K00958
+        2. APS -> sulfite (K00394+K00395)
+        formula: (K00394 + K00395)/2
+    formula: ((K00956 + K00957)/2 + K00958 + (K00394 + K00395)/2)/2
+
+    def: Dissimilatory sulfite reduction to sulfide (reversible) (K11180+K11181)
+    formula: (K11180 + K11181)/2
+
+
+    def: Thiosulfate oxidation by SOX complex, thiosulfate => sulfate
+        K17222  soxA; L-cysteine S-thiosulfotransferase [EC:2.8.5.2]
+        K17223  soxX; L-cysteine S-thiosulfotransferase [EC:2.8.5.2]
+        K17224  soxB; S-sulfosulfanyl-L-cysteine sulfohydrolase [EC:3.1.6.20]
+        K17225  soxC; sulfane dehydrogenase subunit SoxC
+        K22622  soxD; S-disulfanyl-L-cysteine oxidoreductase SoxD [EC:1.8.2.6]
+        K17226  soxY; sulfur-oxidizing protein SoxY
+        K17227  soxZ; sulfur-oxidizing protein SoxZ
+    note: K17225 and K22622 are non-essential component in the complex.
+    formula: (K17222 + K17223 + K17224 + K17226 + K17227)/5
+
+    def: Alternative thiosulfate oxidation doxAD
+        K16936 doxA; thiosulfate dehydrogenase [quinone] small subunit [EC:1.8.5.2]
+        K16937 doxD; thiosulfate dehydrogenase [quinone] large subunit [EC:1.8.5.2]
+    formula: (K16936 + K16937)/2
+
+    def: Alternative thiosulfate oxidation tsdA
+        K19713 tsdA; thiosulfate dehydrogenase [EC:1.8.2.2]
+    formula: K19713
+
+    Sulfur reduction (reversible reaction)
+        def: sulfur reduction (sreABC, Sulfur -> Sulfide)
+            K17219 sreA; sulfur reductase molybdopterin subunit
+            K17220 sreB; sulfur reductase FeS subunit
+            K17221 sreC; sulfur reductase membrane anchor
+        formula: (K17219 + K17220 + K17221)/3
+
+        def: thiosulfate disproportionation (phsABC, thiosulfate -> sulfide + sulfite)
+            K08352 phsA; thiosulfate reductase / polysulfide reductase chain A
+            K08353 phsB; thiosulfate reductase electron transport protein
+            K08354 phsC; thiosulfate reductase cytochrome b subunit
+        formula: (K08352 + K08353 + K08354)/3
+
+        def: sulfhydrogenase ((sulfide)n => (sulfide)n-1)
+            K17993 hydA; sulfhydrogenase subunit alpha
+            K17996 hydB; sulfhydrogenase subunit beta (sulfur reductase)
+            K17995 hydG; sulfhydrogenase subunit gamma (sulfur reductase)
+            K17994 hydD; sulfhydrogenase subunit delta
+        formula: (K17993 + K17994 + K17995 + K17996)/4
+
+    def: sulfur disproportionation (sulfur -> sulfide + sulfite)
+        K16952 sor; sulfur oxygenase/reductase [EC:1.13.11.55]
+    formula: K16952
+
+    def: sulfur dioxygenase
+        K17725 ETHE1; sulfur dioxygenase
+    formula: K17725
+
+    def: sulfite oxidation (sorB, SUOX, soeABC, sulfite -> sulfate) has three options:
+        1. K05301 sorB; sulfite dehydrogenase
+        2. K00387 SUOX; sulfite oxidase [EC:1.8.3.1]
+        3. sulfite dehydrogenase (quinone) soeABC (K21307 + K21308 + K21309)
+    formula: K05301 + K00387 + (K21307 + K21308 + K21309)/3
+
+    def: sulfide oxidation (fccAB, sulfide -> sulfur)
+        K17229 fccB; sulfide dehydrogenase [flavocytochrome c] flavoprotein chain
+        K17230 fccA; cytochrome subunit of sulfide dehydrogenase
+    formula: (K17229 + K17230)/2
+
+
+    DMSP
+    def: DMSP biosynthesis, L-Met -> DMSP (DSYB or dsyB or mmtN)
+    formula: DSYB + DsyB + mmtN
+
+    def: DMSP demethylation, DMSP -> MMPA (dmdA)
+    formula: dmdA
+
+    def: DMSP demethylation, MMPA -> MeSH (dmdBCD or acuH)
+    formula: (dmdB + dmdC + dmdD)/3 + acuH
+
+    def: DMSP cleavage, DMSP -> DMS (ddds or alma1)
+    formula: alma1 + dddD + dddK + dddL + dddP + dddQ + dddW + dddY
+
+    def: DMS oxidation, DMS -> MeSH (dmoA)
+    formula: dmoA
+
+    def: DMS oxidation, DMS -> DMSO (ddhABC or tmm)
+    	K16964	ddhA; dimethylsulfide dehydrogenase subunit alpha [EC:1.8.2.4]
+		K16965	ddhB; dimethylsulfide dehydrogenase subunit beta
+		K16966	ddhC; dimethylsulfide dehydrogenase subunit gamma
+		K18277	tmm; trimethylamine monooxygenase [EC:1.14.13.148]
+	formula: (K16964 + K16965 + K16966)/3 + K18277
+
+	def: DMSO reduction, DMSO -> DMS (dms or dorA)
+        K00184  dmsB; dimethyl sulfoxide reductase iron-sulfur subunit
+        K00185  dmsC; dimethyl sulfoxide reductase membrane subunit
+        K07306  dmsA; anaerobic dimethyl sulfoxide reductase subunit A [EC:1.8.5.3]
+        K07307  dmsB; anaerobic dimethyl sulfoxide reductase subunit B
+        K07308  dmsC; anaerobic dimethyl sulfoxide reductase subunit C
+        DorA    Dimethyl sulfoxide/trimethylamine N-oxide reductase
+    formula: (K00184 + K00185)/2 + (K07306 + K07307 + K07308)/3 + DorA
+
+
+	def: MddA pathway, MeSH -> DMS (mddA)
+	formula: mddA
+
+	def: MeSH oxidation, MeSH -> Formaldehyde (MTO)
+	formula: MTO
+
+
+
+
+Oxidative phosphorylation (Nuo, ATPases)
+    def: F-type ATPase
+        K02111 atpA; F-type H+-transporting ATPase subunit alpha
+        K02112 atpD; F-type H+-transporting ATPase subunit beta
+        K02115 atpG; F-type H+-transporting ATPase subunit gamma
+        K02113 atpH; F-type H+-transporting ATPase subunit delta
+        K02114 atpC; F-type H+-transporting ATPase subunit epsilon
+        K02108 atpB; F-type H+-transporting ATPase subunit a
+        K02109 atpF; F-type H+-transporting ATPase subunit b
+        K02110 atpE; F-type H+-transporting ATPase subunit c
+    formula: (K02111 + K02112 + K02115 + K02113 + K02114 + K02108 + K02109 + K02110)/8
+
+    def: V/A-type ATPase
+        K02117  ATPVA, ntpA, atpA; V/A-type H+/Na+-transporting ATPase subunit A [EC:7.1.2.2 7.2.2.1]
+        K02118  ATPVB, ntpB, atpB; V/A-type H+/Na+-transporting ATPase subunit B
+        K02119  ATPVC, ntpC, atpC; V/A-type H+/Na+-transporting ATPase subunit C
+        K02120  ATPVD, ntpD, atpD; V/A-type H+/Na+-transporting ATPase subunit D
+        K02121  ATPVE, ntpE, atpE; V/A-type H+/Na+-transporting ATPase subunit E
+        K02122  ATPVF, ntpF, atpF; V/A-type H+/Na+-transporting ATPase subunit F
+        K02107  ATPVG, ahaH, atpH; V/A-type H+/Na+-transporting ATPase subunit G/H
+        K02123  ATPVI, ntpI, atpI; V/A-type H+/Na+-transporting ATPase subunit I
+        K02124  ATPVK, ntpK, atpK; V/A-type H+/Na+-transporting ATPase subunit K
+    formula: (K02117 + K02118 + K02119 + K02120 + K02121 + K02122 + K02107 + K02123 + K02124)/9
+
+    def: NADH-quinone oxidoreductase
+        K00330  nuoA; NADH-quinone oxidoreductase subunit A
+        K00331  nuoB; NADH-quinone oxidoreductase subunit B
+        K00332  nuoC; NADH-quinone oxidoreductase subunit C
+        K00333  nuoD; NADH-quinone oxidoreductase subunit D
+        K13378  nuoCD; NADH-quinone oxidoreductase subunit C/D
+        K13380  nuoBCD; NADH-quinone oxidoreductase subunit B/C/D
+        K00334  nuoE; NADH-quinone oxidoreductase subunit E
+        K00335  nuoF; NADH-quinone oxidoreductase subunit F
+        K00336  nuoG; NADH-quinone oxidoreductase subunit G
+        K00337  nuoH; NADH-quinone oxidoreductase subunit H
+        K00338  nuoI; NADH-quinone oxidoreductase subunit I
+        K00339  nuoJ; NADH-quinone oxidoreductase subunit J
+        K00340  nuoK; NADH-quinone oxidoreductase subunit K
+        K00341  nuoL; NADH-quinone oxidoreductase subunit L
+        K00342  nuoM; NADH-quinone oxidoreductase subunit M
+        K15863  nuoLM; NADH-quinone oxidoreductase subunit L/M
+        K00343  nuoN; NADH-quinone oxidoreductase subunit N
+    formula: (K00330 + ((K00331 + K00332 + K00333)/3 + (K00331 + K13378)/2 + K13380) + K00334 + K00335 + K00336 + K00337 + K00338 + K00339 + K00340 + ((K00341 + K00342)/2 + K15863) + K00343)/11
+
+    def: NAD(P)H-quinone oxidoreductase
+        K05574  ndhC; NAD(P)H-quinone oxidoreductase subunit 3
+        K05582  ndhK; NAD(P)H-quinone oxidoreductase subunit K
+        K05581  ndhJ; NAD(P)H-quinone oxidoreductase subunit J
+        K05579  ndhH; NAD(P)H-quinone oxidoreductase subunit H
+        K05572  ndhA; NAD(P)H-quinone oxidoreductase subunit 1
+        K05580  ndhI; NAD(P)H-quinone oxidoreductase subunit I
+        K05578  ndhG; NAD(P)H-quinone oxidoreductase subunit 6
+        K05576  ndhE; NAD(P)H-quinone oxidoreductase subunit 4L
+        K05577  ndhF; NAD(P)H-quinone oxidoreductase subunit 5
+        K05575  ndhD; NAD(P)H-quinone oxidoreductase subunit 4
+        K05573  ndhB; NAD(P)H-quinone oxidoreductase subunit 2
+        K05583  ndhL; NAD(P)H-quinone oxidoreductase subunit L, non-essential components
+        K05584  ndhM; NAD(P)H-quinone oxidoreductase subunit M, non-essential components
+        K05585  ndhN; NAD(P)H-quinone oxidoreductase subunit N, non-essential components
+    formula: (K05574 + K05582 + K05581 + K05579 + K05572 + K05580 + K05578 + K05576 + K05577 + K05575 + K05573)/11
+    notes: K05583, K05584 and K05585 are non-essential components in the complex, so we excluded them in the formula.
+
+    def: Succinate dehydrogenase (ubiquinone)
+        K00241 sdhC, frdC; succinate dehydrogenase / fumarate reductase, cytochrome b subunit
+        K00242 sdhD, frdD; succinate dehydrogenase / fumarate reductase, membrane anchor subunit
+        K18859 sdhD, frdD; succinate dehydrogenase / fumarate reductase, subunit D
+        K18860 sdhD, frdD; putative succinate dehydrogenase / fumarate reductase, subunit D
+        K00239 sdhA, frdA; succinate dehydrogenase / fumarate reductase, flavoprotein subunit [EC:1.3.5.1 1.3.5.4]
+        K00240 sdhB, frdB; succinate dehydrogenase / fumarate reductase, iron-sulfur subunit [EC:1.3.5.1 1.3.5.4]
+    formula: (K00241 + K00242 + K18859 + K18860 + K00239 + K00240)/6
+
+    def: Cytochrome c oxidase, cbb3-type
+        K00404  ccoN; cytochrome c oxidase cbb3-type subunit I
+        K00405  ccoO; cytochrome c oxidase cbb3-type subunit II
+        K15862  ccoNO; cytochrome c oxidase cbb3-type subunit I/II (ccoNO can replace the combination of ccoN and ccoO)
+        K00407  ccoQ; cytochrome c oxidase cbb3-type subunit IV
+        K00406  ccoP; cytochrome c oxidase cbb3-type subunit III
+    formula: ((K00404 + K00405)/2 + K15862) + K00407 + K00406)/3
+
+    def: Cytochrome bd ubiquinol oxidase
+        K00425 cydA; cytochrome bd ubiquinol oxidase subunit I
+        K00426 cydB; cytochrome bd ubiquinol oxidase subunit II
+        K00424 cydX; cytochrome bd-I ubiquinol oxidase subunit X OR
+        K22501 appX; cytochrome bd-II ubiquinol oxidase subunit AppX
+    formula: (K00425 + K00426 + (K00424 + K22501))/3
+
+    def: Cytochrome o ubiquinol oxidase
+        K02300 + K02299 + K02298 + K02297 cyoDCBA; cytochrome o ubiquinol oxidase
+    formula: (K02300 + K02299 + K02298 + K02297)/4
+
+    def: Cytochrome c oxidase, prokaryotes
+        K02275  coxB, ctaC; cytochrome c oxidase subunit II [EC:1.9.3.1]
+        K02274  coxA, ctaD; cytochrome c oxidase subunit I [EC:1.9.3.1]
+        K02276  coxC, ctaE; cytochrome c oxidase subunit III [EC:1.9.3.1]
+        K15408  coxAC; cytochrome c oxidase subunit I+III [EC:1.9.3.1]
+        K02277  coxD, ctaF; cytochrome c oxidase subunit IV [EC:1.9.3.1] (non-essential)
+    formula: (K02275 + (K02274+K02276)/2 + K15408)/2
+
+    def: Cytochrome aa3-600 menaquinol oxidase
+        K02829 + K02828 + K02827 + K02826 qoxDCBA; cytochrome aa3-600 menaquinol oxidase
+    formula: (K02829 + K02828 + K02827 + K02826)/4
+
+    def: cytochrome bc1 complex
+        K00410  fbcH; ubiquinol-cytochrome c reductase cytochrome b/c1 subunit
+        K00411  UQCRFS1, RIP1, petA; ubiquinol-cytochrome c reductase iron-sulfur subunit [EC:7.1.1.8]
+        K00412  CYTB, petB; ubiquinol-cytochrome c reductase cytochrome b subunit
+        K00413  CYC1, CYT1, petC; ubiquinol-cytochrome c reductase cytochrome c1 subunit
+        K00414  QCR1, UQCRC1; ubiquinol-cytochrome c reductase core subunit 1
+        K00415  QCR2, UQCRC2; ubiquinol-cytochrome c reductase core subunit 2
+        K00416  QCR6, UQCRH; ubiquinol-cytochrome c reductase subunit 6
+        K00417  QCR7, UQCRB; ubiquinol-cytochrome c reductase subunit 7
+        K00418  QCR8, UQCRQ; ubiquinol-cytochrome c reductase subunit 8
+        K00419  QCR9, UCRC; ubiquinol-cytochrome c reductase subunit 9
+        K00420  QCR10, UQCR; ubiquinol-cytochrome c reductase subunit 10
+    formula: ((K00412 + K00413)/2 + K00410 + K00411 + K00414 + K00415 + K00416 + K00417 + K00418 + K00419 + K00420)/9
+
+
+
+#Transporters
+    #def: Phosphate transporter
+        K02040 pstS; phosphate transport system substrate-binding protein
+        K02037 pstC; phosphate transport system permease protein OR
+        K02038 pstA; phosphate transport system permease protein
+        K02036 pstB; phosphate transport system ATP-binding protein [EC:7.3.2.1]
+  #formula: (K02040 + K02037 + K02038 + K02036)/3
+
+    #def: Phosphonate transporter
+        K02044 + K02042 + K02041 phnDEC; phosphonate
+    #formula: (K02044 + K02042 + K02041)/3
+
+    #def: Thiamin transporter
+        K02064 + K02063 + K02062 tbpA,thiPQ; thiamin
+    #formula: (K02064 + K02063 + K02062)/3
+
+    #def: Vitamin B12 transporter
+        K06858 + K06073 + K06074 btuFCD; vitamin B12
+    #formula: (K06858 + K06073 + K06074)/3
+
+    #def: Urea transporter
+        K11959 urtA; urea transport system substrate-binding protein
+        K11960 urtB; urea transport system permease protein OR
+        K11961 urtC; urea transport system permease protein
+        K11962 urtD; urea transport system ATP-binding protein OR
+        K11963 urtE; urea transport system ATP-binding protein
+    #formula: (K11959 + K11960 + K11961 + K11962 + K11963)/3
+
+
+
+Bacterial Secretion Systems
+    def: Type I Secretion
+        K12340  tolC; outer membrane protein
+        K11003  HlyD; membrane fusion protein, hemolysin D
+        K11004  HylB; ABC transpoter, ATP-binding cassette, subfamily B, bacterial HlyB
+    formula: (K12340 + K11003 + K11004)/3
+
+    def: Type III Secretion
+        K03221  yscF; type III secretion protein F
+        K04056  yscO; type III secretion protein O
+        K04057  yscP; type III secretion protein P
+        K04059  yscX; type III secretion protein X
+        K03219  yscC; type III secretion protein C
+        K04058  yscW; type III secretion protein W
+        K03222  yscJ; type III secretion protein J
+        K03226  yscR; type III secretion protein R
+        K03227  yscS; type III secretion protein S
+        K03228  yscT; type III secretion protein T
+        K03229  yscU; type III secretion protein U
+        K03230  yscV; type III secretion protein V
+        K03224  yscN; type III secretion protein N
+        K03225  yscQ; type III secretion protein Q
+        K03223  yscL; type III secretion protein L
+    formula: (K03221 + K04056 + K04057 + K04059 + K03219 + K04058 + K03222 + K03226 + K03227 + K03228 + K03229 + K03230 + K03224 + K03225 + K03223)/15
+
+    def: Type II Secretion
+        K02453  gspD; general secretion pathway protein D
+        K02465  gspS; general secretion pathway protein S
+        K02452  gspC; general secretion pathway protein C
+        K02455  gspF; general secretion pathway protein F
+        K02456  gspG; general secretion pathway protein G
+        K02457  gspH; general secretion pathway protein H
+        K02458  gspI; general secretion pathway protein I
+        K02459  gspJ; general secretion pathway protein J
+        K02460  gspK; general secretion pathway protein K
+        K02461  gspL; general secretion pathway protein L
+        K02462  gspM; general secretion pathway protein M
+        K02454  gspE; general secretion pathway protein E
+        K02464  gspO; general secretion pathway protein O
+    formula: (K02453 + K02465 + K02452 + K02455 + K02456 + K02457 + K02458 + K02459 + K02460 + K02461 + K02462 + K02454 + K02464)/13
+
+    def: Type IV Secretion
+        K03149  virB1; type IV secretion system protein VirB1
+        K03197  virB2; type IV secretion system protein VirB27
+        K03198  virB3; type IV secretion system protein VirB3
+        K03200  virB5; type IV secretion system protein VirB5
+        K03202  virB7; type IV secretion system protein VirB7
+        K03204  virB9; type IV secretion system protein VirB9
+        K03201  virB6; type IV secretion system protein VirB6
+        K03203  virB8; type IV secretion system protein VirB8
+        K03195  virB10; type IV secretion system protein VirB10
+        K03199  virB4; type IV secretion system protein VirB4
+        K03196  virB11; type IV secretion system protein VirB11
+        K03205  virD4; type IV secretion system protein VirD4
+    formula: (K03149 + K03197 + K03198 + K03200 + K03202 + K03204 + K03201 + K03203 + K03195 + K03199 + K03196 + K03205)/12
+
+    def: Type VI Secretion
+        K11904  vgrG; type VI secretion system secreted protein VgrG
+        K11903  hcp; type VI secretion system secreted protein Hcp
+        K11906  lip; type VI secretion system protein Lip
+        K11891  icmF; type VI secretion system protein IcmF
+        K11892  dotU; type VI secretion system protein DotU
+        K11907  clpV; type VI secretion system protein ClpV
+        K11912  ppkA; serine/threonine-protein kinase PpkA
+        K11913  fha1; type VI secretion system protein Fha1
+        K11915  pppA; serine/threonine protein phosphatase PppA
+    formula: (K11904 + K11903 + K11906 + K11891 + K11892 + K11907 + K11912 + K11913 + K11915)/9
+
+    def: Sec-SRP
+        K03072  secD; preprotein translocase subunit SecD
+        K03074  secF; preprotein translocase subunit SecF
+        K12257  secDF; SecD/SecF fusion protein
+        K03073  secE; preprotein translocase subunit SecE
+        K03075  secG; preprotein translocase subunit SecG
+        K03076  secY; preprotein translocase subunit SecY
+        K03210  yajC; preprotein translocase subunit YajC
+        K03217  yidC; preprotein translocase subunit YidC
+        K03070  secA; preprotein translocase subunit SecG
+        K13301  secM; preprotein translocase subunit SecM
+        K03110  ftsY; fused signal recognition particle receptor
+        K03071  secB; preprotein translocase subunit SecB
+        K03106  ffh; signal recognition particle subunit Ffh
+    formula: (K03072 + K03074 + K12257 + K03073 + K03075 + K03076 + K03210 + K03217 + K03070 + K13301 + K03110 + K03071 + K03106)/13
+
+    def: Twin arginine targeting
+        K03116  tatA; sec-independent protein translocase protein TatA
+        K03117  tatB; sec-independent protein translocase protein TatB
+        K03118  tatC; sec-independent protein translocase protein TatC
+        K03425  tatE; sec-independent protein translocase protein TatE
+    formula: (K03116 + K03117 + K03118 + K03425)/4
+
+    def: Type Vabc Secretion for Va, Vb and Vc 
+        K11028  vacA; Type Va, vacuolating cytotoxin
+        K11017  shlB; Type Vb, hemolysin activation/secretion protein
+        K11016  shlA; Type Vb, hemolysin
+        K12341  yadA; Type Vc, adhesin YadA
+        K12342  yadBC; Type Vc, adhesin YadB/C
+    formula: K11028 + (K11017 + K11016)/2 + (K12341 + K12342)/2
+
+
+
+def: Bacterial chemotaxis
+    K03406  mcp; methyl-accepting chemotaxis protein
+    K05874  tsr; methyl-accepting chemotaxis protein I, serine sensor receptor
+    K05875  tar; methyl-accepting chemotaxis protein II, aspartate sensor receptor
+    K05876  trg; methyl-accepting chemotaxis protein III, ribose and galactose sensor receptor
+    K05877  tap; methyl-accepting chemotaxis protein IV, peptide sensor receptor
+    K03776  aer; aerotaxis receptor
+    K10108  malE; maltose/maltodextrin transport system substrate-binding protein
+    K10439  rbsB; ribose transport system substrate-binding protein
+    K10540  mglB; methyl-galactoside transport system substrate-binding protein
+    K12368  dppA; dipeptide transport system substrate-binding protein
+    K03407  cheA; two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]
+    K03408  cheW; purine-binding chemotaxis protein CheW
+    K03413  cheY; two-component system, chemotaxis family, chemotaxis protein CheY
+    K03410  cheC; chemotaxis protein CheC
+    K03414  cheZ; chemotaxis protein CheZ
+    K03409  cheX; chemotaxis protein CheX
+    K03412  cheB; two-component system, chemotaxis family, protein-glutamate methylesterase/glutaminase [EC:3.1.1.61 3.5.1.44]
+    K13924  cheBR; two-component system, chemotaxis family, CheB/CheR fusion protein [EC:2.1.1.80 3.1.1.61]
+    K03415  cheV; two-component system, chemotaxis family, chemotaxis protein CheV
+    K03411  cheD; chemotaxis protein CheD [EC:3.5.1.44]
+    K00575  cheR; chemotaxis protein methyltransferase CheR [EC:2.1.1.80]
+    K02410  fliG; flagellar motor switch protein FliG
+    K02416  fliM; flagellar motor switch protein FliM
+    K02417  fliNY, fliN; flagellar motor switch protein FliN/FliY
+    K02556  motA; chemotaxis protein MotA
+    K02557  motB; chemotaxis protein MotB
+formula: (K03406 + K05874 + K05875 + K05876 + K05877 + K03776 + K10108 + K10439 + K10540 + K12368 + K03407 + K03408 + K03413 + K03410 + K03414 + K03409 + K03412 + K13924 + K03415 + K03411 + K00575 + K02410 + K02416 + K02417 + K02556 + K02557)/26
+
+
+def: Flagellar assembly
+    K02402  flhC; flagellar transcriptional activator FlhC
+    K02403  flhD; flagellar transcriptional activator FlhD
+    K02398  flgM; negative regulator of flagellin synthesis FlgM
+    K02405  fliA; RNA polymerase sigma factor for flagellar operon FliA
+    K02406  fliC; flagellin
+    K02407  fliD; flagellar hook-associated protein 2
+    K02397  flgL; flagellar hook-associated protein 3 FlgL
+    K02396  flgK; flagellar hook-associated protein 1 FlgK
+    K02414  fliK; flagellar hook-length control protein FliK
+    K02389  flgD; flagellar basal-body rod modification protein FlgD
+    K02390  flgE; flagellar hook protein FlgE
+    K02391  flgF; flagellar basal-body rod protein FlgF
+    K02392  flgG; flagellar basal-body rod protein FlgG
+    K02393  flgH; flagellar L-ring protein precursor FlgH
+    K02394  flgI; flagellar P-ring protein precursor FlgI
+    K02387  flgB; flagellar basal-body rod protein FlgB
+    K02388  flgC; flagellar basal-body rod protein FlgC
+    K02408  fliE; flagellar hook-basal body complex protein FliE
+    K02409  fliF; flagellar M-ring protein FliF
+    K02410  fliG; flagellar motor switch protein FliG
+    K02416  fliM; flagellar motor switch protein FliM
+    K02417  fliNY, fliN; flagellar motor switch protein FliN/FliY
+    K02400  flhA; flagellar biosynthesis protein FlhA
+    K02401  flhB; flagellar biosynthetic protein FlhB
+    K02411  fliH; flagellar assembly protein FliH
+    K02412  fliI; flagellum-specific ATP synthase [EC:7.4.2.8]
+    K02418  fliOZ, fliO; flagellar protein FliO/FliZ
+    K02419  fliP; flagellar biosynthetic protein FliP
+    K02420  fliQ; flagellar biosynthetic protein FliQ
+    K02421  fliR; flagellar biosynthetic protein FliR
+    K13820  fliR-flhB; flagellar biosynthetic protein FliR/FlhB
+    K02556  motA; chemotaxis protein MotA
+    K02557  motB; chemotaxis protein MotB
+    K21217  motX; sodium-type polar flagellar protein MotX
+    K21218  motY; sodium-type flagellar protein MotY
+    K02399  flgN; flagella synthesis protein FlgN
+    K02413  fliJ; flagellar FliJ protein
+    K02422  fliS; flagellar protein FliS
+    K02423  fliT; flagellar protein FliT
+    K02386  flgA; flagella basal body P-ring formation protein FlgA
+formula: (K02402 + K02403 + K02398 + K02405 + K02406 + K02407 + K02397 + K02396 + K02414 + K02389 + K02390 + K02391 +K02392 + K02393 + K02394 + K02387 + K02388 + K02408 + K02409 + K02410 + K02416 + K02417 + K02400 + K02401 + K02411 + K02412 + K02418 + K02419 + K02420 + K02421 + K13820 + K02556 + K02557 + K21217 + K21218 + K02399 + K02413 + K02422 + K02423 + K02386)/40
+
+
+
+def: Dissimilatory arsenic reduction
+    Assess the completion of the ars operon, consists of either arsRBC or arsRDABC
+    arsD does not have a KO value
+    K00537  arsC; arsenate reductase OR K03741 arsC; arsenate reductase OR K18701 arsC; arsenate-mycothiol transferase
+    K03325  arsB; arsenite transporter OR K03893 arsB; arsenical pump membrane protein
+    K03892  arsR; ArsR family transcriptional regulator
+    K01551  arsA; arsenite/tail-anchored protein-transporting ATPase
+formula: ((K00537 + K03741 + K18701) + (K03325 + K03893) + K03892 + K01551)/4
+
+
+delete hydrogen redox
+def: hydrogen redox
+    K00437 + K18008 hydB2,hydA2; NiFe hydrogenase
+    K18016 + K18017 + K18023 mbhLJK; membrane-bound hydrogenase
+    K00533 + K00534 hupSL; ferrodoxin hydrogenase
+    K05922 + K05927 hydA3,hydB3; hydrogen:quinone oxidoreductase
+    K00436 + K18005 + K18006 + K18007 hoxHFUY; NAD-reducing hydrogenase
+    K17992 + K18330 + K18331 + K18332 hndABCD; NADP-reducing hydrogenase
+    K06282 + K06281 + K03620 hyaABC; NiFe hydrogenase Hyd-1
+
+
+
