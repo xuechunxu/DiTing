@@ -2,6 +2,8 @@
 Check data integrity
 """
 import os
+import re
+from scripts.logformatter import *
 
 
 def check_kodb(ko_db):
@@ -22,39 +24,27 @@ def check_DMSP_db(ko_db):
         return False
 
 
-def check_reads_assembly(assembly_dir, reads_dir):
+def check_reads_assembly(assembly_dir, basenames):
     """
     Check if the assembly provided can match corresponding reads pairs
 
     :param str assembly_dir: directory containing metagenomic assemblies in fasta format
-    :param str reads_dir: directory containing metagenomic paired-end reads
-    :return: basenames of input files, suffix of the reads, suffix of the assembly
-    :rtype: tuple
-    :raises FileNotFoundError: if the corresponding reads pairs cannot be found or are not complete
+    :param list basenames: a list of basenames derived from the reads directory
+    :return: suffix of the assembly
+    :rtype: string
+    :raises FileNotFoundError: if the corresponding reads cannot be found or are not complete
 
     """
-    basenames = []
-    reads_suf = ''
+
     assembly_suf = ''
 
     for fa in os.listdir(assembly_dir):
         basename, assembly_suf = fa.rsplit('.', 1)
-        basenames.append(basename)
+        if basename not in basenames:
+            logging.exception('Cannot find the corresponding reads for {}'.format(basename))
+            raise FileNotFoundError('Cannot find the corresponding reads for {}'.format(basename))
 
-        reads_dir_basename = os.path.join(reads_dir, basename)
-
-        if os.path.exists(reads_dir_basename + '_1.fq') and os.path.exists(reads_dir_basename + '_2.fq'):
-            reads_suf = '.fq'
-        elif os.path.exists(reads_dir_basename + '_1.fastq') and os.path.exists(reads_dir_basename + '_2.fastq'):
-            reads_suf = '.fastq'
-        elif os.path.exists(reads_dir_basename + '_1.fq.gz') and os.path.exists(reads_dir_basename + '_2.fq.gz'):
-            reads_suf = '.fq.gz'
-        elif os.path.exists(reads_dir_basename + '_1.fastq.gz') and os.path.exists(reads_dir_basename + '_2.fastq.gz'):
-            reads_suf = '.fastq.gz'
-        else:
-            raise FileNotFoundError('Failed to find the corresponding paired-end reads to {}'.format(fa))
-
-    return basenames, reads_suf, assembly_suf
+    return assembly_suf
 
 
 def check_reads(reads_dir):
@@ -69,34 +59,30 @@ def check_reads(reads_dir):
     """
     basenames = []
     reads_suf = ''
-
+    interleaved_reads = None
+    pattern = re.compile(r'(.*)(\.fq|\.fastq)(\.gz)?')
     for read in os.listdir(reads_dir):
-        if read.endswith('_1.fq'):
-            basename = read.rsplit('_', 1)[0]
-            basenames.append(basename)
-            reads_suf = '.fq'
-            if not os.path.exists(os.path.join(reads_dir, basename) + '_2.fq'):
-                raise FileNotFoundError('Failed to find the corresponding reverse reads to {}'.format(read))
-        elif read.endswith('_1.fastq'):
-            basename = read.rsplit('_', 1)[0]
-            basenames.append(basename)
-            reads_suf = '.fastq'
-            if not os.path.exists(os.path.join(reads_dir, basename) + '_2.fastq'):
-                raise FileNotFoundError('Failed to find the corresponding reverse reads to {}'.format(read))
-        elif read.endswith('_1.fastq.gz'):
-            basename = read.rsplit('_', 1)[0]
-            basenames.append(basename)
-            reads_suf = '.fastq.gz'
-            if not os.path.exists(os.path.join(reads_dir, basename) + '_2.fastq.gz'):
-                raise FileNotFoundError('Failed to find the corresponding reverse reads to {}'.format(read))
-        elif read.endswith('_1.fq.gz'):
-            basename = read.rsplit('_', 1)[0]
-            basenames.append(basename)
-            reads_suf = '.fq.gz'
-            if not os.path.exists(os.path.join(reads_dir, basename) + '_2.fq.gz'):
-                raise FileNotFoundError('Failed to find the corresponding reverse reads to {}'.format(read))
+        match_res = pattern.match(read)
+        reads_suf = ''.join(match_res.groups('')[1:])
 
-    return basenames, reads_suf
+        if match_res.group(1).endswith('_1'):
+            if interleaved_reads is True:
+                logging.exception('Reads formats are not consistent with each other')
+                raise FileNotFoundError('Reads formats are not consistent with each other')
+            interleaved_reads = False
+            basename = match_res.group(1)[:-2]
+            basenames.append(basename)
+            if not os.path.exists(os.path.join(reads_dir, basename) + '_2' + reads_suf):
+                logging.exception('Failed to find the corresponding reverse reads to {}'.format(read))
+                raise FileNotFoundError('Failed to find the corresponding reverse reads to {}'.format(read))
+        elif match_res.group(1).endswith('_2'):
+            pass
+        else:
+            if interleaved_reads is False:
+                logging.exception('Reads formats are not consistent with each other')
+                raise FileNotFoundError('Reads formats are not consistent with each other')
+            interleaved_reads = True
+            basename = match_res.group(1)
+            basenames.append(basename)
 
-
-# def check_kodb(KODB_DIR):
+    return basenames, reads_suf, interleaved_reads

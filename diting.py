@@ -23,7 +23,7 @@ def main():
         logging.info("STEP [1/13]: Check if ko hmm database exists and has been unpacked")
         if check_kodb(KODB_DIR) is False:
             cmd_rm_ko_database = 'rm -rf ' + KODB_DIR
-            print(cmd_rm_ko_database)
+            logging.debug(cmd_rm_ko_database)
             os.system(cmd_rm_ko_database)
             download_db(KODB_DIR)
             DMSP_db_parse(DMSP_DIR, KODB_DIR)
@@ -35,27 +35,51 @@ def main():
         """
         Check assemblies / reads & Get input basename
         """
+        # Check reads
+        BASENAMES, READS_SUF, READS_INTER = check_reads(READS_DIR)
+
+        # Check assembly
         if args.a:
             # If the corresponding assembly was provided, check if the corresponding reads can be found
-            BASENAMES, READS_SUF, ASSEMBLY_SUF = check_reads_assembly(ASSEMBLY_DIR, READS_DIR)
+            ASSEMBLY_SUF = check_reads_assembly(ASSEMBLY_DIR, BASENAMES)
         else:
-            # If the corresponding assembly was NOT provided, check if the reads are in pairs
-            BASENAMES, READS_SUF = check_reads(READS_DIR)
-    
             """
-            [2/13] Megahit Assembly
+            [2/13] Assembly
             """
-            logging.info("STEP [2/13]: Megahit Assembly")
+
             make_dir(ASSEMBLY_DIR)
             for bn in BASENAMES:
                 remove_dir(ASSEMBLY_TMP)  # make sure the output folder for Megahit does not exist
-                reads1 = os.path.join(READS_DIR, bn) + '_1' + READS_SUF
-                reads2 = os.path.join(READS_DIR, bn) + '_2' + READS_SUF
-                megahit(reads1, reads2, THREADS, ASSEMBLY_TMP)  # Megahit will create the output folder automatically
-                assembly_ori = os.path.join(ASSEMBLY_TMP, 'final.contigs.fa')
+                if READS_INTER:
+                    """
+                    if interleaved reads
+                    """
+                    reads_interleaved = os.path.join(READS_DIR, bn) + READS_SUF
+                    if args.spades:
+                        logging.info("STEP [2/13]: metaSPAdes Assembly")
+                        metaspades_interleaved(reads_interleaved, THREADS, ASSEMBLY_TMP, MEM)
+                        assembly_ori = os.path.join(ASSEMBLY_TMP, 'contigs.fasta')
+                    else:
+                        logging.info("STEP [2/13]: Megahit Assembly")
+                        megahit_interleaved(reads_interleaved, THREADS, ASSEMBLY_TMP)  # Megahit will create the output folder automatically
+                        assembly_ori = os.path.join(ASSEMBLY_TMP, 'final.contigs.fa')
+                else:
+                    """
+                    if paired-end reads are in two separate files
+                    """
+                    reads1 = os.path.join(READS_DIR, bn) + '_1' + READS_SUF
+                    reads2 = os.path.join(READS_DIR, bn) + '_2' + READS_SUF
+                    if args.spades:
+                        logging.info("STEP [2/13]: metaSPAdes Assembly")
+                        metaspades(reads1, reads2, THREADS, ASSEMBLY_TMP, MEM)
+                        assembly_ori = os.path.join(ASSEMBLY_TMP, 'contigs.fasta')
+                    else:
+                        logging.info("STEP [2/13]: Megahit Assembly")
+                        megahit(reads1, reads2, THREADS, ASSEMBLY_TMP)  # Megahit will create the output folder automatically
+                        assembly_ori = os.path.join(ASSEMBLY_TMP, 'final.contigs.fa')
                 assembly_tar = os.path.join(ASSEMBLY_DIR, bn + '.fa')
                 copy(assembly_ori, assembly_tar)
-            remove_dir(ASSEMBLY_TMP)  # clean up the Megahit temporary folder
+            remove_dir(ASSEMBLY_TMP)  # clean up the temporary folder
     
         """
         [3/13] Prodigal Prediction
@@ -81,13 +105,18 @@ def main():
         for bn in BASENAMES:
             fasta = os.path.join(PRODIGAL_DIR, bn + '.ffn')
             index_file = os.path.join(bwa_index_dir, bn)
-            reads1 = os.path.join(READS_DIR, bn + '_1' + READS_SUF)
-            reads2 = os.path.join(READS_DIR, bn + '_2' + READS_SUF)
+
             sam = os.path.join(mapping_dir, bn + '.sam')
             pileup_out = os.path.join(pileup_dir, bn + '.pileup')
     
             bwa_index(fasta, index_file)  # build index for genes
-            bwa_mem(index_file, reads1, reads2, sam, THREADS)  # map reads to genes
+            if READS_INTER:
+                reads_interleaved = os.path.join(READS_DIR, bn) + READS_SUF
+                bwa_mem_interleaved(index_file, reads_interleaved, sam, THREADS)  # map reads to genes
+            else:
+                reads1 = os.path.join(READS_DIR, bn + '_1' + READS_SUF)
+                reads2 = os.path.join(READS_DIR, bn + '_2' + READS_SUF)
+                bwa_mem(index_file, reads1, reads2, sam, THREADS)  # map reads to genes
             pileup(sam, pileup_out)  # calculate coverage depths of every gene
     
             if not args.nc:  # the sam file will be removed as soon as it has been parsed due to it's large volume generally

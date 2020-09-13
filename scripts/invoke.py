@@ -2,6 +2,7 @@
 Provides methods for invoking third-party programs
 """
 import os
+from scripts.logformatter import *
 
 
 def megahit(reads1, reads2, threads, output):
@@ -14,11 +15,62 @@ def megahit(reads1, reads2, threads, output):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        print("\n" + 'Metagenomic Assembly'.center(50, '*'))
-        print(cmd + '\n')
+        logging.debug("\n" + 'Metagenomic Assembly'.center(50, '*'))
+        logging.debug(cmd + '\n')
         os.system(cmd)
     except:
-        print("\nSomething went wrong when assembling metagenomic reads!")
+        logging.exception("\nSomething went wrong when assembling metagenomic reads!")
+
+
+def megahit_interleaved(reads, threads, output):
+    cmd_para = [
+        'megahit',
+        '--12', reads,
+        '-o', output,
+        '-t', str(threads)
+    ]
+    cmd = ' '.join(cmd_para)
+    try:
+        logging.debug("\n" + 'Metagenomic Assembly'.center(50, '*'))
+        logging.debug(cmd + '\n')
+        os.system(cmd)
+    except:
+        logging.exception("\nSomething went wrong when assembling metagenomic reads!")
+
+
+def metaspades(reads1, reads2, threads, output, mem):
+    cmd_para = [
+        'metaspades.py',
+        '-1', reads1,
+        '-2', reads2,
+        '-o', output,
+        '-t', str(threads),
+        '-m', str(mem),
+    ]
+    cmd = ' '.join(cmd_para)
+    try:
+        logging.debug("\n" + 'MetaSpades Assembly'.center(50, '*'))
+        logging.debug(cmd + '\n')
+        os.system(cmd)
+    except:
+        logging.exception("\nSomething went wrong when assembling metagenomic reads!")
+
+
+def metaspades_interleaved(reads, threads, output, mem):
+    cmd_para = [
+        'metaspades.py',
+        '--12', reads,
+        '-o', output,
+        '-t', str(threads),
+        '-m', str(mem),
+    ]
+    cmd = ' '.join(cmd_para)
+    try:
+        logging.debug("\n" + 'MetaSpades Assembly'.center(50, '*'))
+        logging.debug(cmd + '\n')
+        os.system(cmd)
+    except:
+        logging.exception("\nSomething went wrong when assembling metagenomic reads!")
 
 
 def prodigal_meta(fasta, basename, outdir):
@@ -32,11 +84,11 @@ def prodigal_meta(fasta, basename, outdir):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        print("\n" + 'ORFs prediction'.center(50, '*'))
-        print(cmd + '\n')
+        logging.debug("\n" + 'ORFs prediction'.center(50, '*'))
+        logging.debug(cmd + '\n')
         os.system(cmd)
     except:
-        print("\nSomething wrong with prodigal annotation!")
+        logging.exception("\nSomething wrong with prodigal annotation!")
 
 
 def bwa_index(assembly, output):
@@ -47,11 +99,11 @@ def bwa_index(assembly, output):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        print("\n" + 'bwa index'.center(50, '*'))
-        print(cmd + '\n')
+        logging.debug("\n" + 'bwa index'.center(50, '*'))
+        logging.debug(cmd + '\n')
         os.system(cmd)
     except:
-        print("\nSomething wrong with bwa index!")
+        logging.exception("\nSomething wrong with bwa index!")
 
 
 def bwa_mem(index_file, reads1, reads2, output, threads):
@@ -66,11 +118,29 @@ def bwa_mem(index_file, reads1, reads2, output, threads):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        print("\n" + 'bwa mem'.center(50, '*'))
-        print(cmd + '\n')
+        logging.debug("\n" + 'bwa mem'.center(50, '*'))
+        logging.debug(cmd + '\n')
         os.system(cmd)
     except:
-        print("\nSomething wrong with bwa_mem!")
+        logging.exception("\nSomething wrong with bwa_mem!")
+
+
+def bwa_mem_interleaved(index_file, reads, output, threads):
+    cmd_para = [
+                'bwa mem -p',
+                '-t', str(threads),
+                '-v 2',  # only show warnings and errors
+                index_file,
+                reads,
+                '>', output
+                ]
+    cmd = ' '.join(cmd_para)
+    try:
+        logging.debug("\n" + 'bwa mem'.center(50, '*'))
+        logging.debug(cmd + '\n')
+        os.system(cmd)
+    except:
+        logging.exception("\nSomething wrong with bwa_mem!")
 
 
 def pileup(sam, output):
@@ -82,11 +152,11 @@ def pileup(sam, output):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        print("\n" + 'Calculate coverage depths - pileup'.center(50, '*'))
-        print(cmd + '\n')
+        logging.debug("\n" + 'Calculate coverage depths - pileup'.center(50, '*'))
+        logging.debug(cmd + '\n')
         os.system(cmd)
     except:
-        print("\nSomething wrong with pileup.sh!")
+        logging.exception("\nSomething wrong with pileup.sh!")
 
 
 def hmmsearch(paras):
@@ -104,4 +174,4 @@ def hmmsearch(paras):
         # print(cmd + '\n')
         os.system(cmd)
     except:
-        print("\nSomething wrong with KEGG hmmsearch!")
+        logging.exception("\nSomething wrong with KEGG hmmsearch!")

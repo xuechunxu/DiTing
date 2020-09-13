@@ -1,4 +1,5 @@
 import logging
+from scripts.variables import *
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -7,7 +8,8 @@ formatter = logging.Formatter(
     datefmt='%Y-%m-%d %H:%M:%S')
 
 # Using FileHandler writing log to file
-fh = logging.FileHandler('log.txt')
+logfile = os.path.join(OUT_DIR, 'log.txt')
+fh = logging.FileHandler(logfile)
 fh.setLevel(logging.DEBUG)
 fh.setFormatter(formatter)
 
@@ -19,5 +21,3 @@ ch.setFormatter(formatter)
 # Add the two Handlers
 logger.addHandler(ch)
 logger.addHandler(fh)
-logger.info('this is info message')
-logger.warning('this is warn message')

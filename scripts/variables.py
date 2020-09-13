@@ -12,7 +12,8 @@ else:
     READS_DIR = args.r  # directory for input fastq reads
     OUT_DIR = args.o  # directory for output results
     THREADS = args.n  # threads will be used
-    ASSEMBLY_TMP = os.path.join(OUT_DIR, 'megahit_tmp')  # directory for megahit temporary files
+    MEM = args.m  # memory will be used by metaSPAdes (in Gb)
+    ASSEMBLY_TMP = os.path.join(OUT_DIR, 'assembly_tmp')  # directory for megahit temporary files
     PRODIGAL_DIR = os.path.join(OUT_DIR, 'ORFs')  # directory for predicted ORFs
     BBMAP_DIR = os.path.join(OUT_DIR, 'BBMap')  # directory for predicted ORFs
     GENE_ABUN_DIR = os.path.join(OUT_DIR, 'Abundance')  # directory for gene relative abundance
@@ -22,6 +23,7 @@ else:
     DMSP_DIR = os.path.join(ROOT_DIR, 'DMSP_database')
     TABLE = os.path.join(ROOT_DIR, 'table')
     GENE_FAMILY = os.path.join(OUT_DIR, 'Gene_family')
+    READS_INTER = None  # if reads are interleaved or not
 
     BASENAMES = []  # input files basename list
     READS_SUF = ''  # suffix of input reads
