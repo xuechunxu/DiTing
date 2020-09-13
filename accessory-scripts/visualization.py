@@ -59,7 +59,7 @@ with open(trans_table) as table:
             pathway7 = re.sub('\\(', '', pathway6)
             pathway8 = re.sub('\\)', '', pathway7)
             pathway = re.sub('&_', '', pathway8)
-            print(pathway)
+            #print(pathway)
             abundance = line.split('\t')
             del abundance[0]
             total = 0
@@ -73,7 +73,7 @@ with open(trans_table) as table:
             else:
                 for i in abundance:
                     abundance_nor.append(float(i)/float(total))
-                print(abundance_nor)
+                # print(abundance_nor)
                 colors = ['#F8766D', '#00BA38', '#619CFF', '#D89000', '#39B600', '#00BFC4', '#00B0F6', '#9590FF', '#E76BF3', '#FF62BC']
                 plt.axes(aspect=1)
                 plt.pie(abundance_nor, colors=colors, startangle = 90)
@@ -82,16 +82,16 @@ with open(trans_table) as table:
 
 # background dir pathway
 self_script_pathway = sys.path[0]
-print(self_script_pathway)
+#print(self_script_pathway)
 back_of_pathway_script = os.path.split(self_script_pathway)[0]
-print(back_of_pathway_script)
+#print(back_of_pathway_script)
 background_image_pathway = back_of_pathway_script + "/figure"
 
 #load nitrogen_cycle.png image
 nitrogen_cycle_background_fig = background_image_pathway + "/nitrogen_cycle.png"
 shutil.copy(nitrogen_cycle_background_fig, './Figure_tmp/')
 nitrogen_cycle_image = Image.open("Figure_tmp/nitrogen_cycle.png")
-print("background_image_size:",nitrogen_cycle_image.size)
+#print("background_image_size:",nitrogen_cycle_image.size)
 nitrogen_cycle = ['Nitrogen_fixation',
                   'Nitrification_ammonia_to_hydroxylamine_AmoCAB',
                   'Nitrification_hydroxylamine_to_nitrite_hao',
@@ -421,7 +421,7 @@ Count_samples = len(samples)
 for i in range(1, Count_samples):
     nitrogen_cycle_image_cv2 = cv2.imread("Figure_tmp/nitrogen_cycle.png")
     color = colors[i-1]
-    print(str(color))
+    #print(str(color))
     (xmin, ymin) = (2005, 66+60*(int(i)-1))
     #(1901,66),(1941,106)
     (xmax, ymax) = (2045, 106+60*(int(i)-1))
@@ -485,7 +485,7 @@ os.system('mv Figure_tmp/nitrogen_cycle.png ./nitrogen_cycle.png')
 sulfur_cycle_background_fig = background_image_pathway + "/sulfur_cycle.png"
 shutil.copy(sulfur_cycle_background_fig, './Figure_tmp/')
 sulfur_cycle_image = Image.open("Figure_tmp/sulfur_cycle.png")
-print("background_image_size:",sulfur_cycle_image.size)
+#print("background_image_size:", sulfur_cycle_image.size)
 sulfur_cycle = ['Sulfur_reduction_sulfur_to_sulfide_sreABC',
                 'Sulfide_oxidation_sulfide_to_sulfur_fccAB',
                 'Sulfur_disproportionation_sulfur_to_sulfide_sulfite',
@@ -510,7 +510,7 @@ for key in sulfur_cycle_dir:
 three_quarter_sulfur = 3/4 * top_abun_sulfur
 two_quarter_sulfur = 1/2 * top_abun_sulfur
 one_quarter_sulfur = 1/4 * top_abun_sulfur
-print(top_abun_sulfur)
+# print(top_abun_sulfur)
 
 try:
     pathway_fig = Image.open("Figure_tmp/Sulfur_reduction_sulfur_to_sulfide_sreABC.png")
@@ -604,7 +604,7 @@ try:
     pathway_fig = Image.open("Figure_tmp/Dissimilatory_sulfite_reduction_to_sulfide_reversible.png")
     position = ()
     if sulfur_cycle_dir['Dissimilatory_sulfite_reduction_to_sulfide_reversible'] >= three_quarter_sulfur:
-        print('test!')
+        # print('test!')
         pathway_fig = pathway_fig.resize((480,480))
         position = (804,804,1284,1284)
     elif sulfur_cycle_dir['Dissimilatory_sulfite_reduction_to_sulfide_reversible'] >= two_quarter_sulfur:
@@ -749,7 +749,7 @@ Count_samples = len(samples)
 for i in range(1, Count_samples):
     sulfur_cycle_image_cv2 = cv2.imread("Figure_tmp/sulfur_cycle.png")
     color = colors[i-1]
-    print(str(color))
+    # print(str(color))
     (xmin, ymin) = (4274, 132+120*(int(i)-1))
     #(1901,66),(1941,106)
     (xmax, ymax) = (4354, 212+120*(int(i)-1))
@@ -813,7 +813,7 @@ os.system('mv Figure_tmp/sulfur_cycle.png ./sulfur_cycle.png')
 carbon_cycle_background_fig = background_image_pathway + "/carbon_cycle.png"
 shutil.copy(carbon_cycle_background_fig, './Figure_tmp/')
 carbon_cycle_image = Image.open("Figure_tmp/carbon_cycle.png")
-print("background_image_size:",carbon_cycle_image.size)
+# print("background_image_size:",carbon_cycle_image.size)
 carbon_cycle = ['CBB_Cycle',
                 'rTCA_Cycle',
                 'Wood-Ljungdahl',
@@ -1351,7 +1351,7 @@ Count_samples = len(samples)
 for i in range(1, Count_samples):
     carbon_cycle_image_cv2 = cv2.imread("Figure_tmp/carbon_cycle.png")
     color = colors[i-1]
-    print(str(color))
+    # print(str(color))
     (xmin, ymin) = (6325, 641+120*(int(i)-1))
     #(1901,66),(1941,106)
     (xmax, ymax) = (6405, 721+120*(int(i)-1))

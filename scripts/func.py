@@ -1,9 +1,6 @@
 """
 Provides in-house functions
 """
-
-import os
-import sys
 import re
 import urllib.request
 import shutil
@@ -12,10 +9,11 @@ import tarfile
 from multiprocessing import Pool
 from .invoke import hmmsearch
 from .pathway import *
+from .logformatter import *
 
 
 def download_db(ko_db):
-    print("\n" + 'Download database'.center(50, '*'))
+    logging.info("\n" + 'Download database'.center(50, '*'))
     url_ko_list = 'ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz'
     url_profiles = 'ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz'
     path_ko_list_gz = os.path.join(ko_db, 'ko_list.gz')
@@ -26,7 +24,7 @@ def download_db(ko_db):
         os.mkdir(ko_db)
 
     #  download
-    print("Downloading started... Please wait. This may take a while.")
+    logging.info("Downloading started... Please wait. This may take a while.")
     with urllib.request.urlopen(url_ko_list) as response, open(path_ko_list_gz, 'wb') as out_file:
         shutil.copyfileobj(response, out_file)
     with urllib.request.urlopen(url_profiles) as response, open(path_profiles_tar_gz, 'wb') as out_file:
@@ -45,10 +43,10 @@ def download_db(ko_db):
     except Exception as e:
         raise Exception(e)
 
-    print('Database has been downloaded and deployed successfully at {}'. format(ko_db))
+    logging.info('Database has been downloaded and deployed successfully at {}'. format(ko_db))
 
 def DMSP_db_parse(DMSP_DIR, KODB_DIR):
-    print("\n" + 'DMSP database parsing'.center(50, '*'))
+    logging.info("\n" + 'DMSP database parsing'.center(50, '*'))
     DMSP_hmm_db = DMSP_DIR + '/profiles/*.hmm'
     DMSP_related_gene_list = os.path.join(DMSP_DIR, 'DMSP_related_gene.list')
     ko_db_profiles_dir = os.path.join(KODB_DIR, 'profiles')
@@ -67,7 +65,7 @@ def DMSP_db_parse(DMSP_DIR, KODB_DIR):
                     ]
     cmd = ' '.join(cmd_para_cat)
     os.system(cmd)
-    print("\n" + 'DMSP database is ready'.center(50, '*'))
+    logging.info("Database parsing done")
 
 
 def gene_relative_abun(pileup_file, basename, out_dir):
@@ -79,7 +77,7 @@ def gene_relative_abun(pileup_file, basename, out_dir):
     :param out_dir: output directory
     :return: None
     """
-    print("\n" + 'Gene relative abundance'.center(50, '*'))
+    logging.info("\n" + 'Gene relative abundance calculation'.center(50, '*'))
     total_ave_fold = float(0)
     file_out = os.path.join(out_dir, basename + '.abundance')
     with open(file_out, 'a') as fo:
@@ -121,12 +119,16 @@ def ko_list_parser(ko_list):
 
 
 def kegg_annotation(faa, basename, out_dir, db_dir, ko_dic, threads):
-    print("\n" + 'KEGG annotation for {}'.format(basename).center(50, '*'))
+    logging.info("\n" + 'KEGG annotation for {}'.format(basename).center(50, '*'))
     paras = []  # Build a parameter list for multiprocessing
 
     for knum, info in ko_dic.items():
         output = os.path.join(out_dir, knum + '.' + str(basename) + '.hmmout')
         hmm_db = os.path.join(db_dir, 'profiles', knum + '.hmm')
+
+        if not os.path.exists(hmm_db):
+            continue
+
         if info[1] == 'full':
             threshold_method = '-T'
             outtype = '--tblout'
@@ -148,7 +150,7 @@ def kegg_annotation(faa, basename, out_dir, db_dir, ko_dic, threads):
 
 # merge kegg annotations into one file
 def merge_ko(hmmout_dir, output):
-    print("\n" + 'merge KEGG annotations'.center(50, '*'))
+    logging.info("\n" + 'merge KEGG annotations'.center(50, '*'))
     #ko_merged_dict = {}  # { basename + gene_id : abundance }
     with open(output, 'w') as fo:
         fo.write('#sample\tgene_id\tk_number\n')
@@ -163,9 +165,9 @@ def merge_ko(hmmout_dir, output):
                         gene_id, accession = line.split()[0:2]
                         lines = line.split()
                         if re.match(r'[0-9]+$', lines[2]):
-                        	k_number = lines[3]
+                            k_number = lines[3]
                         else:
-                        	k_number = lines[2]
+                            k_number = lines[2]
                         with open(output, 'a') as fo:
                             fo.write(basename + '\t' + gene_id + '\t' + k_number + '\n')
     #return ko_merged_dict
@@ -173,7 +175,7 @@ def merge_ko(hmmout_dir, output):
 
 # merge gene relative abundance table with gene kegg annotation table
 def merge_abun_ko(abun_table_dir, ko_merged_tab, output):
-    print("\n" + 'merge abundance table with kegg table'.center(50, '*'))
+    logging.info("\n" + 'merge abundance table with kegg table'.center(50, '*'))
     with open(output, 'w') as fo:
         fo.write('#sample\tk_number\trelative_abundance\tgene_id\n')
     abun_tab_dict = {}
@@ -205,7 +207,7 @@ def merge_abun_ko(abun_table_dir, ko_merged_tab, output):
             fo.write(basename + '\t' + k_number + '\t' + abundance + '\t' + gene_id + '\n')
 
 def build_gene_family(ORF_dir, ko_abun_txt, output_dir):
-    print("\n" + 'building gene family'.center(50, '*'))
+    logging.info("\n" + 'building gene family'.center(50, '*'))
     geneID_to_sequence = {}
     for faa_file in os.listdir(ORF_dir):  # sample.faa
         if faa_file.endswith('.faa'):
@@ -241,7 +243,7 @@ def table_of_ko_abundance_among_samples(ko_abun_txt, output):
     sampleKnumber_to_abundance = {}
     samples = []
     k_numbers = []
-    print("\n" + 'producing table of ko abundance among samples'.center(70, '*'))
+    logging.info("\n" + 'producing table of ko abundance among samples'.center(70, '*'))
     with open(ko_abun_txt) as fi:
         for line in fi:
             line.strip()
@@ -261,10 +263,10 @@ def table_of_ko_abundance_among_samples(ko_abun_txt, output):
 
     samples2 = list(set(samples))
     samples2.sort()
-    print(samples2)
+    # print(samples2)
     k_numbers2 = list(set(k_numbers))
     k_numbers2.sort()
-    print(k_numbers2)
+    # print(k_numbers2)
     with open(output, 'w') as fo:
         fo.write('k_number')
     for sample in samples2:
@@ -284,7 +286,7 @@ def table_of_ko_abundance_among_samples(ko_abun_txt, output):
         with open(output, 'a') as fo:
             fo.write('\n')
 
-    print("\n" + 'A table of ko abundance among samples was produced'.center(70, '*'))
+    logging.info("\n" + 'A table of ko abundance among samples was produced'.center(70, '*'))
 
 def hierarchical_ko_abundance_among_samples(table_of_ko_abundance_among_samples, KO_affilated_to_biogeochemical_cycle_tab, output):
     Knumber_to_abundance = {}
@@ -311,7 +313,7 @@ def hierarchical_ko_abundance_among_samples(table_of_ko_abundance_among_samples,
 
 
 def kegg_decoder(input_tab, output):
-    print("\n" + 'kegg decoder'.center(50, '*'))
+    logging.info("\n" + 'kegg decoder'.center(50, '*'))
     self_script_pathway = sys.path[0]
     kegg_decoder_meta_py = os.path.join(self_script_pathway, 'accessory-scripts', 'KEGG-decoder_meta.py')
     cmd_para = [

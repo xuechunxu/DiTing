@@ -5,7 +5,7 @@ from scripts import *
     
 __author__ = "Xue Chunxu; Heyu Lin"
 __contact__ = "xuechunxu@outlook.com; heyu.lin@student.unimelb.edu.au"
-__version__ = "0.5"
+__version__ = "0.7"
     
     
 def main():
@@ -16,14 +16,32 @@ def main():
         os.system('rm -rf heatmap_tmp')
     else:
         make_dir(OUT_DIR)
-    
+
+        """
+        Setting logging
+        """
+        # Using FileHandler writing log to file
+        logfile = os.path.join(OUT_DIR, 'log.txt')
+        fh = logging.FileHandler(logfile)
+        fh.setLevel(logging.INFO)
+        fh.setFormatter(formatter)
+
+        # Using StreamHandler writing to console
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.INFO)
+        ch.setFormatter(formatter)
+
+        # Add the two Handlers
+        logger.addHandler(ch)
+        logger.addHandler(fh)
+
         """
         [1/13] Check if ko hmm database exists and has been unpacked
         """
         logging.info("STEP [1/13]: Check if ko hmm database exists and has been unpacked")
         if check_kodb(KODB_DIR) is False:
             cmd_rm_ko_database = 'rm -rf ' + KODB_DIR
-            logging.debug(cmd_rm_ko_database)
+            logging.info(cmd_rm_ko_database)
             os.system(cmd_rm_ko_database)
             download_db(KODB_DIR)
             DMSP_db_parse(DMSP_DIR, KODB_DIR)

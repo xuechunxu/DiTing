@@ -15,8 +15,8 @@ def megahit(reads1, reads2, threads, output):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'Metagenomic Assembly'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'Metagenomic Assembly'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething went wrong when assembling metagenomic reads!")
@@ -31,8 +31,8 @@ def megahit_interleaved(reads, threads, output):
     ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'Metagenomic Assembly'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'Metagenomic Assembly'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething went wrong when assembling metagenomic reads!")
@@ -49,8 +49,8 @@ def metaspades(reads1, reads2, threads, output, mem):
     ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'MetaSpades Assembly'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'MetaSpades Assembly'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething went wrong when assembling metagenomic reads!")
@@ -66,8 +66,8 @@ def metaspades_interleaved(reads, threads, output, mem):
     ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'MetaSpades Assembly'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'MetaSpades Assembly'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething went wrong when assembling metagenomic reads!")
@@ -84,8 +84,8 @@ def prodigal_meta(fasta, basename, outdir):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'ORFs prediction'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'ORFs prediction'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething wrong with prodigal annotation!")
@@ -99,8 +99,8 @@ def bwa_index(assembly, output):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'bwa index'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'bwa index'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething wrong with bwa index!")
@@ -118,8 +118,8 @@ def bwa_mem(index_file, reads1, reads2, output, threads):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'bwa mem'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'bwa mem'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething wrong with bwa_mem!")
@@ -136,8 +136,8 @@ def bwa_mem_interleaved(index_file, reads, output, threads):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'bwa mem'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'bwa mem'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething wrong with bwa_mem!")
@@ -152,8 +152,8 @@ def pileup(sam, output):
                 ]
     cmd = ' '.join(cmd_para)
     try:
-        logging.debug("\n" + 'Calculate coverage depths - pileup'.center(50, '*'))
-        logging.debug(cmd + '\n')
+        logging.info("\n" + 'Calculate coverage depths - pileup'.center(50, '*'))
+        logging.info(cmd + '\n')
         os.system(cmd)
     except:
         logging.exception("\nSomething wrong with pileup.sh!")
@@ -165,6 +165,7 @@ def hmmsearch(paras):
         'hmmsearch',
         threshold_method, threshold,
         '--cpu', '1',
+        '-o /dev/null',
         outtype, output,
         hmm_db,
         faa

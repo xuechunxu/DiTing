@@ -26,7 +26,7 @@ parser.add_argument('-vis', '--visualization', metavar='pathways_relative_abunda
                     help='A table for visualization, note that the name of pathways must be the same \
                     as that in the final table this software pruduced.')
 parser.add_argument('--spades', metavar='Using_metaSpades', dest='spades',
-                    nargs="?", const=False, default=True,
+                    nargs="?", const=True, default=False,
                     help='metaSPAdes will be used for assembling instead of megahit if this flag is used')
 parser.add_argument('-m', '--memory', metavar='memory', dest='m',
                     type=int, default=50,

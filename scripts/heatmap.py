@@ -7,15 +7,15 @@ import matplotlib
 matplotlib.use('AGG')
 import matplotlib.pyplot as plt
 import pandas as pd
-import re
 import seaborn as sns
+from .logformatter import *
 
 __author__ = "Xue Chunxu"
 __contact__ = "xuechunxu@outlook.com"
 __version__ = "0.5"
 
 def heatmap(abundance_table):
-    print("\n" + 'Heatmap starting...Please wait. This may take a while'.center(70, '*'))
+    logging.info("\n" + 'Generate heatmap'.center(70, '*'))
     os.mkdir('heatmap_tmp')
     dict_table = {}
     head = ''
@@ -207,4 +207,4 @@ def heatmap(abundance_table):
         fig.savefig(out_name + '_heatmap.pdf', bbox_inches = 'tight', dpi = 600)
         plt.close()
 
-    print("\n" + 'Heatmap visualization finished'.center(70, '*'))
+    logging.info("\n" + 'All Done'.center(70, '*'))

@@ -122,17 +122,17 @@ samples4.fq.gz
 Number of threads to run (default: 4)
 
 ```bash
-python diting.py -r <clean_reads_Dir> -a <metagenomic_assembly> -o <output_dir> -n 20
+diting.py -r <clean_reads_Dir> -a <metagenomic_assembly> -o <output_dir> -n 20
 ```
 #### 2.5 --noclean
 The sam files would be retained if this flag was used. 
 ```bash
-python diting.py -r <clean_reads_dir> -a <metagenomic_assembly> -o <output_dir> -n 12 --noclean
+diting.py -r <clean_reads_dir> -a <metagenomic_assembly> -o <output_dir> -n 12 --noclean
 ```
 #### 2.6 -vis (--visualization) pathways_relative_abundance.tab
-Visualization is expected to run independently, which allows users to adjust the final result table (e.g., merge some similar samples) before the visualization.
+Visualization can also be executed independently, which allows users to adjust the final result table (e.g., merge some similar samples) before the visualization.
 ```bash
-python diting.py -vis <pathways_relative_abundance.tab>
+diting.py -vis <pathways_relative_abundance.tab>
 ```
 ### 3. Output
 #### 3.1 Table

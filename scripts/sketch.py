@@ -1,8 +1,6 @@
 """
 visualization of carbon, nitrogen and sulfur cycle
 """
-
-import argparse
 import os
 import matplotlib
 matplotlib.use('AGG')
@@ -12,14 +10,15 @@ import sys
 import re
 import shutil
 import cv2
+from .logformatter import *
     
 __author__ = "Xue Chunxu"
 __contact__ = "xuechunxu@outlook.com"
-__version__ = "0.5"
+__version__ = "0.7"
     
     
 def sketch(abundance_table):
-    print("\n" + 'Visualization starting...Please wait. This may take a while'.center(70, '*'))
+    logging.info("\n" + 'Visualization'.center(70, '*'))
     os.mkdir('Figure_tmp')
     dict_table = {}
     # make pie charts of each pathway
@@ -1855,4 +1854,3 @@ def sketch(abundance_table):
     cv2.imwrite('Figure_tmp/carbon_cycle.png', carbon_cycle_image_cv2)
     
     os.system('mv Figure_tmp/carbon_cycle.png ./carbon_cycle_sketch.png')
-    print("\n" + 'Sketch visualization finished'.center(70, '*'))
