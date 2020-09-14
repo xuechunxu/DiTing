@@ -87,6 +87,7 @@ sample_three_1.fastq
 sample_three_2.fastq
 ```
 The paired-end metagenomic clean reads should end with `.fq`, `.fq.gz`, `.fastq`, or `.fastq.gz`.
+The interleaved reads are also supported.
 ### 2. Optional parameter
 #### 2.1 --spades
 Using `metaSPAdes` instead of `megahit` to assemble reads
