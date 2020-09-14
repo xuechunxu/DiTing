@@ -18,7 +18,7 @@ __version__ = "0.7"
     
     
 def sketch(abundance_table):
-    logging.info("\n" + 'Visualization'.center(70, '*'))
+    logging.info('Visualize abundance table')
     os.mkdir('Figure_tmp')
     dict_table = {}
     # make pie charts of each pathway
