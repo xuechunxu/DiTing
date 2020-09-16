@@ -75,7 +75,7 @@ The [Dependencies](#Dependencies) are required to be installed and added to the 
 ## Running
 ### 1. One step running
 ```bash
-python diting.py -r <clean_reads_dir> -o <output_dir>
+diting.py -r <clean_reads_dir> -o <output_dir>
 ```
 The input is the `<clean_reads_dir>` folder containing a group of paired-end metagenomic clean reads, looks like: 
 ```
