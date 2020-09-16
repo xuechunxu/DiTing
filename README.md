@@ -29,7 +29,7 @@ DiTing is designed to determine the relative abundance of metabolic and biogeoch
     * profiles.tar.gz (ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz)
 
 ## Installation
-### Conda (recommended)
+### Option 1: Conda (recommended)
 Configure conda environment
 ```bash
 # order matters
@@ -51,7 +51,7 @@ Deactivate diting-env
 ```bash
 conda deactivate
 ```
-### Repository from GitHub
+### Option 2: Repository from GitHub
 #### Step 1. Download main scripts
 `git clone https://github.com/xuechunxu/DiTing.git`
 or click the green button `Clone or download` and select `download ZIP` to download the repo  and unzip manually.
