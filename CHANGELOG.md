@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Allow users to provide sam files
 - Add `--continue` option for users
+- 用户使用excel合并某些样品的时候，会无意引入双引号，导致可视化出错，需要改进
 
 ## [0.6] - 2020-03-27
 
