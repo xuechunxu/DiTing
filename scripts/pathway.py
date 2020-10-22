@@ -1302,8 +1302,8 @@ class Pathway:
                 self.abundance[ko] = 0
         self.out_data['DMSP biosynthesis, L-Met -> DMSP (DSYB or dsyB or mmtN)'] = (
           self.abundance[self.bn+'_MmtN'] +
-          self.abundance[self.bn+'_DSYB_euka'] +
-          self.abundance[self.bn+'_DsyB_prok'])
+          self.abundance[self.bn+'_DSYB_euka'])
+    #DSYB and DsyB were repetition, thus, we just add DSYB
 
     def DMSP_demethylation_DMSP_to_MMPA(self):
         ko_list = [self.bn+'_DmdA']
