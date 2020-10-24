@@ -149,7 +149,8 @@ def heatmap(abundance_table):
              'Type Vabc secretion',
              'Bacterial chemotaxis',
              'Flagellum assembly',
-             'Dissimilatory arsenic reduction']
+             'Dissimilatory arsenic reduction',
+             'Isoprene monooxygenase (IsoA)']
 
     with open('heatmap_tmp/carbon_cycle.tab', 'w') as carbon_out:
         carbon_out.write(head + '\n')
