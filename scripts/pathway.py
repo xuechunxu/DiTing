@@ -1916,6 +1916,16 @@ class Pathway:
           self.abundance[self.bn+'_K03892'] +
           self.abundance[self.bn+'_K01551'])/4
 
+    def Isoprene_monooxygenase_IsoA(self):
+        ko_list = [self.bn+'_IsoA']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['Isoprene monooxygenase (IsoA)'] = (
+          self.abundance[self.bn+'_IsoA'])
+
+
+
     def solve_pathway(self):
         self.Photosystem_II()
         self.Photosystem_I()
@@ -2039,6 +2049,7 @@ class Pathway:
         self.Bacterial_chemotaxis()
         self.Flagellum_assembly()
         self.Dissimilatory_arsenic_reduction()
+        self.Isoprene_monooxygenase_IsoA()
         return self.out_data
 
 
@@ -2157,4 +2168,5 @@ function_order = ['Photosystem II (psbABCDEF)',
                   'Type Vabc secretion',
                   'Bacterial chemotaxis',
                   'Flagellum assembly',
-                  'Dissimilatory arsenic reduction']
+                  'Dissimilatory arsenic reduction',
+                  'Isoprene monooxygenase (IsoA)']
