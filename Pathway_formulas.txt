@@ -1240,6 +1240,10 @@ def: Dissimilatory arsenic reduction
     K01551  arsA; arsenite/tail-anchored protein-transporting ATPase
 formula: ((K00537 + K03741 + K18701) + (K03325 + K03893) + K03892 + K01551)/4
 
+def Isoprene monooxygenase (IsoA)
+	Approximately 500 Tg of isoprene are emitted to the atmosphere annually, an amount similar to that of methane, and despite its significant effects on the climate, very little is known about the biological degradation of isoprene in the environment. Isolation and characterisation of isoprene degraders at the molecular level has allowed the development of probes targeting isoA encoding the α-subunit of the isoprene monooxygenase.
+	[1].	Carrión, O., et al., Gene probing reveals the widespread distribution, diversity and abundance of isoprene-degrading bacteria in the environment. Microbiome, 2018. 6(1).
+formula: IsoA
 
 delete hydrogen redox
 def: hydrogen redox
