@@ -559,6 +559,15 @@ Sulfur metabolism	"Assimilatory sulfate reduction, sulfate -> sulfite"	K13811	PA
 		DorA	Dimethyl sulfoxide/trimethylamine N-oxide reductase
 	"MddA pathway, MeSH -> DMS (mddA)"	MddA	MeSH S-methyltransferase
 	"MeSH oxidation, MeSH -> Formaldehyde (MTO)"	MTO	MeSH oxidase
+	"Sulfoquinovose degradation (sulfo-EMP pathway) (yihSVTU)"	K18479	"yihS; sulfoquinovose isomerase [EC:5.3.1.31]"
+		K18478	"yihV; sulfofructose kinase [EC:2.7.1.184]"
+		K01671	"yihT; sulfofructosephosphate aldolase [EC:4.1.2.57]"
+		K08318	"yihU; 4-hydroxybutyrate dehydrogenase / sulfolactaldehyde 3-reductase [EC:1.1.1.61 1.1.1.373]"
+	"Sulfoquinovose degradation (sulfo-ED pathway)"	SQ_dehydrogenase	"SQ dehydrogenase; Sulfoquinovose 1-dehydrogenase [EC:1.1.1.390]"
+		SGL_lactonase	"SGL lactonase; 6-deoxy-6-sulfogluconolactonase [EC:3.1.1.99]"
+		SG_dehydratase	"SG dehydratase; 6-deoxy-6-sulfo-D-gluconate dehydratase [EC:4.2.1.162]"
+		KDSG_aldolase	"KDSG aldolase; 2-dehydro-3,6-dideoxy-6-sulfogluconate aldolase [EC:4.1.2.58]"
+		SLA_dehydrogenase	"SLA dehydrogenase; 3-sulfolactaldehyde dehydrogenase [EC:1.2.1.97]"
 Oxidative phosphorylation	F-type ATPase	K02111	"ATPF1A, atpA; F-type H+/Na+-transporting ATPase subunit alpha [EC:7.1.2.2 7.2.2.1]"
 		K02112	"ATPF1B, atpD; F-type H+/Na+-transporting ATPase subunit beta [EC:7.1.2.2 7.2.2.1]"
 		K02113	"ATPF1D, atpH; F-type H+-transporting ATPase subunit delta"
