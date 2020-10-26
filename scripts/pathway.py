@@ -1394,6 +1394,31 @@ class Pathway:
         self.out_data['MeSH oxidation, MeSH -> Formaldehyde (MTO)'] = (
           self.abundance[self.bn+'_MTO'])
 
+    def Sulfoquinovose_degradation_sulfo_EMP_pathway(self):
+        ko_list = [self.bn+'K18479', self.bn+'K18478',
+                   self.bn+'K01671', self.bn+'K08318']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['Sulfoquinovose degradation (sulfo-EMP pathway) (yihSVTU)'] = (
+          self.abundance[self.bn+'K18479'] +
+          self.abundance[self.bn+'K18478'] +
+          self.abundance[self.bn+'K01671'] +
+          self.abundance[self.bn+'K08318'])/4
+
+    def Sulfoquinovose_degradation_sulfo_ED_pathway(self):
+        ko_list = [self.bn+'SQ_dehydrogenase', self.bn+'SGL_lactonase',
+                   self.bn+'SG_dehydratase', self.bn+'KDSG_aldolase',
+                   self.bn+'SLA_dehydrogenase']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['Sulfoquinovose degradation (sulfo-ED pathway)'] = (
+          self.abundance[self.bn+'SQ_dehydrogenase'] +
+          self.abundance[self.bn+'SGL_lactonase'] +
+          self.abundance[self.bn+'SG_dehydratase'] +
+          self.abundance[self.bn+'KDSG_aldolase'] +
+          self.abundance[self.bn+'SLA_dehydrogenase'])/5
 
     def F_type_ATPase(self):
         ko_list = [self.bn+'_K02111', self.bn+'_K02112',
@@ -2050,6 +2075,8 @@ class Pathway:
         self.Flagellum_assembly()
         self.Dissimilatory_arsenic_reduction()
         self.Isoprene_monooxygenase_IsoA()
+        self.Sulfoquinovose_degradation_sulfo_EMP_pathway()
+        self.Sulfoquinovose_degradation_sulfo_ED_pathway()
         return self.out_data
 
 
@@ -2142,6 +2169,8 @@ function_order = ['Photosystem II (psbABCDEF)',
                   'DMSO reduction, DMSO -> DMS (dms or dorA)',
                   'MddA pathway, MeSH -> DMS (mddA)',
                   'MeSH oxidation, MeSH -> Formaldehyde (MTO)',
+                  'Sulfoquinovose degradation (sulfo-EMP pathway) (yihSVTU)',
+                  'Sulfoquinovose degradation (sulfo-ED pathway)',
                   'F-type ATPase',
                   'V/A-type ATPase',
                   'NADH-quinone oxidoreductase',
