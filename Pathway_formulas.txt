@@ -910,15 +910,22 @@ Sulfur metabolism
 		K01671	"yihT; sulfofructosephosphate aldolase [EC:4.1.2.57]"
 		K08318	"yihU; 4-hydroxybutyrate dehydrogenase / sulfolactaldehyde 3-reductase [EC:1.1.1.61 1.1.1.373]"
 	formula: (K18479 + K18478 + K01671 + K08318)/4
-
-	def: Sulfoquinovose degradation (sulfo-ED pathway)
+    note: 6-Deoxy-6-sulfoglucose (sulfoquinovose, SQ) is the polar head group of the plant sulfolipids sulfoquinovosyl diacylglycerols (SQDGs) (Benson, 1963). These lipids are constituents of photosynthetically active membranes in, essentially, all phototrophic organisms (Benning, 1998). [1].   Frommeyer, B., et al., Environmental and Intestinal Phylum Firmicutes Bacteria Metabolize the Plant Sugar Sulfoquinovose via a 6-Deoxy-6-sulfofructose Transaldolase Pathway. iScience, 2020. 23(9): p. 101510-101510.
+	
+    def: Sulfoquinovose degradation (sulfo-ED pathway)
 		SQ_dehydrogenase	"SQ dehydrogenase; Sulfoquinovose 1-dehydrogenase [EC:1.1.1.390]"
 		SGL_lactonase	"SGL lactonase; 6-deoxy-6-sulfogluconolactonase [EC:3.1.1.99]"
 		SG_dehydratase	"SG dehydratase; 6-deoxy-6-sulfo-D-gluconate dehydratase [EC:4.2.1.162]"
 		KDSG_aldolase	"KDSG aldolase; 2-dehydro-3,6-dideoxy-6-sulfogluconate aldolase [EC:4.1.2.58]"
 		SLA_dehydrogenase	"SLA dehydrogenase; 3-sulfolactaldehyde dehydrogenase [EC:1.2.1.97]"
 	formula: (SQ_dehydrogenase + SGL_lactonase + SG_dehydratase + KDSG_aldolase + SLA_dehydrogenase)/5
-	note: 6-Deoxy-6-sulfoglucose (sulfoquinovose, SQ) is the polar head group of the plant sulfolipids sulfoquinovosyl diacylglycerols (SQDGs) (Benson, 1963). These lipids are constituents of photosynthetically active membranes in, essentially, all phototrophic organisms (Benning, 1998). [1].	Frommeyer, B., et al., Environmental and Intestinal Phylum Firmicutes Bacteria Metabolize the Plant Sugar Sulfoquinovose via a 6-Deoxy-6-sulfofructose Transaldolase Pathway. iScience, 2020. 23(9): p. 101510-101510.
+
+	def: Sulfoquinovose degradation (SFT pathway)
+		K18479	"yihS; sulfoquinovose isomerase [EC:5.3.1.31]"
+		SF_transaldolase	"SftT; sulfofructose transaldolase; 6-deoxy-6-sulfofructose:D-glyceraldehyde-3-phosphate glyceronetransferase EC:2.2.1.2"
+		SLA_dehydrogenase	"SLA dehydrogenase; 3-sulfolactaldehyde dehydrogenase [EC:1.2.1.97]"
+	formula: SF_transaldolase
+	note: SF_transaldolase was selected as marker gene. The K18479 is the same as the first step of sulfo-EMP pathway. The SLA_dehydrogenase is the same as the last step of sulfo-ED pathway.
 
 Oxidative phosphorylation (Nuo, ATPases)
     def: F-type ATPase
