@@ -1425,7 +1425,7 @@ class Pathway:
         for ko in ko_list:
             if ko not in self.abundance:
                 self.abundance[ko] = 0
-        self.out_data['Sulfoquinovose degradation (sulfo-ED pathway)'] = (
+        self.out_data['Sulfoquinovose degradation (SFT pathway)'] = (
           self.abundance[self.bn+'SF_transaldolase'])
 
     def F_type_ATPase(self):
@@ -2180,7 +2180,7 @@ function_order = ['Photosystem II (psbABCDEF)',
                   'MeSH oxidation, MeSH -> Formaldehyde (MTO)',
                   'Sulfoquinovose degradation (sulfo-EMP pathway) (yihSVTU)',
                   'Sulfoquinovose degradation (sulfo-ED pathway)',
-                  'Sulfoquinovose degradation (SFT pathway)'
+                  'Sulfoquinovose degradation (SFT pathway)',
                   'F-type ATPase',
                   'V/A-type ATPase',
                   'NADH-quinone oxidoreductase',
