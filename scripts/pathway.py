@@ -1420,6 +1420,14 @@ class Pathway:
           self.abundance[self.bn+'KDSG_aldolase'] +
           self.abundance[self.bn+'SLA_dehydrogenase'])/5
 
+    def Sulfoquinovose_degradation_SFT_pathway(self):
+        ko_list = [self.bn+'SF_transaldolase']
+        for ko in ko_list:
+            if ko not in self.abundance:
+                self.abundance[ko] = 0
+        self.out_data['Sulfoquinovose degradation (sulfo-ED pathway)'] = (
+          self.abundance[self.bn+'SF_transaldolase'])
+
     def F_type_ATPase(self):
         ko_list = [self.bn+'_K02111', self.bn+'_K02112',
                    self.bn+'_K02115', self.bn+'_K02113',
@@ -2047,6 +2055,9 @@ class Pathway:
         self.DMSO_reduction_DMSO_to_DMS()
         self.MddA_pathway_MeSH_to_DMS()
         self.MeSH_oxidation_MeSH_to_Formaldehyde()
+        self.Sulfoquinovose_degradation_sulfo_EMP_pathway()
+        self.Sulfoquinovose_degradation_sulfo_ED_pathway()
+        self.Sulfoquinovose_degradation_SFT_pathway()
         self.F_type_ATPase()
         self.V_type_ATPase()
         self.NADH_quinone_oxidoreductase()
@@ -2075,8 +2086,6 @@ class Pathway:
         self.Flagellum_assembly()
         self.Dissimilatory_arsenic_reduction()
         self.Isoprene_monooxygenase_IsoA()
-        self.Sulfoquinovose_degradation_sulfo_EMP_pathway()
-        self.Sulfoquinovose_degradation_sulfo_ED_pathway()
         return self.out_data
 
 
@@ -2171,6 +2180,7 @@ function_order = ['Photosystem II (psbABCDEF)',
                   'MeSH oxidation, MeSH -> Formaldehyde (MTO)',
                   'Sulfoquinovose degradation (sulfo-EMP pathway) (yihSVTU)',
                   'Sulfoquinovose degradation (sulfo-ED pathway)',
+                  'Sulfoquinovose degradation (SFT pathway)'
                   'F-type ATPase',
                   'V/A-type ATPase',
                   'NADH-quinone oxidoreductase',

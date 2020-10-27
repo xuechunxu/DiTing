@@ -122,7 +122,8 @@ def heatmap(abundance_table):
                     'MddA pathway, MeSH -> DMS (mddA)',
                     'MeSH oxidation, MeSH -> Formaldehyde (MTO)',
                     'Sulfoquinovose degradation (sulfo-EMP pathway) (yihSVTU)',
-                    'Sulfoquinovose degradation (sulfo-ED pathway)']
+                    'Sulfoquinovose degradation (sulfo-ED pathway)',
+                    'Sulfoquinovose degradation (SFT pathway)']
 
     other = ['F-type ATPase',
              'V/A-type ATPase',
