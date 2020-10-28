@@ -18,7 +18,7 @@ DSYB_euka	1e-30	custom	-	-	-
 MddA	1e-30	custom	-	-	-
 MmtN	1e-98	custom	-	-	-
 MTO	1e-20	custom	-	-	-
-Iso	1e-45	custom	-	-	-
+IsoA	1e-45	custom	-	-	-
 SQ_dehydrogenase	1e-20	custom	-	-	-
 SGL_lactonase	1e-20	custom	-	-	-
 SG_dehydratase	1e-146	custom	-	-	-
