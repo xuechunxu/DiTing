@@ -83,6 +83,13 @@ The [Dependencies](#Dependencies) are required to be installed and added to the 
 ```bash
 diting.py -r <clean_reads_dir> -o <output_dir>
 ```
+example data run:  
+```bash
+#download the eaxmple reads
+wget https://drive.google.com/drive/folders/1YGD5X4LhHQXWJxGbWLpP4bECyEAKDTly?usp=sharing  
+# run diting
+diting.py -r Clean-reads_interleaved -o Clean-reads_interleaved.diting.out
+```
 The input is the `<clean_reads_dir>` folder containing a group of paired-end metagenomic clean reads, looks like: 
 ```
 sample_one_1.fastq
