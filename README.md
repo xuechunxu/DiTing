@@ -85,8 +85,13 @@ diting.py -r <clean_reads_dir> -o <output_dir>
 ```
 Example reads run:  
 ```bash
-#download the example reads
+#download the example reads  
+Google Drive:  
 wget https://drive.google.com/drive/folders/1YGD5X4LhHQXWJxGbWLpP4bECyEAKDTly?usp=sharing  
+OR If you are in China, you can download from Baiduyun:  
+URL: https://pan.baidu.com/s/1gFtJnz1G3pdEqBSFnUqFJw  
+Password: diti
+
 # run diting
 diting.py -r Clean-reads_interleaved -o Clean-reads_interleaved.diting.out
 ```
