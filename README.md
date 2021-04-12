@@ -83,9 +83,9 @@ The [Dependencies](#Dependencies) are required to be installed and added to the 
 ```bash
 diting.py -r <clean_reads_dir> -o <output_dir>
 ```
-example data run:  
+Example reads run:  
 ```bash
-#download the eaxmple reads
+#download the example reads
 wget https://drive.google.com/drive/folders/1YGD5X4LhHQXWJxGbWLpP4bECyEAKDTly?usp=sharing  
 # run diting
 diting.py -r Clean-reads_interleaved -o Clean-reads_interleaved.diting.out
