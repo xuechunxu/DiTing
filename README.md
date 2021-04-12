@@ -31,8 +31,8 @@ DiTing is designed to determine the relative abundance of metabolic and biogeoch
 
 ## Installation
 Recommended configuration:
-CPU threads ≥ 20
-RAM memory ≥ 100 Gb
+CPU threads ≥ 20  
+RAM memory ≥ 100 Gb  
 ### Option 1: Conda (recommended)
 Configure conda environment
 ```bash
