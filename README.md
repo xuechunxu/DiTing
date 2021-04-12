@@ -30,9 +30,11 @@ DiTing is designed to determine the relative abundance of metabolic and biogeoch
     * profiles.tar.gz (ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz)
 
 ## Installation
-Recommended configuration:
+Recommended configuration:  
+```
 CPU threads ≥ 20  
-RAM memory ≥ 100 Gb  
+RAM memory ≥ 100 Gb
+```
 ### Option 1: Conda (recommended)
 Configure conda environment
 ```bash
