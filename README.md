@@ -97,10 +97,6 @@ Password: diti
 
 # run Example
 diting.py -r Clean-reads_interleaved -o Clean-reads_interleaved.diting.out
-
-
-# run diting
-diting.py -r <clean_reads_dir> -o <diting.out>
 ```
 The input is the `<clean_reads_dir>` folder containing a group of paired-end metagenomic clean reads, looks like: 
 ```
