@@ -93,7 +93,7 @@ gunzip Clean-reads_interleaved.zip
 
 OR If you are in China, you can download from Baiduyun:  
 URL: https://pan.baidu.com/s/1gFtJnz1G3pdEqBSFnUqFJw  
-Password: `diti`
+Password: diti
 
 # run Example
 diting.py -r Clean-reads_interleaved -o Clean-reads_interleaved.diting.out
