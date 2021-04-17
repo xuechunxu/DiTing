@@ -87,13 +87,20 @@ Example reads run:
 ```bash
 #download the example reads  
 Google Drive:  
-wget https://drive.google.com/drive/folders/1YGD5X4LhHQXWJxGbWLpP4bECyEAKDTly?usp=sharing  
+URL: https://drive.google.com/file/d/132605rtKuA-Xx--eh3aC7i5WIExNWl5k/view?usp=sharing
+after download, run
+`gunzip Clean-reads_interleaved.zip'
+
 OR If you are in China, you can download from Baiduyun:  
 URL: https://pan.baidu.com/s/1gFtJnz1G3pdEqBSFnUqFJw  
 Password: diti
 
-# run diting
+# run Example
 diting.py -r Clean-reads_interleaved -o Clean-reads_interleaved.diting.out
+
+
+# run diting
+diting.py -r <clean_reads_dir> -o <diting.out>
 ```
 The input is the `<clean_reads_dir>` folder containing a group of paired-end metagenomic clean reads, looks like: 
 ```
