@@ -82,7 +82,7 @@ The [Dependencies](#Dependencies) are required to be installed and added to the 
 ### 1. One step running
 ```bash
 diting.py -r <clean_reads_dir> -o <output_dir>  
-python diting.py -r <clean_reads_dir> -a <metagenomic_assembly> -o <output_dir>
+diting.py -r <clean_reads_dir> -a <metagenomic_assembly> -o <output_dir>
 ```
 Example reads run:  
 ```bash
