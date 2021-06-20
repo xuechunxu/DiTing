@@ -386,7 +386,7 @@ def sketch(abundance_table):
             position = (2654, 1276, 3054, 1676)
         elif nitrogen_cycle_dir['Anammox_nitric_oxide_+_ammonia_to_hydrazine_hzs'] >= one_quarter_nitro:
             pathway_fig = pathway_fig.resize((320, 320))
-            position = (2680, 1224, 3000, 1644)
+            position = (2680, 1224, 3000, 1544)
         else:
             pathway_fig = pathway_fig.resize((240, 240))
             position = (2740, 1416, 2980, 1656)
