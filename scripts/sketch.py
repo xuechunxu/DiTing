@@ -54,10 +54,10 @@ def sketch(abundance_table):
                     for i in abundance:
                         abundance_nor.append(float(i)/float(total))
                     #print(abundance_nor)
-                    colors = ['#F8766D', '#00BA38', '#619CFF', '#D89000', '#00BFC4',
-                              '#FF62BC', '#00B0F6', '#9590FF', '#E76BF3', '#39B600',
-                              '#F8766D', '#00BA38', '#619CFF', '#D89000', '#00BFC4',
-                              '#FF62BC', '#00B0F6', '#9590FF', '#E76BF3', '#39B600']
+                    colors = ['#FF0000', '#FF7F00', '#FFD400', '#FFFF00', '#BFFF00',
+                              '#6AFF00', '#00EAFF', '#0095FF', '#0040FF', '#AA00FF', 
+                              '#FF00AA', '#EDB9B9', '#E7E9B9', '#B9EDE0', '#B9D7ED', 
+                              '#DCB9ED', '#8F2323', '#8F6A23', '#4F8F23', '#23628F']
                     plt.axes(aspect='equal')
                     plt.pie(abundance_nor, colors=colors, startangle=90)
                     plt.savefig("Figure_tmp/" + pathway + ".png",
@@ -419,26 +419,27 @@ def sketch(abundance_table):
         pass
     
     # draw figure legend of samples
-    color1 = (109, 118, 248)
-    color2 = (56, 186, 0)
-    color3 = (255, 156, 97)
-    color4 = (0, 144, 216)
-    color5 = (196, 191, 0)
-    color6 = (188, 98, 255)
-    color7 = (246, 176, 0)
-    color8 = (255, 144, 149)
-    color9 = (243, 107, 231)
-    color10 = (188, 98, 255)
-    color11 = (109, 118, 248)
-    color12 = (56, 186, 0)
-    color13 = (255, 156, 97)
-    color14 = (0, 144, 216)
-    color15 = (0, 182, 57)
-    color16 = (196, 191, 0)
-    color17 = (246, 176, 0)
-    color18 = (255, 144, 149)
-    color19 = (243, 107, 231)
-    color20 = (0, 182, 57)
+    # translate RGB to BGR; 170,0,255 -> 255,0,170
+    color1 = (0, 0, 255)
+    color2 = (0,127,255)
+    color3 = (0,212,255)
+    color4 = (0,255,255)
+    color5 = (0,255,191)
+    color6 = (0,255,106)
+    color7 = (255,234,0)
+    color8 = (255,149,0)
+    color9 = (255,64,0)
+    color10 = (255,0,170)
+    color11 = (170,0,255)
+    color12 = (185,185,237)
+    color13 = (185,233,231)
+    color14 = (224,237,185)
+    color15 = (237,215,185)
+    color16 = (237,185,220)
+    color17 = (35,35,143)
+    color18 = (35,106,143)
+    color19 = (35,143,79)
+    color20 = (143,98,35)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
@@ -783,26 +784,26 @@ def sketch(abundance_table):
         pass
     
     # draw figure legend of samples
-    color1 = (109, 118, 248)
-    color2 = (56, 186, 0)
-    color3 = (255, 156, 97)
-    color4 = (0, 144, 216)
-    color5 = (196, 191, 0)
-    color6 = (188, 98, 255)
-    color7 = (246, 176, 0)
-    color8 = (255, 144, 149)
-    color9 = (243, 107, 231)
-    color10 = (188, 98, 255)
-    color11 = (109, 118, 248)
-    color12 = (56, 186, 0)
-    color13 = (255, 156, 97)
-    color14 = (0, 144, 216)
-    color15 = (0, 182, 57)
-    color16 = (196, 191, 0)
-    color17 = (246, 176, 0)
-    color18 = (255, 144, 149)
-    color19 = (243, 107, 231)
-    color20 = (0, 182, 57)
+    color1 = (0, 0, 255)
+    color2 = (0,127,255)
+    color3 = (0,212,255)
+    color4 = (0,255,255)
+    color5 = (0,255,191)
+    color6 = (0,255,106)
+    color7 = (255,234,0)
+    color8 = (255,149,0)
+    color9 = (255,64,0)
+    color10 = (255,0,170)
+    color11 = (170,0,255)
+    color12 = (185,185,237)
+    color13 = (185,233,231)
+    color14 = (224,237,185)
+    color15 = (237,215,185)
+    color16 = (237,185,220)
+    color17 = (35,35,143)
+    color18 = (35,106,143)
+    color19 = (35,143,79)
+    color20 = (143,98,35)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
@@ -1113,26 +1114,26 @@ def sketch(abundance_table):
         pass
 
     # draw figure legend of samples
-    color1 = (109, 118, 248)
-    color2 = (56, 186, 0)
-    color3 = (255, 156, 97)
-    color4 = (0, 144, 216)
-    color5 = (196, 191, 0)
-    color6 = (188, 98, 255)
-    color7 = (246, 176, 0)
-    color8 = (255, 144, 149)
-    color9 = (243, 107, 231)
-    color10 = (188, 98, 255)
-    color11 = (109, 118, 248)
-    color12 = (56, 186, 0)
-    color13 = (255, 156, 97)
-    color14 = (0, 144, 216)
-    color15 = (0, 182, 57)
-    color16 = (196, 191, 0)
-    color17 = (246, 176, 0)
-    color18 = (255, 144, 149)
-    color19 = (243, 107, 231)
-    color20 = (0, 182, 57)
+    color1 = (0, 0, 255)
+    color2 = (0,127,255)
+    color3 = (0,212,255)
+    color4 = (0,255,255)
+    color5 = (0,255,191)
+    color6 = (0,255,106)
+    color7 = (255,234,0)
+    color8 = (255,149,0)
+    color9 = (255,64,0)
+    color10 = (255,0,170)
+    color11 = (170,0,255)
+    color12 = (185,185,237)
+    color13 = (185,233,231)
+    color14 = (224,237,185)
+    color15 = (237,215,185)
+    color16 = (237,185,220)
+    color17 = (35,35,143)
+    color18 = (35,106,143)
+    color19 = (35,143,79)
+    color20 = (143,98,35)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
@@ -1754,26 +1755,26 @@ def sketch(abundance_table):
         pass
     
     # draw figure legend of samples
-    color1 = (109, 118, 248)
-    color2 = (56, 186, 0)
-    color3 = (255, 156, 97)
-    color4 = (0, 144, 216)
-    color5 = (196, 191, 0)
-    color6 = (188, 98, 255)
-    color7 = (246, 176, 0)
-    color8 = (255, 144, 149)
-    color9 = (243, 107, 231)
-    color10 = (188, 98, 255)
-    color11 = (109, 118, 248)
-    color12 = (56, 186, 0)
-    color13 = (255, 156, 97)
-    color14 = (0, 144, 216)
-    color15 = (0, 182, 57)
-    color16 = (196, 191, 0)
-    color17 = (246, 176, 0)
-    color18 = (255, 144, 149)
-    color19 = (243, 107, 231)
-    color20 = (0, 182, 57)
+    color1 = (0, 0, 255)
+    color2 = (0,127,255)
+    color3 = (0,212,255)
+    color4 = (0,255,255)
+    color5 = (0,255,191)
+    color6 = (0,255,106)
+    color7 = (255,234,0)
+    color8 = (255,149,0)
+    color9 = (255,64,0)
+    color10 = (255,0,170)
+    color11 = (170,0,255)
+    color12 = (185,185,237)
+    color13 = (185,233,231)
+    color14 = (224,237,185)
+    color15 = (237,215,185)
+    color16 = (237,185,220)
+    color17 = (35,35,143)
+    color18 = (35,106,143)
+    color19 = (35,143,79)
+    color20 = (143,98,35)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
