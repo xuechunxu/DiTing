@@ -57,7 +57,8 @@ def sketch(abundance_table):
                     colors = ['#FF0000', '#FF7F00', '#FFD400', '#FFFF00', '#BFFF00',
                               '#6AFF00', '#00EAFF', '#0095FF', '#0040FF', '#AA00FF', 
                               '#FF00AA', '#EDB9B9', '#E7E9B9', '#B9EDE0', '#B9D7ED', 
-                              '#DCB9ED', '#8F2323', '#8F6A23', '#4F8F23', '#23628F']
+                              '#DCB9ED', '#8F2323', '#8F6A23', '#4F8F23', '#23628F',
+                              '#6B238F', '#000000', '#737373', '#CCCCCC']
                     plt.axes(aspect='equal')
                     plt.pie(abundance_nor, colors=colors, startangle=90)
                     plt.savefig("Figure_tmp/" + pathway + ".png",
@@ -440,10 +441,15 @@ def sketch(abundance_table):
     color18 = (35,106,143)
     color19 = (35,143,79)
     color20 = (143,98,35)
+    color21 = (143,35,107)
+    color22 = (0,0,0)
+    color23 = (115,115,115)
+    color24 = (204,204,204)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
-              color16, color17, color18, color19, color20]
+              color16, color17, color18, color19, color20,
+              color21, color22, color23, color24]
     samples = head.split('\t')
     Count_samples = len(samples)
     for i in range(1, Count_samples):
@@ -804,10 +810,15 @@ def sketch(abundance_table):
     color18 = (35,106,143)
     color19 = (35,143,79)
     color20 = (143,98,35)
+    color21 = (143,35,107)
+    color22 = (0,0,0)
+    color23 = (115,115,115)
+    color24 = (204,204,204)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
-              color16, color17, color18, color19, color20]
+              color16, color17, color18, color19, color20,
+              color21, color22, color23, color24]
     samples = head.split('\t')
     Count_samples = len(samples)
     for i in range(1, Count_samples):
@@ -1134,10 +1145,15 @@ def sketch(abundance_table):
     color18 = (35,106,143)
     color19 = (35,143,79)
     color20 = (143,98,35)
+    color21 = (143,35,107)
+    color22 = (0,0,0)
+    color23 = (115,115,115)
+    color24 = (204,204,204)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
-              color16, color17, color18, color19, color20]
+              color16, color17, color18, color19, color20,
+              color21, color22, color23, color24]
     samples = head.split('\t')
     Count_samples = len(samples)
     for i in range(1, Count_samples):
@@ -1775,10 +1791,15 @@ def sketch(abundance_table):
     color18 = (35,106,143)
     color19 = (35,143,79)
     color20 = (143,98,35)
+    color21 = (143,35,107)
+    color22 = (0,0,0)
+    color23 = (115,115,115)
+    color24 = (204,204,204)
     colors = [color1, color2, color3, color4, color5,
               color6, color7, color8, color9, color10,
               color11, color12, color13, color14, color15,
-              color16, color17, color18, color19, color20]
+              color16, color17, color18, color19, color20,
+              color21, color22, color23, color24]
     samples = head.split('\t')
     Count_samples = len(samples)
     for i in range(1, Count_samples):
