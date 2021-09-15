@@ -23,7 +23,7 @@ def main():
         # Using FileHandler writing log to file
         logfile = os.path.join(OUT_DIR, 'log.txt')
         fh = logging.FileHandler(logfile)
-        fh.setLevel(logging.INFO)
+        fh.setLevel(logging.DEBUG)
         fh.setFormatter(formatter)
 
         # Using StreamHandler writing to console
