@@ -114,7 +114,10 @@ def ko_list_parser(ko_list):
         next(fi)  # skip the first line (header)
         for line in fi:
             knum, threshold, score_type = line.split('\t')[0:3]
-            ko_dic[knum] = [threshold, score_type]
+            if threshold == '-':
+                continue
+            else:
+                ko_dic[knum] = [threshold, score_type]
     return ko_dic
 
 
