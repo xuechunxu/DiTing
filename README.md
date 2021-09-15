@@ -32,8 +32,8 @@ DiTing is designed to determine the relative abundance of metabolic and biogeoch
 ## Installation
 Recommended configuration:  
 ```
-CPU threads ≥ 20  
-RAM memory ≥ 100 Gb
+CPU threads ≥ 8  
+RAM ≥ 64 Gb
 ```
 ### Option 1: Conda (recommended)
 Configure conda environment
@@ -81,7 +81,8 @@ The [Dependencies](#Dependencies) are required to be installed and added to the 
 ## Running
 ### 1. One step running
 ```bash
-diting.py -r <clean_reads_dir> -o <output_dir>
+diting.py -r <clean_reads_dir> -o <output_dir>  
+diting.py -r <clean_reads_dir> -a <metagenomic_assembly> -o <output_dir>
 ```
 Example reads run:  
 ```bash
