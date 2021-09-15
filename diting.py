@@ -37,6 +37,7 @@ def main():
 
 
         logging.info('User input: {}'.format(' '.join(sys.argv)))
+        
         """
         [1/12] Check if ko hmm database exists and has been unpacked
         """
