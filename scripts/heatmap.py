@@ -1,24 +1,24 @@
-"""
-heatmap of table
-"""
-
 import os
 import matplotlib
 matplotlib.use('AGG')
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-from .logformatter import *
+import logging
 
 __author__ = "Xue Chunxu"
 __contact__ = "xuechunxu@outlook.com"
-__version__ = "0.5"
+__version__ = "0.6"
 
 def heatmap(abundance_table):
     logging.info('Generate heatmap')
-    os.mkdir('heatmap_tmp')
+    if not os.path.exists('heatmap_tmp'):
+        os.mkdir('heatmap_tmp')
+    
     dict_table = {}
     head = ''
+    
+    # Parse the abundance table
     with open(abundance_table) as table:
         for line in table:
             line = line.strip('\n')
@@ -26,12 +26,13 @@ def heatmap(abundance_table):
                 head = line
             else:
                 pathway = line.split('\t')[0]
-                abundance = line.split('\t')
-                del abundance[0]
+                abundance = line.split('\t')[1:]
                 values = '\t'.join(abundance)
                 dict_table[pathway] = values
 
-    carbon_cycle = ['Photosystem II (psbABCDEF)',
+      
+    # Define different cycles
+    carbon_cycle =['Photosystem II (psbABCDEF)',
                     'Photosystem I (psaABCDEF)',
                     'Cytochrome b6/f complex (petABCDGLMN)',
                     'Anoxygenic photosystem II (pufML)',
@@ -154,6 +155,7 @@ def heatmap(abundance_table):
              'Dissimilatory arsenic reduction',
              'Isoprene monooxygenase (IsoA)']
 
+    # Write the data for each cycle into separate files
     with open('heatmap_tmp/carbon_cycle.tab', 'w') as carbon_out:
         carbon_out.write(head + '\n')
         for i in carbon_cycle:
@@ -174,40 +176,27 @@ def heatmap(abundance_table):
         for i in other:
             other_out.write(i + '\t' + dict_table[i] + '\n')
 
+    # List of generated table files for plotting heatmaps
     tables = ['carbon_cycle.tab',
               'nitrogen_cycle.tab',
               'sulfur_cycle.tab',
               'other_cycle.tab']
 
-    #for i in tables:
-        #file_in = open('heatmap_tmp/'+i, "r")
-        #data = pd.read_table(file_in, index_col=0)
-        #fig = plt.figure()
-        #out_name = i.split('.tab')[0]
-        #ggplot(data, aes('sample', 'pathway')) + geom_tile(aes(fill='relative abundance'))\
-        #+ scale_fill_gradientn(colors=['blue','white','red']) \
-        #+ ggtitle("Heatmap of relative abundance of pathways") \
-        #+ ggsave(out_name + '_heatmap.png', dpi = 600)
-        #plt.close()
+    # Generate heatmaps for each cycle and save them
     for i in tables:
-        plt.cla()
-        file_in = open('heatmap_tmp/'+i, "r")
+        plt.figure()  # Create a new figure for each heatmap
+        plt.clf()  # Clear the current figure to ensure no overlap
+        plt.cla()  # Clear current axis to remove any residuals
+
+        file_in = open('heatmap_tmp/' + i, "r")
         data = pd.read_table(file_in, index_col=0)
-        #sns.set(font_scale=5)
-        #color = ["blue", "white", "red"]
-        #cmap = sns.palplot(sns.color_palette(color))
-        #ax.set_xlabel('X_axi',fontsize=0.05);
-        ax = sns.heatmap(data, cmap='coolwarm', xticklabels=True, yticklabels=True, square=True)
-        #ax.xaxis.tick_top()
-        #ax.set_yticklabels(ax.get_yticklabels(), rotation=90)
-        #plt.xticks(rotation=90)
-        #plt.yticks(rotation=0)
-        # get figure (usually obtained via "fig,ax=plt.subplots()" with matplotlib)
-        fig = ax.get_figure()
-        # specify dimensions and save
-        fig.set_size_inches(8.27, 11.69)
+
+        fig, ax = plt.subplots(figsize=(8.27, 11.69))  # Set figure size
+        sns.heatmap(data, cmap='coolwarm', xticklabels=True, yticklabels=True, square=True, ax=ax)
+
+        # Save the heatmap as a PDF
         out_name = i.split('.tab')[0]
-        fig.savefig(out_name + '_heatmap.pdf', bbox_inches = 'tight', dpi = 600)
-        plt.close()
+        fig.savefig(out_name + '_heatmap.pdf', bbox_inches='tight', dpi=600)
 
-
+        plt.close(fig)  # Close the figure to free up memory
+        sns.reset_orig()  # Reset Seaborn context to avoid conflicts in the next iteration
