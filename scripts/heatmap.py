@@ -184,11 +184,13 @@ def heatmap(abundance_table):
 
     # Generate heatmaps for each cycle and save them
     for i in tables:
+
         plt.figure()  # Create a new figure for each heatmap
         plt.clf()  # Clear the current figure to ensure no overlap
         plt.cla()  # Clear current axis to remove any residuals
 
         file_in = open('heatmap_tmp/' + i, "r")
+
         data = pd.read_table(file_in, index_col=0)
 
         fig, ax = plt.subplots(figsize=(8.27, 11.69))  # Set figure size

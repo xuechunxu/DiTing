@@ -94,7 +94,7 @@ Example reads run:
 Google Drive:  
 URL: https://drive.google.com/file/d/132605rtKuA-Xx--eh3aC7i5WIExNWl5k/view?usp=sharing
 after download, run:
-gunzip Clean-reads_interleaved.zip
+unzip Clean-reads_interleaved.zip
 
 OR If you are in China, you can download from Baiduyun:  
 URL: https://pan.baidu.com/s/1gFtJnz1G3pdEqBSFnUqFJw  
@@ -180,9 +180,9 @@ Example:
 <img src="./example/diting.out/heatmap.png" width="792" height="627">
 
 ## Copyright
-Xue Chunxu, xuechunxu@outlook.com  
-Heyu Lin, heyu.lin@student.unimelb.edu.au  
-Xiaoyu Zhu, xiaoyuzhu321@126.com  
-Xiao-Hua Zhang, xhzhang@ouc.edu.cn  
+Xue Chunxu, xuechunxu (at) outlook.com  
+Heyu Lin, heyu.lin (at) qut.edu.au  
+Xiaoyu Zhu, xiaoyuzhu321 (at) 126.com  
+Xiao-Hua Zhang, xhzhang (at) ouc.edu.cn  
 Lab of Microbial Oceanography  
 College of Marine Life Sciences, Ocean University of China, Qingdao 266003, China
