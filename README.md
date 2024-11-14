@@ -94,7 +94,7 @@ Example reads run:
 Google Drive:  
 URL: https://drive.google.com/file/d/132605rtKuA-Xx--eh3aC7i5WIExNWl5k/view?usp=sharing
 after download, run:
-gunzip Clean-reads_interleaved.zip
+unzip Clean-reads_interleaved.zip
 
 OR If you are in China, you can download from Baiduyun:  
 URL: https://pan.baidu.com/s/1gFtJnz1G3pdEqBSFnUqFJw  
