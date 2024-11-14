@@ -190,7 +190,7 @@ def heatmap(abundance_table):
         #+ ggsave(out_name + '_heatmap.png', dpi = 600)
         #plt.close()
     for i in tables:
-        plt.cla()
+        plt.clf()
         file_in = open('heatmap_tmp/'+i, "r")
         data = pd.read_table(file_in, index_col=0)
         #sns.set(font_scale=5)
