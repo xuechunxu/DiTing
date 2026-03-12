@@ -1,6 +1,14 @@
 <img src="./DiTing_logo.jpg" width="250" height="250">
 
 # DiTing
+
+> [!NOTE]
+> **🚀 Major Update (v2.0):** DiTing has been boosted to [version 2](https://github.com/SilentGene/DiTing)! Compared to the initially published version, this release introduces several significant upgrades.
+> 1. **Rewrite using Snakemake**: The entire pipeline has been rewritten using `Snakemake`, providing robust workflow management, better parallelization, and the ability to **resume execution from breakpoints**.
+> 2. **Upgrade annotation engine (kofamscan)**: We have replaced the manual `hmmsearch` parsing system with the standardized `kofamscan` engine for KEGG annotations. This effectively resolves the frequent parsing errors and compatibility issues previously encountered with raw `hmmsearch` outputs.
+> 3. **Bioconda**: DiTing is now available on Bioconda, making it easier to install and manage dependencies.
+> 4. Check out the new version in [this fork](https://github.com/SilentGene/DiTing).
+
 ## Etymology
 **DiTing** is a Chinese mythical creature who knows everything when he puts ears on the earth's surface. Parallelly, this program is developed to recognize biogeochemical cycles from environmental omic data accurately and efficiently.    
 **谛听(DiTing)** 若伏在地下，一霎时，便可将四大部洲山川社稷、洞天福地之间， 蠃虫、鳞虫、毛虫、羽虫、昆虫，天仙、地仙、神仙、人仙、鬼仙，顾鉴善恶，察听贤愚。
